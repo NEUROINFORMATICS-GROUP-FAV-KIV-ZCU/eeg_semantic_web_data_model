@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  28 JAN 2013 16:59
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  4 FEB 2013 22:44
 entering extended mode
 **C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_m
 odel/diploma-doc/text-prace-LATEX/diplomka.tex
@@ -627,31 +627,166 @@ Package microtype Warning: I cannot find a protrusion list for font
 
 ]
 (C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
-del\diploma-doc\text-prace-LATEX\diplomka.toc)
+del\diploma-doc\text-prace-LATEX\diplomka.toc
+
+Package microtype Warning: I cannot find a protrusion list for font
+(microtype)                `OMX/cmex/m/n/12'. Switching off
+(microtype)                protrusion for this font on input line 4.
+
+
+Package microtype Warning: I cannot find a protrusion list for font
+(microtype)                `OMX/cmex/m/n/6'. Switching off
+(microtype)                protrusion for this font on input line 4.
+
+)
 \tf@toc=\write4
  [3
 
 ]
 Kapitola 1.
 
-Overfull \hbox (18.58002pt too wide) in paragraph at lines 56--57
+Overfull \hbox (1.80011pt too wide) in paragraph at lines 56--57
 \T1/aer/m/n/12 (-10) shro-maº-¤o-vání a or-ga-ni-zaci dat zís-ka-ných p°i neu-r
-o-in-for-ma-tic-kých ex-pe-ri-men-tech
+o-in-for-ma-tic-kých experimen- 
  []
 
 
-Overfull \hbox (21.0522pt too wide) in paragraph at lines 56--57
-\T1/aer/m/n/12 (-10) v EEG la-bo-ra-to°i. Je-jím cí-lem je uklá-dání na-m¥-°e-n
-ých dat v kon-textu pro-vá-d¥-ného
+Overfull \hbox (0.89073pt too wide) in paragraph at lines 56--57
+\T1/aer/m/n/12 (-10) údaj·. Tato apli-kace jiº pro-²la mno-ha-le-tým vý-vo-jem 
+v je-hoº pr·-b¥hu po-stupn¥
  []
 
 
-Overfull \hbox (10.37779pt too wide) in paragraph at lines 58--60
+Overfull \hbox (1.34898pt too wide) in paragraph at lines 58--60
 \T1/aer/m/n/12 (-10) vy-u-ºity pro-st°edky tzv. sé-man-tic-kého webu, který po-
-sky-tuje mnoº-ství stan-dard·
+sky-tuje mnoº-ství standar- 
  []
 
 [1
+
+]
+Kapitola 2.
+
+Overfull \hbox (2.61516pt too wide) in paragraph at lines 63--67
+\T1/aer/m/n/12 (-10) pro-st°ed-nic-tvím URI iden-ti-fi-ká-toru (za p°ed-po-klad
+u, ºe jej známe). K usnadn¥- 
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+aer on input line 70.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ae\omsaer.fd"
+File: omsaer.fd 1999/12/27
+)
+LaTeX Font Info:    Font shape `OMS/aer/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 70.
+
+Overfull \hbox (15.40627pt too wide) in paragraph at lines 72--73
+[] \T1/aer/m/n/12 (-10) Ve²-kerá data, re-pre-zen-tu-jící ob-vykle ob-jekty re-
+ál-ného sv¥ta pu-b-li-ko-vaná
+ []
+
+[2
+
+]
+Overfull \hbox (1.25516pt too wide) in paragraph at lines 82--83
+\T1/aer/m/n/12 (-10) sé-man-tic-kého webu zpra-co-vá-vají pouze ty in-for-mace,
+ které jsou do-stupné
+ []
+
+
+Overfull \hbox (3.01689pt too wide) in paragraph at lines 86--87
+\T1/aer/m/n/12 (-10) prin-cip je moºné uvést na jed-no-du-chém p°í-kladu. Apli-
+kace zpra-co-vá-va-jící
+ []
+
+
+Overfull \hbox (2.10213pt too wide) in paragraph at lines 86--87
+\T1/aer/m/n/12 (-10) data sé-man-tic-kého webu vy-hledá in-for-mace, p°i-£emº j
+e kla-den po-ºa-da-vek
+ []
+
+
+Overfull \hbox (4.76376pt too wide) in paragraph at lines 86--87
+\T1/aer/m/n/12 (-10) na vy-so-kou prav-d¥-po-dob-nost správ-nosti vý-sledku. Po
+-kud £ást na-le-ze-ných
+ []
+
+
+Overfull \hbox (6.07494pt too wide) in paragraph at lines 86--87
+\T1/aer/m/n/12 (-10) po-va-ºo-vat zkou-maný zdroj s vy-so-kou prav-d¥-po-dob-no
+stí rov-n¥º za d·v¥ry- 
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[3]
+Overfull \hbox (1.0741pt too wide) in paragraph at lines 96--98
+\T1/aer/m/n/12 (-10) vou sa-dou. Dru-hou vrstvu ar-chi-tek-tury, jeº je pa-trná
+ z ob-rázku 2.1, reprezentu- 
+ []
+
+
+Overfull \hbox (3.94244pt too wide) in paragraph at lines 96--98
+\T1/aer/m/n/12 (-10) vrst-vou, která je jako v²echny p°ed-chozí zmí-n¥né kon-so
+r-ciem W3C standardizo- 
+ []
+
+<architektura.pdf, id=29, 597.50786pt x 363.24509pt>
+File: architektura.pdf Graphic file (type pdf)
+ <use architektura.pdf>
+Package pdftex.def Info: architektura.pdf used on input line 101.
+(pdftex.def)             Requested size: 370.45103pt x 225.20961pt.
+
+Overfull \hbox (4.32631pt too wide) in paragraph at lines 110--111
+\T1/aer/m/it/12 (-10) <pri-jmeni>Novák</prijmeni>\T1/aer/m/n/12 (-10) , kde ele
+-mentu \T1/aer/m/it/12 (-10) No-vák \T1/aer/m/n/12 (-10) je do-dána meta in-for
+-mace,
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[4]
+(C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
+del\diploma-doc\text-prace-LATEX\diplomka.bbl
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[5 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data
+_model/diploma-doc/text-prace-LATEX/architektura.pdf>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 4--9
+\T1/aer/m/n/12 (+10) Vysoká ²kola eko-no-mická v Praze, 2009.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--15
+[]\T1/aer/m/n/12 (+10) Vitvar To-má².  \T1/aer/m/it/12 (+10) Sé-man-tický web\T
+1/aer/m/n/12 (+10) .  ƒVUT, Praha, 2011,
+ []
+
+
+Overfull \hbox (204.65514pt too wide) in paragraph at lines 11--15
+\T1/aer/m/n/12 (-10) http://www.cvut.cz/pracoviste/odbor-rozvoje/stranky/habili
+tace-a-inaugurace/habilitacni-prednasky/lecture.pdf. 
+ []
+
+) [7
 
 ]
 (C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
@@ -662,19 +797,22 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 7865 strings out of 494045
- 107509 string characters out of 3145966
- 247070 words of memory out of 3000000
- 10733 multiletter control sequences out of 15000+200000
- 47820 words of font info for 226 fonts, out of 3000000 for 9000
+ 8038 strings out of 494045
+ 109566 string characters out of 3145966
+ 250082 words of memory out of 3000000
+ 10773 multiletter control sequences out of 15000+200000
+ 63020 words of font info for 321 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 37i,6n,43p,3355b,197s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 37i,11n,43p,3355b,372s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:
-/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on diplomka.pdf (5 pages, 51529 bytes).
+<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C
+:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/P
+rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Prog
+ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Progra
+m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on diplomka.pdf (11 pages, 135652 bytes).
 PDF statistics:
- 30 PDF objects out of 1000 (max. 8388607)
+ 79 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 114689 words of extra memory for PDF output out of 128383 (max. 10000000)
+ 141318 words of extra memory for PDF output out of 154059 (max. 10000000)
 

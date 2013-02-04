@@ -1,118 +1,21 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{1}
 
-\bibitem{deset}
-{\em Jenabean}, 2010. http://code.google.com/p/jenabean,\\ (přístup
-  5.1.2011).
+\bibitem{_3}
+Štencek Jiří.
+\newblock {\em Užití sémantických technologií ve značkovacích
+  jazycích}.
+\newblock \\Vysoká škola ekonomická v Praze, 2009.
+  http://vse.stencek.com/semanticky-web/ch03.html, (přístup 4.2.2012).
 
-\bibitem{devet}
-{\em Jena – A Semantic Web Framework for Java}, 2010.
-  \\http://jena.sourceforge.net, (přístup 7.1.2011).
+\bibitem{_2}
+Vitvar Tomáš.
+\newblock {\em Sémantický web}.
+\newblock ČVUT, Praha, 2011,
+  http://www.cvut.cz/pracoviste/odbor-rozvoje/stranky/habilitace-a-inaugurace/habilitacni-prednasky/lecture.pdf.
 
-\bibitem{ctrnact}
-{\em The OWL API}, 2011. http://owlapi.sourceforge.net, \\(přístup
-  26.3.2011).
-
-\bibitem{dvacetTri}
-{\em Neuroscience Information Framework}, 2011. http://www.neuinfo.org,
-  (přístup 21.4.2011).
-
-\bibitem{dvacetDva}
-van~Harmelen Grigoris, Antoniou~Frank.
-\newblock {\em A Semantic Web Primer}.
-\newblock Massachusetts Institute of Technology, Cambridge, 2004. \\ISBN
-  0-262-01210-3.
-
-\bibitem{sedmnact}
-IBM.
-\newblock {\em IBM Jenabean}, 2011.
-  http://www.ibm.com/developerworks/java/\\library/j-jenabean/index.html,
-  (přístup 15.4.2011).
-
-\bibitem{osm}
-JBoss Community.
-\newblock {\em Hibernate}, 2010. http://www.hibernate.org/, (přístup
-  6.1.2011).
-
-\bibitem{tri}
-Pitner~Tomáš Matulík~Petr.
-\newblock {\em Sémantický web a jeho technologie}.
-\newblock \\Masarykova univerzita, 2004.
-  http://www.ics.muni.cz/zpravodaj/articles/\\296.html, (přístup 5.1.2011).
-
-\bibitem{jedenact}
-Oracle.
-\newblock {\em Annotations}, 2004.
-  http://download.oracle.com/javase/1.5.0/\\docs/guide/language/annotations.html,
-  (přístup 27.12.2011).
-
-\bibitem{trinact}
-Oracle.
-\newblock {\em Java Platform, Standard Edition 6 API Specification}, 2010.\\
-  http://download.oracle.com/javase/6/docs/api, (přístup 27.12.2011).
-
-\bibitem{dvanact}
-Oracle.
-\newblock {\em The Java Tutorials - Annotations}, 2010.
-  \\http://download.oracle.com/javase/tutorial/java/javaOO/\\annotations.html,
-  (přístup 27.12.2011).
-
-\bibitem{devatenact}
-Oracle.
-\newblock {\em The Java Archive (JAR) File Format}, 2011.
-  \\http://java.sun.com/developer/Books/javaprogramming/JAR, \\(přístup
-  4.4.2011).
-
-\bibitem{dvacetJedna}
-Oracle.
-\newblock {\em Using Java Reflection}, 2011.
-  http://java.sun.com/developer/\\technicalArticles/ALT/Reflection, (přístup
-  27.3.2011).
-
-\bibitem{sest}
-Hanyáš Petr.
-\newblock {\em Sémantický web - tutotiál a demonstrační příklady}.
-\newblock Vysoké učení technické v Brně, 2007.
-  http://www.hanyas.net/download/soubor:\\bp\_cesky.pdf, (přístup 6.1.2011).
-
-\bibitem{pet}
-Svátek Vojtěch.
-\newblock {\em Sémantický web}, 2010.
-  \\http://nb.vse.cz/~svatek/rzzw/seweb-prehled.pdf, (přístup 2.1.2011).
-
-\bibitem{sestnact}
-Tauberer Joshua.
-\newblock {\em RDF about}, 2011. http://www.rdfabout.com/intro, (přístup
-  20.3.2011).
-
-\bibitem{osmnact}
-University of Washington.
-\newblock {\em Annotation File Utilities}, 2011.\\
-  http://types.cs.washington.edu/annotation-file-utilities, \\(přístup
-  2.4.2011).
-
-\bibitem{diplomka}
-Papež Václav.
-\newblock {\em Neuroinformatická databáze a sémantický web}.
-\newblock ZČU, Plzeň, 2010.
-
-\bibitem{ctyri}
-W3C.
-\newblock {\em RDF/XML Syntax Specification}, 2004.\\
-  http://www.w3.org/TR/REC-rdf-syntax, (přístup 6.1.2011).
-
-\bibitem{dva}
+\bibitem{_1}
 W3C.
 \newblock {\em W3C Semantic Web Activity}, 2006.
   \\http://www.w3.org/2001/12/semweb-fin/w3csw, (přístup 8.1.2011).
-
-\bibitem{sedm}
-W3C.
-\newblock {\em OWL 2 Web Ontology Language}, 2009.
-  \\http://www.w3.org/TR/owl2-overview/, (přístup 5.1.2011).
-
-\bibitem{patnact}
-W3C.
-\newblock {\em OWL Web Ontology Language}, 2011.
-  \\http://www.w3.org/TR/owl-ref, (přístup 20.3.2011).
 
 \end{thebibliography}
