@@ -4,3 +4,4 @@
 \contentsline {section}{\numberline {2.1}Architektura s\IeC {\'e}mantick\IeC {\'e}ho webu}{4}
 \contentsline {section}{\numberline {2.2}XML}{5}
 \contentsline {section}{\numberline {2.3}RDF}{6}
+\contentsline {section}{\numberline {2.4}RDFS}{8}

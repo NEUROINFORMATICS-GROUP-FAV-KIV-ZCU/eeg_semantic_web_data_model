@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  4 FEB 2013 22:44
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  5 FEB 2013 22:45
 entering extended mode
 **C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_m
 odel/diploma-doc/text-prace-LATEX/diplomka.tex
@@ -753,8 +753,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [4]
-(C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
-del\diploma-doc\text-prace-LATEX\diplomka.bbl
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -763,30 +761,88 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [5 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data
 _model/diploma-doc/text-prace-LATEX/architektura.pdf>]
+<trojice.pdf, id=53, 375.804pt x 48.18pt>
+File: trojice.pdf Graphic file (type pdf)
+ <use trojice.pdf>
+Package pdftex.def Info: trojice.pdf used on input line 121.
+(pdftex.def)             Requested size: 338.22047pt x 43.36157pt.
+
+<miniStrom.pdf, id=54, 241.84842pt x 153.64488pt>
+File: miniStrom.pdf Graphic file (type pdf)
+ <use miniStrom.pdf>
+Package pdftex.def Info: miniStrom.pdf used on input line 130.
+(pdftex.def)             Requested size: 217.66156pt x 138.2791pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 136--142
+
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 4--9
+[6 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data
+_model/diploma-doc/text-prace-LATEX/trojice.pdf>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[7 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data
+_model/diploma-doc/text-prace-LATEX/miniStrom.pdf>]
+LaTeX Font Info:    Try loading font information for T1+aett on input line 154.
+
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ae\t1aett.fd"
+File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
+)
+Overfull \hbox (0.86343pt too wide) in paragraph at lines 162--162
+[]\T1/aett/m/n/12 (-10) <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-sy
+ntax-ns#"[] 
+ []
+
+
+Overfull \hbox (20.13647pt too wide) in paragraph at lines 164--165
+\T1/aer/m/n/12 (-10) vy-já-d-°it zá-kladní vztahy ná-le-ºi-tosti prvk· do ka-te
+-go-rie pro-st°ed-nic-tvím kon-tej-ner·
+ []
+
+
+(C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
+del\diploma-doc\text-prace-LATEX\diplomka.bbl
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 10--15
 \T1/aer/m/n/12 (+10) Vysoká ²kola eko-no-mická v Praze, 2009.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 11--15
+Underfull \hbox (badness 10000) in paragraph at lines 17--21
 []\T1/aer/m/n/12 (+10) Vitvar To-má².  \T1/aer/m/it/12 (+10) Sé-man-tický web\T
 1/aer/m/n/12 (+10) .  ƒVUT, Praha, 2011,
  []
 
 
-Overfull \hbox (204.65514pt too wide) in paragraph at lines 11--15
+Overfull \hbox (204.65514pt too wide) in paragraph at lines 17--21
 \T1/aer/m/n/12 (-10) http://www.cvut.cz/pracoviste/odbor-rozvoje/stranky/habili
 tace-a-inaugurace/habilitacni-prednasky/lecture.pdf. 
  []
 
-) [7
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--26
+\T1/aer/m/n/12 (+10) http://www.w3.org/TR/2004/REC-rdf-concepts-20040210/, (p°í
+-stup
+ []
+
+) [9
 
 ]
 (C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
@@ -797,11 +853,11 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 8038 strings out of 494045
- 109566 string characters out of 3145966
- 250082 words of memory out of 3000000
- 10773 multiletter control sequences out of 15000+200000
- 63020 words of font info for 321 fonts, out of 3000000 for 9000
+ 8114 strings out of 494045
+ 110484 string characters out of 3145966
+ 251094 words of memory out of 3000000
+ 10805 multiletter control sequences out of 15000+200000
+ 65776 words of font info for 352 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  37i,11n,43p,3355b,372s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
@@ -809,10 +865,11 @@ Here is how much of TeX's memory you used:
 :/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/P
 rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Prog
 ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Progra
-m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on diplomka.pdf (11 pages, 135652 bytes).
+m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program 
+Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on diplomka.pdf (13 pages, 195569 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
+ 122 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 141318 words of extra memory for PDF output out of 154059 (max. 10000000)
+ 145424 words of extra memory for PDF output out of 154059 (max. 10000000)
 

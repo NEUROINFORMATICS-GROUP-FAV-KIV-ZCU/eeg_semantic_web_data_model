@@ -1,11 +1,17 @@
 \begin{thebibliography}{1}
 
+\bibitem{_4}
+Pitner~Tomáš Matulík~Petr.
+\newblock {\em Sémantický web a jeho technologie}.
+\newblock \\Masarykova univerzita, 2004.
+  http://www.ics.muni.cz/zpravodaj/articles/\\296.html, (přístup 6.2.2013).
+
 \bibitem{_3}
 Štencek Jiří.
 \newblock {\em Užití sémantických technologií ve značkovacích
   jazycích}.
 \newblock \\Vysoká škola ekonomická v Praze, 2009.
-  http://vse.stencek.com/semanticky-web/ch03.html, (přístup 4.2.2012).
+  http://vse.stencek.com/semanticky-web/, (přístup 4.2.2013).
 
 \bibitem{_2}
 Vitvar Tomáš.
@@ -13,9 +19,19 @@ Vitvar Tomáš.
 \newblock ČVUT, Praha, 2011,
   http://www.cvut.cz/pracoviste/odbor-rozvoje/stranky/habilitace-a-inaugurace/habilitacni-prednasky/lecture.pdf.
 
+\bibitem{_6}
+W3C.
+\newblock {\em RDFConcepts and Abstract Syntax}, 2004.\\
+  http://www.w3.org/TR/2004/REC-rdf-concepts-20040210/, (přístup 7.2.2013).
+
+\bibitem{_5}
+W3C.
+\newblock {\em RDF/XML Syntax Specification}, 2004.\\
+  http://www.w3.org/TR/REC-rdf-syntax, (přístup 6.2.2013).
+
 \bibitem{_1}
 W3C.
 \newblock {\em W3C Semantic Web Activity}, 2006.
-  \\http://www.w3.org/2001/12/semweb-fin/w3csw, (přístup 8.1.2011).
+  \\http://www.w3.org/2001/12/semweb-fin/w3csw, (přístup 8.1.2013).
 
 \end{thebibliography}
