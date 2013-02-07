@@ -29,6 +29,11 @@ W3C.
 \newblock {\em RDF/XML Syntax Specification}, 2004.\\
   http://www.w3.org/TR/REC-rdf-syntax, (přístup 6.2.2013).
 
+\bibitem{_7}
+W3C.
+\newblock {\em RDF Vocabulary Description Language 1.0},
+  2004.\\http://www.w3.org/TR/rdf-schema/, (přístup 8.2.2013).
+
 \bibitem{_1}
 W3C.
 \newblock {\em W3C Semantic Web Activity}, 2006.

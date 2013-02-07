@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  5 FEB 2013 22:45
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  7 FEB 2013 22:51
 entering extended mode
 **C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_m
 odel/diploma-doc/text-prace-LATEX/diplomka.tex
@@ -805,11 +805,52 @@ ntax-ns#"[]
  []
 
 
-Overfull \hbox (20.13647pt too wide) in paragraph at lines 164--165
+Overfull \hbox (1.42555pt too wide) in paragraph at lines 164--165
 \T1/aer/m/n/12 (-10) vy-já-d-°it zá-kladní vztahy ná-le-ºi-tosti prvk· do ka-te
--go-rie pro-st°ed-nic-tvím kon-tej-ner·
+-go-rie pro-st°ed-nic-tvím kontej- 
  []
 
+
+Overfull \hbox (2.24718pt too wide) in paragraph at lines 167--169
+\T1/aer/m/n/12 (-10) schéma roz-²i-°uje ja-zyk RDF o moº-nosti vy-já-d-°ení vla
+st-ností ob-jekt·, konstruk- 
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[8]
+Overfull \hbox (12.93198pt too wide) in paragraph at lines 180--181
+[]\T1/aer/bx/n/12 (-10) rdf:Property \T1/aer/m/n/12 (-10) p°ed-sta-vuje ro-di-£
+ov-skou t°ídu v²ech de-fi-no-va-ných vlast-ností
+ []
+
+
+Overfull \hbox (10.2544pt too wide) in paragraph at lines 196--197
+[]\T1/aer/bx/n/12 (-10) rdf:type \T1/aer/m/n/12 (-10) slouºí k de-fi-no-vání, º
+e zdroj (sub-jekt) je in-stancí t°ídy de-fi-no-vané
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[9]
+Overfull \hbox (2.85376pt too wide) in paragraph at lines 200--201
+[]\T1/aer/bx/n/12 (-10) rdfs:comment \T1/aer/m/n/12 (-10) do-vo-luje p°i-dat zd
+roji po-pi-sek, který usnad-¬uje lid-skému
+ []
+
+<rdfs.pdf, id=99, 241.84842pt x 153.64488pt>
+File: rdfs.pdf Graphic file (type pdf)
+ <use rdfs.pdf>
+Package pdftex.def Info: rdfs.pdf used on input line 208.
+(pdftex.def)             Requested size: 338.58546pt x 215.10135pt.
 
 (C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
 del\diploma-doc\text-prace-LATEX\diplomka.bbl
@@ -819,7 +860,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[8]
+[10 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_dat
+a_model/diploma-doc/text-prace-LATEX/rdfs.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 10--15
 \T1/aer/m/n/12 (+10) Vysoká ²kola eko-no-mická v Praze, 2009.
  []
@@ -842,7 +884,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--26
 -stup
  []
 
-) [9
+) [11
 
 ]
 (C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
@@ -853,11 +895,11 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 8114 strings out of 494045
- 110484 string characters out of 3145966
- 251094 words of memory out of 3000000
- 10805 multiletter control sequences out of 15000+200000
- 65776 words of font info for 352 fonts, out of 3000000 for 9000
+ 8218 strings out of 494045
+ 111439 string characters out of 3145966
+ 251098 words of memory out of 3000000
+ 10814 multiletter control sequences out of 15000+200000
+ 77318 words of font info for 426 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  37i,11n,43p,3355b,372s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
@@ -867,9 +909,9 @@ rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Prog
 ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program 
 Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on diplomka.pdf (13 pages, 195569 bytes).
+Output written on diplomka.pdf (15 pages, 247829 bytes).
 PDF statistics:
- 122 PDF objects out of 1000 (max. 8388607)
+ 150 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 145424 words of extra memory for PDF output out of 154059 (max. 10000000)
+ 159765 words of extra memory for PDF output out of 184870 (max. 10000000)
 

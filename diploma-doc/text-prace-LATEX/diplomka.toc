@@ -5,3 +5,5 @@
 \contentsline {section}{\numberline {2.2}XML}{5}
 \contentsline {section}{\numberline {2.3}RDF}{6}
 \contentsline {section}{\numberline {2.4}RDFS}{8}
+\contentsline {subsection}{\numberline {2.4.1}T\IeC {\v r}\IeC {\'\i }dy}{8}
+\contentsline {subsection}{\numberline {2.4.2}Vlastnosti}{9}

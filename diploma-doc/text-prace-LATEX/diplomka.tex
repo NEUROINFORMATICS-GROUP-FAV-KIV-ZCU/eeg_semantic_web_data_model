@@ -161,9 +161,54 @@ Pro zápis trojic RDF grafu je sice možné využít grafické podoby, ale pro v
 
 \end{verbatim}
 
-Samotné RDF nedefinuje trojicím ani jejím částem sémantiku, ale dovoluje vyjádřit základní vztahy náležitosti prvků do kategorie prostřednictvím kontejnerů a kolekcí (např. rdf:Bag, rdf:List) \cite{_2}. Pro dodání základní sémantiky slouží schéma popsané v následující podkapitole.
+Samotné RDF nedefinuje trojicím ani jejím částem sémantiku, ale dovoluje vyjádřit základní vztahy náležitosti prvků do kategorie prostřednictvím kontej-\\nerů a kolekcí (např. rdf:Bag, rdf:List) \cite{_2}. Pro dodání základní sémantiky slouží schéma popsané v následující podkapitole.
 
 \section{RDFS}
+\hspace{0.65cm}RDF Schema (Resource Description Framework Schema) funguje jako základní jazyk pro tvorbu ontologií s velmi jednoduchou sémantikou. Toto schéma rozšiřuje jazyk RDF o možnosti vyjádření vlastností objektů, konstruk-\\ce tříd objektů a popis jejich hierarchie \cite{_2}. 
+Prostředky jazyka RDFS umožňují především vyjádření vztahů mezi zdroji a lze je rozdělit na dvě skupiny – třídy a vlastnosti.
+
+\subsection{Třídy}
+Skupiny zdrojů je možné rozčleňovat do skupin označovaných jako třídy (classes), jejichž členové se nazývají instance třídy. Na úrovni RDFS se rozlišují třídy od svých instancí a každá třída jich může mít neomezený počet. Dvě třídy mohou mít navíc shodnou množinu instancí tříd a zároveň tyto třídy mohou být navzájem různé. Bude-li se tedy například definovat třída {\it A} jako osoby pracující v kanceláři {\it 1} a třída {\it B} jako osoby žijící ve městě {\it X}. Potom je možné aby různé třídy {\it A} a {\it B} měly stejné množiny instancí, za předpokladu, že každá osoba pracující v kanceláři {\it 1} bydlí ve městě {\it X}. Pro třídy platí také dědičnost – bude li třída {\it B} podtřídou {\it A}, pak všechny instance {\it B} jsou zároveň instancí třídy {\it A}. Koncept tříd RDFS definuje následující konstrukce \cite{_7}:
+
+\begin {itemize}
+
+\item \textbf{rdfs:Resource} představuje RDF zdroj, který je obalující třídou všech prvků – je tedy nejvýše postavenou rodičovskou třídou, {\it rdfs:Resource} je zároveň instancí {\it rdfs:Class}
+\item \textbf{rdfs:Class} reprezentuje rodičovskou třídu všech RDF tříd zdrojů, čímž je {\it rdfs:Class} instancí {\it rdfs:Class} (sebe sama)
+\item \textbf{rdfs:Literal} třída je instancí {\it rdfs:Class}, která slouží pro reprezentaci RDF literálů a je podtřídou {\it rdfs:Resource}
+\item \textbf{rdfs:Datatype} je obalující třídou pro datové typy, které jsou její instancí, {\it rdfs:Datatype} je zároveň podtřídou i instancí {\it rdfs:Class} a každá její instance je podtřídou {\it rdfs:Literal}
+\item \textbf{rdf:XMLLiteral} je třída XML literálů, která je podtřídou {\it rdfs:Literal} a instancí {\it rdfs:Datatype}
+\item \textbf{rdf:Property} představuje rodičovskou třídu všech definovaných vlastností a je instancí {\it rdfs:Class}
+
+
+\end{itemize}
+
+
+\subsection{Vlastnosti}
+\hspace{0.65cm}Vlastnosti (properties) slouží k vyjádření vztahu mezi dvěma zdroji – na úrovni trojice mezi subjektem a objektem. Koncept RDFS definuje následující vlastnosti:
+
+\begin {itemize}
+
+
+\item \textbf{rdfs:range} je instancí {\it rdf:Property}, která slouží ke vyjádření, že objekt jehož predikát má definovaný {\it  rdfs:Range X} bude zároveň instancí {\it X}, například z následujících trojic {\it A – rdfs:Range B a X – A – C} bude vyplývat, že {\it C} je instancí {\it B}, 
+zároveň platí, že objekt s definovaným predikátem může být instancí více tříd (pokud má predikát definováno více {\it  rdfs:Range}).
+
+\item \textbf{rdfs:domain} představuje instanci {\it rdf:Property}, která vyjadřuje, že zdroj (subjekt) jehož predikát má definovaný {\it rdfs:Domain X} bude také instancí {\it X}, tento zdroj může být jako v předchozím případě instancí více tříd při definování více {\it rdfs:Domain}
+\item \textbf{rdf:type} slouží k definování, že zdroj (subjekt) je instancí třídy definované objektem, pokud tedy platí {\it A rdf:type B}, pak {\it A} je instancí {\it B}
+\item \textbf{rdfs:subClassOf} je vlastnost sloužící k vyjádření náležitosti instancí jedné třídy jako instancí jiné třídy, pokud platí {\it A rdfs:subClassOf B}, pak {\it A} je podtřídou {\it B} a všechny instance třídy {\it A} jsou zároveň instancí třídy {\it B}, tato vlastnost je navíc tranzitivní, takže popsanou dědičnost je možné řetězit do libovolné délky
+\item \textbf{rdfs:subPropertyOf} slouží k vyjádření dědičnosti vlastností, pokud platí {\it P1 subproperty P2}, pak pro trojici {\it A P1 B} platí, že subjekt {\it A} má pro vlastnost {\it P1} i {\it P2} pro objekt {\it B}
+\item \textbf{rdfs:label} umožňuje zdroji (subjektu) přidat textovou informaci jako lidsky čitelnou náhradu pro označení zdroje
+\item \textbf{rdfs:comment} dovoluje přidat zdroji popisek, který usnadňuje lidskému uživateli pochopit význam zdroje \cite{_7}
+
+\end{itemize}
+
+Vyjádření vztahů mezi jednotlivými vlastnostmi a třídami je patrné z obrázku 2.4. Rámec RDFS dále ještě definuje vlastnosti a třídy pro kontejnery a kolekce, které je možné naleznout ve \cite{_7}.
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=1.4]{rdfs.pdf}
+\caption{Vztahy mezi vlastnosmi a třídami RDFS}
+\end{center}
+\end{figure}
 
 
 \bibliography{diplomka}
