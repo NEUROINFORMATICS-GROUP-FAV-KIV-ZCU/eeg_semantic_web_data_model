@@ -7,3 +7,6 @@
 \contentsline {section}{\numberline {2.4}RDFS}{8}
 \contentsline {subsection}{\numberline {2.4.1}T\IeC {\v r}\IeC {\'\i }dy}{8}
 \contentsline {subsection}{\numberline {2.4.2}Vlastnosti}{9}
+\contentsline {section}{\numberline {2.5}Ontologie}{11}
+\contentsline {section}{\numberline {2.6}OWL}{12}
+\contentsline {section}{\numberline {2.7}SPARQL}{13}
