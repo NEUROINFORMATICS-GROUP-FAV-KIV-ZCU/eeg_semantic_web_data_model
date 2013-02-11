@@ -22,6 +22,12 @@ Svátek Vojtěch.
 \newblock {\em Sémantický web}, 2010.
   \\http://nb.vse.cz/~svatek/rzzw/seweb-prehled.pdf, (přístup 10.2.2013).
 
+\bibitem{_13}
+Svátek Vojtěch.
+\newblock {\em SPARQL}, 2010.
+  \\http://nb.vse.cz/~svatek/rzzw/SPARQL%20-%20teorie.pdf, (přístup
+  11.2.2013).
+
 \bibitem{_10}
 Zanlostní technologie.
 \newblock {\em Univerzita Hradec Králové}, 2006.
@@ -65,5 +71,10 @@ W3C.
 W3C.
 \newblock {\em W3C Semantic Web Activity}, 2006.
   \\http://www.w3.org/2001/12/semweb-fin/w3csw, (přístup 8.1.2013).
+
+\bibitem{_14}
+W3C.
+\newblock {\em SPARQL Query Language for RDF},
+  2008.\\http://www.w3.org/TR/rdf-sparql-query, (přístup 8.2.2013).
 
 \end{thebibliography}

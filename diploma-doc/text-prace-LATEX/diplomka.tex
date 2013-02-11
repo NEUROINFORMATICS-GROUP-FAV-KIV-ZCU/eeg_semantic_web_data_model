@@ -253,6 +253,33 @@ Mezi typické odvozovací úlohy v kontextu OWL patří například odvozování
 
 
 \section{SPARQL}
+\hspace{0.65cm}Základním prostředkem pro dotazování nad daty sémantického webu je jazyk SPARQL (SPARQL Protocol and RDF Query Language). Tento jazyk standardizovaný konsorciem W3C umožňuje vytvářet dotazy nad RDF grafy prostřednictvím vzorů RDF trojic spolu s logickými operacemi konjunkce a disjunkce \cite{_2}. Konstrukce těchto dotazů je sice složitější než v případě SQL dotazů nad relačními databázemi, ale umožňuje ze zdrojové ontologie získávat komplexnější informace \cite{_3}. SPARQL dotaz se skládá ze 3 základních částí. První část – označovaná jako prolog slouží k definování jmenných prostorů a prefixů, které budou v dalších částech dotazu použity. Druhou částí je hlavička dotazu, kde se určuje jaký typ dotazu se bude v další části provádět. Třetí a hlavní část SPARQL slouží k definování cílové ontologie (RDF grafu) pro dotazování (v případě, že cílový graf je implicitně definován, je tato část vynechána) a proměnných včetně samotných vyhledávacích podmínek v podobě grafových vzorů (graph pattern)\cite{_2}.
+Tento jazyk částečně vychází ze SQL, což je patrné i na jeho syntaxi. Např. klauzule FROM slouží pro výběr cílového grafu pro dotazování, či klíčové slovo WHERE slouží pro uvození zápisu souboru RDF trojic – tzv. grafového vzorce, jež je jádrem dotazu. Vyhodnocování dotazu poté probíhá takovým způsobem, že dochází k porovnávání grafového vzorce se s RDF daty \cite{_13}. 
+Pro názornost je níže uveden zápis jednoduchého SPARQL dotazu, který slouží k vyhledání jmen a příjmení všech osob v implicitně zadaném grafu.
+
+\begin{verbatim}
+PREFIX zcu: <http://www.zcu.cz/ns/students>
+SELECT ?name ?surname
+WHERE  {
+     ?person x zcu:Person.
+     ?person zcu:Name ?name.
+     ?person zcu:Surname ?surname
+}
+\end{verbatim}
+
+
+SPARQL podporuje 4 druhy dotazů, které se vzájemně liší v typu vráceného výsledku \cite{_13}.
+
+\begin {itemize}
+
+\item \textbf{SELECT} Tento typ dotazu nejvíce odpovídá běžnému SQL dotazování, neboť zadaným proměnným nastaví příslušné hodnoty a vrací je v podobě tabulky \cite{_14}.
+\item \textbf{ASK} Dotaz typu ASK vrací pouze boolean odpověď a slouží ke otesto-\\vání, zda zadaný grafový vzorec má pro daný graf řešení. ASK tak slouží ke testování vytvořených logických hypotéz, ale neumožňuje už vrácení konkrétních řešení \cite{_13}.
+\item \textbf{DESCRIBE} Dotazy typu DESCRIBE navrací podgraf dotazovaného grafu, který obsahuje všechny dostupné informace o zdroji, jež vyhověl zadanému grafovému vzoru \cite{_13}. Při vyhodnocování dotazů dochází k porovnávání zdrojů získaných ze vstupního grafového vzoru se zdroji celého grafu. Pro nalezené odpovídající zdroje jsou pak získány všechny vázané relevantní informace, ze kterých je ve výsledku složen navracený graf \cite{_14}.
+\item \textbf{CONSTRUCT} Tento speciální druh dotazu navrací jako výsledek nový RDF graf dle definované grafové šablony. Výsledný RDF graf je konstruován podle částečných řešení dotazovací sekvence, jež vyplňují proměnné ze zadané grafové šablony na základě které jsou tvořené výsledné trojice pro cílový navracený graf \cite{_13}. Tato dotazovací operace se do jisté míry podobá XSLT transformaci XML dokumentu.
+
+\end {itemize}
+
+\chapter{EEG/ERP portál}
 
 
 \bibliography{diplomka}
