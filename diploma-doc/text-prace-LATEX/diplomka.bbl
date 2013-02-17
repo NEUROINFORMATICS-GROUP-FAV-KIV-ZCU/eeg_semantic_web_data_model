@@ -1,10 +1,50 @@
 \begin{thebibliography}{10}
 
+\bibitem{_22}
+Gilfillan Ian.
+\newblock {\em Introduction to Relational Databases},
+  http://www.databasejournal.com/sqletc/article.php/1469521/Introduction-to-Relational-Databases.htm,
+  (přístup 16.2.2013).
+
+\bibitem{_19}
+Kauler Jan.
+\newblock {\em Základní pojmy databáze}.
+\newblock České vysoké učení technické v Praze,
+  webzam.fbmi.cvut.cz/szabozol/ISZ/Kauler/506.doc, (přístup 17.2.2013).
+
+\bibitem{_17}
+Kauler Jan.
+\newblock {\em Relační datový model}.
+\newblock České vysoké učení technické v Praze,
+  webzam.fbmi.cvut.cz/szabozol/ISZ/Kauler/508.doc, (přístup 17.2.2013).
+
+\bibitem{_16}
+Kolena Jan.
+\newblock {\em EEG/ERP portal - reservation system for EEG/ERP laboratory}.
+\newblock ZČU, Plzeň, 2011.
+
+\bibitem{_21}
+Zendulka Jaroslav.
+\newblock {\em Relační model dat}.
+\newblock Vysoké učení technické v Brně,
+  http://www.fit.vutbr.cz/study/courses/DSI/public/pdf/nove/4\_2.pdf,
+  (přístup 5.2.2013).
+
+\bibitem{_20}
+Kosek Jiří.
+\newblock {\em Jak pracují databáze na Webu},
+  http://www.kosek.cz/clanky/iweb/12.html, (přístup 15.2.2013).
+
 \bibitem{_4}
 Pitner~Tomáš Matulík~Petr.
 \newblock {\em Sémantický web a jeho technologie}.
 \newblock \\Masarykova univerzita, 2004.
   http://www.ics.muni.cz/zpravodaj/articles/\\296.html, (přístup 6.2.2013).
+
+\bibitem{_15}
+Brůha Petr.
+\newblock {\em EEG/ERP portál a prostředky sémantického webu}.
+\newblock ZČU, Plzeň, 2011.
 
 \bibitem{_9}
 Hanyáš Petr.
@@ -46,6 +86,12 @@ Vitvar Tomáš.
 \newblock {\em Sémantický web}.
 \newblock ČVUT, Praha, 2011,
   http://www.cvut.cz/pracoviste/odbor-rozvoje/stranky/habilitace-a-inaugurace/habilitacni-prednasky/lecture.pdf.
+
+\bibitem{_18}
+Homola Vladimír.
+\newblock {\em Kartézský součin, relace}.
+\newblock Vysoká škola báňská,
+  http://homel.vsb.cz/~hom50/SLBSTATS/MNO/GS01B.HTM, (přístup 17.2.2013).
 
 \bibitem{_6}
 W3C.

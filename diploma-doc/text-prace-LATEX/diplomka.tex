@@ -280,6 +280,85 @@ SPARQL podporuje 4 druhy dotazů, které se vzájemně liší v typu vráceného
 \end {itemize}
 
 \chapter{EEG/ERP portál}
+\hspace{0.65cm}EEG/ERP portál je webová aplikace, sloužící vědeckým pracovníkům k ukládání, stahování a vyhledávání EEG/ERP experimentů včetně jejich přidružených metadat. Tato aplikace je vyvíjena pro Katedru informatiky a výpočetní techniky Západočeské univerzity v Plzni. Portál funguje jako komplexní aplikace, která neslouží jen ke zpracování dat experimentů, ale poskytuje také funkce pro správu uživatelů, jež mohou mít odlišné role a také se sdružovat do výzkumných skupin jež mohou vzájemně spolupracovat. Portál je vyvíjen jako open-source aplikace pod GNU licencí. Jeho základní funkcionalitu je možné shrnout do několika následujících bodů \cite{_15}.
+
+\begin {itemize}
+
+\item \textbf{Ukládání, aktualizace a stahování naměřených dat experimentů včetně metadat} 
+
+\item \textbf{Registrace nových uživatelů, sdružování do skupin včetně určení rolí} 
+\item \textbf{Sdílení dat a metadat experimentů mezi výzkumnými skupinami}
+\item \textbf{Publikační a diskusní prostředky pro uživatele v podobě článků a jejich komentářů }
+\item \textbf{Fulltextové vyhledávání nad celou databází}
+\item \textbf{Přihlašování uživatelů skrze interní účty či prostřednictvím sociálních sítí}
+\item \textbf{Rezervace výzkumné laboratoře}
+
+\end {itemize}
+
+\section{Technologie portálu}
+\hspace{0.65cm}Z technologického hlediska je EEG/ERP portál webová aplikace se standardní třívrstvou architekturou MVC (Model – View - Controler) - viz obrázek 3.1, běžící na aplikačním serveru Tomcat. Portál je vyvíjen v programovacím jazyce Java EE, přičemž při implementaci je využito několika frameworků, zejména pak Spring.
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.6]{mvc.pdf}
+\caption{Architektura MVC}
+\end{center}
+\end{figure}
+
+
+Prezentační vrstva je realizována prostřednictvím technologie JSP (Java Servlet Pages), zabezpečení a přihlašování uživatelů pak využívá frameworku Spring Security. Dále je pluginem Sping Social zajištěno prostřednictvím definovaného API propojení webové aplikace se sociálními sítěmi Facebook, Twitter a LinkedIn. Spring Social také slouží ke integraci možnosti přihlašování uživatelů prostřednictvím účtů zmíněných sociálních sítí.
+
+Aplikační vrstva využívá zejména technologií Spring MVC a Spring Core a zajišťuje zpracování veškerých uživatelských požadavků pro ukládání a čtení dat, která získává z datové vrstvy. Persistentní data jsou uložena v relační databázi Oracle 11g, přičemž k jejich zpracování je použito objektově-relační mapování frameworku Hibernate. Ten využívá XML souborů pro mapování tabulek na POJO objekty, jež tvoří perzistentní vrstvu. Framework Hibernate zároveň umožňuje odstínit datovou vrstvu od implementační závislosti na zvolené databázi, jejíž případná obměna by následně nevyžadovala příliš velké zásahy do zdrojových kódů portálu \cite{_16}.
+
+
+\section{Persistentní data}
+\hspace{0.65cm}Databáze Oracle jež slouží ke ukládání persistentních dat uchovává veškeré naměřené hodnoty zaznamenaných experimentů. Tato data mají z pohledu databáze podobu binárních souborů s velikostí řádu desítek až stovek MB. Tato naměřená data by ovšem ztrácely hodnotu, kdyby byly uchovávány jako samostatné. Proto databáze obsahuje další tabulky, jež nesou metadata prováděných experimentů. Kontext experimentu je popsán především hodno-\\tami o prostředí laboratoře a zúčastněných osobami. Prostředí laboratoře je charakterizováno například teplotou, použitým hardwarem a softwarem. Nedílnou součástí popisu experimentu je také scénář zaznamenávající samotný postup měření, který má podobu binárního souboru. Dalšími důležitými daty jsou také informace o použitých elektrodách měřících EEG, u kterých je důležitý jejich typ a poloha. Co se týče osob účastnících se experimentu, zaznamenává se měřící a především měřená osoba. U osob jsou uchovávány osobní a kontaktní údaje a také data nutná pro přihlašování do portálu. Osoby se mohou sdružovat do různých výzkumných skupin, jež nesou seznam svých členů a vlastníka. Podstatným údajem jsou také identifikátory skupin vázané k hodnotám číselníků charakterizující vlastnosti experimentu, které tak napomáhají výzkumníkům zaznamenávat vlastní vybrané předdefinované hodnoty. Další tabulky ještě zaznamenávají historii stahování, zveřejňované články a jejich textové komentáře. Rezervace laboratoře obsahuje údaje o počátečním a koncovém času události a také rezervující osobě. 
+
+
+\chapter{Relační datový model}
+\hspace{0.65cm}Jak již bylo zmíněno v předchozí kapitole, webová aplikace EEG/ERP portál uchovává data v relační databázi – lze na ně tedy pohlížet jako na relační datový model. Vzhledem k tomu, že další část práce se bude zabývat úpravou současného datového modelu portálu, bude vhodné uvést zde základní popis a vlastnosti obecného relačního modelu.
+
+Základem relačního modelu dat, který byl popsán již v roce 1970 je takzvaná relace neboli tabulka \cite{_17}. Z matematického hlediska můžeme {\it n}-ární relaci chápat jako libovolnou podmnožinu kartézského součinu {\it n} množin \cite{_18}. Množinou je zde myšlena doména jednoho konkrétního sloupce tabulky, tedy všechny přípustné hodnoty, kterých může libovolný řádek v daném sloupci tabulky nabývat. V důsledku tedy máme tabulku tvořenou {\it n} sloupci ({\it n}-ární relace) a {\it x} řádky, kde každý řádek reprezentuje jeden prvek z množiny tvořené kartézským součinem {\it n} množin. V případě, že by každá z {\it n} množin byla konečná (řádky daných sloupců mohou nabývat konečného počtu hodnot), bude konečný i kartézský součin těchto množin a tabulka tak může mít jen konečný a tudíž omezený počet neopakujících se řádek (duplicity v tabulce neuvažujeme, neboť by neměly žádný smysl – jednalo by se o redundantní data) \cite{_18}.
+
+Uvedená reprezentace matematického pojmu relace jako databázové tabul-\\ky je základem takzvaného schéma relace. Toto schéma obsahuje název relace, jména všech atributů (sloupců tabulky) a jejich integritních omezení – tedy domény \cite{_19}. Domény jednotlivých atributů jsou v systémech řízení báze dat reprezentovány datovými typy, tedy např. číselný typ, textový řetězec či datum. Tabulku lze tedy chápat jako určitou formu znázornění relace \cite{_21}.
+Jedna tabulka slouží zpravidla k uchování údajů o jednom druhu objektů \cite{_20}. V případě portálu tak například tabulka {\it Person} uchovává pouze data o osobách – jeden řádek neboli záznam tedy reprezentuje údaje o jednom člověku, které jsou strukturované do sloupců, např. jméno, příjmení, email apod. Názornější představu konkrétní relace je možné získat z obrázku 4.1. Aby bylo možné s daty tabulky pracovat, zavádí se aparát, který zajišťuje jednoznačnou identifikaci každého záznamu - primární klíč. Primární klíč je atribut či skupina atributů, která je pro každý záznam tabulky jedinečná (stejně jako název tabulky v databázi) \cite{_20}. V případě zmíněné tabulky {\it Person} by tak mohl posloužit například atribut email, neboť žádné dvě osoby nemohou logicky mít stejnou emailovou adresu (což by mělo být zajištěno ze strany domény
+
+
+
+
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.7]{relace.pdf}
+\caption{Znázornění relace}
+\end{center}
+\end{figure}
+
+
+dané emailové adresy). V případě že tabulka neobsahuje žádný atribut, který by potřebnou jedinečnost záznamů zajišťoval, je nutné jej přidat. To je realizováno např. atributem ID, obsahujícím číslo z číselníku, jehož hodnota je inkrementována po každém přidání dalšího záznamu do tabulky {\it Person}. Tento identifikátor položky sice jednoznačně určuje daný záznam v tabulce, nikoliv už však v rámci celé databáze (pokud uvažujeme více tabulek) či vně databáze. V jedné databázi je tedy možné mít například tabulky {\it Person} a {\it Experiment}, jejichž primárními klíči bude atribut s názvem ID typu celého čísla. V takovém případě je pak i možné aby obě tabulky obsahovaly 2 různé záznamy jež budou jednoznačně identifikovatelné stejnou číselnou hodnotou (ale v kontextu dané tabulky). Z toho důvodu je pro jednoznačnou identifikaci záznamu nutné znát jak hodnotu příslušného atributu obalující relace, tak i její název. 
+
+
+\section{Limity relační databáze}
+
+\subsection{Dědičnost}
+
+
+\hspace{0.65cm}Relační databáze může samozřejmě obsahovat větší množství tabulek (za předpokladu že mají vzájemně různé názvy). Každá tabulka tak sdružuje záznamy, jejichž obsah si je v určitém smyslu blízký. Z hlediska objektově orientovaného přístupu, který je realizovaný např. nástrojem Hibernate, lze tabulku chápat také jako třídu a její záznamy jako instance dané třídy. Každá takováto instance má pevně daný počet atributů, který je definován obalující třídou. Uvažujme například tabulku {\it Person}, která ponese údaje jak o osobách které jsou cílovým objektem experimentů tak údaje o výzkumných pracovnících. U obou skupin nás budou zajímat společné atributy jako jméno a příjmení, ale některé atributy budou různé. U testovaných osob to bude např. věk, zatímco u výzkumníků např. titul. Uvažujeme-li objektový přístup k takovéto tabulce, může využít dědičnosti. Vytvoříme tedy třídu {\it Person}, která ponese všechny společné atributy a od ní bude zděděna třída pro výzkumníky a třída pro testované osoby. Tyto třídy budou obsahovat atributy, které jsou specifické pro danou skupinu. Z pohledu relačního modelu je tento problém řešitelný obtížněji. Je možné například vytvořit 2 samostatné tabulky pro dané skupiny či ponechat jednu tabulku, která ponese všechny atributy a každá skupina bude mít vyplněna jen jejich část. Podobný problém by vznikl například při potřebě dodat další atribut jen omezenému počtu osob jedné ze skupin. Z uvedeného příkladu je patrné, že dynamické rozšiřování záznamů obsažených v jednotlivých tabulkách je poměrně obtížné.
+
+\subsection{Vztahy mezi relacemi}
+
+\hspace{0.65cm}Relační model dovoluje také zaznamenávat vztahy mezi jednotlivými tabulkami a provazovat tak záznamy z různých tabulek. Tyto vazby se realizují prostřednictvím atributů označovaných jako cizí klíč \cite{_20}. Hodnotou cizího klíče je pak hodnota primárního klíče tabulky, která je cílem vytvářené vazby. Z hlediska kardinality vztahu je možné rozlišit 3 základní případy {\it 1:1} , {\it 1:N} a {\it M:N} \cite{_22}. Vztah {\it 1:1} vyjadřuje případ, ve kterém záznam jedné tabulky odpovídá záznamu jinému tabulky. Tento případ není příliš častý a většinou se řeší umístěním obou záznamů do jediné tabulky. Vztah {\it 1:N} reprezentuje situaci, kdy se jednomu záznamu tabulky přiřazuje více záznamů jiné tabulky. Příkladem takové vazby může být vztah záznamů tabulek {\it Person} a {\it Experiment}. Jedna osoba tedy může provádět {\it N} experimentů, ale každý experiment je prováděn právě jednou osobou. V modelu je tato informace realizovaná přidáním atributu např. zodpovědná osoba do tabulky {\it Experiment}. Tento atribut se tak stává cizím klíčem a ponese hodnotu primárního klíče tabulky {\it Person} pro příslušný záznam cílové osoby. Samotná vazba tedy obsahuje informaci o zdrojové záznamu, cílovém záznamu a také název vazby který je reprezentován názvem atributu pro cizí klíč tabulky.
+
+Posledním druhem vazby je vztah {\it M:N}, jež reprezentuje stav, kdy {\it M} záznamům jedné tabulky odpovídá {\it N} záznamů jiné tabulky. Tento stav je v relačním modelu řešen rozložením na dvě vazby {\it 1:N} a {\it 1:M}, které jsou pak realizovány vytvořením další tabulky, jejíž záznamy budou obsahovat cizí klíče obou tabulek. Pro realizaci takové vazby je tedy nutné vložit do databáze další tabulku a v případě potřeby rozlišení druhu jednotlivých vazeb je zapotřebí buď dalšího atributu jež by vztah popisoval, či pro každý druh vazby mít vlastní tabulku (což se týká i případu vazby {\it 1:N}). Pokud by ovšem bylo zapotřebí popsat také vztahy mezi jednotlivými vazbami nastává problém, který je řešitelný velmi obtížně \cite{_20}.
+
+
+\section{Datový model EEG/ERP portálu}
+
+
+\chapter{Datový model sémantického webu}
+
+\chapter{Nástroje pro spo sémantický web}
+
 
 
 \bibliography{diplomka}
