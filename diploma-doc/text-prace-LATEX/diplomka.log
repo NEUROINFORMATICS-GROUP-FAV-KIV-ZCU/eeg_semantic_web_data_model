@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  18 FEB 2013 23:25
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  19 FEB 2013 00:54
 entering extended mode
 **C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_m
 odel/diploma-doc/text-prace-LATEX/diplomka.tex
@@ -1077,10 +1077,54 @@ Kapitola 5.
 ]
 Kapitola 6.
 
-(C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
-del\diploma-doc\text-prace-LATEX\diplomka.bbl [26
+LaTeX Warning: Citation `_23' on page 26 undefined on input line 380.
+
+
+Overfull \hbox (0.60568pt too wide) in paragraph at lines 383--384
+ \T1/aer/m/n/12 (-10) Vir-tu-oso je hyb-ridní da-ta-bá-zový ser-ver umoº-¬u-jíc
+í práci nad více da-to-vými
+ []
+
+
+Overfull \hbox (2.11708pt too wide) in paragraph at lines 385--386
+\T1/aer/m/n/12 (-10) kom-plexní ad-mi-nis-traci a také je moºné jeho pro-st°ed-
+nic-tvím za-dá-vat li-bo-volné
+ []
+
+[26
 
 ]
+
+LaTeX Warning: Citation `_25' on page 27 undefined on input line 389.
+
+
+Overfull \hbox (1.27493pt too wide) in paragraph at lines 389--391
+\T1/aer/m/n/12 (-10) práci. Stan-dardní in-sta-lace Oracle 11g re-le-ase 2 (sou
+-£asná da-ta-báze EEG/ERP
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[27]
+Overfull \hbox (2.8221pt too wide) in paragraph at lines 406--408
+\T1/aer/m/n/12 (-10) Jena API pro Java apli-kace. Da-ta-bá-zový sys-tém pod-po-
+ruje od-vo-zo-vací pra-vi-dla
+ []
+
+
+(C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
+del\diploma-doc\text-prace-LATEX\diplomka.bbl
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[28]
 Underfull \hbox (badness 10000) in paragraph at lines 4--8
 []\T1/aer/m/n/12 (+10) Gilfillan Ian.  \T1/aer/m/it/12 (+10) In-tro-duction to 
 Re-lati-o-nal Da-ta-bases\T1/aer/m/n/12 (+10) ,
@@ -1110,54 +1154,81 @@ Overfull \hbox (5.77644pt too wide) in paragraph at lines 39--43
 vodaj/articles/ 
  []
 
-[27
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--48
+[]\T1/aer/m/n/12 (+10) Openlink Soft-ware.  \T1/aer/m/it/12 (+10) Vir-tu-oso Un
+i-ver-sal Ser-ver\T1/aer/m/n/12 (+10) ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--54
+[]\T1/aer/m/n/12 (+10) Oracle.  \T1/aer/m/it/12 (+10) Oracle Da-ta-base Se-man-
+tic Tech-no-lo-gies Tu-to-rial\T1/aer/m/n/12 (+10) ,
+ []
+
+
+Overfull \hbox (88.32375pt too wide) in paragraph at lines 50--54
+\T1/aer/m/n/12 (-10) http://download.oracle.com/otndocs/tech/semantic_-web/pdf/
+oradb_-semtech_-tu-to-rial.pdf,
+ []
+
+[29
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 78--83
+Underfull \hbox (badness 10000) in paragraph at lines 89--94
 \T1/aer/m/n/12 (+10) Vysoká ²kola eko-no-mická v Praze, 2009.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 85--89
+Underfull \hbox (badness 10000) in paragraph at lines 96--100
 []\T1/aer/m/n/12 (+10) Vitvar To-má².  \T1/aer/m/it/12 (+10) Sé-man-tický web\T
 1/aer/m/n/12 (+10) .  ƒVUT, Praha, 2011,
  []
 
 
-Overfull \hbox (210.52306pt too wide) in paragraph at lines 85--89
+Overfull \hbox (210.52306pt too wide) in paragraph at lines 96--100
 \T1/aer/m/n/12 (-10) http://www.cvut.cz/pracoviste/odbor-rozvoje/stranky/habili
 tace-a-inaugurace/habilitacni-prednasky/lecture.pdf. 
  []
 
 
-Underfull \hbox (badness 7925) in paragraph at lines 97--100
+Underfull \hbox (badness 7925) in paragraph at lines 108--111
 \T1/aer/m/n/12 (+10) http://www.w3.org/TR/2004/REC-rdf-concepts-20040210/, (p°í
 -stup
  []
 
-)
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[28]
+[30])
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[31]
 (C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
 del\diploma-doc\text-prace-LATEX\diplomka.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
 
+
+LaTeX Warning: There were undefined references.
+
  ) 
 Here is how much of TeX's memory you used:
- 8306 strings out of 494045
- 112141 string characters out of 3145966
- 251171 words of memory out of 3000000
- 10837 multiletter control sequences out of 15000+200000
- 82928 words of font info for 480 fonts, out of 3000000 for 9000
+ 8324 strings out of 494045
+ 112283 string characters out of 3145966
+ 251181 words of memory out of 3000000
+ 10841 multiletter control sequences out of 15000+200000
+ 84142 words of font info for 492 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 37i,12n,43p,3355b,372s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 37i,12n,43p,3355b,378s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C
 :/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/P
@@ -1165,9 +1236,9 @@ rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Prog
 ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program 
 Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on diplomka.pdf (32 pages, 360490 bytes).
+Output written on diplomka.pdf (35 pages, 374672 bytes).
 PDF statistics:
- 265 PDF objects out of 1000 (max. 8388607)
+ 274 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  159775 words of extra memory for PDF output out of 184870 (max. 10000000)
 

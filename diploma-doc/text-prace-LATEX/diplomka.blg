@@ -1,8 +1,18 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: diplomka.aux
 The style file: plain.bst
 Database file #1: diplomka.bib
-"{" immediately follows a field name---line 163 of file diplomka.bib
+"{" immediately follows a field name---line 159 of file diplomka.bib
+ : @manual
+ :        {_23,
+I'm skipping whatever remains of this entry
+"{" immediately follows a field name---line 170 of file diplomka.bib
+ : @manual
+ :        {_25,
+I'm skipping whatever remains of this entry
+"{" immediately follows a field name---line 187 of file diplomka.bib
  : @book
  :      {diplomka,
 I'm skipping whatever remains of this entry
-(There was 1 error message)
+Warning--I didn't find a database entry for "_23"
+Warning--I didn't find a database entry for "_25"
+(There were 3 error messages)

@@ -369,10 +369,42 @@ Pro bližší představu o současném datovém modelu portálu je možné nahl�
 
 
 
-\chapter{Datový model sémantického webu}
+\chapter{Datový model sémantického webu - DODELAT}
+
+
+
+
+
 
 \chapter{Nástroje pro vývoj sémantického webu}
+\hspace{0.65cm}Jak již bylo zmíněno v kapitole Sémantický web, jazyk RDF je jedním ze základních stavebních prvků  technologie sémantického webu. Současná podoba tohoto jazyka vychází ze specifikace W3C \cite{_6} z února 2004. Za dobu uběhlou od publikace zmíněné specifikace do současnosti (2013) vznikla poměrně široká sada nástrojů od jednoduchých utilit až po komplexní softwa-\\rová řešení jež umožňují zpracovávat data v jazyce RDF resp. OWL. Rozsáhlý a vcelku přehledný seznam těchto nástrojů (k datu vzniku této práce celkem 183) dostupný ze zdroje  \cite{_23} poslouží jako primární seznam pro výběr vhodného nástroje. Pro účely této práce se zaměříme na hledání nástroje jež slouží primárně jako persistentní úložiště RDF dat a zároveň poskytuje veřejné Jena/Sesame API pro  komunikaci a umožňuje dotazování jazykem SPARQL nad daty. Další nutnou podmínkou je, aby nástroj poskytoval hybridní úložiště umožňující uchovávat jak relační data tak data v jazyce sémantického webu (zmíněné požadavky vyplývají z následující kapitoly). Tyto poměrně náročné podmínky ovšem splňují pouze dva nalezené nástroje, jejichž popis bude následovat.
 
+\section{Virtuoso}
+\hspace{0.65cm}Virtuoso je hybridní databázový server umožňující práci nad více datovými modely. Nástroj poskytuje klasickou relační databázi, RDF databázi trojic, XML databázi a také dokumentově orientovanou databázi. Verze aplikace se zpoplatněnou licencí poskytuje oproti GPL licencované variantě navíc virtuální databázi a také replikaci dat. Virtuální databáze umožňuje zastřešit více databázových systémů jediným centrálním se kterým klient komunikuje. Ve výsledku tak umožňuje klientovi pracovat s více databázemi, které se mu transparentně jeví jako jediná. Díky tomu je například možné prostřednictvím jediného dotazu získat výsledek ze všech databází najednou. Replikace dat slouží  k zajištění konzistence dat takovým způsobem, kdy při např. dvou databázích slouží hlavní databáze k zachycení aktuálních změn dat, které postupně zasílá vedlejší databázi jež obsahuje původní data. Díky tomu obsahuje vedlejší databáze stále konzistentní data neboť při nezdařeném zápisu aktualizace může zažádat hlavní databázi o jejich opětovnézaslání. 
+
+Databázový server poskytuje grafické webové rozhraní, které slouží ke komplexní administraci a také je možné jeho prostřednictvím zadávat libovolné SQL/SPARQL dotazy. Virtuoso implementuje nad relační databází engine poskytující funkcionalitu v podobě standardu SQL-92, podporu pro pohledy, standardní datové typy, procedury, kurzory a také transakce. SPARQL dotazy je možné zadávat stejnými prostředky jako SQL dotazy, či je dokonce vnořovat do SQL dotazů. Díky tomu je možné pracovat s relačním modelem dat a RDF modelem zároveň. Samotné dotazování a další komunikace klientské aplikace se serverem může být realizováno prostřednictvím driverů ODBC/JDBC nebo Java knihovnou poskytující Jena API. Neméně důležitou součásti podpory Java aplikací je i distribuce knihoven pro Hibernate (Hibernate driver a Hibernate dialect). Virtuoso také podporuje import souborů s RDF daty ve formátu N3, Turtle a také nejběžnější RDF/XML \cite{_24}.
+
+
+\section{Oracle 11g - Oracle Spatial}
+\hspace{0.65cm}Oracle Spatial je rozšířením databázového systému Oracle, jež je primárně určeno pro zpracování geoprostorových dat \cite{_25}. Toto rozšíření s sebou ovšem přináší také podporu pro sémantické technologie, která je klíčová pro tuto práci. Standardní instalace Oracle 11g release 2 (současná databáze EEG/ERP portálu), ani žádná z předchozích verzí tuto podporu standardně po instalaci neposkytuje. Její zapnutí je ale pouze záležitostí spuštění instalačního skriptu a následného vygenerování tabulkového prostoru pro systémové tabulky a všechna následně ukládaná data. V tomto tabulkové prostoru je již možné vytvořit sémantickou síť, která ponese všechny systémové RDF tabulky a pohledy, jež jsou nezbytné pro provádění SPARQL dotazů. Při práci s databází je zapotřebí mít k dispozici datový model, který ponese všechny RDF trojice, jež budou vytvářeny. Tento model bude vázán na tabulku, která ponese všechny vytvářené trojice. Do tohoto modelu je již možné zapsat první trojici \cite{_26}.
+Pro názornost jednoduchosti tohoto procesu bude uvede výše popsaný postup v podobě SQL příkazů \cite{_26}. 
+
+\begin{verbatim}
+1.  ?/md/admin/catsem11i.sql
+2.  CREATE TABLESPACE rdf_tblspace DATAFILE 
+    '/oradata/orcl/rdf_tblspace.dat' SIZE 1024M AUTOEXTEND 
+    ON NEXT 256M MAXSIZE 16384M;
+3.  EXECUTE SEM_APIS.CREATE_SEM_NETWORK('rdf_tblspace');
+4.  CREATE TABLE family_rdf_data (id NUMBER, 
+    triple SDO_RDF_TRIPLE_S);
+5.  execute SEM_APIS.create_sem_model('family', 
+   'family_rdf_data', 'triple');
+\end{verbatim}
+
+První příkaz instaluje podporu sémantických modelů v databázi. Druhým příkazem je na disku vytvořen sobor, který ponese tabulkový prostor pro sémantickou síť a všechny datové modely. Jeho počáteční velikost je nastavena na 1 GB s možností dalšího zvětšení v případě vyčerpání dané kapacity. V tomto tabulkové prostoru je ve třetím kroku vytvořena sémantická síť, ve které je možné vytvářet jednotlivé datové modely. Ve čtvrtém kroku je vytvořena první tabulka se dvěma sloupci, kde se vyskytuje nový datový typ {\it SDO\_RDF\_TRIPLE}. Jedná se o datový typ trojice ve smyslu RDF, který v sobě obsahuje subjekt, predikát a objekt (dle očekávaného standardu). Posledním příkazem byl vytvořen datový model nad předchozí tabulkou, který poslouží pro ukládání konkrétních trojic. Samotné vkládání trojic je pak poměrně jednoduché, a je možné jej nalézt ve \cite{_26}.
+
+Po instalaci podpory sémantických technologií je již tedy možné využívat databázi Oracle jako úložiště RDF dat. Ve výsledku je tedy k dispozici hybridní databáze pro ukládání dat jak v relační podobě tak ve RDF jazyce. Nad zmíněnými sémantickými daty je možné se dotazovat jazykem SPARQL a to skrze stejné prostředky jako v případě jazyka SQL. V důsledku toho je také možné vytvářet vnořené či jinak kombinované dotazy z obou jazyků, stejně jako tomu bylo u nástroje Virtuoso. K sémantickým datům databáze je možné přistupovat samozřejmě stejnou cestou jako k relačním – tedy prostřednictvím ODBC/JDBC driveru, ale Oracle také dodává driver poskytující standardní Jena API pro Java aplikace. 
+Databázový systém podporuje odvozovací pravidla jazyka RDF, RDFS i OWL a od verze Oracle 10g je navíc možné, aby uživatel definoval vlastní odvozovací pravidla. Při vytváření dotazu je pak možné určit jakou množinu odvozovacích pravidel (RDF / RDFS / vlastní pravidla či jejich kombinace) chceme do dotazu zahrnout a ovlivnit tím tak jeho výsledek \cite{_26}.
 
 
 \bibliography{diplomka}
