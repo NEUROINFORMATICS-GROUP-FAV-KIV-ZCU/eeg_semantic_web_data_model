@@ -353,16 +353,32 @@ Posledním druhem vazby je vztah {\it M:N}, jež reprezentuje stav, kdy {\it M} 
 
 
 \section{Datový model EEG/ERP portálu}
+\hspace{0.65cm}Současná podoba relační databáze portálu je tvořena přibližně 80 tabulkami. Naměřená data experimentů (hodnoty EEG signálů) jsou uložena v podobě binárních souborů v tabulce {\it DATA\_FILE}, spolu se popisnými údaji jako je název či datový typ mající podobu textového řetězce nebo čísla. Tyto popisné údaje lze označit jako metadata binárního souboru naměřených dat. Metadata scénáře experimentu uložená v tabulce {\it SCENARIO} obsahují popisné informace dalších binárních souborů, jež jsou uloženy v tabulce {\it SCENARIO\_TYPE\_NONXML} obsahující popis průběhu měření. Obě tabulky {\it SCENARIO} a {\it DATA\_FILE} obsahují vazbu na tabulku {\it EXPERIMENT}, která obsahuje buď přímo metadata experimentu (nikoliv však souboru naměřených dat) nebo zajišťuje provázání s jinou tabulkou jež je nese. Z aktuálního modelu je patrné, že jeden experiment je popsán jedním scénářem, ale může obsahovat více (binárních) souborů naměřených dat.
+
+Tabulka {\it EXPERIMENT} s klíčovými metadaty obsahuje také dvě vazby na tabulku {\it PERSON}, jež slouží ke zaznamenání měřené osoby a experimentátora (vlastníka experimentu). Z hlediska datového modelu není mezi těmito osobami rozdíl, neboť jsou všechny uloženy v jediné tabulce a tudíž jsou všechny osoby popsány stejnou množinou atributů. Testované osoby například vůbec nemusejí potřebovat přístup do portálu, ale tabulka ve které jsou zaznamenány obsahuje atributy uživatelského jména a hesla (i když mohou nabývat hodnoty NULL). Stejná situace nastává i pro další referencované tabulky {\it ARTICLES}, {\it ARTICLES\_COMMENTS} či {\it RESERVATION}. Datový model tak nikterak nezabraňuje, aby měřené osoby měly své články, přidávaly k nim komentáře nebo rezervovaly laboratoř (vychází se z předpokladu, že portál slouží pouze pro výzkumné pracovníky, nikoli pro testované osoby). 
+
+Obdobná situace nastává v případě tabulky {\it RESEARCH\_GROUP}, sloužící ke sdružování osob do výzkumných skupin. Její vazby na tabulku {\it PERSON} zajišťují, že každá skupina má svůj název, popis a také vlastníka. Každá skupina může mít samozřejmě více členů, což zajišťuje rozkladová tabulka {\it RESEARCH\_GROUP\_MEMBERSHIP}, jež obsahuje i roli člena ve skupině (ve smyslu uživatelský práv). Samotná tabulka ovšem poměrně značně zasahuje do celého datového modelu, díky množství rozkladových tabulek sloužících ke kategorizaci hodnot specifických metadat experimentů ke vybraným skupinám. Díky tomu je možné, aby vybraná skupina mohla definovat pro své potřeby vybrané hodnoty pro určitá metadata – např. pro tabulku {\it HARDWARE} definovat množinu přístrojů, které ke svým výzkumům využívá. Díky rozkla-\\dovým tabulkám může navíc více skupin sdílet stejné hodnoty položek hard-\\waru. Tyto tabulky s dodatečnými metadaty experimentu jako například zmíněný {\it HARDWARE}, {\it SOFTWARE} či {\it WEATHER} sice popisují kontext měření, ale z hlediska datového modelu se jedná pouze o nekategorizovaná data vázaná (často nepřímo) na tabulku {\it EXPERIMENT}. Není tedy možné sdružit některé parametry měření do skupin – např. tabulky {\it PHARMACEUTICAL} a {\it DISEASE} označit jako medicínské parametry s specifikovat tak jednoduchou hierarchickou kategorii metadat experimentů.
+
+Další problém, který řeší současný relační datový model jen částečně je dynamická rozšiřitelnost struktury dat (ve sémantickém smyslu). V průběhu vývoje portálu se postupně zvyšoval počet tabulek nesoucích specifická meta-\\data experimentu a je i nadále rozšiřován. Pro případ vzniku potřeby popisu daného experimentu parametrem, jenž není definován jako atribut tabulky {\it EXPERIMENT} ani jinou samostatnou tabulkou, obsahuje databáze tabulky {\it EXPERIMENT\_OPT\_PARAM\_DEF} a {\it EXPERIMENT\_OPT\_PARAM\_VAL}. Ty umožňují zaznamenat další hodnoty ve tvaru parametr-hodnota a navíc je sdílet pro více skupin. Nevýhodou tohoto řešení je ale absence možnosti přidat danému parametru více klíčů (chceme-li se vyhnout změně tabulky přidáváním dalších atributů), či tyto údaje ještě více řetězit. Obdobná situace však nastává i v případě samostatných tabulek pro konkrétní metadata experimentu. 
+
+Pro bližší představu o současném datovém modelu portálu je možné nahlédnout do přílohy A obsahující ERA model EEG/ERP portálu.
+
+
+
+
+
 
 
 \chapter{Datový model sémantického webu}
 
-\chapter{Nástroje pro spo sémantický web}
+\chapter{Nástroje pro vývoj sémantického webu}
 
 
 
 \bibliography{diplomka}
 \bibliographystyle{plain}
+
+Priloha A - ERA model portalu
 
 
 \end{document}

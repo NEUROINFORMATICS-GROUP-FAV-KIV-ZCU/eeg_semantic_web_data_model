@@ -18,5 +18,5 @@
 \contentsline {subsection}{\numberline {4.1.1}D\IeC {\v e}di\IeC {\v c}nost}{21}
 \contentsline {subsection}{\numberline {4.1.2}Vztahy mezi relacemi}{21}
 \contentsline {section}{\numberline {4.2}Datov\IeC {\'y} model EEG/ERP port\IeC {\'a}lu}{22}
-\contentsline {chapter}{\numberline {5}Datov\IeC {\'y} model s\IeC {\'e}mantick\IeC {\'e}ho webu}{23}
-\contentsline {chapter}{\numberline {6}N\IeC {\'a}stroje pro spo s\IeC {\'e}mantick\IeC {\'y} web}{24}
+\contentsline {chapter}{\numberline {5}Datov\IeC {\'y} model s\IeC {\'e}mantick\IeC {\'e}ho webu}{25}
+\contentsline {chapter}{\numberline {6}N\IeC {\'a}stroje pro v\IeC {\'y}voj s\IeC {\'e}mantick\IeC {\'e}ho webu}{26}
