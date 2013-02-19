@@ -1,5 +1,9 @@
 \begin{thebibliography}{10}
 
+\bibitem{_23}
+{\em Semantic Web Tools}, http://semanticweb.org/wiki/Tools, (přístup
+  19.2.2013).
+
 \bibitem{_22}
 Gilfillan Ian.
 \newblock {\em Introduction to Relational Databases},
@@ -50,6 +54,11 @@ Openlink Software.
 Oracle.
 \newblock {\em Oracle Database Semantic Technologies Tutorial},
   http://download.oracle.com/otndocs/tech/semantic\_web/pdf/oradb\_semtech\_tutorial.pdf,
+  (přístup 19.2.2013).
+
+\bibitem{_25}
+Oracle.
+\newblock {\em Oracle Spatial}, http://www.orafaq.com/wiki/Spatial\_FAQ,
   (přístup 19.2.2013).
 
 \bibitem{_15}
