@@ -18,7 +18,10 @@
 \contentsline {subsection}{\numberline {4.1.1}D\IeC {\v e}di\IeC {\v c}nost}{21}
 \contentsline {subsection}{\numberline {4.1.2}Vztahy mezi relacemi}{21}
 \contentsline {section}{\numberline {4.2}Datov\IeC {\'y} model EEG/ERP port\IeC {\'a}lu}{22}
-\contentsline {chapter}{\numberline {5}Datov\IeC {\'y} model s\IeC {\'e}mantick\IeC {\'e}ho webu - DODELAT}{25}
-\contentsline {chapter}{\numberline {6}N\IeC {\'a}stroje pro v\IeC {\'y}voj s\IeC {\'e}mantick\IeC {\'e}ho webu}{26}
-\contentsline {section}{\numberline {6.1}Virtuoso}{26}
-\contentsline {section}{\numberline {6.2}Oracle 11g - Oracle Spatial}{27}
+\contentsline {chapter}{\numberline {5}Datov\IeC {\'y} model s\IeC {\'e}mantick\IeC {\'e}ho webu}{25}
+\contentsline {section}{\numberline {5.1}Dynami\IeC {\v c}nost modelu}{26}
+\contentsline {section}{\numberline {5.2}D\IeC {\v e}di\IeC {\v c}nost a hierarchie dat}{26}
+\contentsline {section}{\numberline {5.3}Probl\IeC {\'e}my modelu}{27}
+\contentsline {chapter}{\numberline {6}N\IeC {\'a}stroje pro v\IeC {\'y}voj s\IeC {\'e}mantick\IeC {\'e}ho webu}{28}
+\contentsline {section}{\numberline {6.1}Virtuoso}{28}
+\contentsline {section}{\numberline {6.2}Oracle 11g - Oracle Spatial}{29}

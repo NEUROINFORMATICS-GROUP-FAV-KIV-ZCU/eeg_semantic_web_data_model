@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  19 FEB 2013 23:54
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  21 FEB 2013 15:06
 entering extended mode
 **C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_m
 odel/diploma-doc/text-prace-LATEX/diplomka.tex
@@ -1072,26 +1072,59 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [24]
 Kapitola 5.
+
+Overfull \hbox (3.12611pt too wide) in paragraph at lines 375--376
+[]\T1/aer/m/n/12 (-10) Podstatný roz-díl mezi da-to-vým mo-de-lem sé-man-tic-ké
+ho webu oproti mo-delu
+ []
+
 [25
 
 ]
+Overfull \hbox (1.60764pt too wide) in paragraph at lines 381--382
+\T1/aer/m/n/12 (-10) ob-rázku 5.1. T°ída (\T1/aer/m/it/12 (-10) rdfs:Class\T1/a
+er/m/n/12 (-10) ) \T1/aer/m/it/12 (-10) Per-son \T1/aer/m/n/12 (-10) jeº de-fi-
+nuje dv¥ vlast-nosti (\T1/aer/m/it/12 (-10) rdf:Property\T1/aer/m/n/12 (-10) )
+ []
+
+<miniportal.pdf, id=232, 241.84842pt x 153.64488pt>
+File: miniportal.pdf Graphic file (type pdf)
+ <use miniportal.pdf>
+Package pdftex.def Info: miniportal.pdf used on input line 385.
+(pdftex.def)             Requested size: 386.958pt x 245.83214pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[26]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[27 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_dat
+a_model/diploma-doc/text-prace-LATEX/miniportal.pdf>]
 Kapitola 6.
 
-Overfull \hbox (0.60568pt too wide) in paragraph at lines 383--384
+Overfull \hbox (0.60568pt too wide) in paragraph at lines 400--401
  \T1/aer/m/n/12 (-10) Vir-tu-oso je hyb-ridní da-ta-bá-zový ser-ver umoº-¬u-jíc
 í práci nad více da-to-vými
  []
 
 
-Overfull \hbox (2.11708pt too wide) in paragraph at lines 385--386
+Overfull \hbox (2.11708pt too wide) in paragraph at lines 402--403
 \T1/aer/m/n/12 (-10) kom-plexní ad-mi-nis-traci a také je moºné jeho pro-st°ed-
 nic-tvím za-dá-vat li-bo-volné
  []
 
-[26
+[28
 
 ]
-Overfull \hbox (1.27493pt too wide) in paragraph at lines 389--391
+Overfull \hbox (1.27493pt too wide) in paragraph at lines 406--408
 \T1/aer/m/n/12 (-10) práci. Stan-dardní in-sta-lace Oracle 11g re-le-ase 2 (sou
 -£asná da-ta-báze EEG/ERP
  []
@@ -1102,8 +1135,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[27]
-Overfull \hbox (2.8221pt too wide) in paragraph at lines 406--408
+[29]
+Overfull \hbox (2.8221pt too wide) in paragraph at lines 423--425
 \T1/aer/m/n/12 (-10) Jena API pro Java apli-kace. Da-ta-bá-zový sys-tém pod-po-
 ruje od-vo-zo-vací pra-vi-dla
  []
@@ -1117,7 +1150,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[28]
+[30]
 Underfull \hbox (badness 2213) in paragraph at lines 4--6
 []\T1/aer/m/it/12 (+10) Semantic Web Tools\T1/aer/m/n/12 (+10) , http://semanti
 cweb.org/wiki/Tools, (p°í-stup
@@ -1177,7 +1210,7 @@ Underfull \hbox (badness 1062) in paragraph at lines 60--63
 n/12 (+10) , http://www.orafaq.com/wiki/Spatial_-FAQ,
  []
 
-[29
+[31
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 98--103
@@ -1208,14 +1241,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[30])
+[32])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[31]
+[33]
 (C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
 del\diploma-doc\text-prace-LATEX\diplomka.aux)
 
@@ -1224,11 +1257,11 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 8324 strings out of 494045
- 112283 string characters out of 3145966
- 251191 words of memory out of 3000000
- 10841 multiletter control sequences out of 15000+200000
- 84142 words of font info for 492 fonts, out of 3000000 for 9000
+ 8316 strings out of 494045
+ 112255 string characters out of 3145966
+ 250196 words of memory out of 3000000
+ 10846 multiletter control sequences out of 15000+200000
+ 82928 words of font info for 480 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  37i,12n,43p,3355b,378s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
@@ -1238,9 +1271,9 @@ rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Prog
 ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program 
 Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on diplomka.pdf (35 pages, 374773 bytes).
+Output written on diplomka.pdf (37 pages, 410343 bytes).
 PDF statistics:
- 274 PDF objects out of 1000 (max. 8388607)
+ 292 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 159775 words of extra memory for PDF output out of 184870 (max. 10000000)
+ 159780 words of extra memory for PDF output out of 184870 (max. 10000000)
 

@@ -143,4 +143,9 @@ W3C.
 \newblock {\em SPARQL Query Language for RDF},
   2008.\\http://www.w3.org/TR/rdf-sparql-query, (přístup 8.2.2013).
 
+\bibitem{_27}
+W3C.
+\newblock {\em XML Schema Part 2}, http://www.w3.org/TR/xmlschema-2/,
+  (přístup 20.2.2013).
+
 \end{thebibliography}
