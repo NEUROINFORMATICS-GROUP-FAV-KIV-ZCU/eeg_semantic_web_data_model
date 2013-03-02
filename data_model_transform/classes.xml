@@ -1,3 +1,5 @@
+<!-- Existing classes -->
+
 <class name"articles"/>
 <class name"article_comment"/>
 <class name"reservation"/>
@@ -14,7 +16,7 @@
 <class name"hardware"/>
 <class name"subject_group"/>
 <class name"project_type"/>
-<class name"removing_method"/>
+<class name"artefact_removing_method"/>
 <class name"weather"/>
 <class name"disease"/>
 <class name"artefact"/>
@@ -34,9 +36,48 @@
 <class name"stimulus_type"/>
 <class name"scenario_stimulus"/>
 
+<!-- Existing classes -->
 
+<!-- Class hierarchy -->
 
 <parent_class name="person">
   <child name="person/researcher"/>
   <child name="person/test_subject"/>
 </parent_class>
+
+<parent_class name="group">
+  <child name="research_group"/>
+  <child name="subject_group"/>
+</parent_class>
+
+<parent_class name="experiment_metadata">
+  <child name="software"/>
+  <child name="hardware"/>
+  <child name="subject_group"/>
+  <child name="project_type"/>
+  <child name="research_group"/>
+  <child name="person"/>
+  <child name="artefact_removing_method"/>
+  <child name="weather"/>
+  <child name="disease"/>
+  <child name="pharmaceutical"/>
+  <child name="digitalization"/>
+  <child name="data_file"/>
+  <child name="scenario"/>
+  <child name="electrode"/>
+</parent_class>
+
+<parent_class name="electrode">
+  <child name="electrode_configuration"/>
+  <child name="electrode_system"/>
+  <child name="electrode_location"/>
+  <child name="electrode_type"/>
+  <child name="electrode_fix"/>
+</parent_class>
+
+<parent_class name="scenario_metadata">
+  <child name="stimulus"/>
+  <child name="stimulus_type"/>
+</parent_class>
+
+<!-- Class hierarchy -->

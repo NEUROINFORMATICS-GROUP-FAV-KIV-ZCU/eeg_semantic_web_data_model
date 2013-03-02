@@ -74,7 +74,7 @@
 <property name"experiment/electrode_configuration" range="electrode_configuration" domain="experiment"/>
 <property name"experiment/digitalization" range="digitalization" domain="experiment"/>
 <property name"experiment/coexperiment_person" range="person/researcher" domain="experiment"/>
-<property name"experiment/removing_method" range="removing_method" domain="experiment"/>
+<property name"experiment/artefact_artefact_removing_method" range="artefact_removing_method" domain="experiment"/>
 <property name"experiment/disease" range="disease" domain="experiment"/>
 <property name"experiment/pharmaceutical" range="pharmaceutical" domain="experiment"/>
 <property name"experiment/project_type" range="project_type" domain="experiment"/>
@@ -99,10 +99,10 @@
 <property name"project_type/description" range="xsd:string" domain="project_type"/>
 <property name"project_type/research_group" range="research_group" domain="project_type"/>
 
-<property name"removing_method/title" range="xsd:string" domain="removing_method"/>
-<property name"removing_method/description" range="xsd:string" domain="removing_method"/>
-<property name"removing_method/is_default" range="xsd:integer" domain="removing_method"/>
-<property name"removing_method/research_group" range="research_group" domain="removing_method"/>
+<property name"artefact_removing_method/title" range="xsd:string" domain="artefact_removing_method"/>
+<property name"artefact_removing_method/description" range="xsd:string" domain="artefact_removing_method"/>
+<property name"artefact_removing_method/is_default" range="xsd:integer" domain="artefact_removing_method"/>
+<property name"artefact_removing_method/research_group" range="research_group" domain="artefact_removing_method"/>
 
 <property name"weather/title" range="xsd:string" domain="weather"/>
 <property name"weather/description" range="xsd:string" domain="weather"/>
@@ -189,10 +189,6 @@
 <property name"scenario_stimulus/stimulus_type" range="stimulus_type" domain="scenario_stimulus"/>
 
 <!-- Stimulus -->
-
-
-
-
 
 
 
