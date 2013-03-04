@@ -6,6 +6,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import org.apache.log4j.Logger;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
@@ -27,6 +28,7 @@ public class DataLoader {
     private final String RANGE_ATTRIBUTE = "range";
     private final String DOMAIN_ATTRIBUTE = "domain";
 
+    private static final Logger logger = Logger.getLogger(DataLoader.class);
 
     File xmlFile;
     List<ClassDataItem> classes;
@@ -50,7 +52,7 @@ public class DataLoader {
             rootTreeIterate(rootNode);
 
         } catch (DocumentException ex) {
-            //Logger.getLogger(DataLoader.class.getName()).log(Level.SEVERE, null, ex);
+            logger.error("Document loading error:", ex);
             return false;
         }
 

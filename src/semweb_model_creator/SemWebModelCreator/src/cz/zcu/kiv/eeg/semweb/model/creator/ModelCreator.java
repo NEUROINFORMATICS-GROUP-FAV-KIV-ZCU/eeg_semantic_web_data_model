@@ -9,10 +9,10 @@ import cz.zcu.kiv.eeg.semweb.model.creator.data.ClassDataItem;
 import cz.zcu.kiv.eeg.semweb.model.creator.data.PropertyDataItem;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Map;
 import oracle.spatial.rdf.client.jena.ModelOracleSem;
 import oracle.spatial.rdf.client.jena.Oracle;
 import oracle.spatial.rdf.client.jena.OracleUtils;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -27,12 +27,14 @@ public class ModelCreator {
     private String prefixURI;
     private OntModel jenaModel;
 
+    private static final Logger logger = Logger.getLogger(ModelCreator.class);
+
     public boolean connect(String dbUrl, String username, String password) {
 
         try {
             oracleConnection = new Oracle(dbUrl, username, password);
         }catch (Exception ex) {
-
+            logger.error("Connecting error:", ex);
             return false;
         }
         return true;
@@ -45,7 +47,7 @@ public class ModelCreator {
             }
             oracleConnection.dispose();
         } catch (SQLException ex) {
-            // Logger.getLogger(ModelCreator.class.getName()).log(Level.SEVERE, null, ex);
+             logger.error("Disconnecting error:", ex);
             return false;
         }
         return true;
@@ -65,7 +67,7 @@ public class ModelCreator {
             oracleModel.add(jenaModel, true);
 
         } catch (Exception ex) {
-            // Logger.getLogger(ModelCreator.class.getName()).log(Level.SEVERE, null, ex);
+            logger.error("Model creating error:", ex);
             return false;
         }
         return true;
@@ -75,7 +77,7 @@ public class ModelCreator {
         try {
             OracleUtils.dropSemanticModel(oracleConnection, modelName);
         } catch (SQLException ex) {
-            // Logger.getLogger(ModelCreator.class.getName()).log(Level.SEVERE, null, ex);
+            logger.error("Removing model error:", ex);
             return false;
         }
         return true;

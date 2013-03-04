@@ -3,8 +3,8 @@ package cz.zcu.kiv.eeg.semweb.model.creator;
 import cz.zcu.kiv.eeg.semweb.model.creator.data.ClassDataItem;
 import cz.zcu.kiv.eeg.semweb.model.creator.data.PropertyDataItem;
 import java.io.File;
-import java.util.Iterator;
 import java.util.List;
+import org.apache.log4j.Logger;
 import org.dom4j.DocumentException;
 
 /**
@@ -12,6 +12,8 @@ import org.dom4j.DocumentException;
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
 public class Main {
+
+    private static final Logger logger = Logger.getLogger(Main.class);
 
     /**
      * @param args the command line arguments
@@ -23,25 +25,27 @@ public class Main {
         String szPasswd  = "JPERGLER";
         String szModelName = "modelik";
 
+        boolean operationRes;
+
+        logger.info("Loading XML file");
         DataLoader load = new DataLoader(new File("portalModel.xml"));
 
-        System.out.println(load.loadData());
+        operationRes = load.loadData();
+        logger.info("Data loaded successfull: " + operationRes);
 
         List<ClassDataItem> classes = load.getClasses();
         List<PropertyDataItem> properties = load.getProperties();
 
         ModelCreator cr = new ModelCreator();
 
-        System.out.println(cr.connect(szJdbcURL, szUser, szPasswd));
-        System.out.println(cr.createModel(szModelName, "http://cz.zcu.kiv.eeg#", classes, properties));
+        operationRes = cr.connect(szJdbcURL, szUser, szPasswd);
+        logger.info("Database connect successfull: " + operationRes);
+
+        operationRes = cr.createModel(szModelName, "http://cz.zcu.kiv.eeg#", classes, properties);
+        logger.info("SemWeb model created successfull: " + operationRes);
+
         //System.out.println(cr.removeModel(szModelName));
-        System.out.println(cr.disconnect());
-
-
-        
-        
-
-
+        cr.disconnect();
 
     }
 
