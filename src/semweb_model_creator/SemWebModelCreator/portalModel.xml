@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Existing classes -->
+
+<model>
+<!-- Existing classes -->
+
+    <class name="articles"/>
+    <class name="article_comment"/>
+    <class name="reservation"/>
+
+    <class name="person"/>
+    <class name="person/researcher"/>
+    <class name="person/test_subject"/>
+
+    <class name="education_level"/>
+    <class name="research_group"/>
+    <class name="history"/>
+    <class name="experiment"/>
+    <class name="software"/>
+    <class name="hardware"/>
+    <class name="subject_group"/>
+    <class name="project_type"/>
+    <class name="artefact_removing_method"/>
+    <class name="weather"/>
+    <class name="disease"/>
+    <class name="artefact"/>
+    <class name="pharmaceutical"/>
+    <class name="digitization"/>
+    <class name="analysis"/>
+    <class name="data_file"/>
+    <class name="scenario"/>
+
+    <class name="electrode_configuration"/>
+    <class name="electrode_system"/>
+    <class name="electrode_location"/>
+    <class name="electrode_type"/>
+    <class name="electrode_fix"/>
+
+    <class name="stimulus"/>
+    <class name="stimulus_type"/>
+    <class name="scenario_stimulus"/>
+
+<!-- Existing classes -->
+
+<!-- Class hierarchy -->
+
+    <parent_class name="person">
+        <child name="person/researcher"/>
+        <child name="person/test_subject"/>
+    </parent_class>
+
+    <parent_class name="group">
+        <child name="research_group"/>
+        <child name="subject_group"/>
+    </parent_class>
+
+    <parent_class name="experiment_metadata">
+        <child name="software"/>
+        <child name="hardware"/>
+        <child name="subject_group"/>
+        <child name="project_type"/>
+        <child name="research_group"/>
+        <child name="person"/>
+        <child name="artefact_removing_method"/>
+        <child name="weather"/>
+        <child name="disease"/>
+        <child name="pharmaceutical"/>
+        <child name="digitalization"/>
+        <child name="data_file"/>
+        <child name="scenario"/>
+        <child name="electrode"/>
+    </parent_class>
+
+    <parent_class name="electrode">
+        <child name="electrode_configuration"/>
+        <child name="electrode_system"/>
+        <child name="electrode_location"/>
+        <child name="electrode_type"/>
+        <child name="electrode_fix"/>
+    </parent_class>
+
+    <parent_class name="scenario_metadata">
+        <child name="stimulus"/>
+        <child name="stimulus_type"/>
+    </parent_class>
+
+<!-- Class hierarchy -->
+    <property name="article/author" range="person" domain="article"/>
+    <property name="article/research_group" range="research_group" domain="article"/>
+    <property name="article/title" range="xsd:string" domain="article"/>
+    <property name="article/time" range="xsd:dateTime" domain="article"/>
+    <property name="article/subscription" range="person" domain="article"/>
+
+    <property name="article_comment/article" range="article" domain="article_comment"/>
+    <property name="article_comment/parent_comment" range="article_comment" domain="article_comment"/>
+    <property name="article_comment/time" range="xsd:dateTime" domain="article_comment"/>
+    <property name="article_comment/person" range="person" domain="article_comment"/>
+
+    <property name="reservation/person" range="person" domain="reservation"/>
+    <property name="reservation/creation_time" range="xsd:dateTime" domain="reservation"/>
+    <property name="reservation/research_group" range="research_group" domain="reservation"/>
+    <property name="reservation/start_time" range="xsd:dateTime" domain="reservation"/>
+    <property name="reservation/end_time" range="xsd:dateTime" domain="reservation"/>
+
+
+<!-- PERSON -->
+
+    <property name="person/given_name=" range="xsd:string" domain="person"/>
+    <property name="person/surname=" range="xsd:string" domain="person"/>
+    <property name="person/date_birth" range="xsd:date" domain="person"/>
+    <property name="person/email" range="xsd:string" domain="person"/>
+    <property name="person/phone_number" range="xsd:integer" domain="person"/>
+    <property name="person/note" range="xsd:string" domain="person"/>
+    <property name="person/education_level" range="education_level" domain="person"/>
+
+    <property name="person/researcher/username=" range="xsd:string" domain="person/researcher"/>
+    <property name="person/researcher/password" range="xsd:string" domain="person/researcher"/>
+    <property name="person/researcher/authority" range="xsd:string" domain="person/researcher"/>
+    <property name="person/researcher/default_group" range="research_group" domain="person/researcher"/>
+    <property name="person/researcher/registration_date" range="xsd:date" domain="person/researcher"/>
+    <property name="person/researcher/confirmed" range="xsd:integer" domain="person/researcher"/>
+    <property name="person/researcher/authentication" range="xsd:string" domain="person/researcher"/>
+    <property name="person/researcher/facebook_id" range="xsd:integer" domain="person/researcher"/>
+    <property name="person/researcher/article_group_subscription" range="research_group" domain="person/researcher"/>
+    <property name="person/researcher/group_member" range="research_group" domain="person/researcher"/>
+    <property name="person/researcher/group_member_admin" range="research_group" domain="person/researcher"/>
+    <property name="person/researcher/group_member_experimenter" range="research_group" domain="person/researcher"/>
+    <property name="person/researcher/group_member_reader" range="research_group" domain="person/researcher"/>
+
+    <property name="person/test_subject/gender" range="xsd:string" domain="person/test_subject"/>
+    <property name="person/test_subject/laterality" range="xsd:string" domain="person/test_subject"/>
+
+ <!-- PERSON -->
+
+    <property name="education_level/title" range="xsd:string" domain="education_level"/>
+    <property name="education_level/is_default" range="xsd:string" domain="education_level"/>
+    <property name="education_level/research_group" range="research_group" domain="education_level"/>
+
+    <property name="research_group/owner" range="person" domain="research_group"/>
+    <property name="research_group/title" range="xsd:string" domain="research_group"/>
+    <property name="research_group/description" range="xsd:string" domain="research_group"/>
+
+    <property name="history/experiment" range="experiment" domain="history"/>
+    <property name="history/scenario" range="scenario" domain="history"/>
+    <property name="history/person" range="person" domain="history"/>
+    <property name="history/date_of_download" range="xsd:dateTime" domain="history"/>
+    <property name="history/data_file" range="date_file" domain="history"/>
+
+    <property name="experiment/scenario" range="scenario" domain="experiment"/>
+    <property name="experiment/start_time" range="xsd:dateTime" domain="experiment"/>
+    <property name="experiment/end_time" range="xsd:dateTime" domain="experiment"/>
+    <property name="experiment/temperature" range="xsd:integer" domain="experiment"/>
+    <property name="experiment/environment_note" range="xsd:string" domain="experiment"/>
+    <property name="experiment/subject_person" range="person/test_subject" domain="experiment"/>
+    <property name="experiment/weather" range="weather" domain="experiment"/>
+    <property name="experiment/owner_person" range="person/researcher" domain="experiment"/>
+    <property name="experiment/research_group" range="research_group" domain="experiment"/>
+    <property name="experiment/private" range="xsd:integer" domain="experiment"/>
+    <property name="experiment/artefact" range="artefact" domain="experiment"/>
+    <property name="experiment/subject_group" range="subject_group" domain="experiment"/>
+    <property name="experiment/electrode_configuration" range="electrode_configuration" domain="experiment"/>
+    <property name="experiment/digitalization" range="digitalization" domain="experiment"/>
+    <property name="experiment/coexperiment_person" range="person/researcher" domain="experiment"/>
+    <property name="experiment/artefact_artefact_removing_method" range="artefact_removing_method" domain="experiment"/>
+    <property name="experiment/disease" range="disease" domain="experiment"/>
+    <property name="experiment/pharmaceutical" range="pharmaceutical" domain="experiment"/>
+    <property name="experiment/project_type" range="project_type" domain="experiment"/>
+    <property name="experiment/hardware" range="hardware" domain="experiment"/>
+    <property name="experiment/software" range="software" domain="experiment"/>
+
+    <property name="software/title" range="xsd:string" domain="software"/>
+    <property name="software/description" range="xsd:string" domain="software"/>
+    <property name="software/is_default" range="xsd:integer" domain="software"/>
+    <property name="software/research_group" range="research_group" domain="software"/>
+
+    <property name="hardware/title" range="xsd:string" domain="hardware"/>
+    <property name="hardware/type" range="xsd:string" domain="hardware"/>
+    <property name="hardware/description" range="xsd:string" domain="hardware"/>
+    <property name="hardware/is_default" range="xsd:integer" domain="hardware"/>
+    <property name="hardware/research_group" range="research_group" domain="hardware"/>
+
+    <property name="subject_group/title" range="xsd:string" domaint="subject"/>
+    <property name="subject_group/description" range="xsd:string" domain="subject"/>
+
+    <property name="project_type/title" range="xsd:string" domain="project_type"/>
+    <property name="project_type/description" range="xsd:string" domain="project_type"/>
+    <property name="project_type/research_group" range="research_group" domain="project_type"/>
+
+    <property name="artefact_removing_method/title" range="xsd:string" domain="artefact_removing_method"/>
+    <property name="artefact_removing_method/description" range="xsd:string" domain="artefact_removing_method"/>
+    <property name="artefact_removing_method/is_default" range="xsd:integer" domain="artefact_removing_method"/>
+    <property name="artefact_removing_method/research_group" range="research_group" domain="artefact_removing_method"/>
+
+    <property name="weather/title" range="xsd:string" domain="weather"/>
+    <property name="weather/description" range="xsd:string" domain="weather"/>
+    <property name="weather/is_default" range="xsd:integer" domain="weather"/>
+    <property name="weather/research_group" range="research_group" domain="weather"/>
+
+    <property name="disease/title" range="xsd:string" domain="disease"/>
+    <property name="disease/description" range="xsd:string" domain="disease"/>
+    <property name="disease/research_group" range="research_group" domain="disease"/>
+
+    <property name="artefact/compensation" range="xsd:string" domain="artefact"/>
+    <property name="artefact/reject_condition" range="xsd:string" domain="artefact"/>
+    <property name="artefact/research_group" range="research_group" domain="artefact"/>
+
+    <property name="pharmaceutical/title" range="xsd:string" domain="pharmaceutical"/>
+    <property name="pharmaceutical/description" range="xsd:string" domain="pharmaceutical"/>
+    <property name="pharmaceutical/research_group" range="research_group" domain="pharmaceutical"/>
+
+    <property name="digitization/gain" range="xsd:float" domain="digitization"/>
+    <property name="digitization/filter" range="xsd:string" domain="digitization"/>
+    <property name="digitization/sampling_rate" range="xsd:float" domain="digitization"/>
+    <property name="digitization/research_group" range="research_group" domain="digitization"/>
+
+    <property name="analysis/epochs_number" range="xsd:integer" domain="analysis"/>
+    <property name="analysis/prestimulus_time" range="xsd:integer" domain="analysis"/>
+    <property name="analysis/poststimulus_time" range="xsd:integer" domain="analysis"/>
+    <property name="analysis/description" range="xsd:string" domain="analysis"/>
+    <property name="analysis/research_group" range="research_group" domain="analysis"/>
+
+    <property name="data_file/experiment" range="experiment" domain="data_file"/>
+    <property name="data_file/mimetype" range="xsd:string" domain="data_file"/>
+    <property name="data_file/filename=" range="xsd:string" domain="data_file"/>
+    <property name="data_file/description" range="xsd:string" domain="data_file"/>
+    <property name="data_file/analysis" range="analysis" domain="data_file"/>
+
+    <property name="scenario/title" range="xsd:string" domain="scenario"/>
+    <property name="scenario/scenario_length" range="xsd:integer" domain="scenario"/>
+    <property name="scenario/description" range="xsd:string" domain="scenario"/>
+    <property name="scenario/owner" range="person/researcher" domain="scenario"/>
+    <property name="scenario/research_group" range="research_group" domain="scenario"/>
+    <property name="scenario/private" range="xsd:integer" domain="scenario"/>
+    <property name="scenario/scenario_name=" range="xsd:string" domain="scenario"/>
+    <property name="scenario/mimetype" range="xsd:string" domain="scenario"/>
+
+
+<!-- Electrodes -->
+    <property name="electrode_configuration/impedance" range="xsd:integer" domain="electrode_configuration"/>
+    <property name="electrode_configuration/electrode_system" range="electrode_system" domain="electrode_configuration"/>
+    <property name="electrode_configuration/descript_data_file" range="data_file" domain="electrode_configuration"/>
+    <property name="electrode_configuration/electrode_location" range="electrode_location" domain="electrode_configuration"/>
+
+    <property name="electrode_system/title" range="xsd:string" domain="electrode_system"/>
+    <property name="electrode_system/description" range="xsd:string" domain="electrode_system"/>
+    <property name="electrode_system/is_default" range="xsd:integer" domain="electrode_system"/>
+    <property name="electrode_system/research_group" range="xsd:integer" domain="electrode_system"/>
+
+    <property name="electrode_location/title" range="xsd:string" domain="electrode_location"/>
+    <property name="electrode_location/shortcut" range="xsd:string" domain="electrode_location"/>
+    <property name="electrode_location/description" range="xsd:string" domain="electrode_location"/>
+    <property name="electrode_location/is_deafult" range="xsd:integer" domain="electrode_location"/>
+    <property name="electrode_location/electrode_fix" range="electrode_fix" domain="electrode_location"/>
+    <property name="electrode_location/electrode_type" range="electrode_type" domain="electrode_location"/>
+    <property name="electrode_location/research_group" range="research_group" domain="electrode_location"/>
+
+    <property name="electrode_type/title" range="xsd:string" domain="electrode_type"/>
+    <property name="electrode_type/description" range="xsd:string" domain="electrode_type"/>
+    <property name="electrode_type/is_default" range="xsd:integer" domain="electrode_type"/>
+    <property name="electrode_type/research_group" range="research_group" domain="electrode_type"/>
+
+    <property name="electrode_fix/title" range="xsd:string" domain="electrode_fix"/>
+    <property name="electrode_fix/description" range="xsd:string" domain="electrode_fix"/>
+    <property name="electrode_fix/is_default" range="xsd:integer" domain="electrode_fix"/>
+    <property name="electrode_fix/research_group" range="research_group" domain="electrode_fix"/>
+<!-- Electrodes -->
+
+<!-- Stimulus -->
+    <property name="stimulus/description" range="xsd:string" domain="stimulus"/>
+
+    <property name="stimulus_type/description" range="xsd:string" domain="stimulus_type"/>
+    <property name="stimulus_type/is_default" range="xsd:integer" domain="stimulus_type"/>
+    <property name="stimulus_type/research_group" range="research_group" domain="stimulus_type"/>
+
+    <property name="scenario_stimulus/stimulus" range="stimulus" domain="scenario_stimulus"/>
+    <property name="scenario_stimulus/stimulus_type" range="stimulus_type" domain="scenario_stimulus"/>
+
+<!-- Stimulus -->
+
+
+
+<!-- Inheritance -->
+
+    <parent_property name="person/researcher/group_member">
+        <child name="person/researcher/group_member_admin"/>
+        <child name="person/researcher/group_member_experimenter"/>
+        <child name="person/researcher/group_member_reader"/>
+    </parent_property>
+
+    <parent_property name="article_property">
+        <child name="article/author" range="person" domain="article"/>
+        <child name="article/research_group" range="research_group" domain="article"/>
+        <child name="article/title" range="xsd:string" domain="article"/>
+        <child name="article/time" range="xsd:dateTime" domain="article"/>
+        <child name="article/subscription" range="person" domain="article"/>
+    </parent_property>
+
+    <parent_property name="article_comment_property">
+        <child name="article_comment/article"/>
+        <child name="article_comment/parent_comment"/>
+        <child name="article_comment/time"/>
+        <child name="article_comment/person"/>
+    </parent_property>
+
+    <parent_property name="reservation_property">
+        <child name="reservation/person"/>
+        <child name="reservation/creation_time"/>
+        <child name="reservation/research_group"/>
+        <child name="reservation/start_time"/>
+        <child name="reservation/end_time"/>
+    </parent_property>
+
+    <parent_property name="person_property">
+        <child name="person/given_name="/>
+        <child name="person/surname="/>
+        <child name="person/date_birth"/>
+        <child name="person/email"/>
+        <child name="person/phone_number"/>
+        <child name="person/note"/>
+        <child name="person/education_level"/>
+        <child name="person/researcher_property"/>
+        <child name="person/test_subject_property"/>
+    </parent_property>
+
+    <parent_property name="person/researcher_property">
+        <child name="person/researcher/username"/>
+        <child name="person/researcher/password"/>
+        <child name="person/researcher/authority"/>
+        <child name="person/researcher/default_group"/>
+        <child name="person/researcher/registration_date"/>
+        <child name="person/researcher/confirmed"/>
+        <child name="person/researcher/authentication"/>
+        <child name="person/researcher/facebook_id"/>
+        <child name="person/researcher/article_group_subscription"/>
+        <child name="person/researcher/group_member"/>
+        <child name="person/researcher/group_member_admin"/>
+        <child name="person/researcher/group_member_experimenter"/>
+        <child name="person/researcher/group_member_reader"/>
+    </parent_property>
+
+    <parent_property name="person/test_subject_property">
+        <child name="person/test_subject/gender"/>
+        <child name="person/test_subject/laterality"/>
+    </parent_property>
+
+    <parent_property name="education_level_property">
+        <child name="education_level/title"/>
+        <child name="education_level/is_default"/>
+        <child name="education_level/research_group"/>
+    </parent_property>
+
+    <parent_property name="research_group_property">
+        <child name="research_group/owner"/>
+        <child name="research_group/title"/>
+        <child name="research_group/description"/>
+    </parent_property>
+
+    <parent_property name="history_property">
+        <child name="history/experiment"/>
+        <child name="history/scenario"/>
+        <child name="history/person"/>
+        <child name="history/date_of_download"/>
+        <child name="history/data_file"/>
+    </parent_property>
+
+    <parent_property name="experiment_property">
+        <child name="experiment/scenario"/>
+        <child name="experiment/start_time"/>
+        <child name="experiment/end_time"/>
+        <child name="experiment/temperature"/>
+        <child name="experiment/environment_note"/>
+        <child name="experiment/subject_person"/>
+        <child name="experiment/weather"/>
+        <child name="experiment/owner_person"/>
+        <child name="experiment/research_group"/>
+        <child name="experiment/private"/>
+        <child name="experiment/artefact"/>
+        <child name="experiment/subject_group"/>
+        <child name="experiment/electrode_configuration"/>
+        <child name="experiment/digitalization"/>
+        <child name="experiment/coexperiment_person"/>
+        <child name="experiment/artefact_artefact_removing_method"/>
+        <child name="experiment/disease"/>
+        <child name="experiment/pharmaceutical"/>
+        <child name="experiment/project_type"/>
+        <child name="experiment/hardware"/>
+        <child name="experiment/software"/>
+    </parent_property>
+
+    <parent_property name="software_property">
+        <child name="software/title"/>
+        <child name="software/description"/>
+        <child name="software/is_default"/>
+        <child name="software/research_group"/>
+    </parent_property>
+
+    <parent_property name="hardware_property">
+        <child name="hardware/title"/>
+        <child name="hardware/type"/>
+        <child name="hardware/description"/>
+        <child name="hardware/is_default"/>
+        <child name="hardware/research_group"/>
+    </parent_property>
+
+    <parent_property name="subject_group_property">
+        <child name="subject_group/title"/>
+        <child name="subject_group/description"/>
+    </parent_property>
+
+    <parent_property name="project_type_property">
+        <child name="project_type/title"/>
+        <child name="project_type/description"/>
+        <child name="project_type/research_group"/>
+    </parent_property>
+
+    <parent_property name="artefact_removing_method_property">
+        <child name="artefact_removing_method/title"/>
+        <child name="artefact_removing_method/description"/>
+        <child name="artefact_removing_method/is_default"/>
+        <child name="artefact_removing_method/research_group"/>
+    </parent_property>
+
+    <parent_property name="weather_property">
+        <child name="weather/title"/>
+        <child name="weather/description"/>
+        <child name="weather/is_default"/>
+        <child name="weather/research_group"/>
+    </parent_property>
+
+    <parent_property name="disease_property">
+        <child name="disease/title"/>
+        <child name="disease/description"/>
+        <child name="disease/research_group"/>
+    </parent_property>
+
+    <parent_property name="artefact_property">
+        <child name="artefact/compensation"/>
+        <child name="artefact/reject_condition"/>
+        <child name="artefact/research_group"/>
+    </parent_property>
+
+    <parent_property name="pharmaceutical_property">
+        <child name="pharmaceutical/title"/>
+        <child name="pharmaceutical/description"/>
+        <child name="pharmaceutical/research_group"/>
+    </parent_property>
+
+    <parent_property name="digitization_property">
+        <child name="digitization/gain"/>
+        <child name="digitization/filter"/>
+        <child name="digitization/sampling_rate"/>
+        <child name="digitization/research_group"/>
+    </parent_property>
+
+    <parent_property name="analysis_property">
+        <child name="analysis/epochs_number"/>
+        <child name="analysis/prestimulus_time"/>
+        <child name="analysis/poststimulus_time"/>
+        <child name="analysis/description"/>
+        <child name="analysis/research_group"/>
+    </parent_property>
+
+    <parent_property name="data_file_property">
+        <child name="data_file/experiment"/>
+        <child name="data_file/mimetype"/>
+        <child name="data_file/filename="/>
+        <child name="data_file/description"/>
+        <child name="data_file/analysis"/>
+    </parent_property>
+
+    <parent_property name="scenario_property">
+        <child name="scenario/title"/>
+        <child name="scenario/scenario_length"/>
+        <child name="scenario/description"/>
+        <child name="scenario/owner"/>
+        <child name="scenario/research_group"/>
+        <child name="scenario/private"/>
+        <child name="scenario/scenario_name="/>
+        <child name="scenario/mimetype"/>
+    </parent_property>
+
+    <parent_property name="electrode_configuration_property">
+        <child name="electrode_configuration/impedance"/>
+        <child name="electrode_configuration/electrode_system"/>
+        <child name="electrode_configuration/descript_data_file"/>
+        <child name="electrode_configuration/electrode_location"/>
+    </parent_property>
+
+    <parent_property name="electrode_system_property">
+        <child name="electrode_system/title"/>
+        <child name="electrode_system/description"/>
+        <child name="electrode_system/is_default"/>
+        <child name="electrode_system/research_group"/>
+    </parent_property>
+
+    <parent_property name="electrode_location_property">
+        <child name="electrode_location/title"/>
+        <child name="electrode_location/shortcut"/>
+        <child name="electrode_location/description"/>
+        <child name="electrode_location/is_deafult"/>
+        <child name="electrode_location/electrode_fix"/>
+        <child name="electrode_location/electrode_type"/>
+        <child name="electrode_location/research_group"/>
+    </parent_property>
+
+    <parent_property name="electrode_type_property">
+        <child name="electrode_type/title"/>
+        <child name="electrode_type/description"/>
+        <child name="electrode_type/is_default"/>
+        <child name="electrode_type/research_group"/>
+    </parent_property>
+
+    <parent_property name="electrode_fix_property">
+        <child name="electrode_fix/title"/>
+        <child name="electrode_fix/description"/>
+        <child name="electrode_fix/is_default"/>
+        <child name="electrode_fix/research_group"/>
+    </parent_property>
+
+    <parent_property name="stimulus_property">
+        <child name="stimulus/description"/>
+    </parent_property>
+
+    <parent_property name="stimulus_type_property">
+        <child name="stimulus_type/description"/>
+        <child name="stimulus_type/is_default"/>
+        <child name="stimulus_type/research_group"/>
+    </parent_property>
+
+    <parent_property name="scenario_stimulus_property">
+        <child name="scenario_stimulus/stimulus"/>
+        <child name="scenario_stimulus/stimulus_type"/>
+    </parent_property>
+
+
+<!-- Top level property inheritance -->
+
+    <parent_property name="electrode_property">
+        <child name="electrode_configuration_property"/>
+        <child name="electrode_system_property"/>
+        <child name="electrode_location_property"/>
+        <child name="electrode_type_property"/>
+        <child name="electrode_fix_property"/>
+    </parent_property>
+
+    <parent_property name="scenario_metadata">
+        <child name="stimulus_property"/>
+        <child name="stimulus_type_property"/>
+    </parent_property>
+
+    <parent_property name="group_property">
+        <child name="research_group_property"/>
+        <child name="subject_group_property"/>
+    </parent_property>
+
+    <parent_property name="experiment_metadata_property">
+        <child name="software_property"/>
+        <child name="hardware_property"/>
+        <child name="subject_group_property"/>
+        <child name="project_type_property"/>
+        <child name="research_group_property"/>
+        <child name="person_property"/>
+        <child name="artefact_removing_method_property"/>
+        <child name="weather_property"/>
+        <child name="disease_property"/>
+        <child name="pharmaceutical_property"/>
+        <child name="digitization_property"/>
+        <child name="data_file_property"/>
+        <child name="scenario_property"/>
+        <child name="electrode_property"/>
+    </parent_property>
+
+
+</model>

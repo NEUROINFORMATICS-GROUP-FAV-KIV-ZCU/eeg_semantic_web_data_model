@@ -1,5 +1,8 @@
 package cz.zcu.kiv.eeg.semweb.model.creator.data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
@@ -8,23 +11,27 @@ public class PropertyDataItem extends DataItem{
 
     private String range;
     private String domain;
-    private boolean parent;
+    private List<PropertyDataItem> childNodes;
 
     public PropertyDataItem(String name, String range, String domain) {
         super(name);
+        childNodes = new ArrayList<PropertyDataItem>();
         this.range = range;
         this.domain = domain;
-        parent = false;
     }
 
-    @Override
     public void addChildNode(String name) {
         childNodes.add(new PropertyDataItem(name));
+        hasChildNodes = true;
+    }
+
+    public List<PropertyDataItem> getChildNodes() {
+        return this.childNodes;
     }
 
     public PropertyDataItem(String name) {
         super(name);
-        parent = true;
+        childNodes = new ArrayList<PropertyDataItem>();
     }
 
     public String getDomain() {

@@ -10,21 +10,18 @@ import java.util.List;
 public abstract class DataItem {
 
     private String nodeName;
-    protected List<DataItem> childNodes;
+    protected boolean hasChildNodes;
 
     public DataItem(String name) {
-        childNodes = new ArrayList<DataItem>();
         this.nodeName = name;
-    }
-
-    public void addChildNode(String name) {
+        hasChildNodes = false;
     }
 
     public String getName() {
         return this.nodeName;
     }
 
-    public List<DataItem> getChildNodes() {
-        return this.childNodes;
+    public boolean hasChildNodes() {
+        return hasChildNodes;
     }
 }
