@@ -23,8 +23,6 @@ public class Main {
         String szPasswd  = "JPERGLER";
         String szModelName = "modelik";
 
-
-
         DataLoader load = new DataLoader(new File("portalModel.xml"));
 
         System.out.println(load.loadData());
