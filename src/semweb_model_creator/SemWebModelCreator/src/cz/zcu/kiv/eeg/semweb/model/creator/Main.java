@@ -46,8 +46,8 @@ public class Main {
 
 
 
-        operationRes = cr.createModel(szModelName, "http://cz.zcu.kiv.eeg#", "EEG_", classes, properties, tables);
-        logger.info("SemWeb model created successfull: " + operationRes);
+        //operationRes = cr.createModel(szModelName, "http://cz.zcu.kiv.eeg#", "EEG_", classes, properties, tables);
+        //logger.info("SemWeb model created successfull: " + operationRes);
 
         SimpleDataCreator sdc = new SimpleDataCreator();
         cr.insertData(szModelName, "http://cz.zcu.kiv.eeg#", sdc.getData());

@@ -16,7 +16,6 @@ public class SimpleDataCreator {
         generateSimpleData();
     }
 
-
     public List<Triple> getData() {
 
         return testData;
@@ -24,44 +23,44 @@ public class SimpleDataCreator {
 
     private void generateSimpleData() {
 
-        int number = 0;
+        for (int number = 0; number < 10; number++) {
+            testData.addAll(createAnalysis(number));
+            testData.addAll(createArtefact(number));
+            testData.addAll(createArtefactRemMeth(number));
+            testData.addAll(createArticle(number));
+            testData.addAll(createArticleComment(number));
+            testData.addAll(createDataFile(number));
+            testData.addAll(createDigitization(number));
+            testData.addAll(createDisease(number));
+            testData.addAll(createEducationLevel(number));
+            testData.addAll(createElectrodeConfiguration(number));
+            testData.addAll(createElectrodeFix(number));
+            testData.addAll(createElectrodeLocation(number));
+            testData.addAll(createElectrodeSystem(number));
+            testData.addAll(createElectrodeType(number));
+            testData.addAll(createExperiment(number));
 
+            testData.addAll(createHardware(number));
+            testData.addAll(createHistory(number));
+            testData.addAll(createPersonResearcher(number));
+            testData.addAll(createPersonTestSubject(number));
+            testData.addAll(createPharmaceutical(number));
+            testData.addAll(createProjectType(number));
+            testData.addAll(createResearchGroup(number));
+            testData.addAll(createReservation(number));
+            testData.addAll(createScenario(number));
+            testData.addAll(createSoftware(number));
+            testData.addAll(createStimulus(number));
+            testData.addAll(createSubjectGroup(number));
+            testData.addAll(createWeather(number));
 
-        testData.addAll(createAnalysis(number));
-        testData.addAll(createArtefact(number));
-        testData.addAll(createArtefactRemMeth(number));
-        testData.addAll(createArticle(number));
-        testData.addAll(createArticleComment(number));
-        testData.addAll(createDataFile(number));
-        testData.addAll(createDigitization(number));
-        testData.addAll(createDisease(number));
-        testData.addAll(createEducationLevel(number));
-        testData.addAll(createElectrodeConfiguration(number));
-        testData.addAll(createElectrodeFix(number));
-        testData.addAll(createElectrodeLocation(number));
-        testData.addAll(createElectrodeSystem(number));
-        testData.addAll(createElectrodeType(number));
-        testData.addAll(createExperiment(number));
+        }
 
-        testData.addAll(createHardware(number));
-        testData.addAll(createHistory(number));
-        testData.addAll(createPersonResearcher(number));
-        testData.addAll(createPersonTestSubject(number));
-        testData.addAll(createPharmaceutical(number));
-        testData.addAll(createProjectType(number));
-        testData.addAll(createResearchGroup(number));
-        testData.addAll(createReservation(number));
-        testData.addAll(createScenario(number));
-        testData.addAll(createSoftware(number));
-        testData.addAll(createStimulus(number));
-        testData.addAll(createSubjectGroup(number));
-        testData.addAll(createWeather(number));
 
 
 
 
     }
-
 
     private List<Triple> createArticle(int number) {
 
@@ -92,7 +91,7 @@ public class SimpleDataCreator {
 
         List<Triple> reservationTriples = new ArrayList<Triple>();
 
-        reservationTriples.add(new Triple("reservation/instance" + number, "reservation/person", "person/instance" + number));
+        reservationTriples.add(new Triple("reservation/instance" + number, "reservation/person", "person/researcher/instance" + number));
         reservationTriples.add(new Triple("reservation/instance" + number, "reservation/creation_time", "2001-10-26T21:32:52"));
         reservationTriples.add(new Triple("reservation/instance" + number, "reservation/research_group", "research_group/instance" + number));
         reservationTriples.add(new Triple("reservation/instance" + number, "reservation/start_time", "2001-10-26T21:32:52"));
@@ -111,7 +110,7 @@ public class SimpleDataCreator {
         researcherTriples.add(new Triple("person/researcher/instance" + number, "person/email", "email" + number));
         researcherTriples.add(new Triple("person/researcher/instance" + number, "person/phone_number", "1234" + number));
         researcherTriples.add(new Triple("person/researcher/instance" + number, "person/note", "Note" + number));
-        researcherTriples.add(new Triple("person/researcher/instance" + number, "person/education_level", "educationLevel/instance" + number));
+        researcherTriples.add(new Triple("person/researcher/instance" + number, "person/education_level", "education_level/instance" + number));
 
         researcherTriples.add(new Triple("person/researcher/instance" + number, "person/researcher/username", "userName" + number));
         researcherTriples.add(new Triple("person/researcher/instance" + number, "person/researcher/password", "password" + number));
@@ -140,7 +139,7 @@ public class SimpleDataCreator {
         tetsSubjectTriples.add(new Triple("person/test_subject/instance" + number, "person/email", "email" + number));
         tetsSubjectTriples.add(new Triple("person/test_subject/instance" + number, "person/phone_number", "1234" + number));
         tetsSubjectTriples.add(new Triple("person/test_subject/instance" + number, "person/note", "Note" + number));
-        tetsSubjectTriples.add(new Triple("person/test_subject/instance" + number, "person/education_level", "educationLevel/instance" + number));
+        tetsSubjectTriples.add(new Triple("person/test_subject/instance" + number, "person/education_level", "education_level/instance" + number));
 
         tetsSubjectTriples.add(new Triple("person/test_subject/instance" + number, "person/test_subject/gender", "gender" + number));
         tetsSubjectTriples.add(new Triple("person/test_subject/instance" + number, "person/test_subject/laterality", "laterality" + number));
@@ -200,7 +199,7 @@ public class SimpleDataCreator {
         experimentTriples.add(new Triple("experiment/instance" + number, "experiment/artefact", "artefact/instance" + number));
         experimentTriples.add(new Triple("experiment/instance" + number, "experiment/subject_group", "subject_group/instance" + number));
         experimentTriples.add(new Triple("experiment/instance" + number, "experiment/electrode_configuration", "electrode_configuration/instance" + number));
-        experimentTriples.add(new Triple("experiment/instance" + number, "experiment/digitalization", "digitalization/instance" + number));
+        experimentTriples.add(new Triple("experiment/instance" + number, "experiment/digitization", "digitization/instance" + number));
         experimentTriples.add(new Triple("experiment/instance" + number, "experiment/coexperiment_person", "person/researcher/instance" + number));
         experimentTriples.add(new Triple("experiment/instance" + number, "experiment/artefact_artefact_removing_method", "artefact_removing_method/instance" + number));
         experimentTriples.add(new Triple("experiment/instance" + number, "experiment/disease", "disease/instance" + number));
@@ -213,13 +212,12 @@ public class SimpleDataCreator {
         return experimentTriples;
     }
 
-
     private List<Triple> createSoftware(int number) {
 
         List<Triple> softwareTriples = new ArrayList<Triple>();
 
-        softwareTriples.add(new Triple("software/instance" + number, "software/title", "software" + number));
-        softwareTriples.add(new Triple("software/instance" + number, "software/description", "description" + number));
+        softwareTriples.add(new Triple("software/instance" + number, "software/title", "titleSoftware" + number));
+        softwareTriples.add(new Triple("software/instance" + number, "software/description", "descriptionSw" + number));
         softwareTriples.add(new Triple("software/instance" + number, "software/is_default", "1" + number));
         softwareTriples.add(new Triple("software/instance" + number, "software/research_group", "research_group/instance" + number));
 
@@ -230,7 +228,7 @@ public class SimpleDataCreator {
 
         List<Triple> hardwareTriples = new ArrayList<Triple>();
 
-        hardwareTriples.add(new Triple("hardware/instance" + number, "hardware/title", "software" + number));
+        hardwareTriples.add(new Triple("hardware/instance" + number, "hardware/title", "titleHw" + number));
         hardwareTriples.add(new Triple("hardware/instance" + number, "hardware/type", "type" + number));
         hardwareTriples.add(new Triple("hardware/instance" + number, "hardware/description", "description" + number));
         hardwareTriples.add(new Triple("hardware/instance" + number, "hardware/is_default", "2" + number));
@@ -283,7 +281,6 @@ public class SimpleDataCreator {
 
         return WeatherTriples;
     }
-
 
     private List<Triple> createDisease(int number) {
 
@@ -356,7 +353,6 @@ public class SimpleDataCreator {
         return dataFileTriples;
     }
 
-
     private List<Triple> createScenario(int number) {
 
         List<Triple> scenarioTriples = new ArrayList<Triple>();
@@ -365,7 +361,7 @@ public class SimpleDataCreator {
         scenarioTriples.add(new Triple("scenario/instance" + number, "scenario/scenario_length", "225" + number));
         scenarioTriples.add(new Triple("scenario/instance" + number, "scenario/description", "description" + number));
         scenarioTriples.add(new Triple("scenario/instance" + number, "scenario/owner", "person/researcher/instance" + number));
-        scenarioTriples.add(new Triple("scenario/instance" + number, "scenario/research_group", "analysis/instance" + number));
+        scenarioTriples.add(new Triple("scenario/instance" + number, "scenario/research_group", "research_group/instance" + number));
         scenarioTriples.add(new Triple("scenario/instance" + number, "scenario/private", "1" + number));
         scenarioTriples.add(new Triple("scenario/instance" + number, "scenario/scenario_name", "scenarioName" + number));
         scenarioTriples.add(new Triple("scenario/instance" + number, "scenario/mimetype", "mimeType" + number));
@@ -412,7 +408,6 @@ public class SimpleDataCreator {
         return elLocationTriples;
     }
 
-
     private List<Triple> createElectrodeType(int number) {
 
         List<Triple> elTypeTriples = new ArrayList<Triple>();
@@ -437,7 +432,6 @@ public class SimpleDataCreator {
         return elFixTriples;
     }
 
-
     private List<Triple> createStimulus(int number) {
 
         List<Triple> stimulusTriples = new ArrayList<Triple>();
@@ -453,6 +447,4 @@ public class SimpleDataCreator {
 
         return stimulusTriples;
     }
-
-
 }

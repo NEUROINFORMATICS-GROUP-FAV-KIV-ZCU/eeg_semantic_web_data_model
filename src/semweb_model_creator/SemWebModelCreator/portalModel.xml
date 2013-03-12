@@ -14,7 +14,7 @@
 
 <!-- Existing classes -->
 
-    <class name="articles"/>
+    <class name="article"/>
     <class name="article_comment"/>
     <class name="reservation"/>
 
@@ -75,7 +75,7 @@
         <child name="weather"/>
         <child name="disease"/>
         <child name="pharmaceutical"/>
-        <child name="digitalization"/>
+        <child name="digitization"/>
         <child name="data_file"/>
         <child name="scenario"/>
         <child name="electrode"/>
@@ -169,7 +169,7 @@
     <property name="experiment/artefact" range="artefact" domain="experiment"/>
     <property name="experiment/subject_group" range="subject_group" domain="experiment"/>
     <property name="experiment/electrode_configuration" range="electrode_configuration" domain="experiment"/>
-    <property name="experiment/digitalization" range="digitalization" domain="experiment"/>
+    <property name="experiment/digitization" range="digitization" domain="experiment"/>
     <property name="experiment/coexperiment_person" range="person/researcher" domain="experiment"/>
     <property name="experiment/artefact_artefact_removing_method" range="artefact_removing_method" domain="experiment"/>
     <property name="experiment/disease" range="disease" domain="experiment"/>
@@ -387,7 +387,7 @@
         <child name="experiment/artefact"/>
         <child name="experiment/subject_group"/>
         <child name="experiment/electrode_configuration"/>
-        <child name="experiment/digitalization"/>
+        <child name="experiment/digitization"/>
         <child name="experiment/coexperiment_person"/>
         <child name="experiment/artefact_artefact_removing_method"/>
         <child name="experiment/disease"/>
