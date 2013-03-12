@@ -2,6 +2,7 @@ package cz.zcu.kiv.eeg.semweb.model.creator;
 
 import cz.zcu.kiv.eeg.semweb.model.creator.data.ClassDataItem;
 import cz.zcu.kiv.eeg.semweb.model.creator.data.PropertyDataItem;
+import cz.zcu.kiv.eeg.semweb.model.creator.data.TableItem;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -24,21 +25,23 @@ public class DataLoader {
     private final String PROPERTY_NODE = "property";
     private final String CLASS_PARENT_NODE = "parent_class";
     private final String PROPERTY_PARENT_NODE = "parent_property";
-    private final String CHILD_NODE = "child";
     private final String RANGE_ATTRIBUTE = "range";
     private final String DOMAIN_ATTRIBUTE = "domain";
+    private final String TABLE_NODE = "data_table";
 
     private static final Logger logger = Logger.getLogger(DataLoader.class);
 
     File xmlFile;
     List<ClassDataItem> classes;
     List<PropertyDataItem> properties;
+    List<TableItem> tables;
 
 
     public DataLoader(File sourceDataFile) {
         classes = new ArrayList<ClassDataItem>();
         properties = new ArrayList<PropertyDataItem>();
-        
+        tables = new ArrayList<TableItem>();
+
         this.xmlFile = sourceDataFile;
     }
 
@@ -67,6 +70,10 @@ public class DataLoader {
         return this.properties;
     }
 
+    public List<TableItem> getTables() {
+        return tables;
+    }
+
     private void rootTreeIterate(Element rootNode) throws DocumentException {
 
         Iterator rootIterator = rootNode.elementIterator();
@@ -75,7 +82,9 @@ public class DataLoader {
 
             Element node = (Element) rootIterator.next();
 
-            if (node.getName().equals(CLASS_NODE)) {
+            if (node.getName().equals(TABLE_NODE)) {
+                processTableNode(node);
+            } else if(node.getName().equals(CLASS_NODE)) {
                 processClassNode(node);
             } else if (node.getName().equals(CLASS_PARENT_NODE)) {
                 processClassParentNode(node);
@@ -94,7 +103,7 @@ public class DataLoader {
     }
 
     private void processPropertyNode (Element node) {
-        properties.add(new PropertyDataItem(node.attributeValue("name"), node.attributeValue("range"), node.attributeValue("domain")));
+        properties.add(new PropertyDataItem(node.attributeValue("name"), node.attributeValue(RANGE_ATTRIBUTE), node.attributeValue(DOMAIN_ATTRIBUTE)));
     }
 
     private void processClassParentNode (Element node) {
@@ -120,5 +129,13 @@ public class DataLoader {
         }
 
         properties.add(prp);
+    }
+
+    private void processTableNode(Element node) throws DocumentException {
+
+        TableItem table = new TableItem(node.attributeValue("name"));
+        table.setDataType(node.attributeValue("type"));
+
+        tables.add(table);
     }
 }

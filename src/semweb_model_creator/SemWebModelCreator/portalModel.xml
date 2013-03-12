@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Existing classes -->
 
 <model>
+
+<!-- DATA -->
+
+<data_table name="article_file" type="text"/>
+<data_table name="article_comment_file" type="text"/>
+<data_table name="experiment_data_file" type="binary"/>
+<data_table name="scenario_data_file" type="binary"/>
+
+
+<!-- METADATA -->
+
 <!-- Existing classes -->
 
     <class name="articles"/>
@@ -85,18 +95,18 @@
     </parent_class>
 
 <!-- Class hierarchy -->
-    <property name="article/author" range="person" domain="article"/>
+    <property name="article/author" range="person/researcher" domain="article"/>
     <property name="article/research_group" range="research_group" domain="article"/>
     <property name="article/title" range="xsd:string" domain="article"/>
     <property name="article/time" range="xsd:dateTime" domain="article"/>
-    <property name="article/subscription" range="person" domain="article"/>
+    <property name="article/subscription" range="person/researcher" domain="article"/>
 
     <property name="article_comment/article" range="article" domain="article_comment"/>
     <property name="article_comment/parent_comment" range="article_comment" domain="article_comment"/>
     <property name="article_comment/time" range="xsd:dateTime" domain="article_comment"/>
-    <property name="article_comment/person" range="person" domain="article_comment"/>
+    <property name="article_comment/person" range="person/researcher" domain="article_comment"/>
 
-    <property name="reservation/person" range="person" domain="reservation"/>
+    <property name="reservation/person" range="person/researcher" domain="reservation"/>
     <property name="reservation/creation_time" range="xsd:dateTime" domain="reservation"/>
     <property name="reservation/research_group" range="research_group" domain="reservation"/>
     <property name="reservation/start_time" range="xsd:dateTime" domain="reservation"/>
@@ -105,15 +115,15 @@
 
 <!-- PERSON -->
 
-    <property name="person/given_name=" range="xsd:string" domain="person"/>
-    <property name="person/surname=" range="xsd:string" domain="person"/>
+    <property name="person/given_name" range="xsd:string" domain="person"/>
+    <property name="person/surname" range="xsd:string" domain="person"/>
     <property name="person/date_birth" range="xsd:date" domain="person"/>
     <property name="person/email" range="xsd:string" domain="person"/>
     <property name="person/phone_number" range="xsd:integer" domain="person"/>
     <property name="person/note" range="xsd:string" domain="person"/>
     <property name="person/education_level" range="education_level" domain="person"/>
 
-    <property name="person/researcher/username=" range="xsd:string" domain="person/researcher"/>
+    <property name="person/researcher/username" range="xsd:string" domain="person/researcher"/>
     <property name="person/researcher/password" range="xsd:string" domain="person/researcher"/>
     <property name="person/researcher/authority" range="xsd:string" domain="person/researcher"/>
     <property name="person/researcher/default_group" range="research_group" domain="person/researcher"/>
@@ -136,13 +146,13 @@
     <property name="education_level/is_default" range="xsd:string" domain="education_level"/>
     <property name="education_level/research_group" range="research_group" domain="education_level"/>
 
-    <property name="research_group/owner" range="person" domain="research_group"/>
+    <property name="research_group/owner" range="person/researcher" domain="research_group"/>
     <property name="research_group/title" range="xsd:string" domain="research_group"/>
     <property name="research_group/description" range="xsd:string" domain="research_group"/>
 
     <property name="history/experiment" range="experiment" domain="history"/>
     <property name="history/scenario" range="scenario" domain="history"/>
-    <property name="history/person" range="person" domain="history"/>
+    <property name="history/person" range="person/researcher" domain="history"/>
     <property name="history/date_of_download" range="xsd:dateTime" domain="history"/>
     <property name="history/data_file" range="date_file" domain="history"/>
 
@@ -221,7 +231,7 @@
 
     <property name="data_file/experiment" range="experiment" domain="data_file"/>
     <property name="data_file/mimetype" range="xsd:string" domain="data_file"/>
-    <property name="data_file/filename=" range="xsd:string" domain="data_file"/>
+    <property name="data_file/filename" range="xsd:string" domain="data_file"/>
     <property name="data_file/description" range="xsd:string" domain="data_file"/>
     <property name="data_file/analysis" range="analysis" domain="data_file"/>
 
@@ -231,7 +241,7 @@
     <property name="scenario/owner" range="person/researcher" domain="scenario"/>
     <property name="scenario/research_group" range="research_group" domain="scenario"/>
     <property name="scenario/private" range="xsd:integer" domain="scenario"/>
-    <property name="scenario/scenario_name=" range="xsd:string" domain="scenario"/>
+    <property name="scenario/scenario_name" range="xsd:string" domain="scenario"/>
     <property name="scenario/mimetype" range="xsd:string" domain="scenario"/>
 
 
@@ -244,7 +254,7 @@
     <property name="electrode_system/title" range="xsd:string" domain="electrode_system"/>
     <property name="electrode_system/description" range="xsd:string" domain="electrode_system"/>
     <property name="electrode_system/is_default" range="xsd:integer" domain="electrode_system"/>
-    <property name="electrode_system/research_group" range="xsd:integer" domain="electrode_system"/>
+    <property name="electrode_system/research_group" range="research_group" domain="electrode_system"/>
 
     <property name="electrode_location/title" range="xsd:string" domain="electrode_location"/>
     <property name="electrode_location/shortcut" range="xsd:string" domain="electrode_location"/>
@@ -288,11 +298,11 @@
     </parent_property>
 
     <parent_property name="article_property">
-        <child name="article/author" range="person" domain="article"/>
-        <child name="article/research_group" range="research_group" domain="article"/>
-        <child name="article/title" range="xsd:string" domain="article"/>
-        <child name="article/time" range="xsd:dateTime" domain="article"/>
-        <child name="article/subscription" range="person" domain="article"/>
+        <child name="article/author"/>
+        <child name="article/research_group"/>
+        <child name="article/title"/>
+        <child name="article/time"/>
+        <child name="article/subscription"/>
     </parent_property>
 
     <parent_property name="article_comment_property">
@@ -311,8 +321,8 @@
     </parent_property>
 
     <parent_property name="person_property">
-        <child name="person/given_name="/>
-        <child name="person/surname="/>
+        <child name="person/given_name"/>
+        <child name="person/surname"/>
         <child name="person/date_birth"/>
         <child name="person/email"/>
         <child name="person/phone_number"/>
@@ -463,7 +473,7 @@
     <parent_property name="data_file_property">
         <child name="data_file/experiment"/>
         <child name="data_file/mimetype"/>
-        <child name="data_file/filename="/>
+        <child name="data_file/filename"/>
         <child name="data_file/description"/>
         <child name="data_file/analysis"/>
     </parent_property>
@@ -475,7 +485,7 @@
         <child name="scenario/owner"/>
         <child name="scenario/research_group"/>
         <child name="scenario/private"/>
-        <child name="scenario/scenario_name="/>
+        <child name="scenario/scenario_name"/>
         <child name="scenario/mimetype"/>
     </parent_property>
 
@@ -569,6 +579,5 @@
         <child name="scenario_property"/>
         <child name="electrode_property"/>
     </parent_property>
-
 
 </model>
