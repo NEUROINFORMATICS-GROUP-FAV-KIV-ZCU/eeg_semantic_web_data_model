@@ -8,12 +8,24 @@ import java.util.Date;
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
-public class Literal implements Item {
+public final class Literal extends Item {
 
     private Object value;
     private DataTypes type;
 
     public Literal(Object value) {
+       setValue(value);
+    }
+
+    public DataTypes getDataType() {
+        return type;
+    }
+
+    public Object getValue() {
+        return value;
+    }
+
+    public void setValue(Object value) {
         this.value = value;
 
         if (value instanceof Integer) {
@@ -33,20 +45,18 @@ public class Literal implements Item {
         }
     }
 
-    public DataTypes getDataType() {
-        return type;
+    @Override
+    public boolean isUri() {
+        return false;
     }
 
-    public Object getValue() {
-        return value;
+    @Override
+    public boolean isLiteral() {
+        return true;
     }
 
-    public void setValue(Object value) {
-        this.value = value;
+    @Override
+    public String toString() {
+        return value.toString();
     }
-
-    public ItemType getType() {
-        return ItemType.LITERAL;
-    }
-
 }
