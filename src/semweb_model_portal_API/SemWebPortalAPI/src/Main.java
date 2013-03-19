@@ -5,6 +5,10 @@ import cz.zcu.kiv.eeg.semweb.model.api.PortalModel;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.ConversionException;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.Item;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.NonExistingUriNodeException;
+import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.Uri;
+import cz.zcu.kiv.eeg.semweb.model.search.DisjunctionCondition;
+import cz.zcu.kiv.eeg.semweb.model.search.HasPropertyCondition;
+import cz.zcu.kiv.eeg.semweb.model.search.PropertyValEqCondition;
 import java.text.ParseException;
 import java.util.List;
 
@@ -29,7 +33,6 @@ public class Main {
     public static void main(String[] args) throws ConnectionException, NonExistingUriNodeException, ConversionException, ParseException {
 
 
-
         String url = "jdbc:oracle:thin:@students.kiv.zcu.cz:1521:EEGERP";
         String user    = "EEGTEST";
         String pwd  = "JPERGLER";
@@ -46,15 +49,23 @@ public class Main {
         List<Item> items = modelOnt.listProperties("http://cz.zcu.kiv.eeg#person/researcher/instance7");
 
         for (Item itemka: items) {
-            System.out.println(itemka.getAsUri().getUri());
+            //System.out.println(itemka.getAsUri().getUri());
         }
 
-        items = modelOnt.listInstance("http://cz.zcu.kiv.eeg#person/researcher", false);
+        
+        
+
+        DisjunctionCondition dc = new DisjunctionCondition();
+        dc.addCondition(new PropertyValEqCondition(modelOnt.getPropertyByUri(ns + "person/given_name"), "givenName1"));
+        dc.addCondition(new HasPropertyCondition(new Uri(ns, "person/researcher/facebook_id", modelOnt)));
+
+
+        items = modelOnt.listInstance(ns + "person/researcher", dc);
 
         System.out.println("---------------------------------------------------------------------------------------");
 
         for (Item itemka: items) {
-            System.out.println(itemka.getAsUri().getUri() + "---- AND Group title " + itemka.getAsUri().getPropertyVal("http://cz.zcu.kiv.eeg#person/researcher/group_member").getAsUri().getPropertyVal("http://cz.zcu.kiv.eeg#research_group/title"));
+            System.out.println(itemka.getAsUri().getPropertyVal(ns + "person/given_name") + "---- AND Group title " + itemka.getAsUri().getPropertyVal(ns + "person/researcher/group_member").getAsUri().getPropertyVal("http://cz.zcu.kiv.eeg#research_group/title"));
         }
 
 

@@ -9,6 +9,9 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.NodeIterator;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
+import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.SimpleSelector;
+import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.Item;
@@ -16,6 +19,8 @@ import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.Literal;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.NonExistingUriNodeException;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.Uri;
 import cz.zcu.kiv.eeg.semweb.model.api.utils.DataConverter;
+import cz.zcu.kiv.eeg.semweb.model.search.Condition;
+import cz.zcu.kiv.eeg.semweb.model.search.PortalClassInstanceSelector;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -92,13 +97,32 @@ public class PortalModel {
      * Return list of specified class instances matching specified conditions
      * 
      */
-//    public Item getInstance(String parentClass, List<Condition>, Operator op) {
-//        ontologyModel.listSu
-//    }
-//
-//    public List<Item> listInstance(String parentClass, List<Condition>, Operator op) {
-//
-//    }
+    //public Item getInstance(String parentClass, List<Condition>, Operator op) {
+    //    ontologyModel.list
+   // }
+
+    public List<Item> listInstance(String parentClass, Condition cond) throws NonExistingUriNodeException {
+
+        Resource parent = ontologyModel.getOntClass(parentClass);
+        List<Item> instList;
+
+        if (parent == null) {
+            throw new NonExistingUriNodeException("Parent class with URI " + parentClass + " does not exist.");
+        } else {
+                                                                                                                                // TODO: USE WRAPPER
+            StmtIterator condIterator = ontologyModel.listStatements(new PortalClassInstanceSelector(ontologyModel.getProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), (RDFNode) parent, cond));
+
+            instList = new ArrayList<Item>();
+            
+            while (condIterator.hasNext()) {
+                Statement res = condIterator.next();
+                instList.add(new Uri(res.getSubject().asResource().getNameSpace(), res.getSubject().asResource().getLocalName(), this));    
+            }
+        }
+        return instList;
+
+        
+    }
 
 
     /**
@@ -200,7 +224,20 @@ public class PortalModel {
         return propValList;
     }
 
-   
+   public Property getPropertyByUri(String uri) throws NonExistingUriNodeException {
+
+       Property prop = ontologyModel.getProperty(uri);
+
+       if (prop == null) {
+            throw new NonExistingUriNodeException("Node with URI " + uri + " does not exists.");
+       } else {
+           return prop;
+       }
+   }
+
+    public OntModel getOntModel() {
+        return ontologyModel;
+    }
    
 
 }
