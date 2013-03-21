@@ -86,7 +86,7 @@ public class PortalModel {
                 OntResource res = instances.next();
 
                 if (res.isIndividual()) {
-                    instList.add(new UriItem(res.getNameSpace(), res.getLocalName(), this));
+                    instList.add(new UriItem(res.getURI(), this));
                 }
             }
         }
@@ -130,7 +130,7 @@ public class PortalModel {
             
             while (condIterator.hasNext()) {
                 Statement res = condIterator.next();
-                instList.add(new UriItem(res.getSubject().asResource().getNameSpace(), res.getSubject().asResource().getLocalName(), this));
+                instList.add(new UriItem(res.getSubject().asResource().getURI(), this));
             }
         }
         return instList;
@@ -159,7 +159,7 @@ public class PortalModel {
             
             while (it.hasNext()) {
                 Property propItem = it.nextStatement().getPredicate();
-                result.add(new UriItem(propItem.getNameSpace(), propItem.getLocalName(), this));
+                result.add(new UriItem(propItem.getURI(), this));
             }
         }
         return result;
@@ -193,7 +193,7 @@ public class PortalModel {
             } else if (result.isLiteral()) { //literal record
                 return new LiteralItem(result.asLiteral(), predicate, parent, this);
             }else { //URI
-                return new UriItem(result.asResource().getNameSpace(), result.asResource().getLocalName(), this);
+                return new UriItem(result.asResource().getURI(), this);
             }
         }
     }
@@ -229,7 +229,7 @@ public class PortalModel {
                 if (node.isLiteral()) { //literal record
                     propValList.add(new LiteralItem(node.asLiteral(), predicate, parent, this));
                 }else { //URI
-                    propValList.add(new UriItem(node.asResource().getNameSpace(), node.asResource().getLocalName(), this));
+                    propValList.add(new UriItem(node.asResource().getURI(), this));
                 }
             }
         }
@@ -253,7 +253,7 @@ public class PortalModel {
         } else {
             Individual newInd = ontologyModel.createIndividual(InstanceUriGen.generateInstanceUri(parentClassUri, this, defNamespace), ontologyModel.getOntClass(parentClassUri));
 
-            return new UriItem(defNamespace, newInd.getLocalName(), this);
+            return new UriItem(newInd.getURI(), this);
         }
     }
 
@@ -272,7 +272,7 @@ public class PortalModel {
 
             oc.setSuperClass(ontologyModel.getOntClass(parentClassUri));
         }
-        return new UriItem(oc.getNameSpace(), oc.getLocalName(), this);
+        return new UriItem(oc.getURI(), this);
     }
 
 

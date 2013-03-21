@@ -25,7 +25,7 @@ public class Main {
         String szJdbcURL = "jdbc:oracle:thin:@students.kiv.zcu.cz:1521:EEGERP";   
         String szUser    = "EEGTEST";
         String szPasswd  = "JPERGLER";
-        String szModelName = "model_semweb";
+        String szModelName = "model_semweb4";
 
         boolean operationRes;
 
@@ -46,15 +46,15 @@ public class Main {
 
 
 
-        //operationRes = cr.createModel(szModelName, "http://cz.zcu.kiv.eeg#", "EEG_", classes, properties, tables);
-        //logger.info("SemWeb model created successfull: " + operationRes);
+        operationRes = cr.createModel(szModelName, "http://cz.zcu.kiv.eeg#", "EEG_", classes, properties, tables);
+        logger.info("SemWeb model created successfull: " + operationRes);
 
         SimpleDataCreator sdc = new SimpleDataCreator();
         cr.insertData(szModelName, "http://cz.zcu.kiv.eeg#", sdc.getData());
 
 
-        //System.out.println(cr.removeModel(szModelName));
-        //System.out.println(cr.removeTables("EEG_", tables));
+      //System.out.println(cr.removeModel(szModelName));
+      //System.out.println(cr.removeTables("EEG_", tables));
         cr.disconnect();
 
     }

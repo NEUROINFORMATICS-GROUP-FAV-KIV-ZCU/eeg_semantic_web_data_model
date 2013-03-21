@@ -16,31 +16,15 @@ public class UriItem extends Item {
 
     private PortalModel model;
 
-    private String namespace;
-    private String localName;
+    private String uri;
+    
 
-    public UriItem(String namespace, String value, PortalModel model) {
-        this.namespace = namespace;
-        this.localName = value;
+    public UriItem(String uri, PortalModel model) {
+        this.uri = uri;
         this.model = model;
     }
 
-    public String getNamespace() {
-        return namespace;
-    }
-
-    public void setNamespace(String namespace) {
-        this.namespace = namespace;
-    }
-
-    public String getLocalName() {
-        return localName;
-    }
-
-    public void setLocalName(String value) {
-        this.localName = value;
-    }
-
+    
     @Override
     public boolean isUri() {
         return true;
@@ -52,12 +36,12 @@ public class UriItem extends Item {
     }
 
     public String getUri() {
-        return namespace + localName;
+        return uri;
     }
 
     @Override
     public String toString() {
-        return namespace + localName;
+        return uri;
     }
 
     /**
@@ -99,7 +83,7 @@ public class UriItem extends Item {
 
     public void addPropertyValue (String propertyUri, Object value) throws NonExistingUriNodeException {
 
-        Individual indv = model.getOntModel().getIndividual(namespace + localName);
+        Individual indv = model.getOntModel().getIndividual(uri);
         OntProperty prop = model.getOntModel().getOntProperty(propertyUri);
 
         RDFNode targetObject;
