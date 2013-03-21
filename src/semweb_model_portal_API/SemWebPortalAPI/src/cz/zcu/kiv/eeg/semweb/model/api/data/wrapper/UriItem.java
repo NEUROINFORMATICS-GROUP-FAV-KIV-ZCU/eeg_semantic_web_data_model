@@ -8,14 +8,14 @@ import java.util.List;
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
-public class Uri extends Item {
+public class UriItem extends Item {
 
     private PortalModel model;
 
     private String namespace;
     private String localName;
 
-    public Uri(String namespace, String value, PortalModel model) {
+    public UriItem(String namespace, String value, PortalModel model) {
         this.namespace = namespace;
         this.localName = value;
         this.model = model;
@@ -70,7 +70,7 @@ public class Uri extends Item {
      * @param property
      * @return
      */
-    public Item getPropertyVal(Uri property) throws NonExistingUriNodeException, ParseException {
+    public Item getPropertyVal(UriItem property) throws NonExistingUriNodeException, ParseException {
         return model.getSubjectPropertyVal(this.getUri(), property.getUri());
     }
 
@@ -89,7 +89,7 @@ public class Uri extends Item {
      * @param property
      * @return
      */
-    public List<Item> listPropertyVal(Uri property) throws NonExistingUriNodeException, ParseException {
+    public List<Item> listPropertyVal(UriItem property) throws NonExistingUriNodeException, ParseException {
         return model.listSubjectPropertyVal(this.getUri(), property.getUri());
     }
 

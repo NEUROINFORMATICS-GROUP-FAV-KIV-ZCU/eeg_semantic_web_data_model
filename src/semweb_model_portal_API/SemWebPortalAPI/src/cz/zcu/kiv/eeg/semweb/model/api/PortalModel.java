@@ -4,20 +4,21 @@ import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
+import com.hp.hpl.jena.ontology.OntProperty;
 import com.hp.hpl.jena.ontology.OntResource;
+import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.NodeIterator;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
-import com.hp.hpl.jena.rdf.model.SimpleSelector;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.Item;
-import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.Literal;
+import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.LiteralItem;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.NonExistingUriNodeException;
-import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.Uri;
+import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.UriItem;
 import cz.zcu.kiv.eeg.semweb.model.api.utils.DataConverter;
 import cz.zcu.kiv.eeg.semweb.model.search.Condition;
 import cz.zcu.kiv.eeg.semweb.model.search.PortalClassInstanceSelector;
@@ -86,7 +87,7 @@ public class PortalModel {
                 OntResource res = instances.next();
 
                 if (res.isIndividual()) {
-                    instList.add(new Uri(res.getNameSpace(), res.getLocalName(), this));
+                    instList.add(new UriItem(res.getNameSpace(), res.getLocalName(), this));
                 }
             }
         }
@@ -97,9 +98,9 @@ public class PortalModel {
      * Return list of specified class instances matching specified conditions
      * 
      */
-    //public Item getInstance(String parentClass, List<Condition>, Operator op) {
-    //    ontologyModel.list
-   // }
+    public Item getInstance(String parentClass, Condition cond) throws NonExistingUriNodeException {
+        return listInstance(parentClass, cond).get(0);
+    }
 
     public List<Item> listInstance(String parentClass, Condition cond) throws NonExistingUriNodeException {
 
@@ -116,7 +117,7 @@ public class PortalModel {
             
             while (condIterator.hasNext()) {
                 Statement res = condIterator.next();
-                instList.add(new Uri(res.getSubject().asResource().getNameSpace(), res.getSubject().asResource().getLocalName(), this));    
+                instList.add(new UriItem(res.getSubject().asResource().getNameSpace(), res.getSubject().asResource().getLocalName(), this));
             }
         }
         return instList;
@@ -147,7 +148,7 @@ public class PortalModel {
             
             while (it.hasNext()) {
                 Property propItem = it.nextStatement().getPredicate();
-                result.add(new Uri(propItem.getNameSpace(), propItem.getLocalName(), this));
+                result.add(new UriItem(propItem.getNameSpace(), propItem.getLocalName(), this));
             }
         }
         return result;
@@ -167,7 +168,7 @@ public class PortalModel {
     public Item getSubjectPropertyVal(String parentUri, String property) throws NonExistingUriNodeException, ParseException {
 
         Individual parent = ontologyModel.getIndividual(parentUri);
-        Property predicate = ontologyModel.getProperty(property);
+        OntProperty predicate = ontologyModel.getOntProperty(property);
 
         if (parent == null) {
             throw new NonExistingUriNodeException("Node with URI " + parentUri + " does not exists.");
@@ -179,9 +180,9 @@ public class PortalModel {
             if (result == null) { //no record
                 return null;
             } else if (result.isLiteral()) { //literal record
-                return new Literal(DataConverter.convertObject(result.asLiteral()));
+                return new LiteralItem(result.asLiteral(), predicate, parent, this);
             }else { //URI
-                return new Uri(result.asResource().getNameSpace(), result.asResource().getLocalName(), this);
+                return new UriItem(result.asResource().getNameSpace(), result.asResource().getLocalName(), this);
             }
         }
     }
@@ -200,7 +201,7 @@ public class PortalModel {
         List<Item> propValList;
 
         Individual parent = ontologyModel.getIndividual(parentUri);
-        Property predicate = ontologyModel.getProperty(propertyUri);
+        OntProperty predicate = ontologyModel.getOntProperty(propertyUri);
 
         if (parent == null) {
             throw new NonExistingUriNodeException("Node with URI " + parentUri + " does not exists.");
@@ -215,9 +216,9 @@ public class PortalModel {
                 RDFNode node = result.nextNode();
 
                 if (node.isLiteral()) { //literal record
-                    propValList.add(new Literal(DataConverter.convertObject(node.asLiteral())));
+                    propValList.add(new LiteralItem(node.asLiteral(), predicate, parent, this));
                 }else { //URI
-                    propValList.add(new Uri(node.asResource().getNameSpace(), node.asResource().getLocalName(), this));
+                    propValList.add(new UriItem(node.asResource().getNameSpace(), node.asResource().getLocalName(), this));
                 }
             }
         }

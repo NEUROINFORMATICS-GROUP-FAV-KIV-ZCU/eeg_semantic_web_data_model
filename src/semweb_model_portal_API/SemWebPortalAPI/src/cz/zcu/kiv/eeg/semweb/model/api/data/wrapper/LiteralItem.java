@@ -1,6 +1,13 @@
 package cz.zcu.kiv.eeg.semweb.model.api.data.wrapper;
 
+import com.hp.hpl.jena.ontology.Individual;
+import com.hp.hpl.jena.ontology.OntProperty;
+import com.hp.hpl.jena.rdf.model.Literal;
+import com.hp.hpl.jena.rdf.model.Property;
+import cz.zcu.kiv.eeg.semweb.model.api.PortalModel;
+import cz.zcu.kiv.eeg.semweb.model.api.utils.DataConverter;
 import java.sql.Time;
+import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -8,13 +15,23 @@ import java.util.Date;
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
-public final class Literal extends Item {
+public final class LiteralItem extends Item {
 
     private Object value;
     private DataTypes type;
+    private Literal original;
+    private OntProperty chainProperty;
+    private Individual parentInd;
 
-    public Literal(Object value) {
-       setValue(value);
+    private PortalModel model;
+
+    public LiteralItem(Literal orginalLiteral, OntProperty chainedProperty, Individual parentIndividual, PortalModel model) throws ParseException {
+       setValue(DataConverter.convertObject(orginalLiteral));
+
+       this.model = model;
+       this.chainProperty = chainedProperty;
+       this.original = orginalLiteral;
+       this.parentInd = parentIndividual;
     }
 
     public DataTypes getDataType() {
@@ -53,6 +70,12 @@ public final class Literal extends Item {
     @Override
     public boolean isLiteral() {
         return true;
+    }
+
+    public void updateValue(Object newValue) {
+        
+        parentInd.removeProperty(chainProperty, original);//remove
+        parentInd.addLiteral(chainProperty, model.getOntModel().createTypedLiteral(newValue, chainProperty.getRange().getURI())); //add new
     }
 
     @Override

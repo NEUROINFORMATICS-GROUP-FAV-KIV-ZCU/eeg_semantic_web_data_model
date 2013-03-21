@@ -9,19 +9,19 @@ public abstract class Item {
     public abstract boolean isUri();
     public abstract boolean isLiteral();
 
-    public Literal getAsLiteral() throws ConversionException {
+    public LiteralItem getAsLiteral() throws ConversionException {
 
         if (isLiteral()) {
-            return ((Literal) this);
+            return ((LiteralItem) this);
         }else {
             throw new ConversionException("Item is not Literal");
         }
     }
 
-    public Uri getAsUri() throws ConversionException {
+    public UriItem getAsUri() throws ConversionException {
 
         if (isUri()) {
-            return ((Uri) this);
+            return ((UriItem) this);
         }else {
             throw new ConversionException("Item is not Literal");
         }

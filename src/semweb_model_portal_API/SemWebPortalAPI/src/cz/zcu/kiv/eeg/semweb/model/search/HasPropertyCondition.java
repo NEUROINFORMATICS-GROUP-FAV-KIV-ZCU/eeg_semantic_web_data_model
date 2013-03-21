@@ -4,7 +4,7 @@ import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
-import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.Uri;
+import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.UriItem;
 
 /**
  *
@@ -12,9 +12,9 @@ import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.Uri;
  */
 public class HasPropertyCondition extends Condition {
 
-    private Uri property;
+    private UriItem property;
 
-    public HasPropertyCondition(Uri predicate) {
+    public HasPropertyCondition(UriItem predicate) {
         this.property = predicate;
     }
 

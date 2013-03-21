@@ -4,8 +4,9 @@ import cz.zcu.kiv.eeg.semweb.model.api.ModelConnector;
 import cz.zcu.kiv.eeg.semweb.model.api.PortalModel;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.ConversionException;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.Item;
+import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.LiteralItem;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.NonExistingUriNodeException;
-import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.Uri;
+import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.UriItem;
 import cz.zcu.kiv.eeg.semweb.model.search.DisjunctionCondition;
 import cz.zcu.kiv.eeg.semweb.model.search.HasPropertyCondition;
 import cz.zcu.kiv.eeg.semweb.model.search.PropertyValEqCondition;
@@ -57,7 +58,7 @@ public class Main {
 
         DisjunctionCondition dc = new DisjunctionCondition();
         dc.addCondition(new PropertyValEqCondition(modelOnt.getPropertyByUri(ns + "person/given_name"), "givenName1"));
-        dc.addCondition(new HasPropertyCondition(new Uri(ns, "person/researcher/facebook_id", modelOnt)));
+        dc.addCondition(new HasPropertyCondition(new UriItem(ns, "person/researcher/facebook_id", modelOnt)));
 
 
         items = modelOnt.listInstance(ns + "person/researcher", dc);
@@ -66,6 +67,16 @@ public class Main {
 
         for (Item itemka: items) {
             System.out.println(itemka.getAsUri().getPropertyVal(ns + "person/given_name") + "---- AND Group title " + itemka.getAsUri().getPropertyVal(ns + "person/researcher/group_member").getAsUri().getPropertyVal("http://cz.zcu.kiv.eeg#research_group/title"));
+
+            LiteralItem lit = itemka.getAsUri().getPropertyVal(ns + "person/given_name").getAsLiteral();
+
+            if (lit.getValue().equals("givenName0")) {
+                lit.updateValue("Filipek");
+                System.out.println("Nasel");
+
+            }
+
+
         }
 
 
