@@ -6,7 +6,6 @@ import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.ontology.OntProperty;
 import com.hp.hpl.jena.ontology.OntResource;
-import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.NodeIterator;
 import com.hp.hpl.jena.rdf.model.Property;
@@ -19,7 +18,7 @@ import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.Item;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.LiteralItem;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.NonExistingUriNodeException;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.UriItem;
-import cz.zcu.kiv.eeg.semweb.model.api.utils.DataConverter;
+import cz.zcu.kiv.eeg.semweb.model.api.utils.InstanceUriGen;
 import cz.zcu.kiv.eeg.semweb.model.search.Condition;
 import cz.zcu.kiv.eeg.semweb.model.search.PortalClassInstanceSelector;
 import java.text.ParseException;
@@ -95,13 +94,27 @@ public class PortalModel {
     }
 
     /**
-     * Return list of specified class instances matching specified conditions
-     * 
+     * Return instance of specified class matching specified conditions
+     *
+     * @param parentClass Parent class that instances are listed from
+     * @param cond restriction conditions
+     * @return matching instance
+     *
+     * @throws NonExistingUriNodeException
      */
     public Item getInstance(String parentClass, Condition cond) throws NonExistingUriNodeException {
         return listInstance(parentClass, cond).get(0);
     }
 
+    /**
+     * Return list of instances of specified class matching specified conditions
+     *
+     * @param parentClass Parent class that instances are listed from
+     * @param cond restriction conditions
+     * @return list of matching instances
+     *
+     * @throws NonExistingUriNodeException
+     */
     public List<Item> listInstance(String parentClass, Condition cond) throws NonExistingUriNodeException {
 
         Resource parent = ontologyModel.getOntClass(parentClass);
@@ -121,8 +134,6 @@ public class PortalModel {
             }
         }
         return instList;
-
-        
     }
 
 
@@ -225,6 +236,74 @@ public class PortalModel {
         return propValList;
     }
 
+    /**
+     * Add new instance to specified class
+     *
+     * @param parentClassUri Parent class that should be this instance of
+     * @return created class as UriItem instance
+     *
+     * @throws NonExistingUriNodeException
+     */
+    public UriItem createClassInstance(String parentClassUri) throws NonExistingUriNodeException {
+
+        OntClass parent  = ontologyModel.getOntClass(parentClassUri);
+
+        if (parent == null) {
+            throw new NonExistingUriNodeException("Class with URI " + parentClassUri + " does not exists.");
+        } else {
+            Individual newInd = ontologyModel.createIndividual(InstanceUriGen.generateInstanceUri(parentClassUri, this, defNamespace), ontologyModel.getOntClass(parentClassUri));
+
+            return new UriItem(defNamespace, newInd.getLocalName(), this);
+        }
+    }
+
+    /**
+     * Add new class to model
+     * 
+     * @param name Name of new class
+     * @param parentClassUri Parent class name (optional)
+     * @return
+     */
+    public UriItem createClass(String name, String parentClassUri) {
+
+        OntClass oc = ontologyModel.createClass(defNamespace + name);
+
+        if (parentClassUri != null) {
+
+            oc.setSuperClass(ontologyModel.getOntClass(parentClassUri));
+        }
+        return new UriItem(oc.getNameSpace(), oc.getLocalName(), this);
+    }
+
+
+    public String createProperty(String name, String domain, String range, String parentProperty) throws NonExistingUriNodeException {
+
+
+        Resource domainRes = ontologyModel.getResource(domain);
+
+        if (domainRes == null) {
+            throw new NonExistingUriNodeException("Property domain with URI " + domain + " does not exists.");
+        }
+
+        Resource rangeRes = ontologyModel.createResource(range);
+
+        OntProperty prop = ontologyModel.createOntProperty(name);
+        prop.setDomain(domainRes);
+        prop.setRange(rangeRes);
+
+        if (parentProperty != null) {
+            prop.setSuperProperty(ontologyModel.getProperty(parentProperty));
+        }
+        return prop.getURI();
+    }
+
+
+   /**
+    * Return property by its URI string value
+    * @param uri
+    * @return
+    * @throws NonExistingUriNodeException
+    */
    public Property getPropertyByUri(String uri) throws NonExistingUriNodeException {
 
        Property prop = ontologyModel.getProperty(uri);
@@ -236,6 +315,10 @@ public class PortalModel {
        }
    }
 
+   /**
+    * Returns JENA ontology model
+    * @return
+    */
     public OntModel getOntModel() {
         return ontologyModel;
     }

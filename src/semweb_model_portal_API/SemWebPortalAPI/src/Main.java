@@ -6,11 +6,10 @@ import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.ConversionException;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.Item;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.LiteralItem;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.NonExistingUriNodeException;
-import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.UriItem;
 import cz.zcu.kiv.eeg.semweb.model.search.DisjunctionCondition;
-import cz.zcu.kiv.eeg.semweb.model.search.HasPropertyCondition;
-import cz.zcu.kiv.eeg.semweb.model.search.PropertyValEqCondition;
+import cz.zcu.kiv.eeg.semweb.model.search.PropertyValLikeCondition;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 
 /*
@@ -47,19 +46,20 @@ public class Main {
         //modelOnt.getPersonInstances();
 
 
-        List<Item> items = modelOnt.listProperties("http://cz.zcu.kiv.eeg#person/researcher/instance7");
+        Item itemkal = modelOnt.getInstance("http://cz.zcu.kiv.eeg#person/researcher", false);
 
-        for (Item itemka: items) {
-            //System.out.println(itemka.getAsUri().getUri());
-        }
+        
+            System.out.println(itemkal.getAsUri().getPropertyVal(ns + "person/given_name"));
 
         
         
 
         DisjunctionCondition dc = new DisjunctionCondition();
-        dc.addCondition(new PropertyValEqCondition(modelOnt.getPropertyByUri(ns + "person/given_name"), "givenName1"));
-        dc.addCondition(new HasPropertyCondition(new UriItem(ns, "person/researcher/facebook_id", modelOnt)));
+        dc.addCondition(new PropertyValLikeCondition(modelOnt.getPropertyByUri(ns + "person/given_name"), "givenName"));
+        //dc.addCondition(new HasPropertyCondition(new UriItem(ns, "person/researcher/facebook_id", modelOnt)));
 
+
+        List <Item> items = new ArrayList<Item>();
 
         items = modelOnt.listInstance(ns + "person/researcher", dc);
 

@@ -1,5 +1,9 @@
 package cz.zcu.kiv.eeg.semweb.model.api.data.wrapper;
 
+import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
+import com.hp.hpl.jena.ontology.Individual;
+import com.hp.hpl.jena.ontology.OntProperty;
+import com.hp.hpl.jena.rdf.model.RDFNode;
 import cz.zcu.kiv.eeg.semweb.model.api.PortalModel;
 import java.text.ParseException;
 import java.util.List;
@@ -91,6 +95,23 @@ public class UriItem extends Item {
      */
     public List<Item> listPropertyVal(UriItem property) throws NonExistingUriNodeException, ParseException {
         return model.listSubjectPropertyVal(this.getUri(), property.getUri());
+    }
+
+    public void addPropertyValue (String propertyUri, Object value) throws NonExistingUriNodeException {
+
+        Individual indv = model.getOntModel().getIndividual(namespace + localName);
+        OntProperty prop = model.getOntModel().getOntProperty(propertyUri);
+
+        RDFNode targetObject;
+
+        if (model.getOntModel().getOntProperty(propertyUri).getRange().getURI().startsWith(XSDDatatype.XSDstring.XSD)) { //literal
+            targetObject = model.getOntModel().createTypedLiteral(value, prop.getRange().getURI());
+
+        }else {
+
+            targetObject = model.getOntModel().getIndividual(value.toString());
+        }
+            model.getOntModel().add(indv, prop, targetObject);
     }
 
 }
