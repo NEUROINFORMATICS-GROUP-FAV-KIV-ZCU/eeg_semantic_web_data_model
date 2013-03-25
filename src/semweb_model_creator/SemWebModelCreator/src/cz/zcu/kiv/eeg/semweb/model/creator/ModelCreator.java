@@ -190,21 +190,25 @@ public class ModelCreator {
 
         for (ClassDataItem classItem: classes) {
 
+            OntClass parentNode = jenaModel.getOntClass(prefixURI + classItem.getName());
+
+            if (parentNode == null) {
+                parentNode = jenaModel.createClass(prefixURI + classItem.getName());
+
+            }
+
             if (classItem.hasChildNodes()) {
 
-                OntClass parent = jenaModel.createClass(prefixURI + classItem.getName());
-
                 for (ClassDataItem childNode: classItem.getChildNodes()) {
-                    parent.addSubClass(jenaModel.createClass(prefixURI + childNode.getName()));
+                    //jenaModel.createClass(prefixURI + childNode.getName()).addSuperClass(parentNode);
+                    OntClass child = jenaModel.createClass(prefixURI + childNode.getName());
+                    parentNode.addSubClass(child);
                 }
-
-            }else {
-                jenaModel.createClass(prefixURI + classItem.getName());
+                
             }
         }
 
         logger.info("Creating classes done.");
-
     }
 
     private void createProperties(List<PropertyDataItem> properties) {

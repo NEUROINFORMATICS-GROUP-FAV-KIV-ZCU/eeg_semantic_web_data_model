@@ -4,6 +4,8 @@
 
 <!-- DATA -->
 
+
+
 <data_table name="article_file" type="text"/>
 <data_table name="article_comment_file" type="text"/>
 <data_table name="experiment_data_file" type="binary"/>
@@ -50,6 +52,11 @@
     <class name="stimulus_type"/>
     <class name="scenario_stimulus"/>
 
+    <class name="group"/>
+    <class name="experiment_metadata"/>
+    <class name="electrode"/>
+    <class name="scenario_metadata"/>
+
 <!-- Existing classes -->
 
 <!-- Class hierarchy -->
@@ -57,6 +64,7 @@
     <parent_class name="person">
         <child name="person/researcher"/>
         <child name="person/test_subject"/>
+        <child name="education_level"/>
     </parent_class>
 
     <parent_class name="group">
@@ -67,7 +75,7 @@
     <parent_class name="experiment_metadata">
         <child name="software"/>
         <child name="hardware"/>
-        <child name="subject_group"/>
+        <child name="group"/>
         <child name="project_type"/>
         <child name="research_group"/>
         <child name="person"/>
@@ -79,6 +87,9 @@
         <child name="data_file"/>
         <child name="scenario"/>
         <child name="electrode"/>
+        <child name="artefact"/>
+        <child name="analysis"/>
+        <child name="experiment"/>
     </parent_class>
 
     <parent_class name="electrode">
@@ -92,9 +103,16 @@
     <parent_class name="scenario_metadata">
         <child name="stimulus"/>
         <child name="stimulus_type"/>
+        <child name="scenario_stimulus"/>
+    </parent_class>
+
+    <parent_class name="article">
+        <child name="article_comment"/>
     </parent_class>
 
 <!-- Class hierarchy -->
+
+
     <property name="article/author" range="person/researcher" domain="article"/>
     <property name="article/research_group" range="research_group" domain="article"/>
     <property name="article/title" range="xsd:string" domain="article"/>
@@ -189,8 +207,8 @@
     <property name="hardware/is_default" range="xsd:integer" domain="hardware"/>
     <property name="hardware/research_group" range="research_group" domain="hardware"/>
 
-    <property name="subject_group/title" range="xsd:string" domaint="subject"/>
-    <property name="subject_group/description" range="xsd:string" domain="subject"/>
+    <property name="subject_group/title" range="xsd:string" domain="subject_group"/>
+    <property name="subject_group/description" range="xsd:string" domain="subject_group"/>
 
     <property name="project_type/title" range="xsd:string" domain="project_type"/>
     <property name="project_type/description" range="xsd:string" domain="project_type"/>
@@ -246,6 +264,7 @@
 
 
 <!-- Electrodes -->
+ 
     <property name="electrode_configuration/impedance" range="xsd:integer" domain="electrode_configuration"/>
     <property name="electrode_configuration/electrode_system" range="electrode_system" domain="electrode_configuration"/>
     <property name="electrode_configuration/descript_data_file" range="data_file" domain="electrode_configuration"/>
@@ -273,9 +292,12 @@
     <property name="electrode_fix/description" range="xsd:string" domain="electrode_fix"/>
     <property name="electrode_fix/is_default" range="xsd:integer" domain="electrode_fix"/>
     <property name="electrode_fix/research_group" range="research_group" domain="electrode_fix"/>
+
+
 <!-- Electrodes -->
 
 <!-- Stimulus -->
+
     <property name="stimulus/description" range="xsd:string" domain="stimulus"/>
 
     <property name="stimulus_type/description" range="xsd:string" domain="stimulus_type"/>

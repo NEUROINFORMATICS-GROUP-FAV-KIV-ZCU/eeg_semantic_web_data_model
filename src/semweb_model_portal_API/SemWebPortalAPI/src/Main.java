@@ -74,7 +74,7 @@ public class Main {
             //System.out.println(itemka.getAsUri().getPropertyVal(ns + "person/given_name") + "---- AND Group title " + itemka.getAsUri().getPropertyVal(ns + "person/researcher/group_member").getAsUri().getPropertyVal("http://cz.zcu.kiv.eeg#research_group/title"));
 
             System.out.println(itemka.getAsUri().getUri());
-            itemka.getAsUri().addPropertyValue(ns + "person/given_name", "Filipek2");
+            //itemka.getAsUri().addPropertyValue(ns + "person/given_name", "Filipek2");
 
             List<Item> propVals = itemka.getAsUri().listPropertyVal(new UriItem(ns + "person/given_name", modelOnt));
 

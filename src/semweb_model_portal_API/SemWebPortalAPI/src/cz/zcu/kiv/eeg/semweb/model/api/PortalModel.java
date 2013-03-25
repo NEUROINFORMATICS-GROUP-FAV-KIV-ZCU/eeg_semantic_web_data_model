@@ -278,7 +278,6 @@ public class PortalModel {
 
     public String createProperty(String name, String domain, String range, String parentProperty) throws NonExistingUriNodeException {
 
-
         Resource domainRes = ontologyModel.getResource(domain);
 
         if (domainRes == null) {
@@ -296,6 +295,76 @@ public class PortalModel {
         }
         return prop.getURI();
     }
+
+    /**
+     * List all model defined classes, that has no parent superClass
+     *
+     * @return list of defined classes
+     */
+    public List<String> listParentClasses() {
+
+        List<String> parents = new ArrayList<String>();
+
+        ExtendedIterator<OntClass> ex = ontologyModel.listClasses();
+
+        while(ex.hasNext()) {
+
+            OntClass oc = ex.next();
+
+            List<OntClass> nodeParList = oc.listSuperClasses().toList();
+
+            if (nodeParList.isEmpty()) {
+                parents.add(oc.getURI());
+            }else if (nodeParList.size() == 1 && nodeParList.get(0).getLocalName().endsWith("Resource")){
+                parents.add(oc.getURI());
+            }
+        }
+        return parents;
+    }
+
+    /**
+     * List all defined classes that hes specified class as superClass parent
+     *
+     * @param parentURI Parent Class URI
+     * @return list of defined classes
+     *
+     * @throws NonExistingUriNodeException
+     */
+    public List<String> listSubClasses(String parentURI) throws NonExistingUriNodeException {
+        
+        List<String> childClasses = new ArrayList<String>();
+        
+        OntClass parent = ontologyModel.getOntClass(parentURI);
+        
+        if (parent == null) {
+            throw new NonExistingUriNodeException("Class with URI " + parentURI + " does not exists.");
+        }
+        
+        ExtendedIterator<OntClass> ex = parent.listSubClasses(true);
+        
+        while(ex.hasNext()) {
+
+            OntClass oc = ex.next();
+            
+            childClasses.add(oc.getURI());
+        }
+        return childClasses;
+        
+    }
+
+
+    public boolean hasSubClasses(String parentURI) throws NonExistingUriNodeException {
+
+        OntClass parent = ontologyModel.getOntClass(parentURI);
+
+        if (parent == null) {
+            throw new NonExistingUriNodeException("Class with URI " + parentURI + " does not exists.");
+        }
+
+        return parent.hasSubClass();
+    }
+
+
 
 
    /**

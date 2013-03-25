@@ -23,7 +23,7 @@ public class SimpleDataCreator {
 
     private void generateSimpleData() {
 
-        for (int number = 0; number < 10; number++) {
+        for (int number = 0; number < 1; number++) {
             testData.addAll(createAnalysis(number));
             testData.addAll(createArtefact(number));
             testData.addAll(createArtefactRemMeth(number));
