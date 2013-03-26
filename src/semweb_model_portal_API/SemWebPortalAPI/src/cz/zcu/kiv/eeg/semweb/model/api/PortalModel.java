@@ -6,6 +6,7 @@ import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.ontology.OntProperty;
 import com.hp.hpl.jena.ontology.OntResource;
+import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.NodeIterator;
 import com.hp.hpl.jena.rdf.model.Property;
@@ -34,14 +35,18 @@ import oracle.spatial.rdf.client.jena.ModelOracleSem;
  */
 public class PortalModel {
 
-    private ModelOracleSem basicModel; //Oracle semWeb model (basic)
+    private Model basicModel; //Oracle semWeb model (basic)
     private OntModel ontologyModel; //Jena ontology model
     private String defNamespace; //default namespace for EEG/ERP
 
 
-    public PortalModel(ModelOracleSem model, String namespace) {
+    public PortalModel(Model model, String namespace) {
         this.basicModel = model;
-        this.ontologyModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_LITE_MEM_TRANS_INF, model); //create Ontology model based on Oracle semWeb model
+        //this.ontologyModel = ModelFactory.createOntologyModel(OntModelSpec.DAML_MEM_RDFS_INF, model); //create Ontology model based on Oracle semWeb model
+        //this.ontologyModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_LITE_MEM_TRANS_INF, model); //create Ontology model based on Oracle semWeb model
+
+        this.ontologyModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_RDFS_INF, model);
+
         this.defNamespace = namespace;
     }
 

@@ -1,9 +1,10 @@
 package cz.zcu.kiv.eeg.semweb.model.api;
 
+import com.hp.hpl.jena.rdf.model.Model;
 import java.util.Locale;
-import oracle.spatial.rdf.client.jena.ModelOracleSem;
-import oracle.spatial.rdf.client.jena.Oracle;
 import org.apache.log4j.Logger;
+import virtuoso.jena.driver.VirtGraph;
+import virtuoso.jena.driver.VirtModel;
 
 /**
  * This modul is used to connect to Oracle semantic web database and return accessable PortalModel
@@ -19,8 +20,12 @@ public class ModelConnector {
     private String modelName; //Oracle semWeb model name
     private String defNamespace; //default model namespace
 
-    private Oracle oracleConnection; //DB connection
-    private ModelOracleSem oracleModel; //semWeb model connection
+    //private Oracle oracleConnection; //DB connection
+    //private ModelOracleSem oracleModel; //semWeb model connection
+
+    private VirtGraph virtuosoGraph;
+    private Model basicModel;
+
 
     private static final Logger logger = Logger.getLogger(ModelConnector.class);
 
@@ -37,7 +42,8 @@ public class ModelConnector {
         Locale.setDefault(Locale.US);
 
         try {
-            oracleConnection = new Oracle(dbURL, username, password);
+            //oracleConnection = new Oracle(dbURL, username, password);
+             virtuosoGraph = new VirtGraph (dbURL, username, password);
         }catch (Exception ex) {
             logger.error("Connecting error:", ex);
             throw new ConnectionException("Can not connect database.", ex);
@@ -45,12 +51,13 @@ public class ModelConnector {
 
         connectSemWeb();
 
-        return new PortalModel(oracleModel, defNamespace);
+        return new PortalModel(basicModel, defNamespace);
     }
 
     private void connectSemWeb() throws ConnectionException {
         try {
-            oracleModel = ModelOracleSem.createOracleSemModel(oracleConnection, modelName);
+            //oracleModel = ModelOracleSem.createOracleSemModel(oracleConnection, modelName);
+            basicModel = new VirtModel(virtuosoGraph);
         }catch (Exception ex) {
             logger.error("Connecting error:", ex);
             throw new ConnectionException("Can not connect semantic web model.", ex);
@@ -59,11 +66,8 @@ public class ModelConnector {
 
     public void disconnect() throws ConnectionException {
         try {
-            if (oracleModel != null) {
-                oracleModel.close();
-            }
-            if (oracleConnection != null) {
-                oracleConnection.dispose();
+            if (basicModel != null) {
+                basicModel.close();
             }
         } catch (Exception ex) {
             logger.error("Disconnecting error:", ex);

@@ -22,10 +22,19 @@ public class Main {
      */
     public static void main(String[] args) throws DocumentException {
 
-        String szJdbcURL = "jdbc:oracle:thin:@students.kiv.zcu.cz:1521:EEGERP";   
-        String szUser    = "EEGTEST";
-        String szPasswd  = "JPERGLER";
-        String szModelName = "model_semweb6";
+        //String szJdbcURL = "jdbc:oracle:thin:@students.kiv.zcu.cz:1521:EEGERP";
+        //String szUser    = "EEGTEST";
+        //String szPasswd  = "JPERGLER";
+
+        //String szJdbcURL = "jdbc:oracle:thin:@localhost:1521:EEGDB";
+        //String szUser    = "SYSMAN";
+        //String szPasswd  = "password";
+
+        String szJdbcURL = "jdbc:virtuoso://localhost:1111";
+        String szUser    = "dba";
+        String szPasswd  = "dba";
+
+        String szModelName = "model_semweb_a";
 
         boolean operationRes;
 
@@ -46,8 +55,8 @@ public class Main {
 
 
 
-        //operationRes = cr.createModel(szModelName, "http://cz.zcu.kiv.eeg#", "EEG_", classes, properties, tables);
-        //logger.info("SemWeb model created successfull: " + operationRes);
+        operationRes = cr.createModel(szModelName, "http://cz.zcu.kiv.eeg#", "EEG_", classes, properties, tables);
+        logger.info("SemWeb model created successfull: " + operationRes);
 
         SimpleDataCreator sdc = new SimpleDataCreator();
         cr.insertData(szModelName, "http://cz.zcu.kiv.eeg#", sdc.getData());

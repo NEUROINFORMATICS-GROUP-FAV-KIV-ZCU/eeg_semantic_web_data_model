@@ -5,6 +5,7 @@ import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.ontology.OntProperty;
 import com.hp.hpl.jena.ontology.OntResource;
+import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
@@ -14,14 +15,11 @@ import cz.zcu.kiv.eeg.semweb.model.creator.data.PropertyDataItem;
 import cz.zcu.kiv.eeg.semweb.model.creator.data.TableItem;
 import cz.zcu.kiv.eeg.semweb.model.testdata.Triple;
 import java.sql.SQLException;
-import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
-import javax.xml.bind.DatatypeConverter;
-import oracle.spatial.rdf.client.jena.ModelOracleSem;
-import oracle.spatial.rdf.client.jena.Oracle;
-import oracle.spatial.rdf.client.jena.OracleUtils;
 import org.apache.log4j.Logger;
+import virtuoso.jena.driver.VirtGraph;
+import virtuoso.jena.driver.VirtModel;
 
 /**
  *
@@ -31,11 +29,14 @@ public class ModelCreator {
 
     private final String prefixMod = "eeg";
 
-    private Oracle oracleConnection;
-    private ModelOracleSem oracleModel;
+    //private Oracle oracleConnection;
+    //private ModelOracleSem oracleModel;
+    VirtGraph virtuosoGraph;
+
     private String prefixURI;
     private String tablePrefix;
     private OntModel jenaModel;
+    private Model basicModel;
 
     private static final Logger logger = Logger.getLogger(ModelCreator.class);
 
@@ -43,7 +44,9 @@ public class ModelCreator {
         Locale.setDefault(Locale.US);   //avoi different national dateTime and number formats
 
         try {
-            oracleConnection = new Oracle(dbUrl, username, password);
+            //oracleConnection = new Oracle(dbUrl, username, password);
+            virtuosoGraph = new VirtGraph (dbUrl, "dba", "dba");
+            basicModel = new VirtModel(virtuosoGraph);
         }catch (Exception ex) {
             logger.error("Connecting error:", ex);
             return false;
@@ -53,11 +56,10 @@ public class ModelCreator {
 
     public boolean disconnect() {
         try {
-            if (oracleModel != null) {
-                oracleModel.close();
+            if (virtuosoGraph != null) {
+                virtuosoGraph.close();
             }
-            oracleConnection.dispose();
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
              logger.error("Disconnecting error:", ex);
             return false;
         }
@@ -66,18 +68,22 @@ public class ModelCreator {
 
     public boolean createModel(String modelName, String prefixURI, String tablePrefix, List<ClassDataItem> classes, List<PropertyDataItem> properties, List<TableItem> tables) {
         try {
-            oracleModel = ModelOracleSem.createOracleSemModel(oracleConnection, modelName);
+            //oracleModel = ModelOracleSem.createOracleSemModel(oracleConnection, modelName);
             this.prefixURI = prefixURI;
             this.tablePrefix = tablePrefix;
 
             jenaModel = ModelFactory.createOntologyModel();
-            oracleModel.setNsPrefix(prefixMod, this.prefixURI); 
+
+
+            //jenaModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_RDFS_INF, basicModel);
+            //oracleModel.setNsPrefix(prefixMod, this.prefixURI);
 
             createClasses(classes);
             createProperties(properties);
-            createTables(tables);
+            //createTables(tables);         //TODO CREATE TABLES
 
-            oracleModel.add(jenaModel, true);
+            //oracleModel.add(jenaModel, true);
+            basicModel.add(jenaModel);
 
         } catch (Exception ex) {
             logger.error("Model creating error:", ex);
@@ -90,8 +96,8 @@ public class ModelCreator {
 
         try {
 
-            oracleModel = ModelOracleSem.createOracleSemModel(oracleConnection, modelName);
-            jenaModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_LITE_MEM_TRANS_INF, oracleModel);
+            //oracleModel = ModelOracleSem.createOracleSemModel(oracleConnection, modelName);
+            jenaModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_RDFS_INF, ModelFactory.createModelForGraph(virtuosoGraph));
             this.prefixURI = prefixURI;
 
             OntResource subject = null;
@@ -128,7 +134,7 @@ public class ModelCreator {
                 }
             }
 
-            oracleModel.add(jenaModel, true);
+            //oracleModel.add(jenaModel, true);
 
         } catch (Exception ex) {
             logger.error("Model creating error:", ex);
@@ -143,8 +149,8 @@ public class ModelCreator {
         logger.info("Removing model...");
 
         try {
-            OracleUtils.dropSemanticModel(oracleConnection, modelName);
-        } catch (SQLException ex) {
+            //OracleUtils.dropSemanticModel(oracleConnection, modelName);
+        } catch (Exception ex) {
             logger.error("Removing model error:", ex);
             return false;
         }
@@ -160,10 +166,10 @@ public class ModelCreator {
 
             for (TableItem table: tables) {
 
-                oracleConnection.getConnection().createStatement().execute("DROP TABLE " + prefix + table.getName());
+                //oracleConnection.getConnection().createStatement().execute("DROP TABLE " + prefix + table.getName());
             }
 
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             logger.error("Removing tables error:", ex);
             return false;
         }
@@ -177,7 +183,7 @@ public class ModelCreator {
 
         for (TableItem table: tables) {
 
-            oracleConnection.getConnection().createStatement().execute("CREATE TABLE " + tablePrefix + table.getName() + "(URI VARCHAR2(256), DATA " + table.getType().name() + ")");
+            //oracleConnection.getConnection().createStatement().execute("CREATE TABLE " + tablePrefix + table.getName() + "(URI VARCHAR2(256), DATA " + table.getType().name() + ")");
         }
 
         logger.info("Creating tables done.");
@@ -230,7 +236,7 @@ public class ModelCreator {
                 prop.setDomain(jenaModel.createClass(prefixURI + propertyItem.getDomain()));
                 prop.setRange(getRange(propertyItem.getRange()));
             }
-
+            
         }
 
         logger.info("Creating properties done.");
