@@ -68,6 +68,8 @@ public class Main {
 
         items = modelOnt.listInstance(ns + "person/researcher", dc);
 
+
+
         System.out.println("---------------------------------------------------------------------------------------");
 
         for (Item itemka: items) {

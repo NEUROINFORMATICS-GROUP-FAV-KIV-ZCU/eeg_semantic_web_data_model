@@ -31,7 +31,7 @@ public class ModelCreator {
 
     //private Oracle oracleConnection;
     //private ModelOracleSem oracleModel;
-    VirtGraph virtuosoGraph;
+    //VirtGraph virtuosoGraph;
 
     private String prefixURI;
     private String tablePrefix;
@@ -45,8 +45,9 @@ public class ModelCreator {
 
         try {
             //oracleConnection = new Oracle(dbUrl, username, password);
-            virtuosoGraph = new VirtGraph (dbUrl, "dba", "dba");
-            basicModel = new VirtModel(virtuosoGraph);
+            //virtuosoGraph = new VirtGraph (dbUrl, "dba", "dba");
+            //basicModel = new VirtModel(virtuosoGraph);
+            basicModel = VirtModel.openDatabaseModel("mujModel", dbUrl, username, username);
         }catch (Exception ex) {
             logger.error("Connecting error:", ex);
             return false;
@@ -56,8 +57,8 @@ public class ModelCreator {
 
     public boolean disconnect() {
         try {
-            if (virtuosoGraph != null) {
-                virtuosoGraph.close();
+            if (basicModel != null) {
+                basicModel.close();
             }
         } catch (Exception ex) {
              logger.error("Disconnecting error:", ex);
@@ -97,7 +98,7 @@ public class ModelCreator {
         try {
 
             //oracleModel = ModelOracleSem.createOracleSemModel(oracleConnection, modelName);
-            jenaModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_RDFS_INF, ModelFactory.createModelForGraph(virtuosoGraph));
+            jenaModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_RDFS_INF, basicModel);
             this.prefixURI = prefixURI;
 
             OntResource subject = null;

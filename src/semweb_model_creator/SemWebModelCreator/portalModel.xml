@@ -4,58 +4,55 @@
 
 <!-- DATA -->
 
-
-
 <data_table name="article_file" type="text"/>
 <data_table name="article_comment_file" type="text"/>
 <data_table name="experiment_data_file" type="binary"/>
 <data_table name="scenario_data_file" type="binary"/>
 
-
 <!-- METADATA -->
 
 <!-- Existing classes -->
 
-    <class name="article"/>
-    <class name="article_comment"/>
-    <class name="reservation"/>
+    <class name="article" description="Text arcicle published by person."/>
+    <class name="article_comment" description="Comment of article published by person."/>
+    <class name="reservation" description="EEG research laboratory room reservation."/>
 
-    <class name="person"/>
-    <class name="person/researcher"/>
-    <class name="person/test_subject"/>
+    <class name="person" description="Human being."/>
+    <class name="person/researcher" description="Human being that makes EEG/ERP experiments."/>
+    <class name="person/test_subject" description="Human beeing that is subject of EEG/ERP experiments."/>
 
-    <class name="education_level"/>
-    <class name="research_group"/>
-    <class name="history"/>
-    <class name="experiment"/>
-    <class name="software"/>
-    <class name="hardware"/>
-    <class name="subject_group"/>
-    <class name="project_type"/>
-    <class name="artefact_removing_method"/>
-    <class name="weather"/>
-    <class name="disease"/>
-    <class name="artefact"/>
-    <class name="pharmaceutical"/>
-    <class name="digitization"/>
-    <class name="analysis"/>
-    <class name="data_file"/>
-    <class name="scenario"/>
+    <class name="education_level" description="Education level of human beeing."/>
+    <class name="research_group" description="Union of human beings that makes EEG/ERP experiments"/>
+    <class name="history" description="EEG/ERP experiment download history."/>
+    <class name="experiment" description="EEG/ERP experiment."/>
+    <class name="software" description="Software used for EEG/ERP experiments."/>
+    <class name="hardware" description="Hardware used for EEG/ERP experiments."/>
+    <class name="subject_group" description="Union of human beeings that are EEG/ERP experiments subjects."/>
+    <class name="project_type" description="Experiment project type."/>
+    <class name="artefact_removing_method" description="Removing method of artifact."/>
+    <class name="weather" description="Experiment weather condition."/>
+    <class name="disease" description="Experiment test subject disease condition."/>
+    <class name="artefact" description="Experiment artefact"/>
+    <class name="pharmaceutical" description="Experiment pharmaceutical condition."/>
+    <class name="digitization" description="Experiment digitization."/>
+    <class name="analysis" description="Experiment analysis."/>
+    <class name="data_file" description="Experiment EEG/ERP measuration data file."/>
+    <class name="scenario" description="Experiment scenarion description."/>
 
-    <class name="electrode_configuration"/>
-    <class name="electrode_system"/>
-    <class name="electrode_location"/>
-    <class name="electrode_type"/>
-    <class name="electrode_fix"/>
+    <class name="electrode_configuration" description="Configuration of measuring electrodes."/>
+    <class name="electrode_system" description="System of experiment electrodes."/>
+    <class name="electrode_location" description="Location of experiment electrodes."/>
+    <class name="electrode_type" description="Type of experiment used electrodes."/>
+    <class name="electrode_fix" description="Fixing of electrodes."/>
 
-    <class name="stimulus"/>
-    <class name="stimulus_type"/>
-    <class name="scenario_stimulus"/>
+    <class name="stimulus" description="Experiment stimulus."/>
+    <class name="stimulus_type" description="Experiment stimulus type."/>
+    <class name="scenario_stimulus" description="Stimulus of scenario."/>
 
-    <class name="group"/>
-    <class name="experiment_metadata"/>
-    <class name="electrode"/>
-    <class name="scenario_metadata"/>
+    <class name="group" description="Union of human beings."/>
+    <class name="experiment_metadata" description="Basic exeperiment metadata."/>
+    <class name="electrode" description="Experiment electrode device."/>
+    <class name="scenario_metadata" description="Experiment scenario."/>
 
 <!-- Existing classes -->
 
@@ -75,20 +72,11 @@
     <parent_class name="experiment_metadata">
         <child name="software"/>
         <child name="hardware"/>
-        <child name="group"/>
         <child name="project_type"/>
-        <child name="research_group"/>
-        <child name="person"/>
-        <child name="artefact_removing_method"/>
         <child name="weather"/>
         <child name="disease"/>
         <child name="pharmaceutical"/>
-        <child name="digitization"/>
         <child name="data_file"/>
-        <child name="scenario"/>
-        <child name="electrode"/>
-        <child name="artefact"/>
-        <child name="analysis"/>
         <child name="experiment"/>
     </parent_class>
 
@@ -104,6 +92,7 @@
         <child name="stimulus"/>
         <child name="stimulus_type"/>
         <child name="scenario_stimulus"/>
+        <child name="scenario"/>
     </parent_class>
 
     <parent_class name="article">
@@ -113,202 +102,201 @@
 <!-- Class hierarchy -->
 
 
-    <property name="article/author" range="person/researcher" domain="article"/>
-    <property name="article/research_group" range="research_group" domain="article"/>
-    <property name="article/title" range="xsd:string" domain="article"/>
-    <property name="article/time" range="xsd:dateTime" domain="article"/>
-    <property name="article/subscription" range="person/researcher" domain="article"/>
+    <property name="article/author" range="person/researcher" domain="article" description="Author of article."/>
+    <property name="article/research_group" range="research_group" domain="article" description="Group of article."/>
+    <property name="article/title" range="xsd:string" domain="article" description="Title of article."/>
+    <property name="article/time" range="xsd:dateTime" domain="article" description="Creation time of article."/>
+    <property name="article/subscription" range="person/researcher" domain="article" description="Subscription of article."/>
 
-    <property name="article_comment/article" range="article" domain="article_comment"/>
-    <property name="article_comment/parent_comment" range="article_comment" domain="article_comment"/>
-    <property name="article_comment/time" range="xsd:dateTime" domain="article_comment"/>
-    <property name="article_comment/person" range="person/researcher" domain="article_comment"/>
+    <property name="article_comment/article" range="article" domain="article_comment" description="Parent article of comment."/>
+    <property name="article_comment/parent_comment" range="article_comment" domain="article_comment" description="Parent comment of this comment."/>
+    <property name="article_comment/time" range="xsd:dateTime" domain="article_comment" description="Comment creation time."/>
+    <property name="article_comment/person" range="person/researcher" domain="article_comment" description="Author of comment."/>
 
-    <property name="reservation/person" range="person/researcher" domain="reservation"/>
-    <property name="reservation/creation_time" range="xsd:dateTime" domain="reservation"/>
-    <property name="reservation/research_group" range="research_group" domain="reservation"/>
-    <property name="reservation/start_time" range="xsd:dateTime" domain="reservation"/>
-    <property name="reservation/end_time" range="xsd:dateTime" domain="reservation"/>
+    <property name="reservation/person" range="person/researcher" domain="reservation" description="Reservation owner."/>
+    <property name="reservation/creation_time" range="xsd:dateTime" domain="reservation" description="Creation time of reservation."/>
+    <property name="reservation/research_group" range="research_group" domain="reservation" description="Reservation target research group."/>
+    <property name="reservation/start_time" range="xsd:dateTime" domain="reservation" description="Reservation start time."/>
+    <property name="reservation/end_time" range="xsd:dateTime" domain="reservation" description="Reservation end time."/>
 
 
 <!-- PERSON -->
 
-    <property name="person/given_name" range="xsd:string" domain="person"/>
-    <property name="person/surname" range="xsd:string" domain="person"/>
-    <property name="person/date_birth" range="xsd:date" domain="person"/>
-    <property name="person/email" range="xsd:string" domain="person"/>
-    <property name="person/phone_number" range="xsd:integer" domain="person"/>
-    <property name="person/note" range="xsd:string" domain="person"/>
-    <property name="person/education_level" range="education_level" domain="person"/>
+    <property name="person/given_name" range="xsd:string" domain="person" description="Given name."/>
+    <property name="person/surname" range="xsd:string" domain="person" description="Surname"/>
+    <property name="person/date_birth" range="xsd:date" domain="person" description="Date of birth."/>
+    <property name="person/email" range="xsd:string" domain="person" description="Email address."/>
+    <property name="person/phone_number" range="xsd:integer" domain="person" description="Telephone number."/>
+    <property name="person/note" range="xsd:string" domain="person" description="Person optional description note."/>
+    <property name="person/education_level" range="education_level" domain="person" description="Person education level."/>
 
-    <property name="person/researcher/username" range="xsd:string" domain="person/researcher"/>
-    <property name="person/researcher/password" range="xsd:string" domain="person/researcher"/>
-    <property name="person/researcher/authority" range="xsd:string" domain="person/researcher"/>
-    <property name="person/researcher/default_group" range="research_group" domain="person/researcher"/>
-    <property name="person/researcher/registration_date" range="xsd:date" domain="person/researcher"/>
-    <property name="person/researcher/confirmed" range="xsd:integer" domain="person/researcher"/>
-    <property name="person/researcher/authentication" range="xsd:string" domain="person/researcher"/>
-    <property name="person/researcher/facebook_id" range="xsd:integer" domain="person/researcher"/>
-    <property name="person/researcher/article_group_subscription" range="research_group" domain="person/researcher"/>
-    <property name="person/researcher/group_member" range="research_group" domain="person/researcher"/>
-    <property name="person/researcher/group_member_admin" range="research_group" domain="person/researcher"/>
-    <property name="person/researcher/group_member_experimenter" range="research_group" domain="person/researcher"/>
-    <property name="person/researcher/group_member_reader" range="research_group" domain="person/researcher"/>
+    <property name="person/researcher/username" range="xsd:string" domain="person/researcher" description="Login username."/>
+    <property name="person/researcher/password" range="xsd:string" domain="person/researcher" description="Login password."/>
+    <property name="person/researcher/authority" range="xsd:string" domain="person/researcher" description="Person rights authority."/>
+    <property name="person/researcher/default_group" range="research_group" domain="person/researcher" description="Default research group."/>
+    <property name="person/researcher/registration_date" range="xsd:date" domain="person/researcher" description="Date of registration."/>
+    <property name="person/researcher/confirmed" range="xsd:integer" domain="person/researcher" description="Is person confirmed."/>
+    <property name="person/researcher/authentication" range="xsd:string" domain="person/researcher" description="Authentication type."/>
+    <property name="person/researcher/facebook_id" range="xsd:integer" domain="person/researcher" description="Facebook login ID."/>
+    <property name="person/researcher/article_group_subscription" range="research_group" domain="person/researcher" description="Subscription og group for articles."/>
+    <property name="person/researcher/group_member" range="research_group" domain="person/researcher" description="Group membership."/>
+    <property name="person/researcher/group_member_admin" range="research_group" domain="person/researcher" description="Admin right group membership."/>
+    <property name="person/researcher/group_member_experimenter" range="research_group" domain="person/researcher" description="Experimenter right group membership."/>
+    <property name="person/researcher/group_member_reader" range="research_group" domain="person/researcher" description="Reader right group membership."/>
 
-    <property name="person/test_subject/gender" range="xsd:string" domain="person/test_subject"/>
-    <property name="person/test_subject/laterality" range="xsd:string" domain="person/test_subject"/>
+    <property name="person/test_subject/gender" range="xsd:string" domain="person/test_subject" description="Gender of test subject."/>
+    <property name="person/test_subject/laterality" range="xsd:string" domain="person/test_subject" description="Brain laterality of test subject."/>
 
  <!-- PERSON -->
 
-    <property name="education_level/title" range="xsd:string" domain="education_level"/>
-    <property name="education_level/is_default" range="xsd:string" domain="education_level"/>
-    <property name="education_level/research_group" range="research_group" domain="education_level"/>
+    <property name="education_level/title" range="xsd:string" domain="education_level" description="Education level title."/>
+    <property name="education_level/is_default" range="xsd:string" domain="education_level" description="Is level default."/>
+    <property name="education_level/research_group" range="research_group" domain="education_level" description="Research group bound."/>
 
-    <property name="research_group/owner" range="person/researcher" domain="research_group"/>
-    <property name="research_group/title" range="xsd:string" domain="research_group"/>
-    <property name="research_group/description" range="xsd:string" domain="research_group"/>
+    <property name="research_group/owner" range="person/researcher" domain="research_group" description="Group owner."/>
+    <property name="research_group/title" range="xsd:string" domain="research_group" description="Group title."/>
+    <property name="research_group/description" range="xsd:string" domain="research_group" description="Group description."/>
 
-    <property name="history/experiment" range="experiment" domain="history"/>
-    <property name="history/scenario" range="scenario" domain="history"/>
-    <property name="history/person" range="person/researcher" domain="history"/>
-    <property name="history/date_of_download" range="xsd:dateTime" domain="history"/>
-    <property name="history/data_file" range="date_file" domain="history"/>
+    <property name="history/experiment" range="experiment" domain="history" description="Target experiment."/>
+    <property name="history/scenario" range="scenario" domain="history" description="Target scenario."/>
+    <property name="history/person" range="person/researcher" domain="history" description="Owner person."/>
+    <property name="history/date_of_download" range="xsd:dateTime" domain="history" description="Date of download."/>
+    <property name="history/data_file" range="date_file" domain="history" description="Target data file."/>
 
-    <property name="experiment/scenario" range="scenario" domain="experiment"/>
-    <property name="experiment/start_time" range="xsd:dateTime" domain="experiment"/>
-    <property name="experiment/end_time" range="xsd:dateTime" domain="experiment"/>
-    <property name="experiment/temperature" range="xsd:integer" domain="experiment"/>
-    <property name="experiment/environment_note" range="xsd:string" domain="experiment"/>
-    <property name="experiment/subject_person" range="person/test_subject" domain="experiment"/>
-    <property name="experiment/weather" range="weather" domain="experiment"/>
-    <property name="experiment/owner_person" range="person/researcher" domain="experiment"/>
-    <property name="experiment/research_group" range="research_group" domain="experiment"/>
-    <property name="experiment/private" range="xsd:integer" domain="experiment"/>
-    <property name="experiment/artefact" range="artefact" domain="experiment"/>
-    <property name="experiment/subject_group" range="subject_group" domain="experiment"/>
-    <property name="experiment/electrode_configuration" range="electrode_configuration" domain="experiment"/>
-    <property name="experiment/digitization" range="digitization" domain="experiment"/>
-    <property name="experiment/coexperiment_person" range="person/researcher" domain="experiment"/>
-    <property name="experiment/artefact_artefact_removing_method" range="artefact_removing_method" domain="experiment"/>
-    <property name="experiment/disease" range="disease" domain="experiment"/>
-    <property name="experiment/pharmaceutical" range="pharmaceutical" domain="experiment"/>
-    <property name="experiment/project_type" range="project_type" domain="experiment"/>
-    <property name="experiment/hardware" range="hardware" domain="experiment"/>
-    <property name="experiment/software" range="software" domain="experiment"/>
+    <property name="experiment/scenario" range="scenario" domain="experiment" description="Experiment scenario."/>
+    <property name="experiment/start_time" range="xsd:dateTime" domain="experiment" description="Measuration start time."/>
+    <property name="experiment/end_time" range="xsd:dateTime" domain="experiment" description="Measuration end time."/>
+    <property name="experiment/temperature" range="xsd:integer" domain="experiment" description="Measuration temperature condition."/>
+    <property name="experiment/environment_note" range="xsd:string" domain="experiment" description="Experiment optional description note."/>
+    <property name="experiment/subject_person" range="person/test_subject" domain="experiment" description="Measured person."/>
+    <property name="experiment/weather" range="weather" domain="experiment" description="Experiment weather."/>
+    <property name="experiment/owner_person" range="person/researcher" domain="experiment" description="Owner of experiment."/>
+    <property name="experiment/research_group" range="research_group" domain="experiment" description="Experiment research group."/>
+    <property name="experiment/private" range="xsd:integer" domain="experiment" description="Is experiment private."/>
+    <property name="experiment/artefact" range="artefact" domain="experiment" description="Experiment artefact."/>
+    <property name="experiment/subject_group" range="subject_group" domain="experiment" description="Test subject group."/>
+    <property name="experiment/electrode_configuration" range="electrode_configuration" domain="experiment" description="Configuration of electrodes."/>
+    <property name="experiment/digitization" range="digitization" domain="experiment" description="Experiment digitization."/>
+    <property name="experiment/coexperiment_person" range="person/researcher" domain="experiment" description="Coexperimenter person."/>
+    <property name="experiment/artefact_artefact_removing_method" range="artefact_removing_method" domain="experiment" description="Removing method."/>
+    <property name="experiment/disease" range="disease" domain="experiment" description="Subject disease."/>
+    <property name="experiment/pharmaceutical" range="pharmaceutical" domain="experiment" description="Experiment pharmaceutical."/>
+    <property name="experiment/project_type" range="project_type" domain="experiment" description="Type of the experiment project."/>
+    <property name="experiment/hardware" range="hardware" domain="experiment" description="Used hardware."/>
+    <property name="experiment/software" range="software" domain="experiment" description="Used software."/>
 
-    <property name="software/title" range="xsd:string" domain="software"/>
-    <property name="software/description" range="xsd:string" domain="software"/>
-    <property name="software/is_default" range="xsd:integer" domain="software"/>
-    <property name="software/research_group" range="research_group" domain="software"/>
+    <property name="software/title" range="xsd:string" domain="software" description="Software name."/>
+    <property name="software/description" range="xsd:string" domain="software" description="Software description."/>
+    <property name="software/is_default" range="xsd:integer" domain="software" description="Is software default."/>
+    <property name="software/research_group" range="research_group" domain="software" description="Bounded research group."/>
 
-    <property name="hardware/title" range="xsd:string" domain="hardware"/>
-    <property name="hardware/type" range="xsd:string" domain="hardware"/>
-    <property name="hardware/description" range="xsd:string" domain="hardware"/>
-    <property name="hardware/is_default" range="xsd:integer" domain="hardware"/>
-    <property name="hardware/research_group" range="research_group" domain="hardware"/>
+    <property name="hardware/title" range="xsd:string" domain="hardware" description="Hardware name."/>
+    <property name="hardware/type" range="xsd:string" domain="hardware" description="Hardware type."/>
+    <property name="hardware/description" range="xsd:string" domain="hardware" description="Hardware description."/>
+    <property name="hardware/is_default" range="xsd:integer" domain="hardware" description="Is hardware default."/>
+    <property name="hardware/research_group" range="research_group" domain="hardware" description="Bounded research group."/>
 
-    <property name="subject_group/title" range="xsd:string" domain="subject_group"/>
-    <property name="subject_group/description" range="xsd:string" domain="subject_group"/>
+    <property name="subject_group/title" range="xsd:string" domain="subject_group" description="Title of group."/>
+    <property name="subject_group/description" range="xsd:string" domain="subject_group" description="Group description."/>
 
-    <property name="project_type/title" range="xsd:string" domain="project_type"/>
-    <property name="project_type/description" range="xsd:string" domain="project_type"/>
-    <property name="project_type/research_group" range="research_group" domain="project_type"/>
+    <property name="project_type/title" range="xsd:string" domain="project_type" description="Project name."/>
+    <property name="project_type/description" range="xsd:string" domain="project_type" description="Project description."/>
+    <property name="project_type/research_group" range="research_group" domain="project_type" description="Bounded group."/>
 
-    <property name="artefact_removing_method/title" range="xsd:string" domain="artefact_removing_method"/>
-    <property name="artefact_removing_method/description" range="xsd:string" domain="artefact_removing_method"/>
-    <property name="artefact_removing_method/is_default" range="xsd:integer" domain="artefact_removing_method"/>
-    <property name="artefact_removing_method/research_group" range="research_group" domain="artefact_removing_method"/>
+    <property name="artefact_removing_method/title" range="xsd:string" domain="artefact_removing_method" description="Title of removing method."/>
+    <property name="artefact_removing_method/description" range="xsd:string" domain="artefact_removing_method" description="Description of removing method."/>
+    <property name="artefact_removing_method/is_default" range="xsd:integer" domain="artefact_removing_method" description="Is removing method default."/>
+    <property name="artefact_removing_method/research_group" range="research_group" domain="artefact_removing_method" description="Bounded group."/>
 
-    <property name="weather/title" range="xsd:string" domain="weather"/>
-    <property name="weather/description" range="xsd:string" domain="weather"/>
-    <property name="weather/is_default" range="xsd:integer" domain="weather"/>
-    <property name="weather/research_group" range="research_group" domain="weather"/>
+    <property name="weather/title" range="xsd:string" domain="weather" description="Weather name."/>
+    <property name="weather/description" range="xsd:string" domain="weather" description="Weather description."/>
+    <property name="weather/is_default" range="xsd:integer" domain="weather" description="Is weather default."/>
+    <property name="weather/research_group" range="research_group" domain="weather" description="Bounded group."/>
 
-    <property name="disease/title" range="xsd:string" domain="disease"/>
-    <property name="disease/description" range="xsd:string" domain="disease"/>
-    <property name="disease/research_group" range="research_group" domain="disease"/>
+    <property name="disease/title" range="xsd:string" domain="disease" description="Disease name."/>
+    <property name="disease/description" range="xsd:string" domain="disease" description="Disease description."/>
+    <property name="disease/research_group" range="research_group" domain="disease" description="Boundede group."/>
 
-    <property name="artefact/compensation" range="xsd:string" domain="artefact"/>
-    <property name="artefact/reject_condition" range="xsd:string" domain="artefact"/>
-    <property name="artefact/research_group" range="research_group" domain="artefact"/>
+    <property name="artefact/compensation" range="xsd:string" domain="artefact" description="Artefact compensation."/>
+    <property name="artefact/reject_condition" range="xsd:string" domain="artefact" description="Reject condition."/>
+    <property name="artefact/research_group" range="research_group" domain="artefact" description="Bounded research group."/>
 
-    <property name="pharmaceutical/title" range="xsd:string" domain="pharmaceutical"/>
-    <property name="pharmaceutical/description" range="xsd:string" domain="pharmaceutical"/>
-    <property name="pharmaceutical/research_group" range="research_group" domain="pharmaceutical"/>
+    <property name="pharmaceutical/title" range="xsd:string" domain="pharmaceutical" description="Pharmaceutical name."/>
+    <property name="pharmaceutical/description" range="xsd:string" domain="pharmaceutical" description="Pharmaceutical description."/>
+    <property name="pharmaceutical/research_group" range="research_group" domain="pharmaceutical" description="Bounded research group."/>
 
-    <property name="digitization/gain" range="xsd:float" domain="digitization"/>
-    <property name="digitization/filter" range="xsd:string" domain="digitization"/>
-    <property name="digitization/sampling_rate" range="xsd:float" domain="digitization"/>
-    <property name="digitization/research_group" range="research_group" domain="digitization"/>
+    <property name="digitization/gain" range="xsd:float" domain="digitization" description="Gain."/>
+    <property name="digitization/filter" range="xsd:string" domain="digitization" description="Filter."/>
+    <property name="digitization/sampling_rate" range="xsd:float" domain="digitization" description="Sampling rate."/>
+    <property name="digitization/research_group" range="research_group" domain="digitization" description="Bounded research group."/>
 
-    <property name="analysis/epochs_number" range="xsd:integer" domain="analysis"/>
-    <property name="analysis/prestimulus_time" range="xsd:integer" domain="analysis"/>
-    <property name="analysis/poststimulus_time" range="xsd:integer" domain="analysis"/>
-    <property name="analysis/description" range="xsd:string" domain="analysis"/>
-    <property name="analysis/research_group" range="research_group" domain="analysis"/>
+    <property name="analysis/epochs_number" range="xsd:integer" domain="analysis" description="Count of epochs."/>
+    <property name="analysis/prestimulus_time" range="xsd:integer" domain="analysis" description="Time of prestimulus."/>
+    <property name="analysis/poststimulus_time" range="xsd:integer" domain="analysis" description="Time of poststimulus."/>
+    <property name="analysis/description" range="xsd:string" domain="analysis" description="Analysis description."/>
+    <property name="analysis/research_group" range="research_group" domain="analysis" description="Bounded research group."/>
 
-    <property name="data_file/experiment" range="experiment" domain="data_file"/>
-    <property name="data_file/mimetype" range="xsd:string" domain="data_file"/>
-    <property name="data_file/filename" range="xsd:string" domain="data_file"/>
-    <property name="data_file/description" range="xsd:string" domain="data_file"/>
-    <property name="data_file/analysis" range="analysis" domain="data_file"/>
+    <property name="data_file/experiment" range="experiment" domain="data_file" description="Target experiment."/>
+    <property name="data_file/mimetype" range="xsd:string" domain="data_file" description="File mimetype."/>
+    <property name="data_file/filename" range="xsd:string" domain="data_file" description="Name of file."/>
+    <property name="data_file/description" range="xsd:string" domain="data_file" description="File description."/>
+    <property name="data_file/analysis" range="analysis" domain="data_file" description="Target analysis."/>
 
-    <property name="scenario/title" range="xsd:string" domain="scenario"/>
-    <property name="scenario/scenario_length" range="xsd:integer" domain="scenario"/>
-    <property name="scenario/description" range="xsd:string" domain="scenario"/>
-    <property name="scenario/owner" range="person/researcher" domain="scenario"/>
-    <property name="scenario/research_group" range="research_group" domain="scenario"/>
-    <property name="scenario/private" range="xsd:integer" domain="scenario"/>
-    <property name="scenario/scenario_name" range="xsd:string" domain="scenario"/>
-    <property name="scenario/mimetype" range="xsd:string" domain="scenario"/>
+    <property name="scenario/title" range="xsd:string" domain="scenario" description="Scenarion name."/>
+    <property name="scenario/scenario_length" range="xsd:integer" domain="scenario" description="Scenarion length."/>
+    <property name="scenario/description" range="xsd:string" domain="scenario" description="Scenarion description."/>
+    <property name="scenario/owner" range="person/researcher" domain="scenario" description="Scenarion owner."/>
+    <property name="scenario/research_group" range="research_group" domain="scenario" description="Bounded research group."/>
+    <property name="scenario/private" range="xsd:integer" domain="scenario" description="Is private."/>
+    <property name="scenario/scenario_name" range="xsd:string" domain="scenario" description="Time of scenarion."/>
+    <property name="scenario/mimetype" range="xsd:string" domain="scenario" description="Mimetype of scenario file."/>
 
 
 <!-- Electrodes -->
  
-    <property name="electrode_configuration/impedance" range="xsd:integer" domain="electrode_configuration"/>
-    <property name="electrode_configuration/electrode_system" range="electrode_system" domain="electrode_configuration"/>
-    <property name="electrode_configuration/descript_data_file" range="data_file" domain="electrode_configuration"/>
-    <property name="electrode_configuration/electrode_location" range="electrode_location" domain="electrode_configuration"/>
+    <property name="electrode_configuration/impedance" range="xsd:integer" domain="electrode_configuration" description="Impedance."/>
+    <property name="electrode_configuration/electrode_system" range="electrode_system" domain="electrode_configuration" description="Target electrode system."/>
+    <property name="electrode_configuration/descript_data_file" range="data_file" domain="electrode_configuration" description="Description data file."/>
+    <property name="electrode_configuration/electrode_location" range="electrode_location" domain="electrode_configuration" description="Electrode location."/>
 
-    <property name="electrode_system/title" range="xsd:string" domain="electrode_system"/>
-    <property name="electrode_system/description" range="xsd:string" domain="electrode_system"/>
-    <property name="electrode_system/is_default" range="xsd:integer" domain="electrode_system"/>
-    <property name="electrode_system/research_group" range="research_group" domain="electrode_system"/>
+    <property name="electrode_system/title" range="xsd:string" domain="electrode_system" description="Electrode system name."/>
+    <property name="electrode_system/description" range="xsd:string" domain="electrode_system" description="Electrode system description."/>
+    <property name="electrode_system/is_default" range="xsd:integer" domain="electrode_system" description="Is default."/>
+    <property name="electrode_system/research_group" range="research_group" domain="electrode_system" description="Bounded research group."/>
 
-    <property name="electrode_location/title" range="xsd:string" domain="electrode_location"/>
-    <property name="electrode_location/shortcut" range="xsd:string" domain="electrode_location"/>
-    <property name="electrode_location/description" range="xsd:string" domain="electrode_location"/>
-    <property name="electrode_location/is_deafult" range="xsd:integer" domain="electrode_location"/>
-    <property name="electrode_location/electrode_fix" range="electrode_fix" domain="electrode_location"/>
-    <property name="electrode_location/electrode_type" range="electrode_type" domain="electrode_location"/>
-    <property name="electrode_location/research_group" range="research_group" domain="electrode_location"/>
+    <property name="electrode_location/title" range="xsd:string" domain="electrode_location" description="Electrode location name."/>
+    <property name="electrode_location/shortcut" range="xsd:string" domain="electrode_location" description="Electrode location shortcut."/>
+    <property name="electrode_location/description" range="xsd:string" domain="electrode_location" description="Electrode location description."/>
+    <property name="electrode_location/is_deafult" range="xsd:integer" domain="electrode_location" description="Is default."/>
+    <property name="electrode_location/electrode_fix" range="electrode_fix" domain="electrode_location" description="Target electrode fix."/>
+    <property name="electrode_location/electrode_type" range="electrode_type" domain="electrode_location" description="Target electrode type."/>
+    <property name="electrode_location/research_group" range="research_group" domain="electrode_location" description="Bounded research group."/>
 
-    <property name="electrode_type/title" range="xsd:string" domain="electrode_type"/>
-    <property name="electrode_type/description" range="xsd:string" domain="electrode_type"/>
-    <property name="electrode_type/is_default" range="xsd:integer" domain="electrode_type"/>
-    <property name="electrode_type/research_group" range="research_group" domain="electrode_type"/>
+    <property name="electrode_type/title" range="xsd:string" domain="electrode_type" description="Electrode type name."/>
+    <property name="electrode_type/description" range="xsd:string" domain="electrode_type" description="Electrode type description."/>
+    <property name="electrode_type/is_default" range="xsd:integer" domain="electrode_type" description="Is default."/>
+    <property name="electrode_type/research_group" range="research_group" domain="electrode_type" description="Bounded research group."/>
 
-    <property name="electrode_fix/title" range="xsd:string" domain="electrode_fix"/>
-    <property name="electrode_fix/description" range="xsd:string" domain="electrode_fix"/>
-    <property name="electrode_fix/is_default" range="xsd:integer" domain="electrode_fix"/>
-    <property name="electrode_fix/research_group" range="research_group" domain="electrode_fix"/>
+    <property name="electrode_fix/title" range="xsd:string" domain="electrode_fix" description="Electrode fix name."/>
+    <property name="electrode_fix/description" range="xsd:string" domain="electrode_fix" description="Electrode fix description."/>
+    <property name="electrode_fix/is_default" range="xsd:integer" domain="electrode_fix" description="Is default."/>
+    <property name="electrode_fix/research_group" range="research_group" domain="electrode_fix" description="Bounded research group."/>
 
 
 <!-- Electrodes -->
 
 <!-- Stimulus -->
 
-    <property name="stimulus/description" range="xsd:string" domain="stimulus"/>
+    <property name="stimulus/description" range="xsd:string" domain="stimulus" description="Stimulus description."/>
 
-    <property name="stimulus_type/description" range="xsd:string" domain="stimulus_type"/>
-    <property name="stimulus_type/is_default" range="xsd:integer" domain="stimulus_type"/>
-    <property name="stimulus_type/research_group" range="research_group" domain="stimulus_type"/>
+    <property name="stimulus_type/description" range="xsd:string" domain="stimulus_type" description="Stimulus type description."/>
+    <property name="stimulus_type/is_default" range="xsd:integer" domain="stimulus_type" description="Is default."/>
+    <property name="stimulus_type/research_group" range="research_group" domain="stimulus_type" description="Bounded research group."/>
 
-    <property name="scenario_stimulus/stimulus" range="stimulus" domain="scenario_stimulus"/>
-    <property name="scenario_stimulus/stimulus_type" range="stimulus_type" domain="scenario_stimulus"/>
+    <property name="scenario_stimulus/stimulus" range="stimulus" domain="scenario_stimulus" description="Target stimulus."/>
+    <property name="scenario_stimulus/stimulus_type" range="stimulus_type" domain="scenario_stimulus" description="Target stimulus type."/>
 
 <!-- Stimulus -->
-
 
 
 <!-- Inheritance -->
