@@ -13,8 +13,8 @@ public class PropertyDataItem extends DataItem{
     private String domain;
     private List<PropertyDataItem> childNodes;
 
-    public PropertyDataItem(String name, String range, String domain) {
-        super(name);
+    public PropertyDataItem(String name, String range, String domain, String description) {
+        super(name, description);
         childNodes = new ArrayList<PropertyDataItem>();
         this.range = range;
         this.domain = domain;
@@ -30,7 +30,7 @@ public class PropertyDataItem extends DataItem{
     }
 
     public PropertyDataItem(String name) {
-        super(name);
+        super(name, null);
         childNodes = new ArrayList<PropertyDataItem>();
     }
 

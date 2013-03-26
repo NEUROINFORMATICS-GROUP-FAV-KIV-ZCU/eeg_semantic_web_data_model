@@ -27,6 +27,7 @@ public class DataLoader {
     private final String PROPERTY_PARENT_NODE = "parent_property";
     private final String RANGE_ATTRIBUTE = "range";
     private final String DOMAIN_ATTRIBUTE = "domain";
+    private final String DESCRIPTION_ATTRIBUTE = "description";
     private final String TABLE_NODE = "data_table";
 
     private static final Logger logger = Logger.getLogger(DataLoader.class);
@@ -99,15 +100,15 @@ public class DataLoader {
     }
 
     private void processClassNode (Element node) {
-        classes.add(new ClassDataItem(node.attributeValue("name")));
+        classes.add(new ClassDataItem(node.attributeValue("name"), node.attributeValue(DESCRIPTION_ATTRIBUTE)));
     }
 
     private void processPropertyNode (Element node) {
-        properties.add(new PropertyDataItem(node.attributeValue("name"), node.attributeValue(RANGE_ATTRIBUTE), node.attributeValue(DOMAIN_ATTRIBUTE)));
+        properties.add(new PropertyDataItem(node.attributeValue("name"), node.attributeValue(RANGE_ATTRIBUTE), node.attributeValue(DOMAIN_ATTRIBUTE), node.attributeValue(DESCRIPTION_ATTRIBUTE)));
     }
 
     private void processClassParentNode (Element node) {
-        ClassDataItem cls = new ClassDataItem(node.attributeValue("name"));
+        ClassDataItem cls = new ClassDataItem(node.attributeValue("name"), node.attributeValue(DESCRIPTION_ATTRIBUTE));
 
         Iterator childNodes = node.elementIterator();
 

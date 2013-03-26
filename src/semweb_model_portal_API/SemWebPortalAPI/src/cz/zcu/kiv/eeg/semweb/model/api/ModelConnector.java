@@ -23,7 +23,7 @@ public class ModelConnector {
     //private Oracle oracleConnection; //DB connection
     //private ModelOracleSem oracleModel; //semWeb model connection
 
-    private VirtGraph virtuosoGraph;
+    //private VirtGraph virtuosoGraph;
     private Model basicModel;
 
 
@@ -43,7 +43,7 @@ public class ModelConnector {
 
         try {
             //oracleConnection = new Oracle(dbURL, username, password);
-             virtuosoGraph = new VirtGraph (dbURL, username, password);
+             //virtuosoGraph = new VirtGraph (dbURL, username, password);
         }catch (Exception ex) {
             logger.error("Connecting error:", ex);
             throw new ConnectionException("Can not connect database.", ex);
@@ -57,7 +57,7 @@ public class ModelConnector {
     private void connectSemWeb() throws ConnectionException {
         try {
             //oracleModel = ModelOracleSem.createOracleSemModel(oracleConnection, modelName);
-            basicModel = new VirtModel(virtuosoGraph);
+            basicModel = VirtModel.openDatabaseModel(modelName, dbURL, username, password);
         }catch (Exception ex) {
             logger.error("Connecting error:", ex);
             throw new ConnectionException("Can not connect semantic web model.", ex);

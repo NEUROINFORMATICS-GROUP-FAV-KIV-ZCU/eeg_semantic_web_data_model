@@ -1,16 +1,14 @@
 package cz.zcu.kiv.eeg.semweb.gui;
 
 import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.ontology.OntResource;
 import cz.zcu.kiv.eeg.semweb.model.api.ConnectionException;
 import cz.zcu.kiv.eeg.semweb.model.api.ModelConnector;
 import cz.zcu.kiv.eeg.semweb.model.api.PortalModel;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.ConversionException;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.NonExistingUriNodeException;
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.text.ParseException;
 import java.util.List;
 
@@ -43,10 +41,17 @@ public class TestMain  {
         ModelConnector conn = new ModelConnector(url, user, pwd, model, prefix);
         PortalModel modelOnt = conn.connect();
 
-        MainWindow mw = new MainWindow(modelOnt);
-        mw.setVisible(true);
+        //MainWindow mw = new MainWindow(modelOnt);
+        //mw.setVisible(true);
 
         OntModel modelO = modelOnt.getOntModel();
+
+        OntResource propka = modelO.getOntProperty(prefix + "electrode_location/research_group");
+
+
+        System.out.println(propka.getComment(null));
+    
+        conn.disconnect();
 
         
         //OutputStream stream = new FileOutputStream(new File("writee.xml"));

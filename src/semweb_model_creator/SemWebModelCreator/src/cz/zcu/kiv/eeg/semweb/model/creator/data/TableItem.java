@@ -8,11 +8,8 @@ public class TableItem {
 
     public enum DATA_TYPE {BLOB, CLOB};
 
-    private final String TABLE_DATA_TYPE_TEXT = "text";
-    private final String TABLE_DATA_TYPE_BINARY = "binary";
-
     private String name;
-    private DATA_TYPE type;
+    private String type;
     
     
     public TableItem(String name) {
@@ -23,15 +20,12 @@ public class TableItem {
         return name;
     }
 
-    public DATA_TYPE getType() {
+    public String getType() {
         return type;
     }
 
-    public void setDataType(String type) {
-        if (type.equals(TABLE_DATA_TYPE_TEXT)) {
-            this.type = DATA_TYPE.CLOB;
-        } else {
-          this.type = DATA_TYPE.BLOB;
-        }
+    public void setDataType(String type) {       
+        this.type = type;
     }
+    
 }

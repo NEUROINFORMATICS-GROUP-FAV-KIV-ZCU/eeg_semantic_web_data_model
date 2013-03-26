@@ -3,6 +3,8 @@ package cz.zcu.kiv.eeg.semweb.model.creator;
 import cz.zcu.kiv.eeg.semweb.model.creator.data.ClassDataItem;
 import cz.zcu.kiv.eeg.semweb.model.creator.data.PropertyDataItem;
 import cz.zcu.kiv.eeg.semweb.model.creator.data.TableItem;
+import cz.zcu.kiv.eeg.semweb.model.dbconnect.DbConnector;
+import cz.zcu.kiv.eeg.semweb.model.dbconnect.VirtuosoDbConnector;
 import cz.zcu.kiv.eeg.semweb.model.testdata.SimpleDataCreator;
 import java.io.File;
 import java.util.List;
@@ -48,22 +50,24 @@ public class Main {
         List<PropertyDataItem> properties = load.getProperties();
         List<TableItem> tables = load.getTables();
 
-        ModelCreator cr = new ModelCreator();
+        DbConnector connector = new VirtuosoDbConnector(szModelName, szJdbcURL, szUser, szPasswd);
 
-        operationRes = cr.connect(szJdbcURL, szUser, szPasswd);
-        logger.info("Database connect successfull: " + operationRes);
+        ModelCreator cr = new ModelCreator(connector);
 
-
-
-        operationRes = cr.createModel(szModelName, "http://cz.zcu.kiv.eeg#", "EEG_", classes, properties, tables);
-        logger.info("SemWeb model created successfull: " + operationRes);
-
-        SimpleDataCreator sdc = new SimpleDataCreator();
-        cr.insertData(szModelName, "http://cz.zcu.kiv.eeg#", sdc.getData());
+        cr.connect();
+        
 
 
-      //System.out.println(cr.removeModel(szModelName));
-      //System.out.println(cr.removeTables("EEG_", tables));
+
+        //operationRes = cr.createModel("http://cz.zcu.kiv.eeg#", "EEG_", classes, properties, tables);
+        //logger.info("SemWeb model created successfull: " + operationRes);
+
+        //SimpleDataCreator sdc = new SimpleDataCreator();
+        //cr.insertData(szModelName, "http://cz.zcu.kiv.eeg#", sdc.getData());
+
+
+      cr.removeModel();
+      System.out.println(cr.removeTables("EEG_", tables));
         cr.disconnect();
 
     }

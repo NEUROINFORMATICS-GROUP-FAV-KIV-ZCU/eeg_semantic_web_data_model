@@ -13,13 +13,12 @@ import com.hp.hpl.jena.vocabulary.XSD;
 import cz.zcu.kiv.eeg.semweb.model.creator.data.ClassDataItem;
 import cz.zcu.kiv.eeg.semweb.model.creator.data.PropertyDataItem;
 import cz.zcu.kiv.eeg.semweb.model.creator.data.TableItem;
+import cz.zcu.kiv.eeg.semweb.model.dbconnect.DbConnector;
 import cz.zcu.kiv.eeg.semweb.model.testdata.Triple;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
-import java.util.Locale;
 import org.apache.log4j.Logger;
-import virtuoso.jena.driver.VirtGraph;
-import virtuoso.jena.driver.VirtModel;
 
 /**
  *
@@ -27,61 +26,40 @@ import virtuoso.jena.driver.VirtModel;
  */
 public class ModelCreator {
 
-    private final String prefixMod = "eeg";
-
-    //private Oracle oracleConnection;
-    //private ModelOracleSem oracleModel;
-    //VirtGraph virtuosoGraph;
-
     private String prefixURI;
     private String tablePrefix;
     private OntModel jenaModel;
     private Model basicModel;
+    
+    private DbConnector dbConnector;
+
+    private final String TABLE_DATA_TYPE_TEXT = "text";
+    private final String TABLE_DATA_TYPE_BINARY = "binary";
 
     private static final Logger logger = Logger.getLogger(ModelCreator.class);
 
-    public boolean connect(String dbUrl, String username, String password) {
-        Locale.setDefault(Locale.US);   //avoi different national dateTime and number formats
-
-        try {
-            //oracleConnection = new Oracle(dbUrl, username, password);
-            //virtuosoGraph = new VirtGraph (dbUrl, "dba", "dba");
-            //basicModel = new VirtModel(virtuosoGraph);
-            basicModel = VirtModel.openDatabaseModel("mujModel", dbUrl, username, username);
-        }catch (Exception ex) {
-            logger.error("Connecting error:", ex);
-            return false;
-        }
-        return true;
+    public ModelCreator(DbConnector dbConnector) {
+        this.dbConnector = dbConnector;
     }
 
-    public boolean disconnect() {
-        try {
-            if (basicModel != null) {
-                basicModel.close();
-            }
-        } catch (Exception ex) {
-             logger.error("Disconnecting error:", ex);
-            return false;
-        }
-        return true;
+    public void connect() {
+        basicModel = dbConnector.connect();
     }
 
-    public boolean createModel(String modelName, String prefixURI, String tablePrefix, List<ClassDataItem> classes, List<PropertyDataItem> properties, List<TableItem> tables) {
+    public void disconnect() {
+        dbConnector.disconnect();
+    }
+
+    public boolean createModel(String prefixURI, String tablePrefix, List<ClassDataItem> classes, List<PropertyDataItem> properties, List<TableItem> tables) {
         try {
-            //oracleModel = ModelOracleSem.createOracleSemModel(oracleConnection, modelName);
             this.prefixURI = prefixURI;
             this.tablePrefix = tablePrefix;
 
             jenaModel = ModelFactory.createOntologyModel();
 
-
-            //jenaModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_RDFS_INF, basicModel);
-            //oracleModel.setNsPrefix(prefixMod, this.prefixURI);
-
             createClasses(classes);
             createProperties(properties);
-            //createTables(tables);         //TODO CREATE TABLES
+            createTables(tables);         
 
             //oracleModel.add(jenaModel, true);
             basicModel.add(jenaModel);
@@ -145,28 +123,18 @@ public class ModelCreator {
     }
 
 
-    public boolean removeModel(String modelName) {
-        
-        logger.info("Removing model...");
-
-        try {
-            //OracleUtils.dropSemanticModel(oracleConnection, modelName);
-        } catch (Exception ex) {
-            logger.error("Removing model error:", ex);
-            return false;
-        }
-        logger.info("Removing model done.");
-        return true;
+    public void removeModel() {
+        dbConnector.removeModel();
     }
 
-    public boolean removeTables(String prefix, List<TableItem> tables) {
+    public boolean removeTables(String prefix, List<TableItem> tables) { //TODO
 
         logger.info("Removing tables...");
-
         try {
+            Statement st = dbConnector.getRelationConn();
 
             for (TableItem table: tables) {
-
+                st.execute("DROP TABLE " + prefix + table.getName());
                 //oracleConnection.getConnection().createStatement().execute("DROP TABLE " + prefix + table.getName());
             }
 
@@ -184,6 +152,8 @@ public class ModelCreator {
 
         for (TableItem table: tables) {
 
+            Statement st = dbConnector.getRelationConn();
+            st.execute("CREATE TABLE " + tablePrefix + table.getName() + " (\"URI\" " + dbConnector.getVarcharType()+ ", \"DATA\" " + getSqlDataType(table.getType()) + ")");
             //oracleConnection.getConnection().createStatement().execute("CREATE TABLE " + tablePrefix + table.getName() + "(URI VARCHAR2(256), DATA " + table.getType().name() + ")");
         }
 
@@ -201,7 +171,10 @@ public class ModelCreator {
 
             if (parentNode == null) {
                 parentNode = jenaModel.createClass(prefixURI + classItem.getName());
+            }
 
+            if (classItem.getDescription() != null) {
+                parentNode.setComment(classItem.getDescription(), null);
             }
 
             if (classItem.hasChildNodes()) {
@@ -209,6 +182,10 @@ public class ModelCreator {
                 for (ClassDataItem childNode: classItem.getChildNodes()) {
                     //jenaModel.createClass(prefixURI + childNode.getName()).addSuperClass(parentNode);
                     OntClass child = jenaModel.createClass(prefixURI + childNode.getName());
+
+                    if (childNode.getDescription() != null) {
+                       child.setComment(childNode.getDescription(), null);
+                    }
                     parentNode.addSubClass(child);
                 }
                 
@@ -236,6 +213,10 @@ public class ModelCreator {
                 OntProperty prop = jenaModel.createOntProperty(prefixURI + propertyItem.getName());
                 prop.setDomain(jenaModel.createClass(prefixURI + propertyItem.getDomain()));
                 prop.setRange(getRange(propertyItem.getRange()));
+
+                if (propertyItem.getDescription() != null) {
+                    prop.setComment(propertyItem.getDescription(), null);
+                }
             }
             
         }
@@ -250,6 +231,14 @@ public class ModelCreator {
         }else {
             return jenaModel.createResource(prefixURI + range);
         }
-
     }
+
+    private String getSqlDataType(String type) {
+        if (type.equals(TABLE_DATA_TYPE_TEXT)) {
+            return dbConnector.getLargeTextType();
+        }else {
+            return dbConnector.getLargeBinaryType();
+        }
+    }
+
 }
