@@ -5,9 +5,8 @@ import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.ConversionException;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.Item;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.NonExistingUriNodeException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -20,10 +19,12 @@ public class TreeNodeSelectionListener implements TreeSelectionListener {
 
     private JComboBox box;
     private PortalModel model;
+    private JLabel label;
 
-    public TreeNodeSelectionListener(JComboBox combo, PortalModel model) throws ConversionException, NonExistingUriNodeException {
+    public TreeNodeSelectionListener(JComboBox combo, JLabel label, PortalModel model) throws ConversionException, NonExistingUriNodeException {
         this.box = combo;
         this.model = model;
+        this.label = label;
         setDefaultSelection();
     }
 
@@ -48,6 +49,8 @@ public class TreeNodeSelectionListener implements TreeSelectionListener {
         for (Item individual: items) {
             box.addItem(individual.getAsUri().toString());
         }
+        label.setText(model.getClassDescription(node));
+
     }
 
     private void setDefaultSelection() throws ConversionException, NonExistingUriNodeException {

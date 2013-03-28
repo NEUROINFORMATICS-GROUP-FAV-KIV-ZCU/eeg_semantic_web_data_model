@@ -11,9 +11,10 @@ public class SimpleDataCreator {
 
     private List<Triple> testData;
 
-    public SimpleDataCreator() {
+
+    public SimpleDataCreator(int size) {
         testData = new ArrayList<Triple>();
-        generateSimpleData();
+        generateSimpleData(size);
     }
 
     public List<Triple> getData() {
@@ -21,9 +22,9 @@ public class SimpleDataCreator {
         return testData;
     }
 
-    private void generateSimpleData() {
+    private void generateSimpleData(int size) {
 
-        for (int number = 0; number < 4; number++) {
+        for (int number = 0; number < size; number++) {
             testData.addAll(createAnalysis(number));
             testData.addAll(createArtefact(number));
             testData.addAll(createArtefactRemMeth(number));

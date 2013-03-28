@@ -41,17 +41,17 @@ public class TestMain  {
         ModelConnector conn = new ModelConnector(url, user, pwd, model, prefix);
         PortalModel modelOnt = conn.connect();
 
-        //MainWindow mw = new MainWindow(modelOnt);
-        //mw.setVisible(true);
+        MainWindow mw = new MainWindow(modelOnt);
+        mw.setVisible(true);
 
-        OntModel modelO = modelOnt.getOntModel();
-
-        OntResource propka = modelO.getOntProperty(prefix + "electrode_location/research_group");
-
-
-        System.out.println(propka.getComment(null));
-    
-        conn.disconnect();
+//        OntModel modelO = modelOnt.getOntModel();
+//
+//        OntResource propka = modelO.getOntProperty(prefix + "electrode_location/research_group");
+//
+//
+//        System.out.println(propka.getComment(null));
+//
+//        conn.disconnect();
 
         
         //OutputStream stream = new FileOutputStream(new File("writee.xml"));

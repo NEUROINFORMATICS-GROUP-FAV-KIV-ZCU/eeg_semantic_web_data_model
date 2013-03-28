@@ -42,8 +42,10 @@ public class ModelCreator {
         this.dbConnector = dbConnector;
     }
 
-    public void connect() {
+    public boolean connect() {
         basicModel = dbConnector.connect();
+
+        return basicModel != null;
     }
 
     public void disconnect() {

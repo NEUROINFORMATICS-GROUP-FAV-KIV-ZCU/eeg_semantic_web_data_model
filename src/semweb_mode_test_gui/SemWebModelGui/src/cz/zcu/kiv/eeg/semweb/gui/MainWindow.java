@@ -7,6 +7,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -17,6 +18,7 @@ public class MainWindow extends JFrame {
 
     private PortalModel model;
     private JComboBox selectBox;
+    private JLabel label;
     private TreeNodeSelectionListener tnsl;
 
 
@@ -36,8 +38,11 @@ public class MainWindow extends JFrame {
         String [] values = {"A", "B"};
         selectBox = new JComboBox(values);
         listPanel.add(selectBox);
+        
+        label = new JLabel("Nic");
+        listPanel.add(label);
 
-        tnsl = new TreeNodeSelectionListener(selectBox, model);
+        tnsl = new TreeNodeSelectionListener(selectBox, label, model);
 
         setLayout(new BorderLayout());
 

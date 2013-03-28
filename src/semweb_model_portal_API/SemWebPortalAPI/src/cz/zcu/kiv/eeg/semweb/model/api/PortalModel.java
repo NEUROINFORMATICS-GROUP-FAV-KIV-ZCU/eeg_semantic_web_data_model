@@ -43,9 +43,9 @@ public class PortalModel {
     public PortalModel(Model model, String namespace) {
         this.basicModel = model;
         //this.ontologyModel = ModelFactory.createOntologyModel(OntModelSpec.DAML_MEM_RDFS_INF, model); //create Ontology model based on Oracle semWeb model
-        //this.ontologyModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_LITE_MEM_TRANS_INF, model); //create Ontology model based on Oracle semWeb model
+        this.ontologyModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_LITE_MEM_TRANS_INF, model); //create Ontology model based on Oracle semWeb model
 
-        this.ontologyModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_RDFS_INF, model);
+        //this.ontologyModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_RDFS_INF, model);
 
         this.defNamespace = namespace;
     }
@@ -354,7 +354,6 @@ public class PortalModel {
             childClasses.add(oc.getURI());
         }
         return childClasses;
-        
     }
 
 
@@ -369,6 +368,17 @@ public class PortalModel {
         return parent.hasSubClass();
     }
 
+    public String getClassDescription(String classUri) {
+        
+        OntClass oc = ontologyModel.getOntClass(classUri);
+        
+        if (oc == null) {
+            return "";
+        }else {
+            return oc.getComment(null);
+        }
+        
+    }
 
 
 
