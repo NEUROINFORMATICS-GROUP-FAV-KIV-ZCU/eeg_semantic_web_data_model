@@ -1,12 +1,15 @@
 package cz.zcu.kiv.eeg.semweb.gui;
 
+import com.sun.xml.internal.bind.v2.model.core.LeafInfo;
 import cz.zcu.kiv.eeg.semweb.model.api.PortalModel;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.NonExistingUriNodeException;
 import java.awt.Color;
 import java.util.List;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeCellRenderer;
 
 /**
  *
@@ -26,7 +29,16 @@ public class ClassTreePanel extends JPanel {
         addNodes(root);
         JTree tree = new JTree(root);
         tree.addTreeSelectionListener(listener);
-        add(tree);
+
+        DefaultTreeCellRenderer rend = new DefaultTreeCellRenderer();
+        rend.setOpenIcon(null);
+        rend.setClosedIcon(null);
+        rend.setLeafIcon(null);
+        tree.setCellRenderer(rend);
+
+        JScrollPane scrollPanel = new JScrollPane();
+        scrollPanel.getViewport().add(tree);
+        add(scrollPanel);
     }
 
     private void addNodes(DefaultMutableTreeNode root) throws NonExistingUriNodeException {

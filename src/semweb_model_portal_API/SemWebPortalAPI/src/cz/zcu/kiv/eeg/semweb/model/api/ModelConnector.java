@@ -51,7 +51,8 @@ public class ModelConnector {
 
         connectSemWeb();
 
-        return new PortalModel(basicModel, defNamespace);
+        //return new PortalModel(basicModel, defNamespace);
+        return null;
     }
 
     private void connectSemWeb() throws ConnectionException {

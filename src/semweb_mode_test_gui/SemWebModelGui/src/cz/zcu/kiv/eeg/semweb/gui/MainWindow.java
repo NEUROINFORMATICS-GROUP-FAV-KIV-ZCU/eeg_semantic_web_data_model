@@ -56,7 +56,10 @@ public class MainWindow extends JFrame {
         selectBox.addItem("Fildas");
     }
 
-    
+    public PortalModel getModel() {
+        return model;
+    }
+
 
 
 }

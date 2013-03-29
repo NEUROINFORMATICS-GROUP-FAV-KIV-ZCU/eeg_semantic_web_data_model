@@ -4,10 +4,10 @@
 
 <!-- DATA -->
 
-<data_table name="article_file" type="text"/>
-<data_table name="article_comment_file" type="text"/>
-<data_table name="experiment_data_file" type="binary"/>
-<data_table name="scenario_data_file" type="binary"/>
+<data_table name="article" type="text"/>
+<data_table name="article_comment" type="text"/>
+<data_table name="data_file" type="binary"/>
+<data_table name="scenario" type="binary"/>
 
 <!-- METADATA -->
 

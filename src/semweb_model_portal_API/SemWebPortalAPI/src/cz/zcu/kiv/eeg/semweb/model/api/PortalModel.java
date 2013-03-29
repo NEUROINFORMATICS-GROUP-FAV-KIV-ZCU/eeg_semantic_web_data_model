@@ -20,12 +20,12 @@ import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.LiteralItem;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.NonExistingUriNodeException;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.UriItem;
 import cz.zcu.kiv.eeg.semweb.model.api.utils.InstanceUriGen;
+import cz.zcu.kiv.eeg.semweb.model.dbconnect.DbConnector;
 import cz.zcu.kiv.eeg.semweb.model.search.Condition;
 import cz.zcu.kiv.eeg.semweb.model.search.PortalClassInstanceSelector;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
-import oracle.spatial.rdf.client.jena.ModelOracleSem;
 
 /**
  *  Main class of EEG/ERP portal semantic web model API
@@ -35,20 +35,44 @@ import oracle.spatial.rdf.client.jena.ModelOracleSem;
  */
 public class PortalModel {
 
+    private DbConnector dbConn;
+
     private Model basicModel; //Oracle semWeb model (basic)
     private OntModel ontologyModel; //Jena ontology model
+
     private String defNamespace; //default namespace for EEG/ERP
+    private String tblPrefix;
+    private OntModelSpec reasoner;
 
-
-    public PortalModel(Model model, String namespace) {
-        this.basicModel = model;
-        //this.ontologyModel = ModelFactory.createOntologyModel(OntModelSpec.DAML_MEM_RDFS_INF, model); //create Ontology model based on Oracle semWeb model
-        this.ontologyModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_LITE_MEM_TRANS_INF, model); //create Ontology model based on Oracle semWeb model
-
-        //this.ontologyModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_RDFS_INF, model);
-
+    public PortalModel(DbConnector connector, String namespace, String tblPrefix, OntModelSpec reasoner) {
+        this.dbConn = connector;
         this.defNamespace = namespace;
+        this.tblPrefix = tblPrefix;
+        this.reasoner = reasoner;
+
+        //this.basicModel = model;
+        // -EE-   this.ontologyModel = ModelFactory.createOntologyModel(OntModelSpec.DAML_MEM_RDFS_INF, model); //create Ontology model based on Oracle semWeb model
+
+
+        //this.ontologyModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_LITE_MEM_TRANS_INF, model); //create Ontology model based on Oracle semWeb model
+        //this.ontologyModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_RDFS_INF, model);
     }
+
+    public boolean connect() {
+
+        basicModel = dbConn.connect();
+        if (basicModel == null) {
+            return false;
+        }
+
+        ontologyModel = ModelFactory.createOntologyModel(reasoner, basicModel);
+        if (ontologyModel == null) {
+            return false;
+        }
+
+        return true;
+    }
+
 
     /**
      * Close model and commit all changes.
