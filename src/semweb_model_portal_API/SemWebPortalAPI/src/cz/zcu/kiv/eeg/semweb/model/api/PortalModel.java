@@ -295,7 +295,7 @@ public class PortalModel {
      */
     public UriItem createClass(String name, String parentClassUri) {
 
-        OntClass oc = ontologyModel.createClass(defNamespace + name);
+        OntClass oc = ontologyModel.createClass(name);
 
         if (parentClassUri != null) {
 
@@ -400,10 +400,19 @@ public class PortalModel {
             return "";
         }else {
             return oc.getComment(null);
-        }
-        
+        }   
     }
 
+
+    public void updateClassDescription(String classUri, String value) {
+
+        OntClass oc = ontologyModel.getOntClass(classUri);
+
+        if (oc == null) {
+         return;
+        }
+        oc.setComment(value, null);
+    }
 
 
    /**
@@ -430,6 +439,9 @@ public class PortalModel {
     public OntModel getOntModel() {
         return ontologyModel;
     }
-   
+
+    public String getNamespace() {
+        return defNamespace;
+    }
 
 }
