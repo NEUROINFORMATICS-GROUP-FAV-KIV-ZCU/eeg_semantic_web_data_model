@@ -3,12 +3,10 @@ package cz.zcu.kiv.eeg.semweb.model.search;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
-import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
+import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.UriItem;
 import cz.zcu.kiv.eeg.semweb.model.api.utils.DataConverter;
 import java.text.ParseException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -16,13 +14,21 @@ import java.util.logging.Logger;
  */
 public class PropertyValEqCondition extends Condition{
 
-    private Property property;
+    private UriItem property;
     private Object resource;
 
 
-    public PropertyValEqCondition(Property predicate, Object object) {
+    public PropertyValEqCondition(UriItem predicate, Object object) {
         this.property = predicate;
         this.resource = object;
+    }
+
+    public String getPredicate() {
+        return property.getUri();
+    }
+
+    public String getObject() {
+        return resource.toString();
     }
 
 
@@ -30,7 +36,7 @@ public class PropertyValEqCondition extends Condition{
     public boolean getResult(Property predicate, Resource object) {
 
         if (object.isResource()) {
-            StmtIterator it = object.asResource().listProperties(property);
+            StmtIterator it = object.asResource().listProperties(property.asProperty());
 
             while (it.hasNext()) {
                 RDFNode objectNode = it.next().getObject();

@@ -4,6 +4,7 @@ import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
+import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.UriItem;
 import cz.zcu.kiv.eeg.semweb.model.api.utils.DataConverter;
 import java.text.ParseException;
 
@@ -13,13 +14,21 @@ import java.text.ParseException;
  */
 public class PropertyValLikeCondition extends Condition {
 
-    private Property property;
+    private UriItem property;
     private String resource;
 
 
-    public PropertyValLikeCondition(Property predicate, String object) {
+    public PropertyValLikeCondition(UriItem predicate, String object) {
         this.property = predicate;
         this.resource = object;
+    }
+
+    public String getPredicate() {
+        return property.getUri();
+    }
+
+    public String getObject() {
+        return resource;
     }
 
 
@@ -27,7 +36,7 @@ public class PropertyValLikeCondition extends Condition {
     public boolean getResult(Property predicate, Resource object) {
 
         if (object.isResource()) {
-            StmtIterator it = object.asResource().listProperties(property);
+            StmtIterator it = object.asResource().listProperties(property.asProperty());
 
             while (it.hasNext()) {
                 RDFNode objectNode = it.next().getObject();

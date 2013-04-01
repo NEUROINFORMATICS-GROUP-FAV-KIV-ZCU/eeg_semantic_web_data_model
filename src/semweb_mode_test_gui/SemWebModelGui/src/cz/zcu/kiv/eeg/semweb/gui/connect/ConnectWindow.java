@@ -1,9 +1,8 @@
 package cz.zcu.kiv.eeg.semweb.gui.connect;
 
+import cz.zcu.kiv.eeg.semweb.gui.util.ComponentWrapper;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -84,38 +83,17 @@ public class ConnectWindow extends JFrame {
 
          textFiledsPanel.setLayout(new GridLayout(8, 1, 0, 5));
 
-         textFiledsPanel.add(wrapComponent(new JLabel("Connection type"), connectionType));
-         textFiledsPanel.add(wrapComponent(new JLabel("Reasoner type   "), reasonerType));
+         textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("Connection type"), connectionType));
+         textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("Reasoner type   "), reasonerType));
 
-         textFiledsPanel.add(wrapComponent(new JLabel("  Database URI   "), dbUri));
-         textFiledsPanel.add(wrapComponent(new JLabel("  Model name     "), modelName));
+         textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("  Database URI   "), dbUri));
+         textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("  Model name     "), modelName));
          
-         textFiledsPanel.add(wrapComponent(new JLabel("  Username        "), username));
-         textFiledsPanel.add(wrapComponent(new JLabel("  Password        "), password));
+         textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("  Username        "), username));
+         textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("  Password        "), password));
 
-         textFiledsPanel.add(wrapComponent(new JLabel("  Namespace     "), defaultPrefix));
-         textFiledsPanel.add(wrapComponent(new JLabel("  Table prefix     "), defaultTablePrefix));
-    }
-
-    private Component wrapComponent(JLabel label, Component c) {
-
-        if (c.getClass().equals(JTextField.class) || c.getClass().equals(JPasswordField.class)) {
-            JPanel wrapper = new JPanel(new BorderLayout(10, 0));
-
-            wrapper.add(label, BorderLayout.WEST);
-            wrapper.add(c, BorderLayout.CENTER);
-            return wrapper;
-        } else {
-            JPanel wrapper = new JPanel(new FlowLayout());
-
-            wrapper.add(label, BorderLayout.WEST);
-            wrapper.add(c, BorderLayout.EAST);
-
-            JPanel p2 = new JPanel(new BorderLayout());
-
-            p2.add(wrapper, BorderLayout.WEST);
-            return p2;
-        }
+         textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("  Namespace     "), defaultPrefix));
+         textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("  Table prefix     "), defaultTablePrefix));
     }
 
     private void setCancelButton() {

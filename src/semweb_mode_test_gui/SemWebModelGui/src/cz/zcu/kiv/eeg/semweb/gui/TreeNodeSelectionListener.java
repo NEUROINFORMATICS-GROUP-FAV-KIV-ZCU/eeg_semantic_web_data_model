@@ -17,13 +17,15 @@ public class TreeNodeSelectionListener implements TreeSelectionListener {
 
     private PortalModel model;
     private ClassTreePanel treePanel;
+    private DataPanel dataPanel;
 
     private String selectedNode;
 
-    public TreeNodeSelectionListener(ClassTreePanel treePanel, PortalModel model) {
+    public TreeNodeSelectionListener(ClassTreePanel treePanel, PortalModel model, DataPanel dataPanel) {
         
         this.model = model;
         this.treePanel = treePanel;
+        this.dataPanel = dataPanel;
 
         this.selectedNode = null;
     }
@@ -49,6 +51,7 @@ public class TreeNodeSelectionListener implements TreeSelectionListener {
             treePanel.setDescription(model.getClassDescription(node));
             treePanel.setUpdateDescrBt(true);
             selectedNode = node;
+            dataPanel.nodeSelected(node);
         }else {
             treePanel.setUpdateDescrBt(false);
         }

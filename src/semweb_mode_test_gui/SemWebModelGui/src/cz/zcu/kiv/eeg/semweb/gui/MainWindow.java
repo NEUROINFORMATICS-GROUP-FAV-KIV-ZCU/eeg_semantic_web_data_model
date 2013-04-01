@@ -7,11 +7,9 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JPanel;
 
 /**
  *
@@ -21,7 +19,7 @@ public class MainWindow extends JFrame {
 
     private PortalModel model;
     private JComboBox selectBox;
-    private JLabel label;
+    
     private ClassTreePanel treePanel;
 
 
@@ -35,28 +33,17 @@ public class MainWindow extends JFrame {
 	setBackground(Color.gray);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JPanel listPanel = new JPanel();
-        listPanel.setBackground(Color.green);
-
-        String [] values = {"A", "B"};
-        selectBox = new JComboBox(values);
-        listPanel.add(selectBox);
         
-        label = new JLabel("Nic");
-        listPanel.add(label);
-
-
-        DataPanel dataPanel = new DataPanel();
+        DataPanel dataPanel = new DataPanel(model, this);
 
       
 
-        treePanel = new ClassTreePanel(model, this);
+        treePanel = new ClassTreePanel(model, dataPanel, this);
 
 
         setLayout(new BorderLayout());
 
         add(treePanel, BorderLayout.WEST);
-        //add(listPanel, BorderLayout.CENTER);
         add(dataPanel, BorderLayout.CENTER);
 
 

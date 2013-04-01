@@ -15,7 +15,10 @@ public class HasPropertyLikeCondition extends Condition {
     public HasPropertyLikeCondition(String text) {
         this.property = text;
     }
-    
+
+    public String getPredicate() {
+        return property;
+    }
     
     @Override
     public boolean getResult(Property predicate, Resource object) {

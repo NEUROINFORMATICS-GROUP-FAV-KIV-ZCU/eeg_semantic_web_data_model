@@ -18,6 +18,10 @@ public class HasPropertyCondition extends Condition {
         this.property = predicate;
     }
 
+    public String getPredicate() {
+        return property.getUri();
+    }
+
 
     @Override
     public boolean getResult(Property predicate, Resource object) {

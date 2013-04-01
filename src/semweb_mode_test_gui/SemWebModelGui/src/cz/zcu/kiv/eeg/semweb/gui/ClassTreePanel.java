@@ -39,7 +39,7 @@ public class ClassTreePanel extends JPanel {
 
     private static final Logger logger = Logger.getLogger(TreeNodeSelectionListener.class);
 
-    public ClassTreePanel(PortalModel model, MainWindow mw) throws NonExistingUriNodeException {
+    public ClassTreePanel(PortalModel model, DataPanel dataPanel, MainWindow mw) throws NonExistingUriNodeException {
 
         this.model = model;
         this.mw = mw;
@@ -48,7 +48,7 @@ public class ClassTreePanel extends JPanel {
         setBackground(Color.YELLOW);
         setLayout(new BorderLayout());
 
-        listener = new TreeNodeSelectionListener(this, model);
+        listener = new TreeNodeSelectionListener(this, model, dataPanel);
 
         add(createTree(listener), BorderLayout.CENTER);
         add(createBottomPanel(), BorderLayout.SOUTH);

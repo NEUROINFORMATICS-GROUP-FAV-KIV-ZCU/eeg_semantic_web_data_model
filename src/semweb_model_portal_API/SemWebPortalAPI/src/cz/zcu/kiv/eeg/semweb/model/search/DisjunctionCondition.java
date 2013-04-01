@@ -9,17 +9,7 @@ import java.util.List;
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
-public class DisjunctionCondition extends Condition {
-
-    private List<Condition> conds;
-
-    public DisjunctionCondition() {
-        conds = new ArrayList<Condition>();
-    }
-
-    public void addCondition(Condition c) {
-        conds.add(c);
-    }
+public class DisjunctionCondition extends ConditionList {
 
     /**
      * Returns true if AT LEAST one subconditions is true
@@ -30,6 +20,10 @@ public class DisjunctionCondition extends Condition {
      */
     @Override
     public boolean getResult(Property predicate, Resource object) {
+
+        if (conds.isEmpty()) {
+            return true;
+        }
 
         for (Condition subCond: conds) {
             if (subCond.getResult(predicate, object)) {

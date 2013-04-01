@@ -60,7 +60,7 @@ public class Main {
         
 
         DisjunctionCondition dc = new DisjunctionCondition();
-        dc.addCondition(new PropertyValLikeCondition(modelOnt.getPropertyByUri(ns + "person/given_name"), "e"));
+        //dc.addCondition(new PropertyValLikeCondition(modelOnt.getPropertyByUri(ns + "person/given_name"), "e"));
         //dc.addCondition(new HasPropertyCondition(new UriItem(ns + "person/researcher/facebook_id", modelOnt)));
 
 

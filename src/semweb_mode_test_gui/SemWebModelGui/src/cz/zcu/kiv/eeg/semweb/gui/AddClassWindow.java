@@ -1,5 +1,6 @@
 package cz.zcu.kiv.eeg.semweb.gui;
 
+import cz.zcu.kiv.eeg.semweb.gui.util.ComponentWrapper;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -20,7 +21,7 @@ import javax.swing.JTextField;
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
-public class AddClassWindow extends JFrame implements ActionListener {
+public class AddClassWindow extends JFrame {
 
     private JButton addButton;
     private JButton cancelButton;
@@ -87,32 +88,11 @@ public class AddClassWindow extends JFrame implements ActionListener {
         }
 
 
-        propertyPanel.add(wrapComponent(superClassLabel, inherited));
-        propertyPanel.add(wrapComponent(new JLabel("  Name          "), name));
-        propertyPanel.add(wrapComponent(new JLabel("  Description"), description));
+        propertyPanel.add(ComponentWrapper.wrapComponent(superClassLabel, inherited));
+        propertyPanel.add(ComponentWrapper.wrapComponent(new JLabel("  Name          "), name));
+        propertyPanel.add(ComponentWrapper.wrapComponent(new JLabel("  Description"), description));
 
         return propertyPanel;
-    }
-
-    private Component wrapComponent(JLabel label, Component c) {
-
-        if (c.getClass().equals(JTextField.class) || c.getClass().equals(JPasswordField.class)) {
-            JPanel wrapper = new JPanel(new BorderLayout(10, 0));
-
-            wrapper.add(label, BorderLayout.WEST);
-            wrapper.add(c, BorderLayout.CENTER);
-            return wrapper;
-        } else {
-            JPanel wrapper = new JPanel(new FlowLayout());
-
-            wrapper.add(label, BorderLayout.WEST);
-            wrapper.add(c, BorderLayout.EAST);
-
-            JPanel p2 = new JPanel(new BorderLayout());
-
-            p2.add(wrapper, BorderLayout.WEST);
-            return p2;
-        }
     }
 
     private void setCancelButton() {
@@ -146,8 +126,5 @@ public class AddClassWindow extends JFrame implements ActionListener {
         });
     }
 
-    public void actionPerformed(ActionEvent e) {
-
-        
-    }
+ 
 }

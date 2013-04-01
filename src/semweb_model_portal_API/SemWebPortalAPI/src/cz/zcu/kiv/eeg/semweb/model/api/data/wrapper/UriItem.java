@@ -3,6 +3,7 @@ package cz.zcu.kiv.eeg.semweb.model.api.data.wrapper;
 import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.OntProperty;
+import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import cz.zcu.kiv.eeg.semweb.model.api.PortalModel;
 import java.text.ParseException;
@@ -96,6 +97,10 @@ public class UriItem extends Item {
             targetObject = model.getOntModel().getIndividual(value.toString());
         }
             model.getOntModel().add(indv, prop, targetObject);
+    }
+
+    public Property asProperty () {
+        return model.getOntModel().getProperty(uri);
     }
 
 }
