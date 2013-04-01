@@ -45,6 +45,8 @@ public class PortalModel {
     private String tblPrefix;
     private OntModelSpec reasoner;
 
+    private static final String W3_RDF_OBJECT = "http://www.w3.org";
+
     public PortalModel(DbConnector connector, String namespace, String tblPrefix, OntModelSpec reasoner) {
         this.dbConn = connector;
         this.defNamespace = namespace;
@@ -136,6 +138,10 @@ public class PortalModel {
         return listInstance(parentClass, cond).get(0);
     }
 
+    public Item getIndividual (String indvUri) {
+        return new UriItem(indvUri, this);
+    }
+
     /**
      * Return list of instances of specified class matching specified conditions
      *
@@ -189,7 +195,16 @@ public class PortalModel {
             
             while (it.hasNext()) {
                 Property propItem = it.nextStatement().getPredicate();
-                result.add(new UriItem(propItem.getURI(), this));
+
+                if (propItem.getURI().startsWith(W3_RDF_OBJECT)) {
+                    continue;
+                }
+
+                UriItem ni = new UriItem(propItem.getURI(), this);
+
+                if (!result.contains(it)) {
+                    result.add(ni);
+                }
             }
         }
         return result;
@@ -381,6 +396,11 @@ public class PortalModel {
         return childClasses;
     }
 
+    public String getIndividualParentClass(String uri) {
+
+        return ontologyModel.getIndividual(uri).getRDFType().toString();
+
+    }
 
     public boolean hasSubClasses(String parentURI) throws NonExistingUriNodeException {
 
@@ -402,6 +422,17 @@ public class PortalModel {
         }else {
             return oc.getComment(null);
         }   
+    }
+
+    public String getPropertyDescription(String property) {
+
+        OntProperty op = ontologyModel.getOntProperty(property);
+
+        if (op == null) {
+            return "";
+        }else {
+            return op.getComment(null);
+        }
     }
 
 

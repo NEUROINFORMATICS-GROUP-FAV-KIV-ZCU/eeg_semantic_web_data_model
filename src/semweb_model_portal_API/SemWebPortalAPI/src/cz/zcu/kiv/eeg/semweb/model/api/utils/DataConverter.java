@@ -27,13 +27,13 @@ public class DataConverter {
         } else if (literal.getDatatypeURI().equals(XSDDatatype.XSDlong.getURI())) {
             return new Long(literal.getLong());
         } else if (literal.getDatatypeURI().equals(XSDDatatype.XSDdate.getURI())) { //TODO dateTime and Time
-            SimpleDateFormat sd = new SimpleDateFormat("YYYY-MM-dd");
+            SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
             return sd.parse(literal.getString().split("T")[0]);
         } else if (literal.getDatatypeURI().equals(XSDDatatype.XSDtime.getURI())) {
             SimpleDateFormat sd = new SimpleDateFormat("hh:mm:ss");
             return sd.parse(literal.getString().split("T")[1]);
         } else if (literal.getDatatypeURI().equals(XSDDatatype.XSDdateTime.getURI())) {
-            SimpleDateFormat sd = new SimpleDateFormat("YYYY-MM-ddThh:mm:ss");
+            SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss");
             return sd.parse(literal.getString());
         }else {
             return null; //TODO complete

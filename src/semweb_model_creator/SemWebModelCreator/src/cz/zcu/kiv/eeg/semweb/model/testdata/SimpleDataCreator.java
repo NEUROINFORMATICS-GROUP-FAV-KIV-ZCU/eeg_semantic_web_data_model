@@ -175,7 +175,7 @@ public class SimpleDataCreator {
         List<Triple> historyTriples = new ArrayList<Triple>();
 
         historyTriples.add(new Triple("history/instance" + number, "history/experiment", "experiment/instance" + number));
-        historyTriples.add(new Triple("history/instance" + number, "history/scenario", "scenarion/instance" + number));
+        historyTriples.add(new Triple("history/instance" + number, "history/scenario", "scenario/instance" + number));
         historyTriples.add(new Triple("history/instance" + number, "history/person", "person/researcher/instance" + number));
         historyTriples.add(new Triple("history/instance" + number, "history/date_of_download", "2001-10-26T21:32:52"));
         historyTriples.add(new Triple("history/instance" + number, "history/data_file", "data_file/instance" + number));

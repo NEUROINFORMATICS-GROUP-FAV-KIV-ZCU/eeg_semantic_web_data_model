@@ -3,11 +3,7 @@ package cz.zcu.kiv.eeg.semweb.gui;
 import cz.zcu.kiv.eeg.semweb.gui.filter.MainOrListFilterWindow;
 import cz.zcu.kiv.eeg.semweb.model.api.PortalModel;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.Item;
-import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.NonExistingUriNodeException;
-import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.UriItem;
-import cz.zcu.kiv.eeg.semweb.model.search.ConjunctionCondition;
 import cz.zcu.kiv.eeg.semweb.model.search.DisjunctionCondition;
-import cz.zcu.kiv.eeg.semweb.model.search.PropertyValLikeCondition;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -17,7 +13,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -33,11 +28,14 @@ public class DataPanel extends JPanel {
 
     private PortalModel model;
     private MainWindow mw;
+    private PropertyListPanel propPanel;
+
 
     private JComboBox selectBox;
     private String actualNode;
     private DisjunctionCondition filterCond;
 
+    private String selectedItem;
 
 
     private static final Logger logger = Logger.getLogger(DataPanel.class);
@@ -46,23 +44,19 @@ public class DataPanel extends JPanel {
 
         this.model = model;
         this.mw = mw;
+        this.propPanel = new PropertyListPanel(model, this);
+
+
+        selectedItem = null;
 
         setBackground(Color.GREEN);
         setLayout(new BorderLayout());
 
         add(createTopPanel(), BorderLayout.NORTH);
-        add(createCenterPanel(), BorderLayout.CENTER);
+        add(propPanel, BorderLayout.CENTER);
         add(createBottomPanel(), BorderLayout.SOUTH);
 
         filterCond = new DisjunctionCondition();
-
-        //TODO remove
-            
-            ConjunctionCondition c1 = new ConjunctionCondition();
-            c1.addCondition(new PropertyValLikeCondition(new UriItem(model.getNamespace() + "person/given_name", model), "e"));
-            c1.addCondition(new PropertyValLikeCondition(new UriItem(model.getNamespace() + "person/given_name", model), "a"));
-            
-            filterCond.addCondition(c1);
     }
 
     private JPanel createTopPanel() {
@@ -73,6 +67,13 @@ public class DataPanel extends JPanel {
         JLabel instLabel = new JLabel("Instances");
 
         selectBox = new JComboBox();
+
+        selectBox.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                updateSelectedIndividual();
+            }
+        });
 
         JButton updateBt = new JButton("Update");
         updateBt.addActionListener(new ActionListener() {
@@ -98,26 +99,6 @@ public class DataPanel extends JPanel {
 
         return topPanel;
     }
-
-    private Component createCenterPanel() {
-
-        JScrollPane centerScrollPane = new JScrollPane();
-        centerScrollPane.setBackground(Color.pink);
-
-        JPanel centerPanel = new JPanel(new GridLayout(28, 2, 2, 25));
-        centerPanel.setBackground(Color.green);
-
-        for (int i = 0; i < 28; i++ ) {
-
-            centerPanel.add(new JLabel("Right" + i));
-            centerPanel.add(new JLabel("Left" + i));
-        }
-
-        centerScrollPane.getViewport().add(centerPanel);
-
-        return centerScrollPane;
-    }
-
 
     private JPanel createBottomPanel() {
 
@@ -160,8 +141,25 @@ public class DataPanel extends JPanel {
             for (String item: getInstancesList(node)) {
                 selectBox.addItem(item);
             }
+            updateSelectedIndividual();
         }
     }
 
+    private void updateSelectedIndividual() {
+
+        if (selectBox.getSelectedItem() == null) {
+            selectedItem = null;
+        } else {
+            selectedItem = selectBox.getSelectedItem().toString();
+        }
+
+        propPanel.updateData(selectedItem);
+    }
+
+
+    public void setSelectedNode(String node) {
+        selectBox.removeAllItems();
+        selectBox.addItem(node);
+    }
 
 }

@@ -5,6 +5,8 @@ import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.OntProperty;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
+import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.Statement;
 import cz.zcu.kiv.eeg.semweb.model.api.PortalModel;
 import java.text.ParseException;
 import java.util.List;
@@ -43,6 +45,11 @@ public class UriItem extends Item {
     @Override
     public String toString() {
         return uri;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return ((UriItem)o).getUri().equals(uri);
     }
 
     /**
@@ -97,6 +104,29 @@ public class UriItem extends Item {
             targetObject = model.getOntModel().getIndividual(value.toString());
         }
             model.getOntModel().add(indv, prop, targetObject);
+    }
+
+    public void updatePropertyValue(String propertyUri, String recentValue, String newValue) {
+
+        Resource subject = model.getOntModel().getResource(uri);
+
+        Property predicate = model.getOntModel().getProperty(propertyUri);
+        Resource oldObject = model.getOntModel().getResource(recentValue);
+        Resource newObject = model.getOntModel().getResource(newValue);
+
+        if (predicate == null || oldObject == null || newObject == null) {
+            return;
+        }
+
+        Statement st = model.getOntModel().listStatements(subject, predicate, oldObject).nextStatement();
+
+        if (st != null) {
+            model.getOntModel().remove(st);
+
+            st = model.getOntModel().createStatement(subject, predicate, newObject);
+            
+            model.getOntModel().add(st);
+        }
     }
 
     public Property asProperty () {
