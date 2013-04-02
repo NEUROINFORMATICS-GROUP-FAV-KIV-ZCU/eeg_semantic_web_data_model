@@ -7,6 +7,8 @@ import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.NonExistingUriNodeException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 
 /**
  *
@@ -16,7 +18,18 @@ public class TestMain  {
 
     public static void main(String [] args) throws ConnectionException, NonExistingUriNodeException, ConversionException, ParseException, FileNotFoundException, IOException {
 
-        
+        try {
+    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+        if ("Nimbus".equals(info.getName())) {
+            UIManager.setLookAndFeel(info.getClassName());
+            break;
+        }
+    }
+} catch (Exception e) {
+    // If Nimbus is not available, you can set the GUI to another look and feel.
+}
+
+
         //String url = "jdbc:oracle:thin:@students.kiv.zcu.cz:1521:EEGERP";
         //String user    = "EEGTEST";
         //String pwd  = "JPERGLER";

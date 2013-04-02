@@ -5,11 +5,16 @@ import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.ConversionException;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.NonExistingUriNodeException;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -22,6 +27,7 @@ public class MainWindow extends JFrame {
     
     private ClassTreePanel treePanel;
 
+    private static final Logger logger = Logger.getLogger(MainWindow.class);
 
     public MainWindow (PortalModel model) throws NonExistingUriNodeException, ConversionException {
 
@@ -55,6 +61,13 @@ public class MainWindow extends JFrame {
         JMenuItem exportItem = new JMenuItem("Export model");
         JMenuItem exitItem = new JMenuItem("Exit");
 
+        exportItem.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                exportData();
+            }
+        });
+
         menu.add(exportItem);
         menu.add(exitItem);
 
@@ -74,6 +87,19 @@ public class MainWindow extends JFrame {
         return model;
     }
 
+    public void exportData() {
 
+        JFileChooser saveChooser = new JFileChooser();
+
+        int returnVal = saveChooser.showSaveDialog(this);
+
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            try {
+                model.exportModel(saveChooser.getSelectedFile());
+            } catch (FileNotFoundException ex) {
+                logger.error("Can not write to file", ex);
+            }
+        }
+    }
 
 }

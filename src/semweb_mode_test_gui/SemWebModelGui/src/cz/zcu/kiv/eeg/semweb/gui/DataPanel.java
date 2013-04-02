@@ -52,7 +52,6 @@ public class DataPanel extends JPanel {
 
         selectedItem = null;
 
-        setBackground(Color.GREEN);
         setLayout(new BorderLayout());
 
         add(createTopPanel(), BorderLayout.NORTH);

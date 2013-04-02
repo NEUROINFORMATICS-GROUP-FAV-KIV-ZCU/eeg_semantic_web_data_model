@@ -45,7 +45,7 @@ public class ClassTreePanel extends JPanel {
         this.mw = mw;
         this.self = this;
 
-        setBackground(Color.YELLOW);
+        
         setLayout(new BorderLayout());
 
         listener = new TreeNodeSelectionListener(this, model, dataPanel);
@@ -121,7 +121,6 @@ public class ClassTreePanel extends JPanel {
 
         JPanel bottomPanel = new JPanel(new BorderLayout());
 
-        bottomPanel.setBackground(Color.red);
         bottomPanel.add(createDecriptionPanel(), BorderLayout.CENTER);
         bottomPanel.add(createButtonPanel(), BorderLayout.SOUTH);
 

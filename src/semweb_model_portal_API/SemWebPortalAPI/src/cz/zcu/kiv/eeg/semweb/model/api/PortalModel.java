@@ -1,7 +1,6 @@
 package cz.zcu.kiv.eeg.semweb.model.api;
 
 import com.hp.hpl.jena.ontology.Individual;
-import com.hp.hpl.jena.ontology.ObjectProperty;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
@@ -24,6 +23,9 @@ import cz.zcu.kiv.eeg.semweb.model.api.utils.InstanceUriGen;
 import cz.zcu.kiv.eeg.semweb.model.dbconnect.DbConnector;
 import cz.zcu.kiv.eeg.semweb.model.search.Condition;
 import cz.zcu.kiv.eeg.semweb.model.search.PortalClassInstanceSelector;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -474,6 +476,11 @@ public class PortalModel {
 
     public String getNamespace() {
         return defNamespace;
+    }
+
+    public void exportModel(File targetFile) throws FileNotFoundException {
+     
+        ontologyModel.write(new FileOutputStream(targetFile));
     }
 
 }
