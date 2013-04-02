@@ -86,14 +86,14 @@ public class ConnectWindow extends JFrame {
          textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("Connection type"), connectionType));
          textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("Reasoner type   "), reasonerType));
 
-         textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("  Database URI   "), dbUri));
+         textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("  Database URI  "), dbUri));
          textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("  Model name     "), modelName));
          
          textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("  Username        "), username));
-         textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("  Password        "), password));
+         textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("  Password         "), password));
 
          textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("  Namespace     "), defaultPrefix));
-         textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("  Table prefix     "), defaultTablePrefix));
+         textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("  Table prefix       "), defaultTablePrefix));
     }
 
     private void setCancelButton() {

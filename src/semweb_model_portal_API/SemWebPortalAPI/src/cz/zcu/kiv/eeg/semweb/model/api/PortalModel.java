@@ -24,8 +24,14 @@ import cz.zcu.kiv.eeg.semweb.model.dbconnect.DbConnector;
 import cz.zcu.kiv.eeg.semweb.model.search.Condition;
 import cz.zcu.kiv.eeg.semweb.model.search.PortalClassInstanceSelector;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,11 +49,16 @@ public class PortalModel {
     private Model basicModel; //Oracle semWeb model (basic)
     private OntModel ontologyModel; //Jena ontology model
 
+    private java.sql.Statement relDbStatement;
+
     private String defNamespace; //default namespace for EEG/ERP
     private String tblPrefix;
     private OntModelSpec reasoner;
 
     private static final String W3_RDF_OBJECT = "http://www.w3.org";
+    private static final String TABLE_URI_COLUMN = "URI";
+    private static final String TABLE_DATA_COLUMN = "DATA";
+
 
     public PortalModel(DbConnector connector, String namespace, String tblPrefix, OntModelSpec reasoner) {
         this.dbConn = connector;
@@ -71,6 +82,7 @@ public class PortalModel {
         }
 
         ontologyModel = ModelFactory.createOntologyModel(reasoner, basicModel);
+        this.relDbStatement = dbConn.getRelationConn();
         if (ontologyModel == null) {
             return false;
         }
@@ -447,6 +459,96 @@ public class PortalModel {
         }
         oc.setComment(value, null);
     }
+
+    public boolean testTableForClassExists(String classUri) {
+        String tblName = tblPrefix + classUri.replace(defNamespace, "");
+
+        try {
+            relDbStatement.executeQuery("SELECT URI FROM " + tblName);
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
+    }
+
+    public void getIndividualDataFile(String individualUri, File target) throws SQLException, FileNotFoundException, IOException {
+
+        String parentClass = getIndividualParentClass(individualUri);
+
+        if (parentClass == null) {
+            return;
+        }
+
+        String tblName = tblPrefix + parentClass.replace(defNamespace, "");
+
+
+        String sql_stmnt = "SELECT " + TABLE_DATA_COLUMN + " FROM " + tblName + " WHERE " + TABLE_URI_COLUMN + " = ?";
+        PreparedStatement prepStmnt = relDbStatement.getConnection().prepareStatement(sql_stmnt);
+
+        prepStmnt.setString(1, individualUri);
+
+        ResultSet resData =  prepStmnt.executeQuery();
+        resData.next();
+
+        byte [] storedData = resData.getBytes(TABLE_DATA_COLUMN);
+
+        OutputStream os = new FileOutputStream(target);
+
+        os.write(storedData);
+        os.close();
+    }
+
+    public void uploadIndividualDataFile(String individualUri, File target) throws SQLException, FileNotFoundException, IOException {
+
+        String parentClass = getIndividualParentClass(individualUri);
+
+        if (parentClass == null) {
+            return;
+        }
+
+        String tblName = tblPrefix + parentClass.replace(defNamespace, "");
+
+
+        String sql_stmnt = "INSERT INTO " + tblName + " VALUES(?,?)";
+        PreparedStatement prepStmnt = relDbStatement.getConnection().prepareStatement(sql_stmnt);
+
+        FileInputStream dataStream = new FileInputStream(target);
+
+        prepStmnt.setString(1, individualUri);
+        prepStmnt.setBinaryStream(2, dataStream, (int) target.length());
+
+
+        int res = prepStmnt.executeUpdate();
+        //TODO result?
+        dataStream.close();
+    }
+
+    public void updateIndividualDataFile(String individualUri, File target) throws SQLException, FileNotFoundException, IOException {
+
+        String parentClass = getIndividualParentClass(individualUri);
+
+        if (parentClass == null) {
+            return;
+        }
+
+        String tblName = tblPrefix + parentClass.replace(defNamespace, "");
+
+
+        String sql_stmnt = "UPDATE " + tblName + " SET " + TABLE_DATA_COLUMN + " = ? WHERE " + TABLE_URI_COLUMN + " = ?";
+        PreparedStatement prepStmnt = relDbStatement.getConnection().prepareStatement(sql_stmnt);
+
+        FileInputStream dataStream = new FileInputStream(target);
+
+        prepStmnt.setBinaryStream(1, dataStream, (int) target.length());
+        prepStmnt.setString(2, individualUri);
+
+
+        int res = prepStmnt.executeUpdate();
+        //TODO result?
+        dataStream.close();
+    }
+
+
 
 
    /**

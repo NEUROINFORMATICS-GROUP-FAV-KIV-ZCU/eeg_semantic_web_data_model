@@ -11,6 +11,10 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -120,6 +124,13 @@ public class DataPanel extends JPanel {
             }
         });
 
+        addPropBt.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                addProperty();
+            }
+        });
+
         bottomPanel.add(addInstBt);
         bottomPanel.add(addPropBt);
 
@@ -184,12 +195,27 @@ public class DataPanel extends JPanel {
             selectIndividual(newInd.getUri());
 
         } catch (NonExistingUriNodeException ex) {
-            logger.error("Can not find parent class.", ex);;
+            logger.error("Can not find parent class.", ex);
         }
     }
 
     private void selectIndividual(String indUri) {
         selectBox.setSelectedItem(indUri);
+    }
+
+    private void addProperty() {
+        try {
+            //model.uploadIndividualDataFile(selectedItem, new File("writee.xml"));
+            model.updateIndividualDataFile(selectedItem, new File("ee.xml"));
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+
     }
 
 }
