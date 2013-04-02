@@ -3,21 +3,21 @@ package cz.zcu.kiv.eeg.semweb.gui;
 import cz.zcu.kiv.eeg.semweb.gui.filter.MainOrListFilterWindow;
 import cz.zcu.kiv.eeg.semweb.model.api.PortalModel;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.Item;
+import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.NonExistingUriNodeException;
+import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.UriItem;
 import cz.zcu.kiv.eeg.semweb.model.search.DisjunctionCondition;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import org.apache.log4j.Logger;
 
 /**
@@ -34,6 +34,9 @@ public class DataPanel extends JPanel {
     private JComboBox selectBox;
     private String actualNode;
     private DisjunctionCondition filterCond;
+
+    private JButton addInstBt;
+    private JButton addPropBt;
 
     private String selectedItem;
 
@@ -105,8 +108,18 @@ public class DataPanel extends JPanel {
         JPanel bottomPanel = new JPanel(new FlowLayout());
         bottomPanel.setBackground(Color.YELLOW);
 
-        JButton addInstBt = new JButton("Add instance");
-        JButton addPropBt = new JButton("Add property");
+        addInstBt = new JButton("Add instance");
+        addPropBt = new JButton("Add property");
+
+        addInstBt.setEnabled(false);
+        addPropBt.setEnabled(false);
+
+        addInstBt.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                createNewInstance();
+            }
+        });
 
         bottomPanel.add(addInstBt);
         bottomPanel.add(addPropBt);
@@ -154,12 +167,30 @@ public class DataPanel extends JPanel {
         }
 
         propPanel.updateData(selectedItem);
+        addInstBt.setEnabled(true);
+        addPropBt.setEnabled(true);
     }
 
 
     public void setSelectedNode(String node) {
         selectBox.removeAllItems();
         selectBox.addItem(node);
+    }
+
+    private void createNewInstance() {
+        try {
+            UriItem newInd = model.createClassInstance(actualNode);
+
+            nodeSelected(actualNode);
+            selectIndividual(newInd.getUri());
+
+        } catch (NonExistingUriNodeException ex) {
+            logger.error("Can not find parent class.", ex);;
+        }
+    }
+
+    private void selectIndividual(String indUri) {
+        selectBox.setSelectedItem(indUri);
     }
 
 }
