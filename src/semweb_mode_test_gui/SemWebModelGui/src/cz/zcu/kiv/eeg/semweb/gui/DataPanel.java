@@ -206,13 +206,17 @@ public class DataPanel extends JPanel {
     private void addProperty() {
         try {
             //model.uploadIndividualDataFile(selectedItem, new File("writee.xml"));
-            model.updateIndividualDataFile(selectedItem, new File("ee.xml"));
+            
+            System.out.println("Individual has table: " + model.hasIndividualTable(selectedItem));
+            System.out.println("Individual has file: " + model.hasIndividualFile(selectedItem));
+
+            //model.updateIndividualDataFile(selectedItem, new File("ee.xml"));
         } catch (SQLException ex) {
             ex.printStackTrace();
-        } catch (FileNotFoundException ex) {
-            ex.printStackTrace();
-        } catch (IOException ex) {
-            ex.printStackTrace();
+        //} catch (FileNotFoundException ex) {
+          //  ex.printStackTrace();
+        //} catch (IOException ex) {
+          //  ex.printStackTrace();
         }
 
 

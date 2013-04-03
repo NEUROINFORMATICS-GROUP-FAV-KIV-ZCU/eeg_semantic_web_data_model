@@ -548,7 +548,36 @@ public class PortalModel {
         dataStream.close();
     }
 
+    public boolean hasIndividualTable(String individualUri) {
+    
+        String parentClass = getIndividualParentClass(individualUri);
+        
+        return testTableForClassExists(parentClass);
+    }
 
+    public boolean hasIndividualFile(String individualUri) throws SQLException {
+
+        String parentClass = getIndividualParentClass(individualUri);
+
+        if (parentClass == null) {
+            return false;
+        }
+
+        String tblName = tblPrefix + parentClass.replace(defNamespace, "");
+
+        if (!testTableForClassExists(parentClass)) {
+            return false;
+        }
+
+
+        String sql_stmnt = "SELECT " + TABLE_URI_COLUMN + " FROM " + tblName + " WHERE " + TABLE_URI_COLUMN + " = ?";
+        PreparedStatement prepStmnt = relDbStatement.getConnection().prepareStatement(sql_stmnt);
+
+        prepStmnt.setString(1, individualUri);
+
+        ResultSet resData =  prepStmnt.executeQuery();
+        return resData.next();
+    }
 
 
    /**

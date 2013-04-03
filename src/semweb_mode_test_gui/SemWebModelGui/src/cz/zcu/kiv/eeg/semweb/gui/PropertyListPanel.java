@@ -6,22 +6,22 @@ import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.Item;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.LiteralItem;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.NonExistingUriNodeException;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.UriItem;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
@@ -55,7 +55,7 @@ public class PropertyListPanel extends JScrollPane{
         this.getViewport().add(centerPanel);
     }
 
-    public void updateData(String individualUri) {
+    public void updateData(final String individualUri) {
 
         centerPanel.removeAll();
 
@@ -89,7 +89,41 @@ public class PropertyListPanel extends JScrollPane{
                     }
                 }
 
-                centerPanel.setLayout(new GridLayout(propCount, 1, 2, 2));
+
+                if (model.hasIndividualTable(individualUri)) { //Table for file exists
+
+                    try {
+                        linePanel = new JPanel();
+                        linePanel.add(new JLabel("Data file"));
+
+                        if (model.hasIndividualFile(individualUri)) { //Individual already has a file
+
+                            linePanel.add(getUpdDownFileComp(individualUri));
+
+                        } else { //no file exists
+
+                            JButton uploadBtn = new JButton("Upload");
+                            uploadBtn.addActionListener(new ActionListener() {
+
+                                public void actionPerformed(ActionEvent e) {
+                                    uploadFile(individualUri);
+                                }
+                            });
+
+                            linePanel.add(uploadBtn);
+                        }
+                        centerPanel.add(linePanel);
+                        
+                    }catch (SQLException ex) {
+                        logger.error("Table selecting error:", ex);
+                    }
+
+                    centerPanel.setLayout(new GridLayout(propCount + 1, 1, 2, 2));
+                } else {
+                    centerPanel.setLayout(new GridLayout(propCount, 1, 2, 2));
+                }
+
+
 
             } catch (NonExistingUriNodeException ex) {
                 logger.error("Can not find individual " + individualUri, ex);
@@ -157,11 +191,6 @@ public class PropertyListPanel extends JScrollPane{
                 }
             });
 
-
-            //TODO - add actionListener - click trough
-            //TODO add actionListener - update value
-
-
             JButton goBtn = new JButton("Go");
             goBtn.addActionListener(new ActionListener() {
 
@@ -185,6 +214,32 @@ public class PropertyListPanel extends JScrollPane{
 
         return new JPanel();
 
+    }
+
+    private JPanel getUpdDownFileComp(final String individual) {
+
+        JButton dwnldBtn = new JButton("Download");
+        JButton updateBtn = new JButton("Update");
+
+        dwnldBtn.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                downloadFile(individual);
+            }
+        });
+
+        updateBtn.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                updateFile(individual);
+            }
+        });
+
+        JPanel parent = new JPanel(new FlowLayout());
+        parent.add(dwnldBtn);
+        parent.add(updateBtn);
+
+        return parent;
     }
 
     private void updateIndProperty(UriItem parent, String property, String oldVal, String newVal) {
@@ -228,5 +283,58 @@ public class PropertyListPanel extends JScrollPane{
 
     }
 
+    private void uploadFile(String individual) {
+
+        JFileChooser openChooser = new JFileChooser();
+
+        int returnVal = openChooser.showOpenDialog(this);
+
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            try {
+                model.uploadIndividualDataFile(individual, openChooser.getSelectedFile());
+                JOptionPane.showMessageDialog(this, "Upload finished");
+                updateData(individual);
+            } catch (Exception ex) {
+                logger.error("Can not write to file", ex);
+                JOptionPane.showMessageDialog(this, "Upload failed");
+            }
+        }
+
+    }
+
+    private void downloadFile(String individual) {
+
+        JFileChooser saveChooser = new JFileChooser();
+
+        int returnVal = saveChooser.showSaveDialog(this);
+
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            try {
+                model.getIndividualDataFile(individual, saveChooser.getSelectedFile());
+                JOptionPane.showMessageDialog(this, "Download finished");
+            } catch (Exception ex) {
+                logger.error("Can not write to file", ex);
+                JOptionPane.showMessageDialog(this, "Upload failed");
+            }
+        }
+    }
+
+    private void updateFile(String individual) {
+
+        JFileChooser openChooser = new JFileChooser();
+
+        int returnVal = openChooser.showOpenDialog(this);
+
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            try {
+                model.updateIndividualDataFile(individual, openChooser.getSelectedFile());
+                JOptionPane.showMessageDialog(this, "Update finished");
+            } catch (Exception ex) {
+                logger.error("Can not write to file", ex);
+                JOptionPane.showMessageDialog(this, "Update failed");
+            }
+        }
+
+    }
 
 }
