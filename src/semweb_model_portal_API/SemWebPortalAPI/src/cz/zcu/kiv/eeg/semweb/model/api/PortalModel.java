@@ -19,6 +19,7 @@ import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.Item;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.LiteralItem;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.NonExistingUriNodeException;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.UriItem;
+import cz.zcu.kiv.eeg.semweb.model.api.utils.DataConverter;
 import cz.zcu.kiv.eeg.semweb.model.api.utils.InstanceUriGen;
 import cz.zcu.kiv.eeg.semweb.model.dbconnect.DbConnector;
 import cz.zcu.kiv.eeg.semweb.model.search.Condition;
@@ -177,7 +178,7 @@ public class PortalModel {
             StmtIterator condIterator = ontologyModel.listStatements(new PortalClassInstanceSelector(ontologyModel.getProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), (RDFNode) parent, cond));
 
             instList = new ArrayList<Item>();
-            
+
             while (condIterator.hasNext()) {
                 Statement res = condIterator.next();
                 instList.add(new UriItem(res.getSubject().asResource().getURI(), this));
@@ -196,17 +197,17 @@ public class PortalModel {
      * @throws NonExistingUriNodeException
      */
     public List<Item> listProperties(String parentUri) throws NonExistingUriNodeException {
-        
+
         List<Item> result;
 
         Individual parent = ontologyModel.getIndividual(parentUri);
-        
+
         if (parent == null) {
             throw new NonExistingUriNodeException("Object instance with URI " + parentUri + " does not exists.");
         } else {
             StmtIterator it = parent.listProperties();
             result = new ArrayList<Item>();
-            
+
             while (it.hasNext()) {
                 Property propItem = it.nextStatement().getPredicate();
 
@@ -318,7 +319,7 @@ public class PortalModel {
 
     /**
      * Add new class to model
-     * 
+     *
      * @param name Name of new class
      * @param parentClassUri Parent class name (optional)
      * @return
@@ -366,16 +367,20 @@ public class PortalModel {
 
         ExtendedIterator<OntClass> ex = ontologyModel.listClasses();
 
+        OntClass oc = null;
+
         while(ex.hasNext()) {
 
-            OntClass oc = ex.next();
+            oc = ex.next();
 
             List<OntClass> nodeParList = oc.listSuperClasses().toList();
 
-            if (nodeParList.isEmpty()) {
-                parents.add(oc.getURI());
-            }else if (nodeParList.size() == 1 && nodeParList.get(0).getLocalName().endsWith("Resource")){
-                parents.add(oc.getURI());
+            if (!oc.getURI().contains("w3.org")) {
+                if (nodeParList.isEmpty() ) {
+                    parents.add(oc.getURI());
+                }else if (nodeParList.size() == 1 && nodeParList.get(0).getLocalName().endsWith("Resource")){
+                    parents.add(oc.getURI());
+                }
             }
         }
         return parents;
@@ -390,24 +395,27 @@ public class PortalModel {
      * @throws NonExistingUriNodeException
      */
     public List<String> listSubClasses(String parentURI) throws NonExistingUriNodeException {
-        
+    
         List<String> childClasses = new ArrayList<String>();
-        
+
         OntClass parent = ontologyModel.getOntClass(parentURI);
-        
+
         if (parent == null) {
             throw new NonExistingUriNodeException("Class with URI " + parentURI + " does not exists.");
         }
-        
+
         ExtendedIterator<OntClass> ex = parent.listSubClasses(true);
-        
+
+        OntClass oc = null;
+
         while(ex.hasNext()) {
 
-            OntClass oc = ex.next();
-            
+            oc = ex.next();
+
             childClasses.add(oc.getURI());
         }
         return childClasses;
+
     }
 
     public String getIndividualParentClass(String uri) {
@@ -430,12 +438,12 @@ public class PortalModel {
     public String getClassDescription(String classUri) {
         
         OntClass oc = ontologyModel.getOntClass(classUri);
-        
+
         if (oc == null) {
             return "";
         }else {
             return oc.getComment(null);
-        }   
+        }
     }
 
     public String getPropertyDescription(String property) {
@@ -549,9 +557,9 @@ public class PortalModel {
     }
 
     public boolean hasIndividualTable(String individualUri) {
-    
+
         String parentClass = getIndividualParentClass(individualUri);
-        
+
         return testTableForClassExists(parentClass);
     }
 
@@ -577,6 +585,99 @@ public class PortalModel {
 
         ResultSet resData =  prepStmnt.executeQuery();
         return resData.next();
+    }
+
+    public void updatePropertyDescription(String propertyUri, String value) {
+
+        OntProperty op = ontologyModel.getOntProperty(propertyUri);
+
+        if (op == null) {
+         return;
+        }
+        op.setComment(value, null);
+    }
+
+    /**
+     * List all model defined properties that has no superProperties
+     * @return
+     */
+    public List<String> listPropertiesByDomain(String domainUri) {
+
+        List<String> parents = new ArrayList<String>();
+
+        ExtendedIterator<OntProperty> ex = ontologyModel.listOntProperties();
+
+        OntProperty op;
+
+        while(ex.hasNext()) {
+
+            op = ex.next();
+
+            List nodeParList = op.listSuperProperties().toList();
+
+            if (!op.getURI().contains("w3.org") && op.getDomain() != null) {
+
+                if (op.getDomain().getURI().equals(domainUri)) {
+                    parents.add(op.getURI());
+                }
+            //}else if (nodeParList.size() == 0) { //TODO - avoid RDF statements??
+            //    parents.add(op.getURI());
+            }
+        }
+        return parents;
+    }
+
+    public boolean hasSubProperties(String parentURI) throws NonExistingUriNodeException {
+
+        OntProperty parent = ontologyModel.getOntProperty(parentURI);
+
+        if (parent == null) {
+            throw new NonExistingUriNodeException("Property with URI " + parentURI + " does not exists.");
+        }
+        return parent.listSubProperties().hasNext();
+    }
+
+/**
+     * List all direct subproperties of specified property
+     *
+     * @param parentURI root property
+     * @return list of subproperties
+     *
+     * @throws NonExistingUriNodeException
+     */
+    public List<String> listSubProperties(String parentURI) throws NonExistingUriNodeException {
+
+        List<String> childProperties = new ArrayList<String>();
+
+        OntProperty parent = ontologyModel.getOntProperty(parentURI);
+
+        if (parent == null) {
+            throw new NonExistingUriNodeException("Property with URI " + parentURI + " does not exists.");
+        }
+
+        ExtendedIterator<? extends OntProperty> ex = parent.listSubProperties(true);
+
+        OntProperty op = null;
+
+        while(ex.hasNext()) {
+            op = ex.next();
+            childProperties.add(op.getURI());
+        }
+        return childProperties;
+    }
+
+    public DataType getPropertyRange(String propUri) {
+
+        OntProperty op = ontologyModel.getOntProperty(propUri);
+
+        if (op != null) {
+            OntResource range = op.getRange();
+            
+            if (range != null) {
+                return DataConverter.getTypeByUri(range.getURI());
+            }
+        }
+        return null;
     }
 
 
@@ -610,7 +711,7 @@ public class PortalModel {
     }
 
     public void exportModel(File targetFile) throws FileNotFoundException {
-     
+
         ontologyModel.write(new FileOutputStream(targetFile));
     }
 

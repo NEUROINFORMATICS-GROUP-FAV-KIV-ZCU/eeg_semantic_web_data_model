@@ -2,6 +2,7 @@ package cz.zcu.kiv.eeg.semweb.model.api.utils;
 
 import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
 import com.hp.hpl.jena.rdf.model.Literal;
+import cz.zcu.kiv.eeg.semweb.model.api.DataType;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -37,6 +38,29 @@ public class DataConverter {
             return sd.parse(literal.getString());
         }else {
             return null; //TODO complete
+        }
+    }
+
+    public static DataType getTypeByUri(String uri) {
+
+        if (uri.equals(XSDDatatype.XSDstring.getURI())) {
+            return DataType.STRING_TYPE;
+        } else if (uri.equals(XSDDatatype.XSDinteger.getURI())) {
+            return DataType.INTEGER_TYPE;
+        } else if (uri.equals(XSDDatatype.XSDdouble.getURI())) {
+            return DataType.DOUBLE_TYPE;
+        }else if (uri.equals(XSDDatatype.XSDboolean.getURI())) {
+            return DataType.BOOLEAN_TYPE;
+        }else if (uri.equals(XSDDatatype.XSDlong.getURI())) {
+            return DataType.LONG_TYPE;
+        }else if (uri.equals(XSDDatatype.XSDdate.getURI())) {
+            return DataType.DATE_TYPE;
+        }else if (uri.equals(XSDDatatype.XSDtime.getURI())) {
+            return DataType.TIME_TYPE;
+        }else if (uri.equals(XSDDatatype.XSDdateTime.getURI())) {
+            return DataType.DATE_TIME_TYPE;
+        }else {
+            return DataType.URI_TYPE;
         }
 
     }

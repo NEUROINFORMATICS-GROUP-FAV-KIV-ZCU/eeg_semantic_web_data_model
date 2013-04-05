@@ -1,5 +1,6 @@
 package cz.zcu.kiv.eeg.semweb.gui.connect;
 
+import com.hp.hpl.jena.shared.JenaException;
 import cz.zcu.kiv.eeg.semweb.gui.MainWindow;
 import cz.zcu.kiv.eeg.semweb.model.api.PortalModel;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.ConversionException;
@@ -20,7 +21,12 @@ public class ConnectorThread implements Runnable {
     }
 
     public void run() {
-       connectModel();
+       try {
+            connectModel();
+       }catch (JenaException ex) {
+           System.out.println("Spadlo ti to Machale");
+       }
+
     }
 
      private void connectModel() {
@@ -50,7 +56,7 @@ public class ConnectorThread implements Runnable {
         }
 
         this.root.updateStatus("Loading model", 8);
-        mw.getModel().getClassDescription(root.getDefaultTablePrefix() + "person");
+        //mw.getModel().getClassDescription(root.getDefaultTablePrefix() + "person");
 
         this.root.updateStatus("Model loaded.", 10);
 

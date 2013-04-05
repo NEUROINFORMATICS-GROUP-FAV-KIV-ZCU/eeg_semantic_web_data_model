@@ -111,7 +111,8 @@ public class ConnectProgressWindow extends JFrame implements ActionListener {
     public OntModelSpec getReasoner() {
 
         if (reasonerType.getSelectedItem().toString().equals("Shallow")) {
-            return OntModelSpec.OWL_LITE_MEM_TRANS_INF;
+            //return OntModelSpec.OWL_LITE_MEM_TRANS_INF;
+            return OntModelSpec.RDFS_MEM;
         }else {
             return OntModelSpec.OWL_MEM_RDFS_INF;
         }

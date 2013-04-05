@@ -44,6 +44,7 @@ public class VirtuosoDbConnector implements DbConnector {
 
             //semWeb
             virtModel = VirtModel.openDatabaseModel(modelName, dbUrl, username, password);
+            
             logger.info("Connection estabilished.");
         }catch (Exception ex) {
             logger.error("Connecting error:", ex);

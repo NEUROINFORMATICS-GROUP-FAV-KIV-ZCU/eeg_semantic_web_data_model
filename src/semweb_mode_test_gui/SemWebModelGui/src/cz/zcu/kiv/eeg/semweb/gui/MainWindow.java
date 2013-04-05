@@ -68,6 +68,13 @@ public class MainWindow extends JFrame {
             }
         });
 
+        exitItem.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                closeVisualizer();
+            }
+        });
+
         menu.add(exportItem);
         menu.add(exitItem);
 
@@ -100,6 +107,11 @@ public class MainWindow extends JFrame {
                 logger.error("Can not write to file", ex);
             }
         }
+    }
+
+    public void closeVisualizer () {
+        model.close();
+        System.exit(0);
     }
 
 }

@@ -1,6 +1,9 @@
 package cz.zcu.kiv.eeg.semweb.gui;
 
+import com.hp.hpl.jena.ontology.OntProperty;
+import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 import cz.zcu.kiv.eeg.semweb.gui.filter.MainOrListFilterWindow;
+import cz.zcu.kiv.eeg.semweb.gui.propertywindow.AddPropertyWindow;
 import cz.zcu.kiv.eeg.semweb.model.api.PortalModel;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.Item;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.NonExistingUriNodeException;
@@ -11,16 +14,12 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import org.apache.log4j.Logger;
 
@@ -204,21 +203,7 @@ public class DataPanel extends JPanel {
     }
 
     private void addProperty() {
-        try {
-            //model.uploadIndividualDataFile(selectedItem, new File("writee.xml"));
-            
-            System.out.println("Individual has table: " + model.hasIndividualTable(selectedItem));
-            System.out.println("Individual has file: " + model.hasIndividualFile(selectedItem));
-
-            //model.updateIndividualDataFile(selectedItem, new File("ee.xml"));
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        //} catch (FileNotFoundException ex) {
-          //  ex.printStackTrace();
-        //} catch (IOException ex) {
-          //  ex.printStackTrace();
-        }
-
+       new AddPropertyWindow(model, mw, actualNode);
 
     }
 
