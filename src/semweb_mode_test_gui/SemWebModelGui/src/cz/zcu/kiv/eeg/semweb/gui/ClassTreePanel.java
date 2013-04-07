@@ -17,27 +17,27 @@ import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.DefaultTreeModel;
-import javax.swing.tree.TreeNode;
 import org.apache.log4j.Logger;
 
 /**
+ * Panel with treeNode selector uses to list and select model defined classes and organise it
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
 public class ClassTreePanel extends JPanel {
 
-    private PortalModel model;
-    private MainWindow mw;
-    private JTree tree;
-    private DefaultMutableTreeNode root;
+    private PortalModel model; //Portal data model API connector
+    private MainWindow mw; //Main application window
+    private JTree classListerTree; //Jtree containing data model classes
+    private DefaultMutableTreeNode rootNode; //root node of classLister Jtree
     private ClassTreePanel self;
 
-    private JTextArea description;
-    private JButton updDescrBt;
+    private JTextArea description; //Class description panel
+    private JButton updDescrBt; //update description button
 
-    private TreeNodeSelectionListener listener;
+    private TreeClassNodeSelectionListener listener; //listener of selected node of ClassLister JTree
 
-    private static final Logger logger = Logger.getLogger(TreeNodeSelectionListener.class);
+    private static final Logger logger = Logger.getLogger(ClassTreePanel.class);
 
     public ClassTreePanel(PortalModel model, DataPanel dataPanel, MainWindow mw) throws NonExistingUriNodeException {
 
@@ -45,36 +45,45 @@ public class ClassTreePanel extends JPanel {
         this.mw = mw;
         this.self = this;
 
-        
+        listener = new TreeClassNodeSelectionListener(this, model, dataPanel);
+
         setLayout(new BorderLayout());
-
-        listener = new TreeNodeSelectionListener(this, model, dataPanel);
-
         add(createTree(listener), BorderLayout.CENTER);
         add(createBottomPanel(), BorderLayout.SOUTH);
     }
 
-    private Component createTree(TreeNodeSelectionListener listener) {
+    /**
+     * Create tree panel
+     *
+     * @param listener nodeSelection listener
+     * @return create panel with Jtree ClassSelector
+     */
+    private Component createTree(TreeClassNodeSelectionListener listener) {
 
-        root = new DefaultMutableTreeNode("Portal model");
-        addNodes(root);
+        rootNode = new DefaultMutableTreeNode("Portal model");
+        addNodes(rootNode);
 
-        tree = new JTree(root);
-        tree.addTreeSelectionListener(listener);
+        classListerTree = new JTree(rootNode);
+        classListerTree.addTreeSelectionListener(listener);
 
 
         DefaultTreeCellRenderer rend = new DefaultTreeCellRenderer();
         rend.setOpenIcon(null);
         rend.setClosedIcon(null);
         rend.setLeafIcon(null);
-        tree.setCellRenderer(rend);
+        classListerTree.setCellRenderer(rend);
 
         JScrollPane scrollPanel = new JScrollPane();
-        scrollPanel.getViewport().add(tree);
+        scrollPanel.getViewport().add(classListerTree);
 
         return scrollPanel;
     }
 
+    /**
+     * Create panel with description TextArea to enable view and edit class description annotation
+     *
+     * @return Created panel with ClassDescription textArea
+     */
     private Component createDecriptionPanel() {
 
         description = new JTextArea(4, 25);
@@ -87,6 +96,11 @@ public class ClassTreePanel extends JPanel {
         return descriptionPanel;
     }
 
+    /**
+     * Creates button panel that allows to add new classes and set description of present classes
+     *
+     * @return Button panel
+     */
     private Component createButtonPanel() {
 
         
@@ -94,17 +108,14 @@ public class ClassTreePanel extends JPanel {
         updDescrBt.setEnabled(false);
 
         updDescrBt.addActionListener(new ActionListener() {
-
             public void actionPerformed(ActionEvent e) {
-
-                model.updateClassDescription(tree.getSelectionPath().getLastPathComponent().toString(), description.getText().trim());
+                model.updateClassDescription(classListerTree.getSelectionPath().getLastPathComponent().toString(), description.getText().trim());
             }
         });
 
         JButton addClassBt = new JButton("Add class");
 
         addClassBt.addActionListener(new ActionListener() {
-
             public void actionPerformed(ActionEvent e) {
                 new AddClassWindow(self);
             }
@@ -117,6 +128,11 @@ public class ClassTreePanel extends JPanel {
         return buttonPanel;
     }
 
+    /**
+     * Wrappes description panel and Button panel to one panel (due the layout reason)
+     *
+     * @return Buttons and Description panel
+     */
     private JPanel createBottomPanel() {
 
         JPanel bottomPanel = new JPanel(new BorderLayout());
@@ -127,6 +143,11 @@ public class ClassTreePanel extends JPanel {
         return bottomPanel;
     }
 
+    /**
+     * Initialize ClassSelector tree to insert actual model class nodes (hierarchicaly)
+     *
+     * @param root Root node of JTree
+     */
     private void addNodes(DefaultMutableTreeNode root) {
 
         DefaultMutableTreeNode node;
@@ -141,7 +162,12 @@ public class ClassTreePanel extends JPanel {
         }
     }
 
-
+    /**
+     * List model available subclasses of selected class and add them to parent JTree node
+     *
+     * @param parent Parent classNode
+     * @param nodeName Parent class URI
+     */
     private void listSubClasses(DefaultMutableTreeNode parent, String nodeName)  {
 
         DefaultMutableTreeNode node;
@@ -180,13 +206,18 @@ public class ClassTreePanel extends JPanel {
         mw.setEnabled(enabled);
     }
 
+    /**
+     * Update model method called outside of ClassTreePanel by AddClassWidnwow - when new class is created
+     * Update Jtree ClassSelector to present state
+     * 
+     */
     public void updateTree() {
 
-        root.removeAllChildren();
-        addNodes(root);
+        rootNode.removeAllChildren();
+        addNodes(rootNode);
 
-        DefaultTreeModel mainTree = (DefaultTreeModel) tree.getModel();
+        DefaultTreeModel mainTree = (DefaultTreeModel) classListerTree.getModel();
 
-        mainTree.reload(root);
+        mainTree.reload(rootNode);
     }
 }

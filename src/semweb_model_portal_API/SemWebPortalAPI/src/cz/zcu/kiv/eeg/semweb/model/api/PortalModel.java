@@ -1,5 +1,6 @@
 package cz.zcu.kiv.eeg.semweb.model.api;
 
+import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
@@ -217,7 +218,7 @@ public class PortalModel {
 
                 UriItem ni = new UriItem(propItem.getURI(), this);
 
-                if (!result.contains(it)) {
+                if (!result.contains(ni)) {
                     result.add(ni);
                 }
             }
@@ -335,8 +336,13 @@ public class PortalModel {
         return new UriItem(oc.getURI(), this);
     }
 
-
     public String createProperty(String name, String domain, String range, String parentProperty) throws NonExistingUriNodeException {
+
+        return createProperty(name, domain, range, parentProperty, null);
+    }
+
+
+    public String createProperty(String name, String domain, String range, String parentProperty, String description) throws NonExistingUriNodeException {
 
         Resource domainRes = ontologyModel.getResource(domain);
 
@@ -353,6 +359,11 @@ public class PortalModel {
         if (parentProperty != null) {
             prop.setSuperProperty(ontologyModel.getProperty(parentProperty));
         }
+        
+        if (description != null) {
+            updatePropertyDescription(name, description);
+        }
+
         return prop.getURI();
     }
 
@@ -618,7 +629,16 @@ public class PortalModel {
             if (!op.getURI().contains("w3.org") && op.getDomain() != null) {
 
                 if (op.getDomain().getURI().equals(domainUri)) {
-                    parents.add(op.getURI());
+                    
+//                    ExtendedIterator<? extends OntProperty> it = op.listSuperProperties(); //first property is Property (RDF definition)
+//
+//                    while(it.hasNext()) {
+//                        System.out.println(it.next().getURI());
+//                    }
+//
+//                    if (!it.hasNext()) {
+                        parents.add(op.getURI());
+                    //}
                 }
             //}else if (nodeParList.size() == 0) { //TODO - avoid RDF statements??
             //    parents.add(op.getURI());
@@ -679,6 +699,54 @@ public class PortalModel {
         }
         return null;
     }
+
+    public String getPropertyRangeUri(String property) {
+     OntProperty op = ontologyModel.getOntProperty(property);
+
+        if (op != null) {
+            OntResource range = op.getRange();
+
+            if (range != null) {
+                return range.getURI();
+            }
+        }
+        return null;
+
+    }
+
+    /**
+     * Returns a list of all classes and supported RDF DataTypes that can be used as property range
+     * 
+     * @return range list
+     */
+    public List<String> listAvailableRanges() {
+
+        List<String> ranges = new ArrayList<String>();
+
+        ExtendedIterator<OntClass> ex = ontologyModel.listClasses();
+        OntClass oc = null;
+
+        while(ex.hasNext()) {
+
+            oc = ex.next();
+            if (!oc.getURI().contains("w3.org")) {
+                ranges.add(oc.getURI());
+            }
+        }
+
+        ranges.add(XSDDatatype.XSDboolean.getURI());
+        ranges.add(XSDDatatype.XSDdateTime.getURI());
+        ranges.add(XSDDatatype.XSDdate.getURI());
+        ranges.add(XSDDatatype.XSDtime.getURI());
+        ranges.add(XSDDatatype.XSDfloat.getURI());
+        ranges.add(XSDDatatype.XSDdouble.getURI());
+        ranges.add(XSDDatatype.XSDlong.getURI());
+        ranges.add(XSDDatatype.XSDinteger.getURI());
+        ranges.add(XSDDatatype.XSDstring.getURI());
+
+        return ranges;
+    }
+
 
 
    /**

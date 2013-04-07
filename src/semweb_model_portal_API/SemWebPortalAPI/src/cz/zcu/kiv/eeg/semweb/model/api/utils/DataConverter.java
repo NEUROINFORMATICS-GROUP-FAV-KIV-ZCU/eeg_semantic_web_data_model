@@ -28,14 +28,11 @@ public class DataConverter {
         } else if (literal.getDatatypeURI().equals(XSDDatatype.XSDlong.getURI())) {
             return new Long(literal.getLong());
         } else if (literal.getDatatypeURI().equals(XSDDatatype.XSDdate.getURI())) { //TODO dateTime and Time
-            SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
-            return sd.parse(literal.getString().split("T")[0]);
+            return literal.toString().split("\\^")[0];
         } else if (literal.getDatatypeURI().equals(XSDDatatype.XSDtime.getURI())) {
-            SimpleDateFormat sd = new SimpleDateFormat("hh:mm:ss");
-            return sd.parse(literal.getString().split("T")[1]);
+            return literal.toString().split("\\^")[0];
         } else if (literal.getDatatypeURI().equals(XSDDatatype.XSDdateTime.getURI())) {
-            SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss");
-            return sd.parse(literal.getString());
+            return literal.toString().split("\\^")[0];
         }else {
             return null; //TODO complete
         }
@@ -49,6 +46,8 @@ public class DataConverter {
             return DataType.INTEGER_TYPE;
         } else if (uri.equals(XSDDatatype.XSDdouble.getURI())) {
             return DataType.DOUBLE_TYPE;
+        } else if (uri.equals(XSDDatatype.XSDfloat.getURI())) {
+            return DataType.FLOAT_TYPE;
         }else if (uri.equals(XSDDatatype.XSDboolean.getURI())) {
             return DataType.BOOLEAN_TYPE;
         }else if (uri.equals(XSDDatatype.XSDlong.getURI())) {

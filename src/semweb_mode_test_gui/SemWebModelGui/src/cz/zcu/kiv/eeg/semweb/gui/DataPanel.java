@@ -1,7 +1,5 @@
 package cz.zcu.kiv.eeg.semweb.gui;
 
-import com.hp.hpl.jena.ontology.OntProperty;
-import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 import cz.zcu.kiv.eeg.semweb.gui.filter.MainOrListFilterWindow;
 import cz.zcu.kiv.eeg.semweb.gui.propertywindow.AddPropertyWindow;
 import cz.zcu.kiv.eeg.semweb.model.api.PortalModel;
@@ -18,12 +16,13 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import org.apache.log4j.Logger;
 
 /**
+ * Right part of main window - canations ClassInstances (Individuals) lister with filter setter
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
@@ -31,17 +30,16 @@ public class DataPanel extends JPanel {
 
     private PortalModel model;
     private MainWindow mw;
-    private PropertyListPanel propPanel;
+    private PropertyListPanel propPanel; //Properties lister - lists all available selected individual properties
 
+    private JComboBox individualSelectorComboBox; //selector for classInstance - Individual
+    private String actualSelectedClassNode; //Actual selected class in Jtree ClassLister
+    private DisjunctionCondition filterCond; //Filter condition to filter individuals
 
-    private JComboBox selectBox;
-    private String actualNode;
-    private DisjunctionCondition filterCond;
+    private JButton addInstBt; //Add class instance (Individual) button
+    private JButton addPropBt; //Add new property (property-value) to selected individual
 
-    private JButton addInstBt;
-    private JButton addPropBt;
-
-    private String selectedItem;
+    private String actualSelectedIndividual; //Actual selected individual
 
 
     private static final Logger logger = Logger.getLogger(DataPanel.class);
@@ -52,8 +50,7 @@ public class DataPanel extends JPanel {
         this.mw = mw;
         this.propPanel = new PropertyListPanel(model, this);
 
-
-        selectedItem = null;
+        actualSelectedIndividual = null;
 
         setLayout(new BorderLayout());
 
@@ -64,6 +61,11 @@ public class DataPanel extends JPanel {
         filterCond = new DisjunctionCondition();
     }
 
+    /**
+     * Top panel caontaining individuals selector and filter setter
+     *
+     * @return JPanel
+     */
     private JPanel createTopPanel() {
 
         JPanel topPanel = new JPanel(new FlowLayout());
@@ -71,9 +73,9 @@ public class DataPanel extends JPanel {
 
         JLabel instLabel = new JLabel("Instances");
 
-        selectBox = new JComboBox();
+        individualSelectorComboBox = new JComboBox();
 
-        selectBox.addActionListener(new ActionListener() {
+        individualSelectorComboBox.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
                 updateSelectedIndividual();
@@ -84,7 +86,7 @@ public class DataPanel extends JPanel {
         updateBt.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-                nodeSelected(actualNode);
+                nodeSelected(actualSelectedClassNode);
             }
         });
 
@@ -98,13 +100,18 @@ public class DataPanel extends JPanel {
         });
 
         topPanel.add(instLabel);
-        topPanel.add(selectBox);
+        topPanel.add(individualSelectorComboBox);
         topPanel.add(updateBt);
         topPanel.add(filterBt);
 
         return topPanel;
     }
 
+    /**
+     * Bottom panel with addInstance and addProperty buttons
+     *
+     * @return JPanel
+     */
     private JPanel createBottomPanel() {
 
         JPanel bottomPanel = new JPanel(new FlowLayout());
@@ -136,6 +143,12 @@ public class DataPanel extends JPanel {
         return bottomPanel;
     }
 
+    /**
+     * List instances of selected class filered by actual filter
+     *
+     * @param parentClass ParentClass URI
+     * @return list of individuals (URIs)
+     */
     private List<String> getInstancesList(String parentClass) {
         try {
             List<Item> inst = model.listInstance(parentClass, filterCond);
@@ -154,43 +167,61 @@ public class DataPanel extends JPanel {
         }
     }
 
+    /**
+     * Update list of individuals by JTree ClassSelector actual selected node (and filter)
+     *
+     * @param node selected node - Class
+     */
     public void nodeSelected(String node) {
        
         if (node != null) {
-            actualNode = node;
-            selectBox.removeAllItems();
+            actualSelectedClassNode = node;
+            individualSelectorComboBox.removeAllItems();
 
             for (String item: getInstancesList(node)) {
-                selectBox.addItem(item);
+                individualSelectorComboBox.addItem(item);
             }
             updateSelectedIndividual();
         }
     }
 
+    /**
+     * Update property value lister - PropertyDataPanel to selected indvidual values
+     */
     private void updateSelectedIndividual() {
 
-        if (selectBox.getSelectedItem() == null) {
-            selectedItem = null;
+        if (individualSelectorComboBox.getSelectedItem() == null) {
+            actualSelectedIndividual = null;
         } else {
-            selectedItem = selectBox.getSelectedItem().toString();
+            actualSelectedIndividual = individualSelectorComboBox.getSelectedItem().toString();
         }
 
-        propPanel.updateData(selectedItem);
+        propPanel.updateData(actualSelectedIndividual);
         addInstBt.setEnabled(true);
         addPropBt.setEnabled(true);
     }
 
 
+    /**
+     * Set selected individual when GoTo operation on URI node raised
+     *
+     * @param node IndividualUri
+     */
     public void setSelectedNode(String node) {
-        selectBox.removeAllItems();
-        selectBox.addItem(node);
+        individualSelectorComboBox.removeAllItems();
+        individualSelectorComboBox.addItem(node);
+
+        updateSelectedIndividual();
     }
 
+    /**
+     * Create new class instance (Individual)
+     */
     private void createNewInstance() {
         try {
-            UriItem newInd = model.createClassInstance(actualNode);
+            UriItem newInd = model.createClassInstance(actualSelectedClassNode);
 
-            nodeSelected(actualNode);
+            nodeSelected(actualSelectedClassNode);
             selectIndividual(newInd.getUri());
 
         } catch (NonExistingUriNodeException ex) {
@@ -199,12 +230,32 @@ public class DataPanel extends JPanel {
     }
 
     private void selectIndividual(String indUri) {
-        selectBox.setSelectedItem(indUri);
+        individualSelectorComboBox.setSelectedItem(indUri);
     }
 
+    /**
+     * Add new property-value to selected instance
+     */
     private void addProperty() {
-       new AddPropertyWindow(model, mw, actualNode);
+       new AddPropertyWindow(model, this, actualSelectedIndividual);
 
+    }
+
+    /**
+     * Close PropertyAdd window and update individual property data
+     */
+    public void closePropertyAdderAndUpdate() {
+        mw.setEnabled(true);
+        updateSelectedIndividual();
+    }
+
+    /**
+     * Return root frame component
+     *
+     * @return root Frame
+     */
+    public JFrame getRootFrame() {
+        return mw;
     }
 
 }

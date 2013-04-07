@@ -1,14 +1,18 @@
 package cz.zcu.kiv.eeg.semweb.model.api.data.wrapper;
 
+import com.hp.hpl.jena.datatypes.RDFDatatype;
 import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.OntProperty;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.ResourceFactory;
 import com.hp.hpl.jena.rdf.model.Statement;
+import com.hp.hpl.jena.shared.AddDeniedException;
 import cz.zcu.kiv.eeg.semweb.model.api.PortalModel;
 import java.text.ParseException;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -97,8 +101,8 @@ public class UriItem extends Item {
         RDFNode targetObject;
 
         if (model.getOntModel().getOntProperty(propertyUri).getRange().getURI().startsWith(XSDDatatype.XSDstring.XSD)) { //literal
+            
             targetObject = model.getOntModel().createTypedLiteral(value, prop.getRange().getURI());
-
         }else {
 
             targetObject = model.getOntModel().getIndividual(value.toString());
@@ -121,11 +125,10 @@ public class UriItem extends Item {
         Statement st = model.getOntModel().listStatements(subject, predicate, oldObject).nextStatement();
 
         if (st != null) {
-            model.getOntModel().remove(st);
+                model.getOntModel().remove(st);
 
-            st = model.getOntModel().createStatement(subject, predicate, newObject);
-            
-            model.getOntModel().add(st);
+                st = model.getOntModel().createStatement(subject, predicate, newObject);
+                model.getOntModel().add(st);
         }
     }
 

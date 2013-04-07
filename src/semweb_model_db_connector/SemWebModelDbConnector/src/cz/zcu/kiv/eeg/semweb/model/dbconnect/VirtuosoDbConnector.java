@@ -4,6 +4,7 @@ import com.hp.hpl.jena.rdf.model.Model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
+import java.util.Locale;
 import org.apache.log4j.Logger;
 import virtuoso.jena.driver.VirtModel;
 
@@ -37,7 +38,7 @@ public class VirtuosoDbConnector implements DbConnector {
         try {
             logger.info("Connecting to " + dbUrl);
 
-            //relation
+            //relational
             Class.forName("virtuoso.jdbc4.Driver");
             relationalConn = DriverManager.getConnection(dbUrl, username, password);
             relStatement = relationalConn.createStatement();

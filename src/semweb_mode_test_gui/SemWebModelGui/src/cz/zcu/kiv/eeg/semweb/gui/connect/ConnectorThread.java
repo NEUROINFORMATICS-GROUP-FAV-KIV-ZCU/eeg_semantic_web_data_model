@@ -21,12 +21,7 @@ public class ConnectorThread implements Runnable {
     }
 
     public void run() {
-       try {
-            connectModel();
-       }catch (JenaException ex) {
-           System.out.println("Spadlo ti to Machale");
-       }
-
+        connectModel();
     }
 
      private void connectModel() {

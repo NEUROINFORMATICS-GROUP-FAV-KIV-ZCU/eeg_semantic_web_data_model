@@ -17,17 +17,15 @@ import javax.swing.JMenuItem;
 import org.apache.log4j.Logger;
 
 /**
+ * Main window wrappes all components - contains TreeClassViewer and individual lister
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
 public class MainWindow extends JFrame {
 
-    private PortalModel model;
-    private JComboBox selectBox;
-    
-    private ClassTreePanel treePanel;
-
+    private PortalModel model; //Portal data model API connect
     private static final Logger logger = Logger.getLogger(MainWindow.class);
+
 
     public MainWindow (PortalModel model) throws NonExistingUriNodeException, ConversionException {
 
@@ -41,35 +39,26 @@ public class MainWindow extends JFrame {
 
         
         DataPanel dataPanel = new DataPanel(model, this);
-
-      
-
-        treePanel = new ClassTreePanel(model, dataPanel, this);
-
+        ClassTreePanel treePanel = new ClassTreePanel(model, dataPanel, this);
 
         setLayout(new BorderLayout());
-
         add(treePanel, BorderLayout.WEST);
         add(dataPanel, BorderLayout.CENTER);
 
-
-
+        //Menu containing exist and export items
         JMenuBar mainMenu = new JMenuBar();
-
         JMenu menu = new JMenu("Menu");
 
         JMenuItem exportItem = new JMenuItem("Export model");
         JMenuItem exitItem = new JMenuItem("Exit");
 
-        exportItem.addActionListener(new ActionListener() {
-
+        exportItem.addActionListener(new ActionListener() { //Export data
             public void actionPerformed(ActionEvent e) {
                 exportData();
             }
         });
 
-        exitItem.addActionListener(new ActionListener() {
-
+        exitItem.addActionListener(new ActionListener() { //Close application
             public void actionPerformed(ActionEvent e) {
                 closeVisualizer();
             }
@@ -79,21 +68,13 @@ public class MainWindow extends JFrame {
         menu.add(exitItem);
 
         mainMenu.add(menu);
-
         setJMenuBar(mainMenu);
 
     }
 
-    public void updateSelectBox() {
-
-        selectBox.removeAllItems();
-        selectBox.addItem("Fildas");
-    }
-
-    public PortalModel getModel() {
-        return model;
-    }
-
+    /**
+     * Export data model to XML RDF syntax file
+     */
     public void exportData() {
 
         JFileChooser saveChooser = new JFileChooser();
@@ -109,6 +90,9 @@ public class MainWindow extends JFrame {
         }
     }
 
+    /**
+     * Close visualizer window
+     */
     public void closeVisualizer () {
         model.close();
         System.exit(0);

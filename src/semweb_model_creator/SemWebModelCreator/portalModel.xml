@@ -301,12 +301,6 @@
 
 <!-- Inheritance -->
 
-    <parent_property name="person/researcher/group_member">
-        <child name="person/researcher/group_member_admin"/>
-        <child name="person/researcher/group_member_experimenter"/>
-        <child name="person/researcher/group_member_reader"/>
-    </parent_property>
-
     <parent_property name="article_property">
         <child name="article/author"/>
         <child name="article/research_group"/>

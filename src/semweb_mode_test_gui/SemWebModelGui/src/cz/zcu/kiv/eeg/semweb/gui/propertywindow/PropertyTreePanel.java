@@ -36,7 +36,7 @@ public class PropertyTreePanel extends JPanel {
     private JTextArea description;
     private JButton updDescrBt;
 
-    private NodeSelectionListener listener;
+    private PropertyNodeSelectionListener listener;
 
     private static final Logger logger = Logger.getLogger(PropertyTreePanel.class);
 
@@ -50,13 +50,16 @@ public class PropertyTreePanel extends JPanel {
 
         setLayout(new BorderLayout());
 
-        listener = new NodeSelectionListener(this, model, dataPanel);
+        listener = new PropertyNodeSelectionListener(this, model, dataPanel);
 
         add(createTree(listener), BorderLayout.CENTER);
         add(createBottomPanel(), BorderLayout.SOUTH);
+
+
+        System.out.println("Gathered Class: " + selClass);
     }
 
-    private Component createTree(NodeSelectionListener listener) {
+    private Component createTree(PropertyNodeSelectionListener listener) {
 
         root = new DefaultMutableTreeNode("Portal property");
         addNodes(root);
@@ -108,7 +111,7 @@ public class PropertyTreePanel extends JPanel {
         addClassBt.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-                new CreatePropertyWindow(self);
+                new CreatePropertyWindow(self, selectedClass);
             }
         });
 

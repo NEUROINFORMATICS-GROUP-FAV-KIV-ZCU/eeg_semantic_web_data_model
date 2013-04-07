@@ -3,13 +3,10 @@ package cz.zcu.kiv.eeg.semweb.model.api.data.wrapper;
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.OntProperty;
 import com.hp.hpl.jena.rdf.model.Literal;
-import com.hp.hpl.jena.rdf.model.Property;
+import cz.zcu.kiv.eeg.semweb.model.api.DataType;
 import cz.zcu.kiv.eeg.semweb.model.api.PortalModel;
 import cz.zcu.kiv.eeg.semweb.model.api.utils.DataConverter;
-import java.sql.Time;
 import java.text.ParseException;
-import java.util.Calendar;
-import java.util.Date;
 
 /**
  *
@@ -18,7 +15,7 @@ import java.util.Date;
 public final class LiteralItem extends Item {
 
     private Object value;
-    private DataTypes type;
+    private DataType type;
     private Literal original;
     private OntProperty chainProperty;
     private Individual parentInd;
@@ -34,9 +31,7 @@ public final class LiteralItem extends Item {
        this.parentInd = parentIndividual;
     }
 
-    public DataTypes getDataType() {
-        return type;
-    }
+   
 
     public Object getValue() {
         return value;
@@ -44,22 +39,10 @@ public final class LiteralItem extends Item {
 
     public void setValue(Object value) {
         this.value = value;
+    }
 
-        if (value instanceof Integer) {
-            type = DataTypes.INTEGER;
-        } else if (value instanceof Float) {
-            type = DataTypes.FLOAT;
-        } else if (value instanceof Double) {
-            type = DataTypes.DOUBLE;
-        } else if (value instanceof String) {
-            type = DataTypes.STRING;
-        } else if (value instanceof Date) {
-            type = DataTypes.DATE;
-        } else if (value instanceof Time) {
-            type = DataTypes.TIME;
-        } else if (value instanceof Calendar) {
-            type = DataTypes.DATE_TIME;
-        }
+    public String getXsdType () {
+        return original.getDatatypeURI();
     }
 
     @Override
@@ -74,8 +57,8 @@ public final class LiteralItem extends Item {
 
     public void updateValue(Object newValue) {
         
-        parentInd.removeProperty(chainProperty, original);//remove
         parentInd.addLiteral(chainProperty, model.getOntModel().createTypedLiteral(newValue, chainProperty.getRange().getURI())); //add new
+        parentInd.removeProperty(chainProperty, original);//remove
     }
 
     @Override
