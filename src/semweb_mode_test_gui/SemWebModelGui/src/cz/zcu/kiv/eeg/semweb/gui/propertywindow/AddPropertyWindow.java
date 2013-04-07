@@ -1,6 +1,7 @@
 package cz.zcu.kiv.eeg.semweb.gui.propertywindow;
 
 import cz.zcu.kiv.eeg.semweb.gui.DataPanel;
+import cz.zcu.kiv.eeg.semweb.gui.WindowClosingListener;
 import cz.zcu.kiv.eeg.semweb.model.api.PortalModel;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -38,6 +39,13 @@ public class AddPropertyWindow extends JFrame {
 
         root.setEnabled(false);
         this.setVisible(true);
+
+        addWindowListener(new WindowClosingListener() {
+            @Override
+            public void closeWindow() {
+                closeAdder();
+            }
+        });
     }
 
     /**

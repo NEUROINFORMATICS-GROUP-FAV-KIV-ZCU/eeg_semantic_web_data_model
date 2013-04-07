@@ -1,5 +1,6 @@
 package cz.zcu.kiv.eeg.semweb.gui.propertywindow;
 
+import cz.zcu.kiv.eeg.semweb.gui.WindowClosingListener;
 import cz.zcu.kiv.eeg.semweb.gui.util.ComponentWrapper;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.NonExistingUriNodeException;
 import java.awt.BorderLayout;
@@ -56,6 +57,14 @@ public class CreatePropertyWindow extends JFrame {
 
         this.setVisible(true);
         root.setMainWidnow(false);
+
+        addWindowListener(new WindowClosingListener() {
+            @Override
+            public void closeWindow() {
+                rootPropertyTree.setMainWidnow(true);
+                dispose();
+            }
+        });
     }
 
     /**

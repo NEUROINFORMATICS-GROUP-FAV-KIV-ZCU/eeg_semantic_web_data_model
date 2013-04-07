@@ -1,7 +1,6 @@
 package cz.zcu.kiv.eeg.semweb.gui.filter;
 
 import cz.zcu.kiv.eeg.semweb.model.api.PortalModel;
-import cz.zcu.kiv.eeg.semweb.model.search.ConditionList;
 import cz.zcu.kiv.eeg.semweb.model.search.ConjunctionCondition;
 import cz.zcu.kiv.eeg.semweb.model.search.DisjunctionCondition;
 import javax.swing.JFrame;

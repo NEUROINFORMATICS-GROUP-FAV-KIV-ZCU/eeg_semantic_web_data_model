@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -115,7 +116,8 @@ public class DataPanel extends JPanel {
     private JPanel createBottomPanel() {
 
         JPanel bottomPanel = new JPanel(new FlowLayout());
-        bottomPanel.setBackground(Color.YELLOW);
+        bottomPanel.setBackground(new Color(240, 240, 240));
+        setBorder(BorderFactory.createLineBorder(Color.GRAY));
 
         addInstBt = new JButton("Add instance");
         addPropBt = new JButton("Add property");
@@ -192,13 +194,14 @@ public class DataPanel extends JPanel {
 
         if (individualSelectorComboBox.getSelectedItem() == null) {
             actualSelectedIndividual = null;
+            addPropBt.setEnabled(false);
         } else {
             actualSelectedIndividual = individualSelectorComboBox.getSelectedItem().toString();
+            addPropBt.setEnabled(true);
         }
 
         propPanel.updateData(actualSelectedIndividual);
         addInstBt.setEnabled(true);
-        addPropBt.setEnabled(true);
     }
 
 
@@ -237,8 +240,8 @@ public class DataPanel extends JPanel {
      * Add new property-value to selected instance
      */
     private void addProperty() {
-       new AddPropertyWindow(model, this, actualSelectedIndividual);
-
+        new AddPropertyWindow(model, this, actualSelectedIndividual);
+        mw.setEnabled(false);
     }
 
     /**

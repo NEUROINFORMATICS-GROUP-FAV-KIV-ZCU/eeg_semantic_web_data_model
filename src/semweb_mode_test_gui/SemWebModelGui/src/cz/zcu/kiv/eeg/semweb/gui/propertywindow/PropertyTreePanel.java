@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -29,7 +30,6 @@ public class PropertyTreePanel extends JPanel {
     private JTree tree;
     private DefaultMutableTreeNode root;
     private PropertyTreePanel self;
-    private ContentPanel contPanel;
 
     private String selectedClass;
 
@@ -45,7 +45,6 @@ public class PropertyTreePanel extends JPanel {
         this.model = model;
         this.mw = mw;
         this.self = this;
-        this.contPanel = dataPanel;
         this.selectedClass = selClass;
 
         setLayout(new BorderLayout());
@@ -55,8 +54,8 @@ public class PropertyTreePanel extends JPanel {
         add(createTree(listener), BorderLayout.CENTER);
         add(createBottomPanel(), BorderLayout.SOUTH);
 
-
-        System.out.println("Gathered Class: " + selClass);
+        setBorder(BorderFactory.createLineBorder(Color.GRAY));
+        
     }
 
     private Component createTree(PropertyNodeSelectionListener listener) {

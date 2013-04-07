@@ -8,12 +8,12 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
-import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import org.apache.log4j.Logger;
 
 /**
@@ -70,6 +70,12 @@ public class MainWindow extends JFrame {
         mainMenu.add(menu);
         setJMenuBar(mainMenu);
 
+        addWindowListener(new WindowClosingListener() {
+            @Override
+            public void closeWindow() {
+                closeVisualizer();
+            }
+        });
     }
 
     /**
@@ -84,8 +90,10 @@ public class MainWindow extends JFrame {
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             try {
                 model.exportModel(saveChooser.getSelectedFile());
+                JOptionPane.showMessageDialog(this, "Export finished.");
             } catch (FileNotFoundException ex) {
                 logger.error("Can not write to file", ex);
+                JOptionPane.showMessageDialog(this, "Export failed.");
             }
         }
     }

@@ -49,6 +49,14 @@ public class AddClassWindow extends JFrame {
 
         this.setVisible(true);
         root.setMainWidnow(false);
+
+        addWindowListener(new WindowClosingListener() {
+            @Override
+            public void closeWindow() {
+                rootClassTree.setMainWidnow(true);
+                dispose();
+            }
+        });
     }
 
     /**

@@ -14,6 +14,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -60,6 +61,7 @@ public class ContentPanel extends JPanel {
             }
         };
 
+        setBorder(BorderFactory.createLineBorder(Color.GRAY));
         setLayout(new BorderLayout());
 
         add(createTopPanel(), BorderLayout.NORTH);
@@ -109,9 +111,10 @@ public class ContentPanel extends JPanel {
     private JPanel createBottomPanel() {
 
         JPanel bottomPanel = new JPanel(new FlowLayout());
-        bottomPanel.setBackground(Color.YELLOW);
+
 
         addPropBt = new JButton("Add");
+        addPropBt.setEnabled(actualNode != null);
         cancelBt = new JButton("Cancel");
 
         cancelBt.addActionListener(new ActionListener() {

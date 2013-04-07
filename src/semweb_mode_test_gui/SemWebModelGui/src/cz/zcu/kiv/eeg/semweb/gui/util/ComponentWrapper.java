@@ -14,6 +14,13 @@ import javax.swing.JTextField;
  */
 public class ComponentWrapper {
 
+    /**
+     * Create new panel wrapping component with label at one line
+     *
+     * @param label Target label
+     * @param c Target component
+     * @return Jpanel with compoentns
+     */
     public static Component wrapComponent(JLabel label, Component c) {
 
         if (c.getClass().equals(JTextField.class) || c.getClass().equals(JPasswordField.class)) {

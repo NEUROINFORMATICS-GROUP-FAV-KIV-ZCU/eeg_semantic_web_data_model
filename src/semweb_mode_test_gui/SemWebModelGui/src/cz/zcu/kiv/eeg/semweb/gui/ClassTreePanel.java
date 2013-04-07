@@ -122,6 +122,7 @@ public class ClassTreePanel extends JPanel {
         });
 
         JPanel buttonPanel = new JPanel();
+        buttonPanel.setBackground(new Color(240, 240, 240));
         buttonPanel.add(addClassBt);
         buttonPanel.add(updDescrBt);
 

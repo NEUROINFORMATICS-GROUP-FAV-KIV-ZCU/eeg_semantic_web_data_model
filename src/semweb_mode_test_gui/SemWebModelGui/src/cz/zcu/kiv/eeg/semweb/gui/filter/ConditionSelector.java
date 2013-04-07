@@ -1,5 +1,6 @@
 package cz.zcu.kiv.eeg.semweb.gui.filter;
 
+import cz.zcu.kiv.eeg.semweb.gui.WindowClosingListener;
 import cz.zcu.kiv.eeg.semweb.model.api.PortalModel;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.UriItem;
 import cz.zcu.kiv.eeg.semweb.model.search.Condition;
@@ -62,6 +63,13 @@ public class ConditionSelector extends JFrame {
 
         this.setVisible(true);
         mw.setEnabled(false);
+
+        addWindowListener(new WindowClosingListener() {
+            @Override
+            public void closeWindow() {
+                setCondition();
+            }
+        });
     }
 
     private JPanel createButtonPanel() {

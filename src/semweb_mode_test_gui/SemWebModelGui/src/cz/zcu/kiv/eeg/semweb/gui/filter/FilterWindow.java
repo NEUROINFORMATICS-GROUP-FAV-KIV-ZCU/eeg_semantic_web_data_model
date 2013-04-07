@@ -1,7 +1,7 @@
 package cz.zcu.kiv.eeg.semweb.gui.filter;
 
+import cz.zcu.kiv.eeg.semweb.gui.WindowClosingListener;
 import cz.zcu.kiv.eeg.semweb.model.api.PortalModel;
-import cz.zcu.kiv.eeg.semweb.model.search.Condition;
 import cz.zcu.kiv.eeg.semweb.model.search.ConditionList;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -48,6 +48,13 @@ public abstract class FilterWindow extends JFrame {
 
         this.setVisible(true);
         mw.setEnabled(false);
+
+        addWindowListener(new WindowClosingListener() {
+            @Override
+            public void closeWindow() {
+                closeFilterWindow();
+            }
+        });
     }
 
     private JPanel createButtonPanel() {
@@ -73,7 +80,7 @@ public abstract class FilterWindow extends JFrame {
         closeBtn.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-                closeWindow();
+                closeFilterWindow();
             }
         });
 
@@ -136,7 +143,7 @@ public abstract class FilterWindow extends JFrame {
         updateView();
     }
 
-    private void closeWindow() {
+    private void closeFilterWindow() {
         mw.setEnabled(true);
         this.dispose();
     }
