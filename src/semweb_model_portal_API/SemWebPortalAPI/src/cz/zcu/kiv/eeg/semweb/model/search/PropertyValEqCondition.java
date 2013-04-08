@@ -9,14 +9,14 @@ import cz.zcu.kiv.eeg.semweb.model.api.utils.DataConverter;
 import java.text.ParseException;
 
 /**
- *
+ * Filter condition - specified property value must equals specfied value
+ * 
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
-public class PropertyValEqCondition extends Condition{
+public class PropertyValEqCondition extends Condition {
 
     private UriItem property;
     private Object resource;
-
 
     public PropertyValEqCondition(UriItem predicate, Object object) {
         this.property = predicate;
@@ -30,7 +30,6 @@ public class PropertyValEqCondition extends Condition{
     public String getObject() {
         return resource.toString();
     }
-
 
     @Override
     public boolean getResult(Property predicate, Resource object) {
@@ -47,16 +46,15 @@ public class PropertyValEqCondition extends Condition{
                     } catch (ParseException ex) {
                         return false;
                     }
-                }else { //object is URI
+                } else { //object is URI
                     return objectNode.asResource().getURI().equals(resource.toString());
                 }
 
             }
             return false;
 
-        }else {
+        } else {
             return false;
         }
     }
-
 }

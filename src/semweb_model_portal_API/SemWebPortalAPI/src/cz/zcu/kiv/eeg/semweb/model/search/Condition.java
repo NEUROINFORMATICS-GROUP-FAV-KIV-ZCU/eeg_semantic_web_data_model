@@ -4,7 +4,7 @@ import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
 
 /**
- *
+ * Abstract filter condition
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
 public abstract class Condition {

@@ -153,7 +153,7 @@ public class DataPanel extends JPanel {
      */
     private List<String> getInstancesList(String parentClass) {
         try {
-            List<Item> inst = model.listInstance(parentClass, filterCond);
+            List<Item> inst = model.listClassInstances(parentClass, filterCond);
 
             List<String> indvdNames = new ArrayList<String>();
             

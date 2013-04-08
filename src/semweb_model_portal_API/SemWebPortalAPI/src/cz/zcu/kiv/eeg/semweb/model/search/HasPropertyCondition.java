@@ -1,12 +1,12 @@
 package cz.zcu.kiv.eeg.semweb.model.search;
 
 import com.hp.hpl.jena.rdf.model.Property;
-import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.UriItem;
 
 /**
+ *  Filter condition - Individual has specified property
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
@@ -22,7 +22,6 @@ public class HasPropertyCondition extends Condition {
         return property.getUri();
     }
 
-
     @Override
     public boolean getResult(Property predicate, Resource object) {
 
@@ -37,7 +36,4 @@ public class HasPropertyCondition extends Condition {
         }
         return false;
     }
-
-
-
 }

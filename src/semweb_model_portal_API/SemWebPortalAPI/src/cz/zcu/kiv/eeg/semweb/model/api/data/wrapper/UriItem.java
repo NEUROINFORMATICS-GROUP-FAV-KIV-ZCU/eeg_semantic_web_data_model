@@ -1,37 +1,31 @@
 package cz.zcu.kiv.eeg.semweb.model.api.data.wrapper;
 
-import com.hp.hpl.jena.datatypes.RDFDatatype;
 import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.OntProperty;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
-import com.hp.hpl.jena.rdf.model.ResourceFactory;
 import com.hp.hpl.jena.rdf.model.Statement;
-import com.hp.hpl.jena.shared.AddDeniedException;
 import cz.zcu.kiv.eeg.semweb.model.api.PortalModel;
 import java.text.ParseException;
-import java.util.Calendar;
 import java.util.List;
 
 /**
- *
+ * Wrapper for model URI node
+ * 
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
 public class UriItem extends Item {
 
     private PortalModel model;
-
-    private String uri;
-    
+    private String uri; //item URI
 
     public UriItem(String uri, PortalModel model) {
         this.uri = uri;
         this.model = model;
     }
 
-    
     @Override
     public boolean isUri() {
         return true;
@@ -42,6 +36,10 @@ public class UriItem extends Item {
         return false;
     }
 
+    /**
+     * Get item URI
+     * @return
+     */
     public String getUri() {
         return uri;
     }
@@ -53,7 +51,7 @@ public class UriItem extends Item {
 
     @Override
     public boolean equals(Object o) {
-        return ((UriItem)o).getUri().equals(uri);
+        return ((UriItem) o).getUri().equals(uri);
     }
 
     /**
@@ -61,7 +59,7 @@ public class UriItem extends Item {
      * @return
      */
     public List<Item> listProperties() throws NonExistingUriNodeException {
-        return model.listProperties(getUri());
+        return model.listIndividualProperties(getUri());
     }
 
     /**
@@ -93,7 +91,7 @@ public class UriItem extends Item {
         return model.listSubjectPropertyVal(this.getUri(), property.getUri());
     }
 
-    public void addPropertyValue (String propertyUri, Object value) throws NonExistingUriNodeException {
+    public void addPropertyValue(String propertyUri, Object value) throws NonExistingUriNodeException {
 
         Individual indv = model.getOntModel().getIndividual(uri);
         OntProperty prop = model.getOntModel().getOntProperty(propertyUri);
@@ -101,15 +99,22 @@ public class UriItem extends Item {
         RDFNode targetObject;
 
         if (model.getOntModel().getOntProperty(propertyUri).getRange().getURI().startsWith(XSDDatatype.XSDstring.XSD)) { //literal
-            
+
             targetObject = model.getOntModel().createTypedLiteral(value, prop.getRange().getURI());
-        }else {
+        } else {
 
             targetObject = model.getOntModel().getIndividual(value.toString());
         }
-            model.getOntModel().add(indv, prop, targetObject);
+        model.getOntModel().add(indv, prop, targetObject);
     }
 
+    /**
+     * Update value of specified property
+     *
+     * @param propertyUri Property uri
+     * @param recentValue oldValue
+     * @param newValue new Value
+     */
     public void updatePropertyValue(String propertyUri, String recentValue, String newValue) {
 
         Resource subject = model.getOntModel().getResource(uri);
@@ -125,15 +130,18 @@ public class UriItem extends Item {
         Statement st = model.getOntModel().listStatements(subject, predicate, oldObject).nextStatement();
 
         if (st != null) {
-                model.getOntModel().remove(st);
+            model.getOntModel().remove(st);
 
-                st = model.getOntModel().createStatement(subject, predicate, newObject);
-                model.getOntModel().add(st);
+            st = model.getOntModel().createStatement(subject, predicate, newObject);
+            model.getOntModel().add(st);
         }
     }
 
-    public Property asProperty () {
+    /**
+     * Return item as property model object
+     * @return
+     */
+    public Property asProperty() {
         return model.getOntModel().getProperty(uri);
     }
-
 }

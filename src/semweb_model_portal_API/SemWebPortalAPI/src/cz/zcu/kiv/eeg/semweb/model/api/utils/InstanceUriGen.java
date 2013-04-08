@@ -16,6 +16,15 @@ public class InstanceUriGen {
 
     private static final String counterPropertyUri = "classInstanceCounter";
 
+    /**
+     * Generate URI for new instance of class
+     *
+     * @param classNameUri Parent class name
+     * @param model semWeb dataModel
+     *
+     * @param ns deafult namespace
+     * @return
+     */
     public static String generateInstanceUri(String classNameUri, PortalModel model, String ns) {
 
         OntClass parent = model.getOntModel().getOntClass(classNameUri);

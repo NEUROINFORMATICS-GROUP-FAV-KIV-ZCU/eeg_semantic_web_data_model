@@ -196,7 +196,7 @@ public class ContentPanel extends JPanel {
         } else if (model.getPropertyRange(actualNode).equals(DataType.URI_TYPE)) {
             JComboBox individualsList = new JComboBox();
             try {
-                List<Item> rangeIndividuals = model.listInstance(model.getPropertyRangeUri(actualNode), null);
+                List<Item> rangeIndividuals = model.listClassInstances(model.getPropertyRangeUri(actualNode), null);
 
                 for (Item item: rangeIndividuals) {
                     individualsList.addItem(item.getAsUri().getUri());
@@ -215,7 +215,7 @@ public class ContentPanel extends JPanel {
 
             public void actionPerformed(ActionEvent e) {
                 try {
-                    UriItem individual = model.getIndividual(individualNode).getAsUri();
+                    UriItem individual = model.getIndividualByUri(individualNode).getAsUri();
 
                     if (dt.equals(DataType.BOOLEAN_TYPE)) {
                         JCheckBox cb = (JCheckBox) setterComponent;

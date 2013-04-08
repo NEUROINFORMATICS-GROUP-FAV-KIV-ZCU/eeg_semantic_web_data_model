@@ -5,6 +5,7 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 
 /**
+ * Filter condition individual has property with name containing specified value
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
@@ -19,10 +20,10 @@ public class HasPropertyLikeCondition extends Condition {
     public String getPredicate() {
         return property;
     }
-    
+
     @Override
     public boolean getResult(Property predicate, Resource object) {
-        
+
         StmtIterator it = object.listProperties();
 
         while (it.hasNext()) {
@@ -34,7 +35,4 @@ public class HasPropertyLikeCondition extends Condition {
         }
         return false;
     }
-        
-
-
 }

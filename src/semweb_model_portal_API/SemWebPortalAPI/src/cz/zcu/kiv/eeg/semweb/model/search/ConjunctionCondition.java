@@ -4,6 +4,7 @@ import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
 
 /**
+ *  Filter condition container for AND condition statement
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
@@ -23,14 +24,11 @@ public class ConjunctionCondition extends ConditionList {
             return true;
         }
 
-        for (Condition subCond: conds) {
+        for (Condition subCond : conds) {
             if (!subCond.getResult(predicate, object)) {
                 return false;
             }
         }
         return true;
     }
-
-
-
 }

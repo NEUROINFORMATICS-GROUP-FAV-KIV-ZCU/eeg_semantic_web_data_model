@@ -2,10 +2,9 @@ package cz.zcu.kiv.eeg.semweb.model.search;
 
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
+ * Filter condition container for OR condition statement
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
@@ -25,12 +24,11 @@ public class DisjunctionCondition extends ConditionList {
             return true;
         }
 
-        for (Condition subCond: conds) {
+        for (Condition subCond : conds) {
             if (subCond.getResult(predicate, object)) {
                 return true;
             }
         }
         return false;
     }
-
 }

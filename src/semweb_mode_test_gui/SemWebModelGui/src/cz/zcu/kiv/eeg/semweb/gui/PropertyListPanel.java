@@ -74,7 +74,7 @@ public class PropertyListPanel extends JScrollPane{
         // Set available properties
         if (individualUri != null) {
             try {
-                Item parent = model.getIndividual(individualUri);
+                Item parent = model.getIndividualByUri(individualUri);
                 
                 List<Item> props = parent.getAsUri().listProperties();
 
@@ -203,7 +203,7 @@ public class PropertyListPanel extends JScrollPane{
         try {
             String actualObj = null;
             List<String> individualsNames = new ArrayList<String>();
-            List<Item> insts = model.listInstance(model.getIndividualParentClass(uri.getUri()), null);
+            List<Item> insts = model.listClassInstances(model.getIndividualParentClass(uri.getUri()), null);
 
             //Set available values by list of individuals of parentClass of object node
             for (Item indv: insts) {

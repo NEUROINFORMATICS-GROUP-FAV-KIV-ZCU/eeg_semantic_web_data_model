@@ -1,7 +1,6 @@
 package cz.zcu.kiv.eeg.semweb.gui;
 
 import cz.zcu.kiv.eeg.semweb.gui.connect.ConnectWindow;
-import cz.zcu.kiv.eeg.semweb.model.api.ConnectionException;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.ConversionException;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.NonExistingUriNodeException;
 import java.io.FileNotFoundException;
@@ -16,7 +15,7 @@ import javax.swing.UIManager.LookAndFeelInfo;
  */
 public class TestMain  {
 
-    public static void main(String [] args) throws ConnectionException, NonExistingUriNodeException, ConversionException, ParseException, FileNotFoundException, IOException {
+    public static void main(String [] args) throws NonExistingUriNodeException, ConversionException, ParseException, FileNotFoundException, IOException {
 
         try {
     for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {

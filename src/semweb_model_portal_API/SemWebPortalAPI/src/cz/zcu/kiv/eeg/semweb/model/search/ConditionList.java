@@ -1,11 +1,10 @@
 package cz.zcu.kiv.eeg.semweb.model.search;
 
-import com.hp.hpl.jena.rdf.model.Property;
-import com.hp.hpl.jena.rdf.model.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
+ *  Condition container wrapper for OR or AND conditions list
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */

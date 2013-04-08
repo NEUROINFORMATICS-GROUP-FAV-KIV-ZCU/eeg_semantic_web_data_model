@@ -4,15 +4,21 @@ import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
 import com.hp.hpl.jena.rdf.model.Literal;
 import cz.zcu.kiv.eeg.semweb.model.api.DataType;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 /**
+ * Data convertor utility
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
 public class DataConverter {
 
 
+    /**
+     * Converts literal to simple Java object
+     * @param literal
+     * @return
+     * @throws ParseException
+     */
     public static Object convertObject(Literal literal) throws ParseException {
 
         if (literal.getDatatypeURI().equals(XSDDatatype.XSDstring.getURI())) {
@@ -38,6 +44,11 @@ public class DataConverter {
         }
     }
 
+    /**
+     * Convert URI datatype to ENUM value
+     * @param uri
+     * @return
+     */
     public static DataType getTypeByUri(String uri) {
 
         if (uri.equals(XSDDatatype.XSDstring.getURI())) {

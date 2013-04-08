@@ -37,47 +37,51 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.log4j.Logger;
 
 /**
  *  Main class of EEG/ERP portal semantic web model API
- *  All communication with database provided via this class
+ *  All communication with semantic database provided via this class
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
 public class PortalModel {
 
-    private DbConnector dbConn;
-
-    private Model basicModel; //Oracle semWeb model (basic)
+    private DbConnector dbConn; //database connection
+    private Model basicModel; //basic semantic web model (nonOntological)
     private OntModel ontologyModel; //Jena ontology model
+    private java.sql.Statement relDbStatement; //realational database connection
+    private String defNamespace; //default namespace for model
+    private String tblPrefix; //deafult table prefix - all model defined tables begins with this prefix
+    private OntModelSpec reasoner; //Model reasoner type
+    private static final String W3_RDF_OBJECT = "http://www.w3.org"; //identification key for RDF definitions
+    private static final String RDF_CLASS = "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"; //RDF class URI
+    private static final String TABLE_URI_COLUMN = "URI"; //Table ID column
+    private static final String TABLE_DATA_COLUMN = "DATA"; //Table dataFile column
+    private static final Logger logger = Logger.getLogger(PortalModel.class);
 
-    private java.sql.Statement relDbStatement;
-
-    private String defNamespace; //default namespace for EEG/ERP
-    private String tblPrefix;
-    private OntModelSpec reasoner;
-
-    private static final String W3_RDF_OBJECT = "http://www.w3.org";
-    private static final String TABLE_URI_COLUMN = "URI";
-    private static final String TABLE_DATA_COLUMN = "DATA";
-
-
+    /**
+     * Create new model API connector
+     *
+     * @param connector Database connection
+     * @param namespace Default model namespace
+     * @param tblPrefix Default model table prefix
+     * @param reasoner Selected reasoner for ontology model
+     */
     public PortalModel(DbConnector connector, String namespace, String tblPrefix, OntModelSpec reasoner) {
         this.dbConn = connector;
         this.defNamespace = namespace;
         this.tblPrefix = tblPrefix;
         this.reasoner = reasoner;
-
-        //this.basicModel = model;
-        // -EE-   this.ontologyModel = ModelFactory.createOntologyModel(OntModelSpec.DAML_MEM_RDFS_INF, model); //create Ontology model based on Oracle semWeb model
-
-
-        //this.ontologyModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_LITE_MEM_TRANS_INF, model); //create Ontology model based on Oracle semWeb model
-        //this.ontologyModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_RDFS_INF, model);
     }
 
+    /**
+     * Connect to database model (semWeb database and relational database too)
+     *
+     * @return true if connection was successfull
+     */
     public boolean connect() {
-
+        logger.info("Connecting database");
         basicModel = dbConn.connect();
         if (basicModel == null) {
             return false;
@@ -92,23 +96,23 @@ public class PortalModel {
         return true;
     }
 
-
     /**
      * Close model and commit all changes.
      */
     public void close() {
+        logger.info("Closing model");
         ontologyModel.close();
     }
 
     /**
      * Return instance of specified class (return random instance if more present
-     * )
-     * @param parentClass
-     * @return
+     * 
+     * @param parentClass Parent class URI
+     * @return found instance item or NULL if no mach
      */
-    @Deprecated
-    public Item getInstance(String parentClass, boolean direct) throws NonExistingUriNodeException {
-        return listInstance(parentClass, direct).get(0);
+    public Item geClasstInstance(String parentClass, boolean direct) throws NonExistingUriNodeException {
+        logger.info("Searching instace of class " + parentClass);
+        return listClassInstance(parentClass, direct).get(0);
     }
 
     /**
@@ -117,11 +121,11 @@ public class PortalModel {
      * @param direct true if only direct class instances should be listed (no subclasses)
      * @return
      */
-    public List<Item> listInstance(String parentClass, boolean direct) throws NonExistingUriNodeException {
+    public List<Item> listClassInstance(String parentClass, boolean direct) throws NonExistingUriNodeException {
 
+        logger.info("Listing instance of class " + parentClass);
         OntClass parent = ontologyModel.getOntClass(parentClass);
         List<Item> instList;
-
 
         if (parent == null) {
             throw new NonExistingUriNodeException("Parent class with URI " + parentClass + " does not exist.");
@@ -150,11 +154,19 @@ public class PortalModel {
      *
      * @throws NonExistingUriNodeException
      */
-    public Item getInstance(String parentClass, Condition cond) throws NonExistingUriNodeException {
-        return listInstance(parentClass, cond).get(0);
+    public Item getClassInstance(String parentClass, Condition cond) throws NonExistingUriNodeException {
+        logger.info("Get first instance of class " + parentClass + " with set filter");
+        return listClassInstances(parentClass, cond).get(0);
     }
 
-    public Item getIndividual (String indvUri) {
+    /**
+     * Get individual by its URI
+     *
+     * @param indvUri URI of individual
+     * @return Item wrapping target individual
+     */
+    public Item getIndividualByUri(String indvUri) {
+        logger.info("Get individual by URI " + indvUri);
         return new UriItem(indvUri, this);
     }
 
@@ -167,16 +179,16 @@ public class PortalModel {
      *
      * @throws NonExistingUriNodeException
      */
-    public List<Item> listInstance(String parentClass, Condition cond) throws NonExistingUriNodeException {
-
+    public List<Item> listClassInstances(String parentClass, Condition cond) throws NonExistingUriNodeException {
+        logger.info("Listing instance of class " + parentClass + " with set filter");
         Resource parent = ontologyModel.getOntClass(parentClass);
         List<Item> instList;
 
         if (parent == null) {
             throw new NonExistingUriNodeException("Parent class with URI " + parentClass + " does not exist.");
         } else {
-                                                                                                                                // TODO: USE WRAPPER
-            StmtIterator condIterator = ontologyModel.listStatements(new PortalClassInstanceSelector(ontologyModel.getProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), (RDFNode) parent, cond));
+
+            StmtIterator condIterator = ontologyModel.listStatements(new PortalClassInstanceSelector(ontologyModel.getProperty(RDF_CLASS), (RDFNode) parent, cond));
 
             instList = new ArrayList<Item>();
 
@@ -188,7 +200,6 @@ public class PortalModel {
         return instList;
     }
 
-
     /**
      * List all available properties of specified Individual
      *
@@ -197,8 +208,8 @@ public class PortalModel {
      *
      * @throws NonExistingUriNodeException
      */
-    public List<Item> listProperties(String parentUri) throws NonExistingUriNodeException {
-
+    public List<Item> listIndividualProperties(String parentUri) throws NonExistingUriNodeException {
+        logger.info("Listing properties of individual " + parentUri);
         List<Item> result;
 
         Individual parent = ontologyModel.getIndividual(parentUri);
@@ -238,13 +249,13 @@ public class PortalModel {
      * @throws ParseException
      */
     public Item getSubjectPropertyVal(String parentUri, String property) throws NonExistingUriNodeException, ParseException {
-
+        logger.info("Get value of individuals (" + parentUri + ") property (" + property + ")");
         Individual parent = ontologyModel.getIndividual(parentUri);
         OntProperty predicate = ontologyModel.getOntProperty(property);
 
         if (parent == null) {
             throw new NonExistingUriNodeException("Node with URI " + parentUri + " does not exists.");
-        } else if (predicate == null){
+        } else if (predicate == null) {
             throw new NonExistingUriNodeException("Property with URI " + parentUri + " does not exists.");
         } else {
             RDFNode result = parent.getPropertyValue(predicate);
@@ -253,7 +264,7 @@ public class PortalModel {
                 return null;
             } else if (result.isLiteral()) { //literal record
                 return new LiteralItem(result.asLiteral(), predicate, parent, this);
-            }else { //URI
+            } else { //URI
                 return new UriItem(result.asResource().getURI(), this);
             }
         }
@@ -269,7 +280,7 @@ public class PortalModel {
      * @throws NonExistingUriNodeException
      */
     public List<Item> listSubjectPropertyVal(String parentUri, String propertyUri) throws NonExistingUriNodeException, ParseException {
-
+        logger.info("Listing all values of individuals " + parentUri + " property " + propertyUri);
         List<Item> propValList;
 
         Individual parent = ontologyModel.getIndividual(parentUri);
@@ -277,7 +288,7 @@ public class PortalModel {
 
         if (parent == null) {
             throw new NonExistingUriNodeException("Node with URI " + parentUri + " does not exists.");
-        } else if (predicate == null){
+        } else if (predicate == null) {
             throw new NonExistingUriNodeException("Property with URI " + parentUri + " does not exists.");
         } else {
             NodeIterator result = parent.listPropertyValues(predicate);
@@ -289,7 +300,7 @@ public class PortalModel {
 
                 if (node.isLiteral()) { //literal record
                     propValList.add(new LiteralItem(node.asLiteral(), predicate, parent, this));
-                }else { //URI
+                } else { //URI
                     propValList.add(new UriItem(node.asResource().getURI(), this));
                 }
             }
@@ -306,14 +317,13 @@ public class PortalModel {
      * @throws NonExistingUriNodeException
      */
     public UriItem createClassInstance(String parentClassUri) throws NonExistingUriNodeException {
-
-        OntClass parent  = ontologyModel.getOntClass(parentClassUri);
+        logger.info("Creating new instance of class " + parentClassUri);
+        OntClass parent = ontologyModel.getOntClass(parentClassUri);
 
         if (parent == null) {
             throw new NonExistingUriNodeException("Class with URI " + parentClassUri + " does not exists.");
         } else {
             Individual newInd = ontologyModel.createIndividual(InstanceUriGen.generateInstanceUri(parentClassUri, this, defNamespace), ontologyModel.getOntClass(parentClassUri));
-
             return new UriItem(newInd.getURI(), this);
         }
     }
@@ -326,7 +336,7 @@ public class PortalModel {
      * @return
      */
     public UriItem createClass(String name, String parentClassUri) {
-
+        logger.info("Creating new instance of class " + parentClassUri + " inherited from " + parentClassUri);
         OntClass oc = ontologyModel.createClass(name);
 
         if (parentClassUri != null) {
@@ -336,14 +346,33 @@ public class PortalModel {
         return new UriItem(oc.getURI(), this);
     }
 
+    /**
+     * Create new property in model
+     *
+     * @param name Property name
+     * @param domain Property domain
+     * @param range Property range
+     * @param parentProperty Parent property URI (optional)
+     * @return created property URI
+     * @throws NonExistingUriNodeException
+     */
     public String createProperty(String name, String domain, String range, String parentProperty) throws NonExistingUriNodeException {
-
         return createProperty(name, domain, range, parentProperty, null);
     }
 
-
+    /**
+     * Create new model property
+     *
+     * @param name Property name
+     * @param domain Property domain
+     * @param range Property range
+     * @param parentProperty Parent property URI (optional)
+     * @param description Property description (optional)
+     * @return Created property URI
+     * @throws NonExistingUriNodeException
+     */
     public String createProperty(String name, String domain, String range, String parentProperty, String description) throws NonExistingUriNodeException {
-
+        logger.info("Creating new property " + name);
         Resource domainRes = ontologyModel.getResource(domain);
 
         if (domainRes == null) {
@@ -359,7 +388,7 @@ public class PortalModel {
         if (parentProperty != null) {
             prop.setSuperProperty(ontologyModel.getProperty(parentProperty));
         }
-        
+
         if (description != null) {
             updatePropertyDescription(name, description);
         }
@@ -373,23 +402,23 @@ public class PortalModel {
      * @return list of defined classes
      */
     public List<String> listParentClasses() {
-
+        logger.info("Listing model NON-inherited classes");
         List<String> parents = new ArrayList<String>();
 
         ExtendedIterator<OntClass> ex = ontologyModel.listClasses();
 
         OntClass oc = null;
 
-        while(ex.hasNext()) {
+        while (ex.hasNext()) {
 
             oc = ex.next();
 
             List<OntClass> nodeParList = oc.listSuperClasses().toList();
 
-            if (!oc.getURI().contains("w3.org")) {
-                if (nodeParList.isEmpty() ) {
+            if (!oc.getURI().contains(W3_RDF_OBJECT)) {
+                if (nodeParList.isEmpty()) {
                     parents.add(oc.getURI());
-                }else if (nodeParList.size() == 1 && nodeParList.get(0).getLocalName().endsWith("Resource")){
+                } else if (nodeParList.size() == 1 && nodeParList.get(0).getLocalName().endsWith("Resource")) {
                     parents.add(oc.getURI());
                 }
             }
@@ -406,7 +435,7 @@ public class PortalModel {
      * @throws NonExistingUriNodeException
      */
     public List<String> listSubClasses(String parentURI) throws NonExistingUriNodeException {
-    
+        logger.info("Listing subclasses of " + parentURI);
         List<String> childClasses = new ArrayList<String>();
 
         OntClass parent = ontologyModel.getOntClass(parentURI);
@@ -419,7 +448,7 @@ public class PortalModel {
 
         OntClass oc = null;
 
-        while(ex.hasNext()) {
+        while (ex.hasNext()) {
 
             oc = ex.next();
 
@@ -429,14 +458,26 @@ public class PortalModel {
 
     }
 
+    /**
+     * Get individual parent class URI
+     * @param uri individual URI
+     * @return parent class individual URI
+     */
     public String getIndividualParentClass(String uri) {
-
+        logger.info("Get parent class of " + uri);
         return ontologyModel.getIndividual(uri).getRDFType().toString();
-
     }
 
+    /**
+     * Test if specified class has subclasses
+     *
+     * @param parentURI Parent class
+     * @return true if class has subclasses
+     *
+     * @throws NonExistingUriNodeException
+     */
     public boolean hasSubClasses(String parentURI) throws NonExistingUriNodeException {
-
+        logger.info("Searching subclasses of " + parentURI);
         OntClass parent = ontologyModel.getOntClass(parentURI);
 
         if (parent == null) {
@@ -446,40 +487,66 @@ public class PortalModel {
         return parent.hasSubClass();
     }
 
+    /**
+     * Get class description note
+     *
+     * @param classUri Target class
+     * @return Description
+     */
     public String getClassDescription(String classUri) {
-        
+        logger.info("Get description of class " + classUri);
         OntClass oc = ontologyModel.getOntClass(classUri);
 
         if (oc == null) {
             return "";
-        }else {
+        } else {
             return oc.getComment(null);
         }
     }
 
+    /**
+     * Get property description
+     *
+     * @param property Target description
+     * @return description
+     */
     public String getPropertyDescription(String property) {
-
+        logger.info("Get description of " + property);
         OntProperty op = ontologyModel.getOntProperty(property);
 
         if (op == null) {
             return "";
-        }else {
+        } else {
             return op.getComment(null);
         }
     }
 
-
+    /**
+     * Update class description
+     *
+     * @param classUri Target class
+     * @param value Description
+     */
     public void updateClassDescription(String classUri, String value) {
-
+        logger.info("Updating description of class " + classUri);
         OntClass oc = ontologyModel.getOntClass(classUri);
 
         if (oc == null) {
-         return;
+            return;
         }
         oc.setComment(value, null);
     }
 
+    /**
+     * Test if specified class has bounded table in relational database
+     * (matching by same localName with default tablePrefix)
+     *
+     * @param classUri Source class
+     *
+     * @return true if table exists
+     */
     public boolean testTableForClassExists(String classUri) {
+        logger.info("Searching table of class " + classUri);
         String tblName = tblPrefix + classUri.replace(defNamespace, "");
 
         try {
@@ -490,8 +557,18 @@ public class PortalModel {
         }
     }
 
+    /**
+     * Get data file from table specified Individual by URI
+     *
+     * @param individualUri Target individual URI
+     * @param target target file to store data
+     *
+     * @throws SQLException
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     public void getIndividualDataFile(String individualUri, File target) throws SQLException, FileNotFoundException, IOException {
-
+        logger.info("Loading data file of individual " + individualUri);
         String parentClass = getIndividualParentClass(individualUri);
 
         if (parentClass == null) {
@@ -500,16 +577,15 @@ public class PortalModel {
 
         String tblName = tblPrefix + parentClass.replace(defNamespace, "");
 
-
         String sql_stmnt = "SELECT " + TABLE_DATA_COLUMN + " FROM " + tblName + " WHERE " + TABLE_URI_COLUMN + " = ?";
         PreparedStatement prepStmnt = relDbStatement.getConnection().prepareStatement(sql_stmnt);
 
         prepStmnt.setString(1, individualUri);
 
-        ResultSet resData =  prepStmnt.executeQuery();
+        ResultSet resData = prepStmnt.executeQuery();
         resData.next();
 
-        byte [] storedData = resData.getBytes(TABLE_DATA_COLUMN);
+        byte[] storedData = resData.getBytes(TABLE_DATA_COLUMN);
 
         OutputStream os = new FileOutputStream(target);
 
@@ -517,12 +593,21 @@ public class PortalModel {
         os.close();
     }
 
-    public void uploadIndividualDataFile(String individualUri, File target) throws SQLException, FileNotFoundException, IOException {
-
+    /**
+     * Upload data file to specified individual
+     * @param individualUri Individual URI
+     * @param target targe file
+     *
+     * @throws SQLException
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
+    public boolean uploadIndividualDataFile(String individualUri, File target) throws SQLException, FileNotFoundException, IOException {
+        logger.info("Uploading data file for individual " + individualUri);
         String parentClass = getIndividualParentClass(individualUri);
 
         if (parentClass == null) {
-            return;
+            return false;
         }
 
         String tblName = tblPrefix + parentClass.replace(defNamespace, "");
@@ -537,17 +622,26 @@ public class PortalModel {
         prepStmnt.setBinaryStream(2, dataStream, (int) target.length());
 
 
-        int res = prepStmnt.executeUpdate();
-        //TODO result?
+        prepStmnt.executeUpdate();
         dataStream.close();
+        return true;
     }
 
-    public void updateIndividualDataFile(String individualUri, File target) throws SQLException, FileNotFoundException, IOException {
-
+    /**
+     * Update data file of specified individual
+     * @param individualUri Individual URI
+     * @param target target file to upload
+     *
+     * @throws SQLException
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
+    public boolean updateIndividualDataFile(String individualUri, File target) throws SQLException, FileNotFoundException, IOException {
+        logger.info("Updating data file for individual " + individualUri);
         String parentClass = getIndividualParentClass(individualUri);
 
         if (parentClass == null) {
-            return;
+            return false;
         }
 
         String tblName = tblPrefix + parentClass.replace(defNamespace, "");
@@ -562,20 +656,33 @@ public class PortalModel {
         prepStmnt.setString(2, individualUri);
 
 
-        int res = prepStmnt.executeUpdate();
-        //TODO result?
+        prepStmnt.executeUpdate();
         dataStream.close();
+        return true;
     }
 
+    /**
+     * Test if Individual has relational table
+     *
+     * @param individualUri Target individual
+     * @return true if table exists
+     */
     public boolean hasIndividualTable(String individualUri) {
-
+        logger.info("Searching table for individual " + individualUri);
         String parentClass = getIndividualParentClass(individualUri);
 
         return testTableForClassExists(parentClass);
     }
 
+    /**
+     * Test if individual has DataFile record in own relational table
+     *
+     * @param individualUri Target individual
+     * @return true if file has some file
+     * @throws SQLException
+     */
     public boolean hasIndividualFile(String individualUri) throws SQLException {
-
+        logger.info("Test table file record existence for individual " + individualUri);
         String parentClass = getIndividualParentClass(individualUri);
 
         if (parentClass == null) {
@@ -594,61 +701,63 @@ public class PortalModel {
 
         prepStmnt.setString(1, individualUri);
 
-        ResultSet resData =  prepStmnt.executeQuery();
+        ResultSet resData = prepStmnt.executeQuery();
         return resData.next();
     }
 
+    /**
+     * Update description of proerty
+     *
+     * @param propertyUri Target property
+     * @param value Description
+     */
     public void updatePropertyDescription(String propertyUri, String value) {
-
+        logger.info("Updating description of property " + propertyUri);
         OntProperty op = ontologyModel.getOntProperty(propertyUri);
 
         if (op == null) {
-         return;
+            return;
         }
         op.setComment(value, null);
     }
 
     /**
      * List all model defined properties that has no superProperties
-     * @return
+     * @return list of properties
      */
     public List<String> listPropertiesByDomain(String domainUri) {
-
+        logger.info("Listing properties with domain " + domainUri);
         List<String> parents = new ArrayList<String>();
 
         ExtendedIterator<OntProperty> ex = ontologyModel.listOntProperties();
 
         OntProperty op;
 
-        while(ex.hasNext()) {
+        while (ex.hasNext()) {
 
             op = ex.next();
-
-            List nodeParList = op.listSuperProperties().toList();
 
             if (!op.getURI().contains("w3.org") && op.getDomain() != null) {
 
                 if (op.getDomain().getURI().equals(domainUri)) {
-                    
-//                    ExtendedIterator<? extends OntProperty> it = op.listSuperProperties(); //first property is Property (RDF definition)
-//
-//                    while(it.hasNext()) {
-//                        System.out.println(it.next().getURI());
-//                    }
-//
-//                    if (!it.hasNext()) {
-                        parents.add(op.getURI());
-                    //}
+
+                    parents.add(op.getURI());
                 }
-            //}else if (nodeParList.size() == 0) { //TODO - avoid RDF statements??
-            //    parents.add(op.getURI());
             }
         }
         return parents;
     }
 
+    /**
+     * Test if specified property has subProperties
+     *
+     * @param parentURI source property
+     * @return true if any subproperties exists
+     *
+     * @throws NonExistingUriNodeException
+     */
     public boolean hasSubProperties(String parentURI) throws NonExistingUriNodeException {
-
+        logger.info("Test existence of subproperties of " + parentURI);
         OntProperty parent = ontologyModel.getOntProperty(parentURI);
 
         if (parent == null) {
@@ -657,7 +766,7 @@ public class PortalModel {
         return parent.listSubProperties().hasNext();
     }
 
-/**
+    /**
      * List all direct subproperties of specified property
      *
      * @param parentURI root property
@@ -666,7 +775,7 @@ public class PortalModel {
      * @throws NonExistingUriNodeException
      */
     public List<String> listSubProperties(String parentURI) throws NonExistingUriNodeException {
-
+        logger.info("Listing subProperties of " + parentURI);
         List<String> childProperties = new ArrayList<String>();
 
         OntProperty parent = ontologyModel.getOntProperty(parentURI);
@@ -679,20 +788,25 @@ public class PortalModel {
 
         OntProperty op = null;
 
-        while(ex.hasNext()) {
+        while (ex.hasNext()) {
             op = ex.next();
             childProperties.add(op.getURI());
         }
         return childProperties;
     }
 
+    /**
+     * Get range of property as DataType
+     * @param propUri Target property
+     * @return
+     */
     public DataType getPropertyRange(String propUri) {
-
+        logger.info("Getting range of property " + propUri);
         OntProperty op = ontologyModel.getOntProperty(propUri);
 
         if (op != null) {
             OntResource range = op.getRange();
-            
+
             if (range != null) {
                 return DataConverter.getTypeByUri(range.getURI());
             }
@@ -700,8 +814,14 @@ public class PortalModel {
         return null;
     }
 
+    /**
+     * Get property rage as URI
+     * @param property
+     * @return
+     */
     public String getPropertyRangeUri(String property) {
-     OntProperty op = ontologyModel.getOntProperty(property);
+        logger.info("Getting range of property " + property);
+        OntProperty op = ontologyModel.getOntProperty(property);
 
         if (op != null) {
             OntResource range = op.getRange();
@@ -720,13 +840,13 @@ public class PortalModel {
      * @return range list
      */
     public List<String> listAvailableRanges() {
-
+        logger.info("Listing model available data ranges");
         List<String> ranges = new ArrayList<String>();
 
         ExtendedIterator<OntClass> ex = ontologyModel.listClasses();
         OntClass oc = null;
 
-        while(ex.hasNext()) {
+        while (ex.hasNext()) {
 
             oc = ex.next();
             if (!oc.getURI().contains("w3.org")) {
@@ -747,29 +867,27 @@ public class PortalModel {
         return ranges;
     }
 
+    /**
+     * Return property by its URI string value
+     * @param uri
+     * @return
+     * @throws NonExistingUriNodeException
+     */
+    public Property getPropertyByUri(String uri) throws NonExistingUriNodeException {
+        logger.info("Get propety " + uri);
+        Property prop = ontologyModel.getProperty(uri);
 
-
-   /**
-    * Return property by its URI string value
-    * @param uri
-    * @return
-    * @throws NonExistingUriNodeException
-    */
-   public Property getPropertyByUri(String uri) throws NonExistingUriNodeException {
-
-       Property prop = ontologyModel.getProperty(uri);
-
-       if (prop == null) {
+        if (prop == null) {
             throw new NonExistingUriNodeException("Node with URI " + uri + " does not exists.");
-       } else {
-           return prop;
-       }
-   }
+        } else {
+            return prop;
+        }
+    }
 
-   /**
-    * Returns JENA ontology model
-    * @return
-    */
+    /**
+     * Returns JENA ontology model
+     * @return
+     */
     public OntModel getOntModel() {
         return ontologyModel;
     }
@@ -779,8 +897,7 @@ public class PortalModel {
     }
 
     public void exportModel(File targetFile) throws FileNotFoundException {
-
+        logger.info("Exporting model");
         ontologyModel.write(new FileOutputStream(targetFile));
     }
-
 }
