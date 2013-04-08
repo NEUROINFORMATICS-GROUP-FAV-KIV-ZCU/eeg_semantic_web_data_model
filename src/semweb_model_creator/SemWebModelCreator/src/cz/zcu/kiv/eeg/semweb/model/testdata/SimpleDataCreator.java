@@ -105,13 +105,13 @@ public class SimpleDataCreator {
 
         List<Triple> researcherTriples = new ArrayList<Triple>();
 
-        researcherTriples.add(new Triple("person/researcher/instance" + number, "person/given_name", "givenName" + number));
-        researcherTriples.add(new Triple("person/researcher/instance" + number, "person/surname", "surname" + number));
-        researcherTriples.add(new Triple("person/researcher/instance" + number, "person/date_birth", "2001-10-26"));
-        researcherTriples.add(new Triple("person/researcher/instance" + number, "person/email", "email" + number));
-        researcherTriples.add(new Triple("person/researcher/instance" + number, "person/phone_number", "1234" + number));
-        researcherTriples.add(new Triple("person/researcher/instance" + number, "person/note", "Note" + number));
-        researcherTriples.add(new Triple("person/researcher/instance" + number, "person/education_level", "education_level/instance" + number));
+        researcherTriples.add(new Triple("person/researcher/instance" + number, "person/researcher/given_name", "givenName" + number));
+        researcherTriples.add(new Triple("person/researcher/instance" + number, "person/researcher/surname", "surname" + number));
+        researcherTriples.add(new Triple("person/researcher/instance" + number, "person/researcher/date_birth", "2001-10-26"));
+        researcherTriples.add(new Triple("person/researcher/instance" + number, "person/researcher/email", "email" + number));
+        researcherTriples.add(new Triple("person/researcher/instance" + number, "person/researcher/phone_number", "1234" + number));
+        researcherTriples.add(new Triple("person/researcher/instance" + number, "person/researcher/note", "Note" + number));
+        researcherTriples.add(new Triple("person/researcher/instance" + number, "person/researcher/education_level", "education_level/instance" + number));
 
         researcherTriples.add(new Triple("person/researcher/instance" + number, "person/researcher/username", "userName" + number));
         researcherTriples.add(new Triple("person/researcher/instance" + number, "person/researcher/password", "password" + number));
@@ -134,13 +134,13 @@ public class SimpleDataCreator {
 
         List<Triple> tetsSubjectTriples = new ArrayList<Triple>();
 
-        tetsSubjectTriples.add(new Triple("person/test_subject/instance" + number, "person/given_name", "givenName" + number));
-        tetsSubjectTriples.add(new Triple("person/test_subject/instance" + number, "person/surname", "surname" + number));
-        tetsSubjectTriples.add(new Triple("person/test_subject/instance" + number, "person/date_birth", "2001-10-22"));
-        tetsSubjectTriples.add(new Triple("person/test_subject/instance" + number, "person/email", "email" + number));
-        tetsSubjectTriples.add(new Triple("person/test_subject/instance" + number, "person/phone_number", "1234" + number));
-        tetsSubjectTriples.add(new Triple("person/test_subject/instance" + number, "person/note", "Note" + number));
-        tetsSubjectTriples.add(new Triple("person/test_subject/instance" + number, "person/education_level", "education_level/instance" + number));
+        tetsSubjectTriples.add(new Triple("person/test_subject/instance" + number, "person/test_subject/given_name", "givenName" + number));
+        tetsSubjectTriples.add(new Triple("person/test_subject/instance" + number, "person/test_subject/surname", "surname" + number));
+        tetsSubjectTriples.add(new Triple("person/test_subject/instance" + number, "person/test_subject/date_birth", "2001-10-22"));
+        tetsSubjectTriples.add(new Triple("person/test_subject/instance" + number, "person/test_subject/email", "email" + number));
+        tetsSubjectTriples.add(new Triple("person/test_subject/instance" + number, "person/test_subject/phone_number", "1234" + number));
+        tetsSubjectTriples.add(new Triple("person/test_subject/instance" + number, "person/test_subject/note", "Note" + number));
+        tetsSubjectTriples.add(new Triple("person/test_subject/instance" + number, "person/test_subject/education_level", "education_level/instance" + number));
 
         tetsSubjectTriples.add(new Triple("person/test_subject/instance" + number, "person/test_subject/gender", "gender" + number));
         tetsSubjectTriples.add(new Triple("person/test_subject/instance" + number, "person/test_subject/laterality", "laterality" + number));
