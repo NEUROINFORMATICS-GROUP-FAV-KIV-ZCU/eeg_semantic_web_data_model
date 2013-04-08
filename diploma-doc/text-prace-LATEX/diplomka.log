@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  21 FEB 2013 20:34
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  8 APR 2013 23:03
 entering extended mode
 **C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_m
 odel/diploma-doc/text-prace-LATEX/diplomka.tex
@@ -684,13 +684,7 @@ File: omsaer.fd 1999/12/27
 )
 LaTeX Font Info:    Font shape `OMS/aer/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 70.
-
-Overfull \hbox (15.40627pt too wide) in paragraph at lines 72--73
-[] \T1/aer/m/n/12 (-10) Ve²-kerá data, re-pre-zen-tu-jící ob-vykle ob-jekty re-
-ál-ného sv¥ta pu-b-li-ko-vaná
- []
-
-[2
+ [2
 
 ]
 Overfull \hbox (1.25516pt too wide) in paragraph at lines 82--83
@@ -1253,7 +1247,7 @@ LaTeX Font Warning: Size substitutions with differences
 Here is how much of TeX's memory you used:
  8323 strings out of 494045
  112311 string characters out of 3145966
- 250196 words of memory out of 3000000
+ 251196 words of memory out of 3000000
  10846 multiletter control sequences out of 15000+200000
  83598 words of font info for 486 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
@@ -1265,7 +1259,7 @@ rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Prog
 ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program 
 Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on diplomka.pdf (37 pages, 410323 bytes).
+Output written on diplomka.pdf (37 pages, 410322 bytes).
 PDF statistics:
  292 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
