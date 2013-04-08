@@ -1,7 +1,10 @@
 package cz.zcu.kiv.eeg.semweb.model.creator;
 
 import cz.zcu.kiv.eeg.semweb.model.creator.gui.MainFrame;
-import org.dom4j.DocumentException;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  * Model creator Main class
@@ -14,7 +17,16 @@ public class Main {
      * 
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws DocumentException {
+    public static void main(String[] args) {
+
+        // Set logger
+        Properties props = new Properties();
+        try {
+            props.load(new FileInputStream("log4j.properties"));
+            PropertyConfigurator.configure(props);
+        } catch (IOException ex) {
+            System.out.println("Can not write log file");
+        }
 
         MainFrame mf = new MainFrame();
         mf.setVisible(true);
