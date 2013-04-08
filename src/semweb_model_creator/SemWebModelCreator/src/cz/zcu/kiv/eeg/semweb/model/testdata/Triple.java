@@ -1,6 +1,7 @@
 package cz.zcu.kiv.eeg.semweb.model.testdata;
 
 /**
+ * Simple wrapper for created data items (triple statements)
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
@@ -9,7 +10,6 @@ public class Triple {
     private String subject; //URI
     private String predicate; //URI
     private String object; //URI or literal (determined by property range)
-
 
     public Triple(String subject, String predicate, String object) {
         this.subject = subject;

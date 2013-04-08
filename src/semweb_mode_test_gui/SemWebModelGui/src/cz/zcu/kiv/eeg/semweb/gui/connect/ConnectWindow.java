@@ -16,6 +16,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 /**
+ * Main connector window contains input fields to specify model connection
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
@@ -23,27 +24,21 @@ public class ConnectWindow extends JFrame {
 
     private JButton connectButton;
     private JButton cancelButton;
-
     private JComboBox connectionType; //Oracle or Virtuoso DB connection
     private JComboBox reasonerType; //Type of reasoner
-
     private JTextField dbUri;
     private JTextField modelName;
-
     private JTextField username;
     private JPasswordField password;
-
     private JTextField defaultPrefix;
     private JTextField defaultTablePrefix;
 
-    
-
-    public ConnectWindow () {
+    public ConnectWindow() {
 
         setTitle("EEG/ERP portal model connector");
-	setSize(320, 340 );
+        setSize(320, 340);
         setLocation(740, 300);
-	setBackground(Color.gray);
+        setBackground(Color.gray);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
 
@@ -68,34 +63,42 @@ public class ConnectWindow extends JFrame {
         add(buttonPanel, BorderLayout.SOUTH);
     }
 
+    /**
+     * Set input components
+     *
+     * @param textFiledsPanel
+     */
     private void setTextFieldPanel(JPanel textFiledsPanel) {
 
-         connectionType = new JComboBox(new String [] {"Virtuoso", "Oracle"});
-         reasonerType = new JComboBox(new String[] {"Shallow", "Deep"});
-         dbUri = new JTextField("jdbc:virtuoso://localhost:1111");
-         modelName = new JTextField("model_semweb_a");
+        connectionType = new JComboBox(new String[]{"Virtuoso", "Oracle"});
+        reasonerType = new JComboBox(new String[]{"Shallow", "Deep"});
+        dbUri = new JTextField("jdbc:virtuoso://localhost:1111");
+        modelName = new JTextField("model_semweb_a");
 
-         username = new JTextField("dba");
-         password = new JPasswordField("dba");
-         defaultPrefix = new JTextField("http://cz.zcu.kiv.eeg#");
-         defaultTablePrefix = new JTextField("EEG_");
+        username = new JTextField("dba");
+        password = new JPasswordField("dba");
+        defaultPrefix = new JTextField("http://cz.zcu.kiv.eeg#");
+        defaultTablePrefix = new JTextField("EEG_");
 
 
-         textFiledsPanel.setLayout(new GridLayout(8, 1, 0, 5));
+        textFiledsPanel.setLayout(new GridLayout(8, 1, 0, 5));
 
-         textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("Connection type"), connectionType));
-         textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("Reasoner type   "), reasonerType));
+        textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("Connection type"), connectionType));
+        textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("Reasoner type   "), reasonerType));
 
-         textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("  Database URI  "), dbUri));
-         textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("  Model name     "), modelName));
-         
-         textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("  Username        "), username));
-         textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("  Password         "), password));
+        textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("  Database URI  "), dbUri));
+        textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("  Model name     "), modelName));
 
-         textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("  Namespace     "), defaultPrefix));
-         textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("  Table prefix       "), defaultTablePrefix));
+        textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("  Username        "), username));
+        textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("  Password         "), password));
+
+        textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("  Namespace     "), defaultPrefix));
+        textFiledsPanel.add(ComponentWrapper.wrapComponent(new JLabel("  Table prefix       "), defaultTablePrefix));
     }
 
+    /**
+     * Close model creator
+     */
     private void setCancelButton() {
 
         cancelButton.addActionListener(new ActionListener() {
@@ -106,10 +109,11 @@ public class ConnectWindow extends JFrame {
         });
     }
 
+    /**
+     * Starts model creating
+     */
     private void setConnectButton() {
         connectButton.addActionListener(new ConnectProgressWindow(connectionType, reasonerType, dbUri,
                 modelName, username, password, defaultPrefix, defaultTablePrefix, this));
-        }
-
-
+    }
 }

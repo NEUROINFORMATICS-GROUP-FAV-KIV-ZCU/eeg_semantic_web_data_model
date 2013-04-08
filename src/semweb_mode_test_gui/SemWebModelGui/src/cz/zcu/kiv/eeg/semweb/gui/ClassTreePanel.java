@@ -31,12 +31,9 @@ public class ClassTreePanel extends JPanel {
     private JTree classListerTree; //Jtree containing data model classes
     private DefaultMutableTreeNode rootNode; //root node of classLister Jtree
     private ClassTreePanel self;
-
     private JTextArea description; //Class description panel
     private JButton updDescrBt; //update description button
-
     private TreeClassNodeSelectionListener listener; //listener of selected node of ClassLister JTree
-
     private static final Logger logger = Logger.getLogger(ClassTreePanel.class);
 
     public ClassTreePanel(PortalModel model, DataPanel dataPanel, MainWindow mw) throws NonExistingUriNodeException {
@@ -103,11 +100,12 @@ public class ClassTreePanel extends JPanel {
      */
     private Component createButtonPanel() {
 
-        
+
         updDescrBt = new JButton("Set description");
         updDescrBt.setEnabled(false);
 
         updDescrBt.addActionListener(new ActionListener() {
+
             public void actionPerformed(ActionEvent e) {
                 model.updateClassDescription(classListerTree.getSelectionPath().getLastPathComponent().toString(), description.getText().trim());
             }
@@ -116,6 +114,7 @@ public class ClassTreePanel extends JPanel {
         JButton addClassBt = new JButton("Add class");
 
         addClassBt.addActionListener(new ActionListener() {
+
             public void actionPerformed(ActionEvent e) {
                 new AddClassWindow(self);
             }
@@ -155,7 +154,7 @@ public class ClassTreePanel extends JPanel {
 
         List<String> cls = model.listParentClasses();
 
-        for (String item: cls) {
+        for (String item : cls) {
 
             node = new DefaultMutableTreeNode(item);
             listSubClasses(node, item);
@@ -169,7 +168,7 @@ public class ClassTreePanel extends JPanel {
      * @param parent Parent classNode
      * @param nodeName Parent class URI
      */
-    private void listSubClasses(DefaultMutableTreeNode parent, String nodeName)  {
+    private void listSubClasses(DefaultMutableTreeNode parent, String nodeName) {
 
         DefaultMutableTreeNode node;
         try {

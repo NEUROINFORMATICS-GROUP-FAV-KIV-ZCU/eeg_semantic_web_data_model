@@ -33,14 +33,14 @@ public class DataConverter {
             return new Boolean(literal.getBoolean());
         } else if (literal.getDatatypeURI().equals(XSDDatatype.XSDlong.getURI())) {
             return new Long(literal.getLong());
-        } else if (literal.getDatatypeURI().equals(XSDDatatype.XSDdate.getURI())) { //TODO dateTime and Time
+        } else if (literal.getDatatypeURI().equals(XSDDatatype.XSDdate.getURI())) { 
             return literal.toString().split("\\^")[0];
         } else if (literal.getDatatypeURI().equals(XSDDatatype.XSDtime.getURI())) {
             return literal.toString().split("\\^")[0];
         } else if (literal.getDatatypeURI().equals(XSDDatatype.XSDdateTime.getURI())) {
             return literal.toString().split("\\^")[0];
         }else {
-            return null; //TODO complete
+            return null; 
         }
     }
 

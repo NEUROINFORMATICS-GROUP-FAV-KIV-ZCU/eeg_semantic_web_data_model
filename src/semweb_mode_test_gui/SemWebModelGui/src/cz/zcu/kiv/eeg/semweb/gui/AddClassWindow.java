@@ -23,23 +23,20 @@ public class AddClassWindow extends JFrame {
 
     private JButton addButton;
     private JButton cancelButton;
-
     private JCheckBox inheritedChckBox; //To permit inharitnace of superClass or not
     private JLabel superClassLabel; //Name of available superclass (by selected class in ClassSelector Jtree)
-
     private JTextField name; //class name
     private JTextField description; //class description (optional)
-
     private ClassTreePanel rootClassTree; //ClassTreePanel root Panel
-    
-    public AddClassWindow (ClassTreePanel root) {
+
+    public AddClassWindow(ClassTreePanel root) {
 
         this.rootClassTree = root;
 
         setTitle("Add class");
-	setSize(420, 160 );
+        setSize(420, 160);
         setLocation(740, 300);
-	setBackground(Color.gray);
+        setBackground(Color.gray);
         setResizable(false);
 
 
@@ -51,6 +48,7 @@ public class AddClassWindow extends JFrame {
         root.setMainWidnow(false);
 
         addWindowListener(new WindowClosingListener() {
+
             @Override
             public void closeWindow() {
                 rootClassTree.setMainWidnow(true);
@@ -81,7 +79,6 @@ public class AddClassWindow extends JFrame {
         return buttonPanel;
     }
 
-
     /**
      * Create panel containing TextFields to set new class Name specification
      *
@@ -97,7 +94,7 @@ public class AddClassWindow extends JFrame {
 
         if (rootClassTree.getSelectedNode() != null) {
             superClassLabel = new JLabel("SuperClass:  " + rootClassTree.getSelectedNode());
-        }else {
+        } else {
             superClassLabel = new JLabel("SuperClass:");
             inheritedChckBox.setEnabled(false);
         }
@@ -130,21 +127,19 @@ public class AddClassWindow extends JFrame {
         addButton.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-                
+
                 if (inheritedChckBox.isSelected() && rootClassTree.getSelectedNode() != null) {
                     rootClassTree.getModel().createClass(name.getText().trim(), rootClassTree.getSelectedNode());
-                }else {
+                } else {
                     rootClassTree.getModel().createClass(name.getText().trim(), null);
                 }
 
                 rootClassTree.getModel().updateClassDescription(name.getText().trim(), description.getText().trim());
-                
+
                 rootClassTree.updateTree();
                 rootClassTree.setMainWidnow(true);
                 dispose();
             }
         });
     }
-
- 
 }

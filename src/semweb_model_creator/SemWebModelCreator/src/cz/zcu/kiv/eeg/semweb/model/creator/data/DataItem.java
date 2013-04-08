@@ -1,7 +1,8 @@
 package cz.zcu.kiv.eeg.semweb.model.creator.data;
 
 /**
- *  Object representing one SemWeb node - class/property containing its child nodes
+ * Object representing one SemWeb node - class/property containing its child nodes
+ * 
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
 public abstract class DataItem {

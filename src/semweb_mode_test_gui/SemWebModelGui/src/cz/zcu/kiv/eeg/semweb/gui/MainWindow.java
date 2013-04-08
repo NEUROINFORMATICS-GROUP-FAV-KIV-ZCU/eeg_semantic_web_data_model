@@ -26,18 +26,17 @@ public class MainWindow extends JFrame {
     private PortalModel model; //Portal data model API connect
     private static final Logger logger = Logger.getLogger(MainWindow.class);
 
-
-    public MainWindow (PortalModel model) throws NonExistingUriNodeException, ConversionException {
+    public MainWindow(PortalModel model) throws NonExistingUriNodeException, ConversionException {
 
         this.model = model;
 
-	setTitle("EEG/ERP portal model visualizer");
-	setSize( 1000, 500 );
+        setTitle("EEG/ERP portal model visualizer");
+        setSize(1000, 500);
         setLocation(640, 480);
-	setBackground(Color.gray);
+        setBackground(Color.gray);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        
+
         DataPanel dataPanel = new DataPanel(model, this);
         ClassTreePanel treePanel = new ClassTreePanel(model, dataPanel, this);
 
@@ -53,12 +52,14 @@ public class MainWindow extends JFrame {
         JMenuItem exitItem = new JMenuItem("Exit");
 
         exportItem.addActionListener(new ActionListener() { //Export data
+
             public void actionPerformed(ActionEvent e) {
                 exportData();
             }
         });
 
         exitItem.addActionListener(new ActionListener() { //Close application
+
             public void actionPerformed(ActionEvent e) {
                 closeVisualizer();
             }
@@ -71,6 +72,7 @@ public class MainWindow extends JFrame {
         setJMenuBar(mainMenu);
 
         addWindowListener(new WindowClosingListener() {
+
             @Override
             public void closeWindow() {
                 closeVisualizer();
@@ -101,9 +103,8 @@ public class MainWindow extends JFrame {
     /**
      * Close visualizer window
      */
-    public void closeVisualizer () {
+    public void closeVisualizer() {
         model.close();
         System.exit(0);
     }
-
 }

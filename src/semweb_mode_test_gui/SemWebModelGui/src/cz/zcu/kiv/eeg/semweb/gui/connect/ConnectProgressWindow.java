@@ -17,6 +17,7 @@ import javax.swing.JProgressBar;
 import javax.swing.JTextField;
 
 /**
+ * Progress window dialog show actual status of database connecting and model loading
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
@@ -26,35 +27,48 @@ public class ConnectProgressWindow extends JFrame implements ActionListener {
     private JComboBox reasonerType;
     private JTextField dbUri;
     private JTextField modelName;
-
-
     private JTextField username;
     private JPasswordField password;
     private JTextField defaultPrefix;
     private JTextField defaultTablePrefix;
-
-
     private JFrame main;
-
     private JProgressBar progress;
     private JButton closeButton;
 
+    /**
+     * Constructor init progress window data
+     *
+     * @param conn Connection type
+     * @param reas reasoner type
+     * @param db databse URL
+     * @param model model name
+     * @param user username
+     * @param pwd password
+     * @param modPref semWeb model default URI prefix
+     * @param tblPref default table prefix
+     * @param main parent window
+     */
     public ConnectProgressWindow(JComboBox conn, JComboBox reas, JTextField db, JTextField model,
             JTextField user, JPasswordField pwd, JTextField modPref, JTextField tblPref, JFrame main) {
 
-            this.connectionType = conn;
-            this.reasonerType = reas;
-            this.dbUri = db;
-            this.modelName = model;
+        this.connectionType = conn;
+        this.reasonerType = reas;
+        this.dbUri = db;
+        this.modelName = model;
 
-            this.username = user;
-            this.password = pwd;
-            this.defaultPrefix = modPref;
-            this.defaultTablePrefix = tblPref;
+        this.username = user;
+        this.password = pwd;
+        this.defaultPrefix = modPref;
+        this.defaultTablePrefix = tblPref;
 
-            this.main = main;
+        this.main = main;
     }
 
+    /**
+     * Start database and model connecting
+     *
+     * @param e
+     */
     public void actionPerformed(ActionEvent e) {
         openWindow();
 
@@ -62,12 +76,15 @@ public class ConnectProgressWindow extends JFrame implements ActionListener {
         t.start();
     }
 
+    /**
+     * Show progress disalog
+     */
     private void openWindow() {
 
         setTitle("Model opening progress");
-	setSize(270, 140 );
+        setSize(270, 140);
         setLocation(740, 300);
-	setBackground(Color.gray);
+        setBackground(Color.gray);
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -93,31 +110,44 @@ public class ConnectProgressWindow extends JFrame implements ActionListener {
         main.setEnabled(false);
     }
 
-
+    /**
+     * Update progress status
+     *
+     * @param text status text
+     * @param value status percentil status
+     */
     public void updateStatus(String text, int value) {
         progress.setString(text);
         progress.setValue(value);
     }
 
+    /**
+     * Get database connector
+     *
+     * @return connector
+     */
     public DbConnector getConnection() {
 
         if (connectionType.getSelectedItem().toString().equals("Virtuoso")) {
             return new VirtuosoDbConnector(modelName.getText(), dbUri.getText(), username.getText(), password.getText());
-        }else {
+        } else {
             return new OracleDbConnector(modelName.getText(), dbUri.getText(), username.getText(), password.getText());
         }
     }
 
+    /**
+     * Get model reasoner
+     *
+     * @return reasoner
+     */
     public OntModelSpec getReasoner() {
 
         if (reasonerType.getSelectedItem().toString().equals("Shallow")) {
-            //return OntModelSpec.OWL_LITE_MEM_TRANS_INF;
             return OntModelSpec.RDFS_MEM;
-        }else {
+        } else {
             return OntModelSpec.OWL_MEM_RDFS_INF;
         }
     }
-
 
     public String getDefaultPrefix() {
         return defaultPrefix.getText();
@@ -136,9 +166,11 @@ public class ConnectProgressWindow extends JFrame implements ActionListener {
         this.dispose();
     }
 
+    /**
+     * Reconnect model when previous connection was not successfull
+     */
     public void reconnect() {
         main.setEnabled(true);
         this.dispose();
     }
-
 }

@@ -24,6 +24,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
+ * Condition selector window displays dialog to specify target condition
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
@@ -33,15 +34,21 @@ public class ConditionSelector extends JFrame {
     private ConditionList cond;
     private int condIndex;
     private JFrame mw;
-
-
     private JComboBox condType;
     private JTextField propertyName;
     private JTextField propertyVal;
+    // available condition types
+    private String[] propTypes = {"Has property", "Has property like", "Has property value", "Has property value like"};
 
-    private String [] propTypes = {"Has property", "Has property like", "Has property value", "Has property value like"};
-
-    public ConditionSelector (PortalModel model, JFrame mw, ConditionList c, int condIndex) {
+    /**
+     * Open create condition dialog
+     *
+     * @param model semWeb model
+     * @param mw parent window
+     * @param c parent condition list
+     * @param condIndex index of condition in parent condition list
+     */
+    public ConditionSelector(PortalModel model, JFrame mw, ConditionList c, int condIndex) {
 
         this.model = model;
         this.cond = c;
@@ -49,7 +56,7 @@ public class ConditionSelector extends JFrame {
         this.condIndex = condIndex;
 
         setTitle("Condition setting");
-	setSize(420, 180);
+        setSize(420, 180);
         setLocation(790, 350);
 
         setBackground(Color.gray);
@@ -59,26 +66,32 @@ public class ConditionSelector extends JFrame {
         add(createCondListPanel(), BorderLayout.CENTER);
         add(createButtonPanel(), BorderLayout.SOUTH);
 
-        setActual();
+        setActualCondition();
 
         this.setVisible(true);
         mw.setEnabled(false);
 
         addWindowListener(new WindowClosingListener() {
+
             @Override
             public void closeWindow() {
-                setCondition();
+                setNewCondition();
             }
         });
     }
 
+    /**
+     * Button panel wrapper creating
+     *
+     * @return JPanel with buttons to confirm and cancel
+     */
     private JPanel createButtonPanel() {
 
         JButton okBtn = new JButton("OK");
         okBtn.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-                setCondition();
+                setNewCondition();
             }
         });
 
@@ -88,7 +101,11 @@ public class ConditionSelector extends JFrame {
         return panel;
     }
 
-
+    /**
+     * Condition param setting fields panel
+     *
+     * @return settings panel
+     */
     private JPanel createCondListPanel() {
 
         JPanel propertyPanel = new JPanel(new GridLayout(3, 1, 0, 5));
@@ -105,7 +122,7 @@ public class ConditionSelector extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (condType.getSelectedIndex() < 2) {
                     propertyVal.setEnabled(false);
-                }else {
+                } else {
                     propertyVal.setEnabled(true);
                 }
             }
@@ -129,20 +146,22 @@ public class ConditionSelector extends JFrame {
         return propertyPanel;
     }
 
+    /**
+     * Create specified condition
+     */
+    private void setNewCondition() {
 
-    private void setCondition() {
-       
         Condition c;
-        
+
         String selectedType = condType.getSelectedItem().toString();
 
         if (selectedType.equals(propTypes[0])) {
             c = new HasPropertyCondition(new UriItem(propertyName.getText(), model));
-        }else if (selectedType.equals(propTypes[1])) {
+        } else if (selectedType.equals(propTypes[1])) {
             c = new HasPropertyLikeCondition(propertyName.getText());
-        }else if (selectedType.equals(propTypes[2])) {
+        } else if (selectedType.equals(propTypes[2])) {
             c = new PropertyValEqCondition(new UriItem(propertyName.getText(), model), propertyVal.getText());
-        }else {
+        } else {
             c = new PropertyValLikeCondition(new UriItem(propertyName.getText(), model), propertyVal.getText());
         }
 
@@ -152,30 +171,29 @@ public class ConditionSelector extends JFrame {
         this.dispose();
     }
 
-    private void setActual() {
+    /**
+     * Load existing condition
+     */
+    private void setActualCondition() {
 
         Condition actual = cond.getCond(condIndex);
 
         if (actual.getClass().equals(HasPropertyCondition.class)) {
             condType.setSelectedIndex(0);
-            propertyName.setText(((HasPropertyCondition)actual).getPredicate());
+            propertyName.setText(((HasPropertyCondition) actual).getPredicate());
 
-        }else if (actual.getClass().equals(HasPropertyLikeCondition.class)) {
+        } else if (actual.getClass().equals(HasPropertyLikeCondition.class)) {
             condType.setSelectedIndex(1);
-            propertyName.setText(((HasPropertyLikeCondition)actual).getPredicate());
+            propertyName.setText(((HasPropertyLikeCondition) actual).getPredicate());
 
         } else if (actual.getClass().equals(PropertyValEqCondition.class)) {
             condType.setSelectedIndex(2);
-            propertyName.setText(((PropertyValEqCondition)actual).getPredicate());
-            propertyVal.setText(((PropertyValEqCondition)actual).getObject());
-        }else {
+            propertyName.setText(((PropertyValEqCondition) actual).getPredicate());
+            propertyVal.setText(((PropertyValEqCondition) actual).getObject());
+        } else {
             condType.setSelectedIndex(3);
-            propertyName.setText(((PropertyValLikeCondition)actual).getPredicate());
-            propertyVal.setText(((PropertyValLikeCondition)actual).getObject());
+            propertyName.setText(((PropertyValLikeCondition) actual).getPredicate());
+            propertyVal.setText(((PropertyValLikeCondition) actual).getObject());
         }
-
-
     }
-
-    
 }

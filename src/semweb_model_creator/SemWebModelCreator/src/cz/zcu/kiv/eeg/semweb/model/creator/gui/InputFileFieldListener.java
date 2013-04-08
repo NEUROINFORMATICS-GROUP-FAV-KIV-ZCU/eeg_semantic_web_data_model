@@ -8,6 +8,7 @@ import javax.swing.JTextField;
 import javax.swing.filechooser.FileFilter;
 
 /**
+ * Data model input XML file JFilechooser dialog
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
@@ -19,6 +20,11 @@ public class InputFileFieldListener implements MouseListener {
         this.fileName = fileName;
     }
 
+    /**
+     * Open JFile chooser to allow comfort file selecting
+     * 
+     * @param e
+     */
     public void mouseClicked(MouseEvent e) {
 
         JFileChooser chooser = new JFileChooser(new File("."));

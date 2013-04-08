@@ -4,11 +4,11 @@ import com.hp.hpl.jena.rdf.model.Model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
-import java.util.Locale;
 import org.apache.log4j.Logger;
 import virtuoso.jena.driver.VirtModel;
 
 /**
+ * Virtuoso relational and semantic web databse connector
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
@@ -18,14 +18,19 @@ public class VirtuosoDbConnector implements DbConnector {
     private String dbUrl;
     private String username;
     private String password;
-
     private Model virtModel;
     private Connection relationalConn;
     private Statement relStatement;
-
-
     private static final Logger logger = Logger.getLogger(VirtuosoDbConnector.class);
 
+    /**
+     * Connect to virtuoso relational and non-relational database
+     *
+     * @param model semWeb model name
+     * @param dbUrl databse URL
+     * @param username username
+     * @param password password
+     */
     public VirtuosoDbConnector(String model, String dbUrl, String username, String password) {
 
         this.modelName = model;
@@ -45,9 +50,9 @@ public class VirtuosoDbConnector implements DbConnector {
 
             //semWeb
             virtModel = VirtModel.openDatabaseModel(modelName, dbUrl, username, password);
-            
+
             logger.info("Connection estabilished.");
-        }catch (Exception ex) {
+        } catch (Exception ex) {
             logger.error("Connecting error:", ex);
             return null;
         }
@@ -69,7 +74,7 @@ public class VirtuosoDbConnector implements DbConnector {
 
         }
     }
-    
+
     public void removeModel() {
         logger.info("Removing model...");
         try {
@@ -95,5 +100,4 @@ public class VirtuosoDbConnector implements DbConnector {
     public String getVarcharType() {
         return "VARCHAR";
     }
-
 }

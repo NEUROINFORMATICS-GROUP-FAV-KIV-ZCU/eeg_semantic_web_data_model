@@ -10,41 +10,24 @@ import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
 /**
+ * Main class set look&feel and open connect window
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
-public class TestMain  {
+public class TestMain {
 
-    public static void main(String [] args) throws NonExistingUriNodeException, ConversionException, ParseException, FileNotFoundException, IOException {
+    public static void main(String[] args) throws NonExistingUriNodeException, ConversionException, ParseException, FileNotFoundException, IOException {
 
         try {
-    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-        if ("Nimbus".equals(info.getName())) {
-            UIManager.setLookAndFeel(info.getClassName());
-            break;
+            for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            //usign basic Look&Feel manager
         }
-    }
-} catch (Exception e) {
-    // If Nimbus is not available, you can set the GUI to another look and feel.
-}
-
-
-        //String url = "jdbc:oracle:thin:@students.kiv.zcu.cz:1521:EEGERP";
-        //String user    = "EEGTEST";
-        //String pwd  = "JPERGLER";
-
-
-//        String url = "jdbc:oracle:thin:@localhost:1521:EEGDB";
-//        String user    = "SYSMAN";
-//        String pwd  = "password";
-
-//        String url = "jdbc:virtuoso://localhost:1111";
-//        String user    = "dba";
-//        String pwd  = "dba";
-
-
-//        String model = "model_semweb_a";
-//        String prefix = "http://cz.zcu.kiv.eeg#";
 
         ConnectWindow cw = new ConnectWindow();
         cw.setVisible(true);

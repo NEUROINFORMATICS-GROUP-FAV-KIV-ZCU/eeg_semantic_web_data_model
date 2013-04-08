@@ -28,26 +28,22 @@ public class CreatePropertyWindow extends JFrame {
 
     private JButton addButton;
     private JButton cancelButton;
-
     private JTextField name; //property name
     private JComboBox range; //property range
     private JTextField description; //class description (optional)
-
     private String domainUri;
-
     private PropertyTreePanel rootPropertyTree; //ClassTreePanel root Panel
-
     private static final Logger logger = Logger.getLogger(CreatePropertyWindow.class);
 
-    public CreatePropertyWindow (PropertyTreePanel root, String domainUri) {
+    public CreatePropertyWindow(PropertyTreePanel root, String domainUri) {
 
         this.rootPropertyTree = root;
         this.domainUri = domainUri;
 
         setTitle("Add Property");
-	setSize(420, 170 );
+        setSize(420, 170);
         setLocation(740, 300);
-	setBackground(Color.gray);
+        setBackground(Color.gray);
         setResizable(false);
 
 
@@ -59,6 +55,7 @@ public class CreatePropertyWindow extends JFrame {
         root.setMainWidnow(false);
 
         addWindowListener(new WindowClosingListener() {
+
             @Override
             public void closeWindow() {
                 rootPropertyTree.setMainWidnow(true);
@@ -89,7 +86,6 @@ public class CreatePropertyWindow extends JFrame {
         return buttonPanel;
     }
 
-
     /**
      * Create panel containing TextFields to set new class Name specification
      *
@@ -97,15 +93,15 @@ public class CreatePropertyWindow extends JFrame {
      */
     private JPanel createSettingPanel() {
 
-        
+
         name = new JTextField(rootPropertyTree.getModel().getNamespace());
         description = new JTextField();
 
-        range =  new JComboBox();
-         
+        range = new JComboBox();
+
         List<String> ranges = rootPropertyTree.getModel().listAvailableRanges();
 
-        for (String rangeItem: ranges) {
+        for (String rangeItem : ranges) {
             range.addItem(rangeItem);
         }
 
@@ -153,6 +149,4 @@ public class CreatePropertyWindow extends JFrame {
             }
         });
     }
-
-
 }

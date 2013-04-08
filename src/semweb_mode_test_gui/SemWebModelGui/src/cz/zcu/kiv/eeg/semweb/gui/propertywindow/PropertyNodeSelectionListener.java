@@ -1,4 +1,5 @@
 package cz.zcu.kiv.eeg.semweb.gui.propertywindow;
+
 import cz.zcu.kiv.eeg.semweb.model.api.PortalModel;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
@@ -15,9 +16,7 @@ public class PropertyNodeSelectionListener implements TreeSelectionListener {
     private PortalModel model; //Portal data model API connector
     private PropertyTreePanel treePanel;  //Wrapping Jtree PropertySelector panel
     private ContentPanel dataPanel; //Right side window panel with Property value setter
-
     private String selectedPropertyNode; //Actual selected property
-
     private static final Logger logger = Logger.getLogger(PropertyNodeSelectionListener.class);
 
     public PropertyNodeSelectionListener(PropertyTreePanel treePanel, PortalModel model, ContentPanel dataPanel) {
@@ -53,7 +52,7 @@ public class PropertyNodeSelectionListener implements TreeSelectionListener {
             treePanel.setUpdateDescrBt(true);
             selectedPropertyNode = node;
             dataPanel.nodeSelected(node);
-        }else {
+        } else {
             treePanel.setUpdateDescrBt(false);
         }
     }
@@ -61,6 +60,4 @@ public class PropertyNodeSelectionListener implements TreeSelectionListener {
     public String getSelectedNode() {
         return selectedPropertyNode;
     }
-
 }
-

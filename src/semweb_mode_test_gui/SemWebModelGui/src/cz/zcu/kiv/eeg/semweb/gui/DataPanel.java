@@ -32,17 +32,12 @@ public class DataPanel extends JPanel {
     private PortalModel model;
     private MainWindow mw;
     private PropertyListPanel propPanel; //Properties lister - lists all available selected individual properties
-
     private JComboBox individualSelectorComboBox; //selector for classInstance - Individual
     private String actualSelectedClassNode; //Actual selected class in Jtree ClassLister
     private DisjunctionCondition filterCond; //Filter condition to filter individuals
-
     private JButton addInstBt; //Add class instance (Individual) button
     private JButton addPropBt; //Add new property (property-value) to selected individual
-
     private String actualSelectedIndividual; //Actual selected individual
-
-
     private static final Logger logger = Logger.getLogger(DataPanel.class);
 
     public DataPanel(PortalModel model, MainWindow mw) {
@@ -156,11 +151,11 @@ public class DataPanel extends JPanel {
             List<Item> inst = model.listClassInstances(parentClass, filterCond);
 
             List<String> indvdNames = new ArrayList<String>();
-            
-            for (Item ind: inst) {
+
+            for (Item ind : inst) {
                 indvdNames.add(ind.getAsUri().getUri());
             }
-            
+
             return indvdNames;
 
         } catch (Exception ex) {
@@ -175,12 +170,12 @@ public class DataPanel extends JPanel {
      * @param node selected node - Class
      */
     public void nodeSelected(String node) {
-       
+
         if (node != null) {
             actualSelectedClassNode = node;
             individualSelectorComboBox.removeAllItems();
 
-            for (String item: getInstancesList(node)) {
+            for (String item : getInstancesList(node)) {
                 individualSelectorComboBox.addItem(item);
             }
             updateSelectedIndividual();
@@ -203,7 +198,6 @@ public class DataPanel extends JPanel {
         propPanel.updateData(actualSelectedIndividual);
         addInstBt.setEnabled(true);
     }
-
 
     /**
      * Set selected individual when GoTo operation on URI node raised
@@ -260,5 +254,4 @@ public class DataPanel extends JPanel {
     public JFrame getRootFrame() {
         return mw;
     }
-
 }

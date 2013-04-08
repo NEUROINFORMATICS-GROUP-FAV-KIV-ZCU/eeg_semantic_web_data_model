@@ -1,7 +1,8 @@
 package cz.zcu.kiv.eeg.semweb.model.creator.data;
 
 /**
- *
+ * Table item wrapper.
+ * 
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
 public class TableItem {

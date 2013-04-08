@@ -9,24 +9,23 @@ import javax.swing.JFrame;
 import org.apache.log4j.Logger;
 
 /**
- * Property add window wrapper
+ * Property add window to allow new property adding to model
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
 public class AddPropertyWindow extends JFrame {
 
     DataPanel root;
-
     private static final Logger logger = Logger.getLogger(AddPropertyWindow.class);
 
-    public AddPropertyWindow (PortalModel model, DataPanel root, String nodeIndividual) {
+    public AddPropertyWindow(PortalModel model, DataPanel root, String nodeIndividual) {
 
         this.root = root;
 
-	setTitle("Add property");
-	setSize( 900, 500 );
+        setTitle("Add property");
+        setSize(900, 500);
         setLocation(640, 480);
-	setBackground(Color.gray);
+        setBackground(Color.gray);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         ContentPanel dataPanel = new ContentPanel(model, this, nodeIndividual);
@@ -41,6 +40,7 @@ public class AddPropertyWindow extends JFrame {
         this.setVisible(true);
 
         addWindowListener(new WindowClosingListener() {
+
             @Override
             public void closeWindow() {
                 closeAdder();
@@ -51,9 +51,8 @@ public class AddPropertyWindow extends JFrame {
     /**
      * Close PropertyAdd window
      */
-    public void closeAdder () {
+    public void closeAdder() {
         root.closePropertyAdderAndUpdate();
         this.dispose();
     }
-
 }

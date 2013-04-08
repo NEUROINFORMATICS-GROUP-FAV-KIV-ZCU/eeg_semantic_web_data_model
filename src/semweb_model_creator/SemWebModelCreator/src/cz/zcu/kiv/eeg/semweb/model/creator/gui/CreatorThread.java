@@ -11,23 +11,30 @@ import java.io.File;
 import java.util.List;
 
 /**
+ * Creator thread process model creating and set progres window status info
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
 public class CreatorThread implements Runnable {
 
     private CreateProgressWindow root;
-    
+
     public CreatorThread(CreateProgressWindow aThis) {
         this.root = aThis;
 
     }
 
+    /**
+     * Start model cresting as main thread method
+     */
     public void run() {
-       createModel();
+        createModel();
     }
 
-     private void createModel() {
+    /**
+     * Process model creating and update progressWindow status
+     */
+    private void createModel() {
 
         this.root.updateStatus("Loading XML file", 1, false);
 
@@ -44,7 +51,7 @@ public class CreatorThread implements Runnable {
 
         this.root.updateStatus("Connecting DB", 3, false);
         DbConnector connector = root.getConnection();
-        
+
         ModelCreator cr = new ModelCreator(connector);
         if (!cr.connect()) {
             this.root.updateStatus("DB connecting failed", 10, true);
@@ -59,7 +66,7 @@ public class CreatorThread implements Runnable {
             this.root.updateStatus("Removing model", 5, false);
             cr.removeTables(root.getDefaultTablePrefix(), tables);
             this.root.updateStatus("Model removed", 9, false);
-        }else {
+        } else {
             this.root.updateStatus("Creating model", 4, false);
             if (!cr.createModel(root.getDefaultPrefix(), root.getDefaultTablePrefix(), classes, properties, tables)) {
                 this.root.updateStatus("Model creating failed", 10, true);
@@ -82,5 +89,4 @@ public class CreatorThread implements Runnable {
 
         this.root.updateStatus("Done", 10, true);
     }
-
 }

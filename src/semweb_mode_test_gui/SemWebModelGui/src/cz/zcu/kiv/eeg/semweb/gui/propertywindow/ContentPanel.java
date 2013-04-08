@@ -25,6 +25,7 @@ import javax.swing.JTextField;
 import org.apache.log4j.Logger;
 
 /**
+ * Property value setting panel allows set selected property value
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
@@ -32,21 +33,22 @@ public class ContentPanel extends JPanel {
 
     private PortalModel model;
     private AddPropertyWindow mw;
-
     private String actualNode;
-
     private JButton addPropBt;
     private JButton cancelBt;
-
     private ActionListener addBtnListener;
     private Component setterComponent;
     private JLabel setterDescription;
-
-
     private String individualNode;
-
     private static final Logger logger = Logger.getLogger(ContentPanel.class);
 
+    /**
+     * Create content panel wrapper
+     *
+     * @param model portal model
+     * @param mw parent window
+     * @param individualNode selected individual to add property value
+     */
     public ContentPanel(PortalModel model, AddPropertyWindow mw, String individualNode) {
 
         this.model = model;
@@ -69,6 +71,11 @@ public class ContentPanel extends JPanel {
         add(createBottomPanel(), BorderLayout.SOUTH);
     }
 
+    /**
+     * Create top description panel
+     *
+     * @return Top panel
+     */
     private JPanel createTopPanel() {
 
         JPanel topPanel = new JPanel();
@@ -81,6 +88,11 @@ public class ContentPanel extends JPanel {
         return topPanel;
     }
 
+    /**
+     * Create center panel with property value set component
+     *
+     * @return center panel
+     */
     private JPanel createCenterPanel() {
 
         JPanel topPanel = new JPanel(new FlowLayout());
@@ -129,7 +141,6 @@ public class ContentPanel extends JPanel {
 
         return bottomPanel;
     }
-
 
     /**
      * New property node is selected
@@ -185,7 +196,7 @@ public class ContentPanel extends JPanel {
             setterComponent = new JTextField(10);
             setAction(DataType.LONG_TYPE);
 
-        } else if (model.getPropertyRange(actualNode).equals(DataType.STRING_TYPE)) {    
+        } else if (model.getPropertyRange(actualNode).equals(DataType.STRING_TYPE)) {
             setterComponent = new JTextField(20);
             setAction(DataType.STRING_TYPE);
 
@@ -198,7 +209,7 @@ public class ContentPanel extends JPanel {
             try {
                 List<Item> rangeIndividuals = model.listClassInstances(model.getPropertyRangeUri(actualNode), null);
 
-                for (Item item: rangeIndividuals) {
+                for (Item item : rangeIndividuals) {
                     individualsList.addItem(item.getAsUri().getUri());
                 }
                 setterComponent = individualsList;
@@ -209,6 +220,11 @@ public class ContentPanel extends JPanel {
         }
     }
 
+    /**
+     * Set property add action to selected compoenent - dataType check and property add to model
+     *
+     * @param dt DataType of selected property
+     */
     private void setAction(final DataType dt) {
 
         ActionListener al = new ActionListener() {
@@ -289,19 +305,33 @@ public class ContentPanel extends JPanel {
         updateAddAction(al);
     }
 
+    /**
+     * DataTime data parser
+     *
+     * @param data Data instances string
+     * @param type dataType (Date/Time/DataTime)
+     * @param individual bounded individual
+     * @return if property added successfull
+     *
+     * @throws NonExistingUriNodeException
+     */
     private boolean parseDateTime(String data, DataType type, UriItem individual) throws NonExistingUriNodeException {
 
         try {
             individual.addPropertyValue(actualNode, data);
             return true;
-        }catch (AddDeniedException ex) {
+        } catch (AddDeniedException ex) {
             logger.error("Invalid data format, can not parse input as " + type.name(), ex);
             JOptionPane.showMessageDialog(mw, "Invalid data format, must be " + type.name());
             return false;
         }
     }
 
-
+    /**
+     * Set add button action
+     * 
+     * @param al
+     */
     private void updateAddAction(ActionListener al) {
         addPropBt.removeActionListener(addBtnListener);
         addPropBt.addActionListener(al);

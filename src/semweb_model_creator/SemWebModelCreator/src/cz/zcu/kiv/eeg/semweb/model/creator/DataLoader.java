@@ -21,22 +21,19 @@ import org.dom4j.io.SAXReader;
  */
 public class DataLoader {
 
-    private final String CLASS_NODE = "class";
-    private final String PROPERTY_NODE = "property";
-    private final String CLASS_PARENT_NODE = "parent_class";
-    private final String PROPERTY_PARENT_NODE = "parent_property";
-    private final String RANGE_ATTRIBUTE = "range";
-    private final String DOMAIN_ATTRIBUTE = "domain";
-    private final String DESCRIPTION_ATTRIBUTE = "description";
-    private final String TABLE_NODE = "data_table";
-
+    private final String CLASS_NODE = "class"; //CLASS node name
+    private final String PROPERTY_NODE = "property"; //PROPERTY node name
+    private final String CLASS_PARENT_NODE = "parent_class"; //PARENT CLASS node name
+    private final String PROPERTY_PARENT_NODE = "parent_property"; //PARENT PROPERTY node name
+    private final String RANGE_ATTRIBUTE = "range"; //PROPERTY RANGE attribute name
+    private final String DOMAIN_ATTRIBUTE = "domain"; //PROPERTY DOMAIN attribute name
+    private final String DESCRIPTION_ATTRIBUTE = "description"; //PROPERTY and CLASS DESCRITPION attribute
+    private final String TABLE_NODE = "data_table"; //TABLE NAME node name
     private static final Logger logger = Logger.getLogger(DataLoader.class);
-
-    File xmlFile;
-    List<ClassDataItem> classes;
-    List<PropertyDataItem> properties;
-    List<TableItem> tables;
-
+    File xmlFile; //data model XML file
+    List<ClassDataItem> classes; //model classes
+    List<PropertyDataItem> properties; //model properties
+    List<TableItem> tables; //model tables
 
     public DataLoader(File sourceDataFile) {
         classes = new ArrayList<ClassDataItem>();
@@ -46,6 +43,10 @@ public class DataLoader {
         this.xmlFile = sourceDataFile;
     }
 
+    /**
+     * Load data from XML file
+     * @return
+     */
     public boolean loadData() {
         try {
             SAXReader reader = new SAXReader();
@@ -75,6 +76,13 @@ public class DataLoader {
         return tables;
     }
 
+    /**
+     * Iterate over all XML file top level nodes and process them
+     *
+     * @param rootNode XML document root node
+     *
+     * @throws DocumentException
+     */
     private void rootTreeIterate(Element rootNode) throws DocumentException {
 
         Iterator rootIterator = rootNode.elementIterator();
@@ -85,7 +93,7 @@ public class DataLoader {
 
             if (node.getName().equals(TABLE_NODE)) {
                 processTableNode(node);
-            } else if(node.getName().equals(CLASS_NODE)) {
+            } else if (node.getName().equals(CLASS_NODE)) {
                 processClassNode(node);
             } else if (node.getName().equals(CLASS_PARENT_NODE)) {
                 processClassParentNode(node);
@@ -99,15 +107,30 @@ public class DataLoader {
         }
     }
 
-    private void processClassNode (Element node) {
+    /**
+     * Process class node
+     *
+     * @param node class node
+     */
+    private void processClassNode(Element node) {
         classes.add(new ClassDataItem(node.attributeValue("name"), node.attributeValue(DESCRIPTION_ATTRIBUTE)));
     }
 
-    private void processPropertyNode (Element node) {
+    /**
+     * Process property node
+     *
+     * @param node property node
+     */
+    private void processPropertyNode(Element node) {
         properties.add(new PropertyDataItem(node.attributeValue("name"), node.attributeValue(RANGE_ATTRIBUTE), node.attributeValue(DOMAIN_ATTRIBUTE), node.attributeValue(DESCRIPTION_ATTRIBUTE)));
     }
 
-    private void processClassParentNode (Element node) {
+    /**
+     * Process class inheritance nodes
+     *
+     * @param node parent class node
+     */
+    private void processClassParentNode(Element node) {
         ClassDataItem cls = new ClassDataItem(node.attributeValue("name"), node.attributeValue(DESCRIPTION_ATTRIBUTE));
 
         Iterator childNodes = node.elementIterator();
@@ -119,19 +142,31 @@ public class DataLoader {
         classes.add(cls);
     }
 
-    private void processPropertyParentNode (Element node) {
+    /**
+     * Process property inheritance node
+     *
+     * @param node parent property node
+     */
+    private void processPropertyParentNode(Element node) {
         PropertyDataItem prp = new PropertyDataItem(node.attributeValue("name"));
-        
+
         Iterator childNodes = node.elementIterator();
 
         while (childNodes.hasNext()) {
-            
+
             prp.addChildNode(((Element) childNodes.next()).attributeValue("name"));
         }
 
         properties.add(prp);
     }
 
+    /**
+     * Process table node
+     *
+     * @param node table node
+     *
+     * @throws DocumentException
+     */
     private void processTableNode(Element node) throws DocumentException {
 
         TableItem table = new TableItem(node.attributeValue("name"));

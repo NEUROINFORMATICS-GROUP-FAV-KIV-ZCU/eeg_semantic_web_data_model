@@ -1,4 +1,5 @@
 package cz.zcu.kiv.eeg.semweb.gui.propertywindow;
+
 import cz.zcu.kiv.eeg.semweb.model.api.PortalModel;
 import cz.zcu.kiv.eeg.semweb.model.api.data.wrapper.NonExistingUriNodeException;
 import java.awt.BorderLayout;
@@ -20,6 +21,8 @@ import javax.swing.tree.DefaultTreeModel;
 import org.apache.log4j.Logger;
 
 /**
+ * Property Tree panel wrapes PropertyTree JTree and add UPDATE and ADD property
+ * buttons
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
@@ -30,16 +33,20 @@ public class PropertyTreePanel extends JPanel {
     private JTree tree;
     private DefaultMutableTreeNode root;
     private PropertyTreePanel self;
-
     private String selectedClass;
-
     private JTextArea description;
     private JButton updDescrBt;
-
     private PropertyNodeSelectionListener listener;
-
     private static final Logger logger = Logger.getLogger(PropertyTreePanel.class);
 
+    /**
+     * Property tree panel creating
+     *
+     * @param model portal model
+     * @param dataPanel selected property data panel
+     * @param mw parent window
+     * @param selClass selected class to list properties by domain
+     */
     public PropertyTreePanel(PortalModel model, ContentPanel dataPanel, AddPropertyWindow mw, String selClass) {
 
         this.model = model;
@@ -55,9 +62,16 @@ public class PropertyTreePanel extends JPanel {
         add(createBottomPanel(), BorderLayout.SOUTH);
 
         setBorder(BorderFactory.createLineBorder(Color.GRAY));
-        
+
     }
 
+    /**
+     * Construct properties JTree
+     *
+     * @param listener treeNode listener
+     *
+     * @return wrapped tree component
+     */
     private Component createTree(PropertyNodeSelectionListener listener) {
 
         root = new DefaultMutableTreeNode("Portal property");
@@ -79,6 +93,11 @@ public class PropertyTreePanel extends JPanel {
         return scrollPanel;
     }
 
+    /**
+     * Create property description panel - to see actual description and update it
+     *
+     * @return Descritpion panel
+     */
     private Component createDecriptionPanel() {
 
         description = new JTextArea(4, 25);
@@ -91,6 +110,11 @@ public class PropertyTreePanel extends JPanel {
         return descriptionPanel;
     }
 
+    /**
+     * Create button panel with SetDescritpion and AddProperty buttons
+     *
+     * @return bnutton panel
+     */
     private Component createButtonPanel() {
 
 
@@ -121,6 +145,10 @@ public class PropertyTreePanel extends JPanel {
         return buttonPanel;
     }
 
+    /**
+     * Component panel wrapper
+     * @return
+     */
     private JPanel createBottomPanel() {
 
         JPanel bottomPanel = new JPanel(new BorderLayout());
@@ -131,13 +159,18 @@ public class PropertyTreePanel extends JPanel {
         return bottomPanel;
     }
 
+    /**
+     * Add nodes to property tree
+     *
+     * @param root property tree root node
+     */
     private void addNodes(DefaultMutableTreeNode root) {
 
         DefaultMutableTreeNode node;
 
         List<String> props = model.listPropertiesByDomain(selectedClass);
 
-        for (String item: props) {
+        for (String item : props) {
 
             node = new DefaultMutableTreeNode(item);
             listSubProperties(node, item);
@@ -145,8 +178,13 @@ public class PropertyTreePanel extends JPanel {
         }
     }
 
-
-    private void listSubProperties(DefaultMutableTreeNode parent, String nodeName)  {
+    /**
+     * List property subproperties
+     *
+     * @param parent parent property
+     * @param nodeName node name
+     */
+    private void listSubProperties(DefaultMutableTreeNode parent, String nodeName) {
 
         DefaultMutableTreeNode node;
         try {
@@ -163,6 +201,10 @@ public class PropertyTreePanel extends JPanel {
         }
     }
 
+    /**
+     * Set property description text
+     * @param text
+     */
     public void setDescription(String text) {
         description.setText(text);
     }
@@ -184,6 +226,9 @@ public class PropertyTreePanel extends JPanel {
         mw.setEnabled(enabled);
     }
 
+    /**
+     * Update JTree property lister view
+     */
     public void updateTree() {
 
         root.removeAllChildren();
@@ -194,4 +239,3 @@ public class PropertyTreePanel extends JPanel {
         mainTree.reload(root);
     }
 }
-

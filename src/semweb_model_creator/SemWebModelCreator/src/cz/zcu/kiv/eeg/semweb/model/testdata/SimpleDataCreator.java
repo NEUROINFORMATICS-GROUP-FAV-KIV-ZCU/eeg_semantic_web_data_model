@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Simple data creator creates a set of class instances (with property values) in the model
+ * The number of instance of each class is specified as size param in generateSimpleData method
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
@@ -11,7 +13,11 @@ public class SimpleDataCreator {
 
     private List<Triple> testData;
 
-
+    /**
+     * Constructor generate simple data
+     *
+     * @param size simple data size (each class instances count)
+     */
     public SimpleDataCreator(int size) {
         testData = new ArrayList<Triple>();
         generateSimpleData(size);
@@ -54,13 +60,7 @@ public class SimpleDataCreator {
             testData.addAll(createStimulus(number));
             testData.addAll(createSubjectGroup(number));
             testData.addAll(createWeather(number));
-
         }
-
-
-
-
-
     }
 
     private List<Triple> createArticle(int number) {

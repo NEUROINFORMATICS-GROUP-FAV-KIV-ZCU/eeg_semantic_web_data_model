@@ -36,12 +36,11 @@ import org.apache.log4j.Logger;
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
-public class PropertyListPanel extends JScrollPane{
+public class PropertyListPanel extends JScrollPane {
 
     private PortalModel model; //portal model API connector
     private JPanel centerPanel; //wrapping panel
     private DataPanel dtPanel; //parent wrapping component
-
     private static final Logger logger = Logger.getLogger(PropertyListPanel.class);
 
     public PropertyListPanel(PortalModel model, DataPanel dtPanel) {
@@ -50,7 +49,6 @@ public class PropertyListPanel extends JScrollPane{
 
         createCenterPanel();
     }
-
 
     /**
      * Create wrapping panel and set its size and layout
@@ -75,13 +73,13 @@ public class PropertyListPanel extends JScrollPane{
         if (individualUri != null) {
             try {
                 Item parent = model.getIndividualByUri(individualUri);
-                
+
                 List<Item> props = parent.getAsUri().listProperties();
 
-                for (Item property: props) {
+                for (Item property : props) {
 
-                    for (Item propertyVal: parent.getAsUri().listPropertyVal(property.getAsUri())) {
-                    
+                    for (Item propertyVal : parent.getAsUri().listPropertyVal(property.getAsUri())) {
+
                         propCount++;
 
                         linePanel = new JPanel();
@@ -90,7 +88,7 @@ public class PropertyListPanel extends JScrollPane{
 
                         if (propertyVal.isLiteral()) {
                             linePanel.add(getLiteralComp(propertyVal.getAsLiteral()));
-                        }else {
+                        } else {
                             linePanel.add(getUriComp(propertyVal.getAsUri(), parent.getAsUri(), property.getAsUri().getUri()));
                         }
 
@@ -122,8 +120,8 @@ public class PropertyListPanel extends JScrollPane{
                             linePanel.add(uploadBtn);
                         }
                         centerPanel.add(linePanel);
-                        
-                    }catch (SQLException ex) {
+
+                    } catch (SQLException ex) {
                         logger.error("Table selecting error:", ex);
                     }
 
@@ -136,7 +134,7 @@ public class PropertyListPanel extends JScrollPane{
                 logger.error("Can not find individual " + individualUri, ex);
             } catch (ConversionException ex2) {
                 logger.error("Can not conver data", ex2);
-            }catch (ParseException ex2) {
+            } catch (ParseException ex2) {
                 logger.error("Can not parse data", ex2);
             }
         }
@@ -176,7 +174,7 @@ public class PropertyListPanel extends JScrollPane{
             chckBox.addActionListener(new CheckBoxListenter(lit, chckBox));
 
             comp = chckBox;
-        }else {
+        } else {
             JTextField litTf = new JTextField(lit.getValue().toString());
             litTf.setPreferredSize(new Dimension(250, 30));
 
@@ -199,14 +197,14 @@ public class PropertyListPanel extends JScrollPane{
      * @return Created component
      */
     private JPanel getUriComp(final UriItem uri, final UriItem parentNode, final String predicate) {
-        
+
         try {
             String actualObj = null;
             List<String> individualsNames = new ArrayList<String>();
             List<Item> insts = model.listClassInstances(model.getIndividualParentClass(uri.getUri()), null);
 
             //Set available values by list of individuals of parentClass of object node
-            for (Item indv: insts) {
+            for (Item indv : insts) {
 
                 String in = indv.getAsUri().getUri();
                 individualsNames.add(in);
@@ -230,6 +228,7 @@ public class PropertyListPanel extends JScrollPane{
 
             JButton goBtn = new JButton("Go"); //GoTo link to target individual button
             goBtn.addActionListener(new ActionListener() {
+
                 public void actionPerformed(ActionEvent e) {
                     goToInd(comb.getSelectedItem().toString());
                 }
@@ -282,7 +281,6 @@ public class PropertyListPanel extends JScrollPane{
         return parent;
     }
 
-
     /**
      * GoTo action update view
      * @param uri
@@ -305,7 +303,8 @@ public class PropertyListPanel extends JScrollPane{
             this.tf = tf;
         }
 
-        public void keyTyped(KeyEvent e) { }
+        public void keyTyped(KeyEvent e) {
+        }
 
         public void keyPressed(KeyEvent e) {
 
@@ -313,14 +312,15 @@ public class PropertyListPanel extends JScrollPane{
                 try {
                     li.updateValue(tf.getText());
                     centerPanel.requestFocus();
-                }catch (AddDeniedException ex) {
+                } catch (AddDeniedException ex) {
                     logger.error("Invalid datatype updated literatl node", ex);
                     JOptionPane.showMessageDialog(dtPanel.getRootFrame(), "Invalid data format");
                 }
             }
         }
 
-        public void keyReleased(KeyEvent e) { }
+        public void keyReleased(KeyEvent e) {
+        }
     }
 
     /**
@@ -409,5 +409,4 @@ public class PropertyListPanel extends JScrollPane{
         }
 
     }
-
 }

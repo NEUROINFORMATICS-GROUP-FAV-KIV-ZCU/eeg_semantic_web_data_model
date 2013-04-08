@@ -9,6 +9,7 @@ import oracle.spatial.rdf.client.jena.OracleUtils;
 import org.apache.log4j.Logger;
 
 /**
+ * Oracle relational and semantic web databse connector
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
@@ -18,13 +19,19 @@ public class OracleDbConnector implements DbConnector {
     private String dbUrl;
     private String username;
     private String password;
-
     private Oracle oracleConnection;
     private ModelOracleSem oracleModel;
     private Statement relational;
-
     private static final Logger logger = Logger.getLogger(VirtuosoDbConnector.class);
 
+    /**
+     * Connect to Oracle database
+     *
+     * @param model semWeb model
+     * @param dbUrl databse URL
+     * @param username username
+     * @param password password
+     */
     public OracleDbConnector(String model, String dbUrl, String username, String password) {
 
         this.modelName = model;
@@ -34,16 +41,16 @@ public class OracleDbConnector implements DbConnector {
     }
 
     public Model connect() {
-       try {
-           Locale.setDefault(Locale.US);
-           logger.info("Connecting to " + dbUrl);
+        try {
+            Locale.setDefault(Locale.US);
+            logger.info("Connecting to " + dbUrl);
 
-           oracleConnection = new Oracle(dbUrl, username, password);
-           oracleModel = ModelOracleSem.createOracleSemModel(oracleConnection, modelName);
-           relational = oracleConnection.getConnection().createStatement();
+            oracleConnection = new Oracle(dbUrl, username, password);
+            oracleModel = ModelOracleSem.createOracleSemModel(oracleConnection, modelName);
+            relational = oracleConnection.getConnection().createStatement();
 
-           logger.info("Connection estabilished.");
-        }catch (Exception ex) {
+            logger.info("Connection estabilished.");
+        } catch (Exception ex) {
             logger.error("Connecting error:", ex);
             return null;
         }
@@ -88,6 +95,4 @@ public class OracleDbConnector implements DbConnector {
     public String getVarcharType() {
         return "VARCHAR2(256)";
     }
-
-
 }

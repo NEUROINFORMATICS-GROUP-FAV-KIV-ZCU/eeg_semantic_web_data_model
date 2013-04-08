@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Property item wrapper
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
-public class PropertyDataItem extends DataItem{
+public class PropertyDataItem extends DataItem {
 
     private String range;
     private String domain;
@@ -20,6 +21,15 @@ public class PropertyDataItem extends DataItem{
         this.domain = domain;
     }
 
+    public PropertyDataItem(String name) {
+        super(name, null);
+        childNodes = new ArrayList<PropertyDataItem>();
+    }
+
+    /**
+     * Add subPropertty node
+     * @param name
+     */
     public void addChildNode(String name) {
         childNodes.add(new PropertyDataItem(name));
         hasChildNodes = true;
@@ -27,11 +37,6 @@ public class PropertyDataItem extends DataItem{
 
     public List<PropertyDataItem> getChildNodes() {
         return this.childNodes;
-    }
-
-    public PropertyDataItem(String name) {
-        super(name, null);
-        childNodes = new ArrayList<PropertyDataItem>();
     }
 
     public String getDomain() {

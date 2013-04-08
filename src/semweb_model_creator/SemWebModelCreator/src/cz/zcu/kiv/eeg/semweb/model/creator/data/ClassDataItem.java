@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Class item wrapper (wrapped XML document loaded classes)
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */

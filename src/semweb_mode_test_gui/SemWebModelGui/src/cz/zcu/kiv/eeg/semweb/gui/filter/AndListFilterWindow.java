@@ -6,6 +6,7 @@ import cz.zcu.kiv.eeg.semweb.model.search.HasPropertyLikeCondition;
 import javax.swing.JFrame;
 
 /**
+ * And List condition setting dialog
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
@@ -27,5 +28,4 @@ public class AndListFilterWindow extends FilterWindow {
         updateView();
         new ConditionSelector(model, this, cond, cond.getConditionList().size() - 1);
     }
-
 }

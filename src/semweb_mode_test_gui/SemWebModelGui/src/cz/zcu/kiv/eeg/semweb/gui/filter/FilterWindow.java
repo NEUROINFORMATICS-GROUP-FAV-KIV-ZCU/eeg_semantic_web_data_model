@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 /**
+ * Abstract FilterWindow dialog contains filter dialog common methods
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
@@ -25,21 +26,30 @@ public abstract class FilterWindow extends JFrame {
     protected ConditionList cond;
     protected JFrame mw;
 
-    public FilterWindow (PortalModel model, JFrame mw, ConditionList c, String name, boolean moveWindow) {
+    /**
+     * Create new filter window dialod
+     *
+     * @param model portal model
+     * @param mw parent window
+     * @param c parent condition list
+     * @param name Dialog name
+     * @param moveWindow to move dialog back to Left Top corner
+     */
+    public FilterWindow(PortalModel model, JFrame mw, ConditionList c, String name, boolean moveWindow) {
 
         this.model = model;
         this.cond = c;
         this.mw = mw;
 
         setTitle(name);
-	setSize(420, 160 );
+        setSize(420, 160);
 
         if (moveWindow) {
             setLocation(760, 320);
-        }else {
+        } else {
             setLocation(740, 300);
         }
-	setBackground(Color.gray);
+        setBackground(Color.gray);
         setResizable(false);
 
         setLayout(new BorderLayout());
@@ -50,6 +60,7 @@ public abstract class FilterWindow extends JFrame {
         mw.setEnabled(false);
 
         addWindowListener(new WindowClosingListener() {
+
             @Override
             public void closeWindow() {
                 closeFilterWindow();
@@ -57,6 +68,11 @@ public abstract class FilterWindow extends JFrame {
         });
     }
 
+    /**
+     * Create button panel
+     *
+     * @return panel with buttons
+     */
     private JPanel createButtonPanel() {
 
         JButton addCondBtn = new JButton("Add condtion");
@@ -92,7 +108,11 @@ public abstract class FilterWindow extends JFrame {
         return panel;
     }
 
-
+    /**
+     * Create panel with condition setting fields
+     *
+     * @return panel with condition fields
+     */
     private JScrollPane createCondListPanel() {
 
         JLabel condLabel;
@@ -128,14 +148,27 @@ public abstract class FilterWindow extends JFrame {
         return mainPanel;
     }
 
+    /**
+     * Update actual condition
+     *
+     * @param index condition index
+     */
     protected abstract void updateCondition(int index);
 
+    /**
+     * Delete selected condition
+     *
+     * @param index condition index
+     */
     private void deleteCondition(int index) {
         cond.removeCondition(index);
         updateView();
 
     }
 
+    /**
+     * Add new condition to parent condition list
+     */
     protected abstract void addCondition();
 
     private void removeAllCondition() {
@@ -143,6 +176,9 @@ public abstract class FilterWindow extends JFrame {
         updateView();
     }
 
+    /**
+     * Close dialog
+     */
     private void closeFilterWindow() {
         mw.setEnabled(true);
         this.dispose();
@@ -161,7 +197,9 @@ public abstract class FilterWindow extends JFrame {
         repaint();
     }
 
-
+    /**
+     * Update view
+     */
     private class UpdateBtnListener implements ActionListener {
 
         private int index;
@@ -175,6 +213,9 @@ public abstract class FilterWindow extends JFrame {
         }
     }
 
+    /**
+     * Update view
+     */
     private class DeleteBtnListener implements ActionListener {
 
         private int index;
@@ -186,7 +227,5 @@ public abstract class FilterWindow extends JFrame {
         public void actionPerformed(ActionEvent e) {
             deleteCondition(index);
         }
-
     }
-
 }
