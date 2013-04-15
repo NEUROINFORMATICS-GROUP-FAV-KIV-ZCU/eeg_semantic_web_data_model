@@ -23,9 +23,10 @@
 \contentsline {section}{\numberline {5.2}D\IeC {\v e}di\IeC {\v c}nost a hierarchie dat}{26}
 \contentsline {section}{\numberline {5.3}Probl\IeC {\'e}my modelu}{27}
 \contentsline {section}{\numberline {5.4}Porovn\IeC {\'a}n\IeC {\'\i } model\IeC {\r u}}{27}
-\contentsline {chapter}{\numberline {6}N\IeC {\'a}stroje pro v\IeC {\'y}voj s\IeC {\'e}mantick\IeC {\'e}ho webu}{28}
-\contentsline {section}{\numberline {6.1}Virtuoso}{28}
-\contentsline {section}{\numberline {6.2}Oracle 11g - Oracle Spatial}{29}
-\contentsline {chapter}{\numberline {7}Transformace datov\IeC {\'e}ho modelu}{31}
-\contentsline {chapter}{\numberline {8}Testov\IeC {\'a}n\IeC {\'\i } \IeC {\v r}e\IeC {\v s}en\IeC {\'\i }}{32}
-\contentsline {chapter}{\numberline {9}Z\IeC {\'a}v\IeC {\v e}r}{33}
+\contentsline {chapter}{\numberline {6}N\IeC {\'a}stroje pro v\IeC {\'y}voj s\IeC {\'e}mantick\IeC {\'e}ho webu}{29}
+\contentsline {section}{\numberline {6.1}Virtuoso}{29}
+\contentsline {section}{\numberline {6.2}Oracle 11g - Oracle Spatial}{30}
+\contentsline {section}{\numberline {6.3}Jena}{31}
+\contentsline {chapter}{\numberline {7}Transformace datov\IeC {\'e}ho modelu}{33}
+\contentsline {chapter}{\numberline {8}Testov\IeC {\'a}n\IeC {\'\i } \IeC {\v r}e\IeC {\v s}en\IeC {\'\i }}{34}
+\contentsline {chapter}{\numberline {9}Z\IeC {\'a}v\IeC {\v e}r}{35}

@@ -8,6 +8,7 @@
 \usepackage{graphicx}
 \usepackage{pdfpages}
 \usepackage[all]{xy}
+\usepackage{array}
 \usepackage[czech]{babel}
 \usepackage[activate={true,nocompatibility,all}, stretch=10, shrink=10, step=1, auto=true, draft=false]{microtype}
 %\usepackage[total={17cm,28cm}, top=3cm, left=2cm, includefoot]{geometry}
@@ -383,11 +384,47 @@ Podstatný rozdíl mezi datovým modelem sémantického webu oproti modelu rela�
 \end{figure}
 
 \section{Problémy modelu}
-\hspace{0.65cm}Jak již bylo zmíněno, tato podoba modelu je výhodná spíše v případech velké různorodosti uchovávaných dat, pro homogenní a z hlediska rozšiřování statická data je stále výhodné řešení využívající tabulek. Sémantický web však slouží především k uchovávání metad, původní data jež by mohla mít podobu větších binárních souborů by bylo obtížné ukládat tímto způsobem. Technologie a standardy sémantického webu definují datové typy prostřednic-\\tvím schématu jazyka XML, jenž sice připouští také binární typy např. base64Binary, ale pravděpodobně není vhodné je využít pro uložení většího binárního souboru do tohoto datového modelu z důvodu výkonnosti a séman-\\tické využitelnosti v rámci modelu \cite{_27}.
+\hspace{0.65cm}Jak již bylo zmíněno, tato podoba modelu je výhodná spíše v případech velké různorodosti uchovávaných dat, pro homogenní a z hlediska rozšiřování statická data je stále výhodné řešení využívající tabulek. Sémantický web však slouží především k uchovávání metadat, původní data jež by mohla mít podobu větších binárních souborů by bylo obtížné ukládat tímto způsobem. Technologie a standardy sémantického webu definují datové typy prostřednic-\\tvím schématu jazyka XML, jenž sice připouští také binární typy např. base64Binary, ale pravděpodobně není vhodné je využít pro uložení většího binárního souboru do tohoto datového modelu z důvodu výkonnosti a séman-\\tické využitelnosti v rámci modelu \cite{_27}.
 
 
 \section{Porovnání modelů}
----- Udelat tabulka s vyhodama a nevyhodama modelu oproti sobe ----
+\hspace{0.65cm}Pro jednoduché porovnání datového modelu sémantického webu a relačního datového modelu poslouží níže uvedená tabulka 5.1, jež srovnává výhody (+) a nevýhody (-) obou modelů.
+
+\begin{table}[htbp!]
+
+\label{značka tabulky}
+%\begin{center}
+\begin{tabular} { |  m{7.4cm} | >{\centering} m{2.6cm} |  > {\centering} m{2.6cm} | } 
+\hline
+&  {\bf Relační model} & {\bf Model sémantického webu} \tabularnewline 
+\hline
+Dědičnost & + & -\tabularnewline
+\hline
+Dynamická rozšiřitelnost modelu & + & -\tabularnewline
+\hline
+Typování meziobjektových vazeb & + & -\tabularnewline
+\hline
+Unifikace idetifikátorů objektů & + & -\tabularnewline
+\hline
+Hierarchická organizace dat & + & -\tabularnewline
+\hline
+Sémantika datového modelu & + & -\tabularnewline
+\hline
+Ukládání rozsáhlých datových objektů & - & +\tabularnewline
+\hline
+Uchování (sémanticky) homogenních dat & - & +\tabularnewline
+\hline
+Počet dosptupných nástrojů pro uchování persistentních dat & - & +\tabularnewline
+\hline
+\end{tabular}
+
+%\end{center}
+\caption{Srovnání výhod a nevýhod datových modelů}
+\end{table}
+
+\vspace{0.3cm}
+
+Z výše uvedené tabulky je patrné, že vhodnost použití vybraného modelu je odvislá od typu a struktury dat, jež by měl datový model uchovávat. Jednotlivé řádky tak stručně shrnují vhodnost modelu pro vybranou vlastnost uchovávaných dat. Poslední položkou je počet dostupných nástrojů umožňují-\\cích uchování persistentních dat, kterou je míněno množství softwarových řešení databázových úložišť umožnujících uchování dat ve vybrané, modelu přirozené podobě. Pro relační databáze je takových nástrojů poměrně široká řada, ale pro úložiště dat sémantického webu je výběr o poznání menší, navíc mnoho z těchto dostupných nástrojů je spíše experimentálního charakteru. Jejich popisu a výběru se věnuje následující kapitola.
 
 
 \chapter{Nástroje pro vývoj sémantického webu}
@@ -419,6 +456,23 @@ První příkaz instaluje podporu sémantických modelů v databázi. Druhým p�
 
 Po instalaci podpory sémantických technologií je již tedy možné využívat databázi Oracle jako úložiště RDF dat. Ve výsledku je tedy k dispozici hybridní databáze pro ukládání dat jak v relační podobě tak ve RDF jazyce. Nad zmíněnými sémantickými daty je možné se dotazovat jazykem SPARQL a to skrze stejné prostředky jako v případě jazyka SQL. V důsledku toho je také možné vytvářet vnořené či jinak kombinované dotazy z obou jazyků, stejně jako tomu bylo u nástroje Virtuoso. K sémantickým datům databáze je možné přistupovat samozřejmě stejnou cestou jako k relačním – tedy prostřednictvím ODBC/JDBC driveru, ale Oracle také dodává driver poskytující standardní Jena API pro Java aplikace. 
 Databázový systém podporuje odvozovací pravidla jazyka RDF, RDFS i OWL a od verze Oracle 10g je navíc možné, aby uživatel definoval vlastní odvozovací pravidla. Při vytváření dotazu je pak možné určit jakou množinu odvozovacích pravidel (RDF / RDFS / vlastní pravidla či jejich kombinace) chceme do dotazu zahrnout a ovlivnit tím tak jeho výsledek \cite{_26}.
+
+
+\section{Jena}
+\hspace{0.65cm} Jena je Java framework určený pro vývoj aplikací sémantického webu. Nástroj je vyvíjený od roku 2000 v podobě open source projektu, který je nyní dostupný pod Apache licencí. Framework Jena je distribuovaný jako knihovna jež poskytuje \cite{_28}:
+
+\begin{itemize}
+\item API pro zápis a čtení RDF dat ve formátu N3, RDF/XML či N-triples
+\item API pro práci s ontologiemi na úrovni jazyků RDFS a OWL
+\item Reasoner pro zpracování dat jazyků RDF a OWL
+\item Dotazovací engine SPARQL
+\item Ukládání RDF dat do databáze
+\end{itemize}
+
+Jena poskytuje komplexní API umožňující práci s daty sémantického webu. Veškerá zpracovávaná data jež mají podobu grafu jsou uchovávana prostřednictvím modelu. Framework poskytuje 2 druhy modelů, jež se liší svou expresivitou. Základní model umožňující zpracování dat na úrovni jazyka RDF je vhodný pro data s nízkou úrovní sémantiky. Druhý, ontologický model umožňuje maximální využítí nástroje, neboť poskytuje API pro práci s ontologiemi jazyka OWL. Samotný model je možné uchovávat buď pouze v paměti, přičemž je možné jeho data ukládát i opětovně načítat ze souboru, nebo v databázi, která poskytuje příslušný konektor umožňující využítí Jeny jako API k tomuto úložišti. S daty modelu je možné pracovat objektovým způsobem na úrovni trojic či jejjich částí nebo prostřednictvím vykonávání SPARQL dotazů \cite{_28}.
+
+
+
 
 \chapter{Transformace datového modelu}
 
