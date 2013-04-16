@@ -29,6 +29,6 @@
 \contentsline {section}{\numberline {6.3}Jena}{31}
 \contentsline {chapter}{\numberline {7}Transformace datov\IeC {\'e}ho modelu}{33}
 \contentsline {section}{\numberline {7.1}Rozd\IeC {\v e}len\IeC {\'\i } datov\IeC {\'e}ho modelu}{33}
-\contentsline {subsection}{\numberline {7.1.1}Rela\IeC {\v c}n\IeC {\'\i } \IeC {\v c}\IeC {\'a}st modelu}{34}
+\contentsline {section}{\numberline {7.2}Rela\IeC {\v c}n\IeC {\'\i } \IeC {\v c}\IeC {\'a}st modelu}{34}
 \contentsline {chapter}{\numberline {8}Testov\IeC {\'a}n\IeC {\'\i } \IeC {\v r}e\IeC {\v s}en\IeC {\'\i }}{35}
 \contentsline {chapter}{\numberline {9}Z\IeC {\'a}v\IeC {\v e}r}{36}
