@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  15 APR 2013 22:51
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  16 APR 2013 09:00
 entering extended mode
 **C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_m
 odel/diploma-doc/text-prace-LATEX/diplomka.tex
@@ -1172,21 +1172,28 @@ Kapitola 7.
 [33
 
 ]
-Kapitola 8.
-[34
 
-]
-Kapitola 9.
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[34]
+Kapitola 8.
 [35
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 486--489
+Kapitola 9.
+[36
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 501--504
 
  []
 
 
 (C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
-del\diploma-doc\text-prace-LATEX\diplomka.bbl [36]
+del\diploma-doc\text-prace-LATEX\diplomka.bbl [37]
 Underfull \hbox (badness 2213) in paragraph at lines 8--10
 []\T1/aer/m/it/12 (+10) Semantic Web Tools\T1/aer/m/n/12 (+10) , http://semanti
 cweb.org/wiki/Tools, (p°í-stup
@@ -1240,7 +1247,7 @@ Overfull \hbox (88.32375pt too wide) in paragraph at lines 58--62
 oradb_-semtech_-tu-to-rial.pdf,
  []
 
-[37
+[38
 
 ]
 Underfull \hbox (badness 1062) in paragraph at lines 64--67
@@ -1277,14 +1284,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[38])
+[39])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[39] [40] [41]
+[40] [41] [42]
 (C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
 del\diploma-doc\text-prace-LATEX\diplomka.aux)
 
@@ -1307,9 +1314,9 @@ rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Prog
 ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program 
 Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on diplomka.pdf (46 pages, 421619 bytes).
+Output written on diplomka.pdf (47 pages, 425884 bytes).
 PDF statistics:
- 320 PDF objects out of 1000 (max. 8388607)
+ 323 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  159780 words of extra memory for PDF output out of 184870 (max. 10000000)
 
