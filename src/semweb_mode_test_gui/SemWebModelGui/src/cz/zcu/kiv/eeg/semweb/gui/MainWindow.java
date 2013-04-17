@@ -32,7 +32,7 @@ public class MainWindow extends JFrame {
 
         setTitle("EEG/ERP portal model visualizer");
         setSize(1000, 500);
-        setLocation(640, 480);
+        setLocation(240, 180);
         setBackground(Color.gray);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
