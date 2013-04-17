@@ -30,5 +30,8 @@
 \contentsline {chapter}{\numberline {7}Transformace datov\IeC {\'e}ho modelu}{33}
 \contentsline {section}{\numberline {7.1}Rozd\IeC {\v e}len\IeC {\'\i } datov\IeC {\'e}ho modelu}{33}
 \contentsline {section}{\numberline {7.2}Rela\IeC {\v c}n\IeC {\'\i } \IeC {\v c}\IeC {\'a}st modelu}{34}
-\contentsline {chapter}{\numberline {8}Testov\IeC {\'a}n\IeC {\'\i } \IeC {\v r}e\IeC {\v s}en\IeC {\'\i }}{36}
-\contentsline {chapter}{\numberline {9}Z\IeC {\'a}v\IeC {\v e}r}{37}
+\contentsline {section}{\numberline {7.3}S\IeC {\'e}mantick\IeC {\'a} \IeC {\v c}\IeC {\'a}st}{35}
+\contentsline {subsection}{\numberline {7.3.1}Transformace tabulek}{35}
+\contentsline {subsection}{\numberline {7.3.2}Transformace rozkladov\IeC {\'y}ch tabulek}{36}
+\contentsline {chapter}{\numberline {8}Testov\IeC {\'a}n\IeC {\'\i } \IeC {\v r}e\IeC {\v s}en\IeC {\'\i }}{37}
+\contentsline {chapter}{\numberline {9}Z\IeC {\'a}v\IeC {\v e}r}{38}

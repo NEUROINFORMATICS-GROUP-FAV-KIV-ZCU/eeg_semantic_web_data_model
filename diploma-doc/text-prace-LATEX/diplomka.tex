@@ -500,7 +500,61 @@ Pro rozdělení datového modelu je nutné určit pravidla, podle kterých bude 
 \end{figure}
 
 
-Následující vytvářená sémantická část modelu bude prová-\\dět transformaci původního relačního modelu, z jehož tabulek nesoucích zmíněné datové soubory jsou ty atributy odstraněny (z důvodu jejich přesunu do této nové relační části modelu).
+Následující vytvářená sémantická část modelu bude provádět transformaci původního relačního modelu, z jehož tabulek nesoucích zmíněné datové soubory jsou ty atributy odstraněny (z důvodu jejich přesunu do této nové relační části modelu).
+
+
+\section{Sémantická část}
+\hspace{0.65cm}Zbylá část dat původního modelu jež nebude obsažena ve relační části nového modelu je předmětem následující transformace. K jejímu provedení je potřeba nadefinovat obecná pravidla a postup, který by umožňoval transforma-\\ci obecnějšího modelu z důvodu jeho častých změn. I v průběhu tvorby této práce je původní model nadále modifikován a je tak zapotřebí mít k dispozici postup, který by umožnil vytvoření i úpravu nového hybridního modelu tak, aby pokrýval stejnou množinu dat jako původní model v později modifikované verzi. Postup vytvoření nového modelu bude sestávat ze dvou části a to z transformace původních dat do podoby sémantického webu a z dodání sémantiky tomuto modelu, tak aby mohl být do jisté míry samopopisný. 
+Pro popis resp. zápis této části modelu budou využity jazyky RDF spolu se RDFS, které dovolují vyjádřit veškerou sémantiku nalezenou v aktuálním modelu.
+
+\subsection{Transformace tabulek}
+\hspace{0.65cm}Při transformaci tabulek původního relačního modelu bude využito obdob-\\ného principu jako v případě objektově relačního mapování nástroje Hibernate \cite{_29}. Prvním krokem je identifikace původních tabulek, které neslouží pro rozložení vazby M:N mezi jinými tabulkami. Tyto tabulky budou v nově vznikajícím modelu představovat třídy a záznamy v nich obsažené budou reprezentovány instancemi těchto tříd. To je možné díky jazyku RDFS, který dovoluje vytvářet jednoduchý objektový model složený z tříd a jejich instancí podobně jako např. v jazyce Java. Jednotlivé atributy tabulek pak budou realizovány jako predikáty ({\it rdf:Property}). Transformace struktury původní tabulky prostřednictvím jazyka RDF resp. RDFS se zajistí jazykovými konst-\\rukcemi tak, jak je uvedeno v tabulce 7.1.
+
+Každá takto transformovaná tabulka bude reprezentována jedním URI identifikátorem (stejně jako další objekty) a označení, že se jedná o třídu zajistí konstrukce {\it rdfs:Class}. Původní název tabulky bude součásti hodnoty URI. Každý záznam tabulky bude rovněž popsán prostřednictvím URI a jeho náležitost ke třídě (je instancí třídy) popíše trojice, kde subjektem bude URI této instance, predikátem konstrukce {\it rdf:type} a objektem URI cílové třídy. Jednotlivé atributy tabulky se díky konstrukci {\it rdf:Property} stanou predikáty ve vytvářeném modelu a umožní tak vytvářet typovanou vazbu mezi instancemi a hodnotami jejich atributů (literálů) či mezi instancemi navzájem. 
+
+\vspace{0.25cm}
+
+\begin{table}[htbp!]
+
+\label{značka tabulky}
+\begin{center}
+\begin{tabular} { | >{\centering} m{3.6cm} |  > {\centering} m{3.6cm} | } 
+\hline
+Tabulka & {\it rdfs:Class} \tabularnewline
+\hline
+Záznam tabulky & {\it rdf:type} \tabularnewline
+\hline
+Atribut tabulky & {\it rdf:Property} \tabularnewline
+\hline
+\end{tabular}
+
+\end{center}
+\caption{Transformace strukur tabulky do sémantického webu}
+\end{table}
+
+\vspace{0.25cm}
+
+Transformované atributy (predikáty) je zapotřebí navíc svázat se třídami původních tabulek těchto atributů. Toho se docílí díky konstrukci rdfs:domain, která tak de facto určuje doménu těchto predikátů. Tento výraz ale především slouží k definování náležitosti instance ke své třídě, čehož se docílí vytvořením trojice jejímž predikátem bude transformovaný atribut a subjektem zmíněná instance.
+
+
+\subsection{Transformace rozkladových tabulek}
+\hspace{0.65cm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \chapter{Testování řešení}

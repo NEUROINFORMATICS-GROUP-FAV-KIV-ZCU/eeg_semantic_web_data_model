@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  16 APR 2013 23:53
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  18 APR 2013 00:44
 entering extended mode
 **C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_m
 odel/diploma-doc/text-prace-LATEX/diplomka.tex
@@ -544,7 +544,11 @@ Package microtype Info: Loading configuration file microtype.cfg.
 File: microtype.cfg 2010/01/10 v2.4 microtype main configuration file (RS)
 ))
 (C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
-del\diploma-doc\text-prace-LATEX\diplomka.aux)
+del\diploma-doc\text-prace-LATEX\diplomka.aux
+
+LaTeX Warning: Label `zna\IeC {\v c}ka tabulky' multiply defined.
+
+)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
 LaTeX Font Info:    ... okay on input line 25.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
@@ -557,8 +561,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
 LaTeX Font Info:    ... okay on input line 25.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
 LaTeX Font Info:    ... okay on input line 25.
-
-("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count106
 \scratchdimen=\dimen145
@@ -1183,6 +1186,11 @@ File: eraNovej.pdf Graphic file (type pdf)
 Package pdftex.def Info: eraNovej.pdf used on input line 497.
 (pdftex.def)             Requested size: 295.77083pt x 156.35023pt.
 
+Overfull \hbox (4.60664pt too wide) in paragraph at lines 503--504
+\T1/aer/m/n/12 (-10) p·-vod-ního re-la£-ního mo-delu, z je-hoº ta-bu-lek ne-sou
+-cích zmí-n¥né da-tové sou-bory
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1191,6 +1199,17 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [34 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_dat
 a_model/diploma-doc/text-prace-LATEX/eraNovej.pdf>]
+Overfull \hbox (2.11404pt too wide) in paragraph at lines 507--509
+\T1/aer/m/n/12 (-10) po-t°eba na-de-fi-no-vat obecná pra-vi-dla a po-stup, kter
+ý by umoº-¬o-val transforma- 
+ []
+
+
+Overfull \hbox (0.13225pt too wide) in paragraph at lines 511--512
+\T1/aer/m/n/12 (-10) ného prin-cipu jako v p°í-pad¥ ob-jek-tov¥ re-la£-ního ma-
+po-vání ná-stroje Hi-ber-nate
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1198,21 +1217,28 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [35]
-Kapitola 8.
-[36
 
-]
-Kapitola 9.
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[36]
+Kapitola 8.
 [37
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 513--516
+Kapitola 9.
+[38
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 567--570
 
  []
 
 
 (C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
-del\diploma-doc\text-prace-LATEX\diplomka.bbl [38]
+del\diploma-doc\text-prace-LATEX\diplomka.bbl [39]
 Underfull \hbox (badness 2213) in paragraph at lines 8--10
 []\T1/aer/m/it/12 (+10) Semantic Web Tools\T1/aer/m/n/12 (+10) , http://semanti
 cweb.org/wiki/Tools, (p°í-stup
@@ -1237,62 +1263,62 @@ Underfull \hbox (badness 10000) in paragraph at lines 35--40
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 42--45
+Underfull \hbox (badness 10000) in paragraph at lines 47--50
 []\T1/aer/m/n/12 (+10) Kosek Ji°í.  \T1/aer/m/it/12 (+10) Jak pra-cují da-ta-bá
 ze na Webu\T1/aer/m/n/12 (+10) ,
  []
 
 
-Overfull \hbox (5.77644pt too wide) in paragraph at lines 47--51
+Overfull \hbox (5.77644pt too wide) in paragraph at lines 52--56
 \T1/aer/m/n/12 (-10) Masarykova uni-ver-zita, 2004. http://www.ics.muni.cz/zpra
 vodaj/articles/ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 53--56
+Underfull \hbox (badness 10000) in paragraph at lines 58--61
 []\T1/aer/m/n/12 (+10) Openlink Soft-ware.  \T1/aer/m/it/12 (+10) Vir-tu-oso Un
 i-ver-sal Ser-ver\T1/aer/m/n/12 (+10) ,
  []
 
+[40
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--62
+]
+Underfull \hbox (badness 10000) in paragraph at lines 63--67
 []\T1/aer/m/n/12 (+10) Oracle.  \T1/aer/m/it/12 (+10) Oracle Da-ta-base Se-man-
 tic Tech-no-lo-gies Tu-to-rial\T1/aer/m/n/12 (+10) ,
  []
 
 
-Overfull \hbox (88.32375pt too wide) in paragraph at lines 58--62
+Overfull \hbox (88.32375pt too wide) in paragraph at lines 63--67
 \T1/aer/m/n/12 (-10) http://download.oracle.com/otndocs/tech/semantic_-web/pdf/
 oradb_-semtech_-tu-to-rial.pdf,
  []
 
-[39
 
-]
-Underfull \hbox (badness 1062) in paragraph at lines 64--67
+Underfull \hbox (badness 1062) in paragraph at lines 69--72
 []\T1/aer/m/n/12 (+10) Oracle.  \T1/aer/m/it/12 (+10) Oracle Spa-tial\T1/aer/m/
 n/12 (+10) , http://www.orafaq.com/wiki/Spatial_-FAQ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 102--107
+Underfull \hbox (badness 10000) in paragraph at lines 107--112
 \T1/aer/m/n/12 (+10) Vysoká ²kola eko-no-mická v Praze, 2009.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 109--113
+Underfull \hbox (badness 10000) in paragraph at lines 114--118
 []\T1/aer/m/n/12 (+10) Vitvar To-má².  \T1/aer/m/it/12 (+10) Sé-man-tický web\T
 1/aer/m/n/12 (+10) .  ƒVUT, Praha, 2011,
  []
 
 
-Overfull \hbox (210.52306pt too wide) in paragraph at lines 109--113
+Overfull \hbox (210.52306pt too wide) in paragraph at lines 114--118
 \T1/aer/m/n/12 (-10) http://www.cvut.cz/pracoviste/odbor-rozvoje/stranky/habili
 tace-a-inaugurace/habilitacni-prednasky/lecture.pdf. 
  []
 
 
-Underfull \hbox (badness 7925) in paragraph at lines 121--124
+Underfull \hbox (badness 7925) in paragraph at lines 126--129
 \T1/aer/m/n/12 (+10) http://www.w3.org/TR/2004/REC-rdf-concepts-20040210/, (p°í
 -stup
  []
@@ -1303,27 +1329,30 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[40])
+[41])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[41] [42] [43]
+[42] [43] [44]
 (C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
 del\diploma-doc\text-prace-LATEX\diplomka.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 8372 strings out of 494045
- 112910 string characters out of 3145966
- 251901 words of memory out of 3000000
- 10892 multiletter control sequences out of 15000+200000
- 83598 words of font info for 486 fonts, out of 3000000 for 9000
+ 8380 strings out of 494045
+ 112971 string characters out of 3145966
+ 251947 words of memory out of 3000000
+ 10893 multiletter control sequences out of 15000+200000
+ 84268 words of font info for 492 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  37i,12n,43p,3348b,378s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
@@ -1333,9 +1362,9 @@ rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Prog
 ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program 
 Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on diplomka.pdf (48 pages, 450689 bytes).
+Output written on diplomka.pdf (49 pages, 455860 bytes).
 PDF statistics:
- 341 PDF objects out of 1000 (max. 8388607)
+ 345 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  159785 words of extra memory for PDF output out of 184870 (max. 10000000)
 
