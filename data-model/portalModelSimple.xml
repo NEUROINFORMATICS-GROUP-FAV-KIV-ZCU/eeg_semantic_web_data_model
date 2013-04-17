@@ -122,13 +122,13 @@
 
 <!-- PERSON -->
 
-    <property name="person/given_name" range="xsd:string" domain="person/researcher" description="Given name."/>
-    <property name="person/surname" range="xsd:string" domain="person/researcher" description="Surname"/>
-    <property name="person/date_birth" range="xsd:date" domain="person/researcher" description="Date of birth."/>
-    <property name="person/email" range="xsd:string" domain="person/researcher" description="Email address."/>
-    <property name="person/phone_number" range="xsd:integer" domain="person/researcher" description="Telephone number."/>
-    <property name="person/note" range="xsd:string" domain="person/researcher" description="Person optional description note."/>
-    <property name="person/education_level" range="education_level" domain="person/researcher" description="Person education level."/>
+    <property name="person/researcher/given_name" range="xsd:string" domain="person/researcher" description="Given name."/>
+    <property name="person/researcher/surname" range="xsd:string" domain="person/researcher" description="Surname"/>
+    <property name="person/researcher/date_birth" range="xsd:date" domain="person/researcher" description="Date of birth."/>
+    <property name="person/researcher/email" range="xsd:string" domain="person/researcher" description="Email address."/>
+    <property name="person/researcher/phone_number" range="xsd:integer" domain="person/researcher" description="Telephone number."/>
+    <property name="person/researcher/note" range="xsd:string" domain="person/researcher" description="Person optional description note."/>
+    <property name="person/researcher/education_level" range="education_level" domain="person/researcher" description="Person education level."/>
 
     <property name="person/researcher/username" range="xsd:string" domain="person/researcher" description="Login username."/>
     <property name="person/researcher/password" range="xsd:string" domain="person/researcher" description="Login password."/>
@@ -145,13 +145,13 @@
     <property name="person/researcher/group_member_reader" range="research_group" domain="person/researcher" description="Reader right group membership."/>
 
 
-    <property name="person/given_name" range="xsd:string" domain="person/test_subject" description="Given name."/>
-    <property name="person/surname" range="xsd:string" domain="person/test_subject" description="Surname"/>
-    <property name="person/date_birth" range="xsd:date" domain="person/test_subject" description="Date of birth."/>
-    <property name="person/email" range="xsd:string" domain="person/test_subject" description="Email address."/>
-    <property name="person/phone_number" range="xsd:integer" domain="person/test_subject" description="Telephone number."/>
-    <property name="person/note" range="xsd:string" domain="person/test_subject" description="Person optional description note."/>
-    <property name="person/education_level" range="education_level" domain="person/test_subject" description="Person education level."/>
+    <property name="person/test_subject/given_name" range="xsd:string" domain="person/test_subject" description="Given name."/>
+    <property name="person/test_subject/surname" range="xsd:string" domain="person/test_subject" description="Surname"/>
+    <property name="person/test_subject/date_birth" range="xsd:date" domain="person/test_subject" description="Date of birth."/>
+    <property name="person/test_subject/email" range="xsd:string" domain="person/test_subject" description="Email address."/>
+    <property name="person/test_subject/phone_number" range="xsd:integer" domain="person/test_subject" description="Telephone number."/>
+    <property name="person/test_subject/education_level" range="education_level" domain="person/test_subject" description="Person education level."/>
+    <property name="person/test_subject/note" range="xsd:string" domain="person/test_subject" description="Person optional description note."/>
     <property name="person/test_subject/gender" range="xsd:string" domain="person/test_subject" description="Gender of test subject."/>
     <property name="person/test_subject/laterality" range="xsd:string" domain="person/test_subject" description="Brain laterality of test subject."/>
 
