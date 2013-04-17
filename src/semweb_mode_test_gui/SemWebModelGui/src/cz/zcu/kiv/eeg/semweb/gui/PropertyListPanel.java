@@ -310,8 +310,14 @@ public class PropertyListPanel extends JScrollPane {
 
             if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                 try {
-                    li.updateValue(tf.getText());
-                    centerPanel.requestFocus();
+
+                    if (tf.getText().length() == 0) {
+                        li.removeValue();
+                        updateData(li.getParentInd());
+                    }else {
+                        li.updateValue(tf.getText());
+                        centerPanel.requestFocus();
+                    }
                 } catch (AddDeniedException ex) {
                     logger.error("Invalid datatype updated literatl node", ex);
                     JOptionPane.showMessageDialog(dtPanel.getRootFrame(), "Invalid data format");

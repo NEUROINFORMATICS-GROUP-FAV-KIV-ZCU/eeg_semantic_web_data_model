@@ -722,7 +722,8 @@ public class PortalModel {
     }
 
     /**
-     * List all model defined properties that has no superProperties
+     * List all model defined properties that has specified domain
+     *
      * @return list of properties
      */
     public List<String> listPropertiesByDomain(String domainUri) {
@@ -740,6 +741,33 @@ public class PortalModel {
             if (!op.getURI().contains("w3.org") && op.getDomain() != null) {
 
                 if (op.getDomain().getURI().equals(domainUri)) {
+
+                    parents.add(op.getURI());
+                }
+            }
+        }
+        return parents;
+    }
+
+    /**
+     * List all model defined properties that has no superProperties
+     * @return list of properties
+     */
+    public List<String> listPropertiesByRange(String rangeUri) {
+        logger.info("Listing properties with range " + rangeUri);
+        List<String> parents = new ArrayList<String>();
+
+        ExtendedIterator<OntProperty> ex = ontologyModel.listOntProperties();
+
+        OntProperty op;
+
+        while (ex.hasNext()) {
+
+            op = ex.next();
+
+            if (!op.getURI().contains("w3.org") && op.getDomain() != null) {
+
+                if (op.getRange().getURI().equals(rangeUri)) {
 
                     parents.add(op.getURI());
                 }
@@ -865,6 +893,68 @@ public class PortalModel {
         ranges.add(XSDDatatype.XSDstring.getURI());
 
         return ranges;
+    }
+
+    /**
+     * Remove specified property from model - it removes all bounded property values
+     * 
+     * @param uri Property URI
+     */
+    public void removeProperty(String uri) {
+        logger.info("Removing property " + uri);
+
+        OntProperty op = ontologyModel.getOntProperty(uri);
+
+        if (op != null) {
+            List<Resource> resources = ontologyModel.listSubjectsWithProperty(op).toList();
+
+            for (Resource item : resources) {
+                item.removeAll(op);
+            }
+            op.remove();
+        }
+    }
+
+    /**
+     * Remove specified individual from model - it removes all bounded property values
+     *
+     * @param uri Individual URI
+     */
+    public void removeIndividual(String uri) {
+        logger.info("Removing individual " + uri);
+
+        Individual ind = ontologyModel.getIndividual(uri);
+
+        if (ind != null) {
+            ind.remove();
+        }
+    }
+
+    /**
+     * Remove specified class from model - it removes all bounded individual values
+     * and properties with target range
+     *
+     * @param uri Class URI
+     */
+    public void removeClass(String uri) {
+        logger.info("Removing class " + uri);
+
+        OntClass oc = ontologyModel.getOntClass(uri);
+
+        if (oc != null) {
+            List<? extends OntResource> indvs = oc.listInstances().toList();
+
+            for (OntResource or : indvs) {
+                or.remove();
+            }
+
+            List<String> rangeProps = listPropertiesByRange(uri);
+
+            for (String prop : rangeProps) {
+                removeProperty(prop);
+            }
+            oc.remove();
+        }
     }
 
     /**

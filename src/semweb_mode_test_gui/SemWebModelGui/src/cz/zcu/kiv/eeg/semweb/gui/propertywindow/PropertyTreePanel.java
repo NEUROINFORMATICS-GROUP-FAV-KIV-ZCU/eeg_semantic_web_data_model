@@ -36,7 +36,10 @@ public class PropertyTreePanel extends JPanel {
     private String selectedClass;
     private JTextArea description;
     private JButton updDescrBt;
+    private JButton removeBt;
     private PropertyNodeSelectionListener listener;
+    private ContentPanel dataPanel;
+
     private static final Logger logger = Logger.getLogger(PropertyTreePanel.class);
 
     /**
@@ -53,6 +56,7 @@ public class PropertyTreePanel extends JPanel {
         this.mw = mw;
         this.self = this;
         this.selectedClass = selClass;
+        this.dataPanel = dataPanel;
 
         setLayout(new BorderLayout());
 
@@ -121,11 +125,23 @@ public class PropertyTreePanel extends JPanel {
         updDescrBt = new JButton("Set description");
         updDescrBt.setEnabled(false);
 
+        removeBt = new JButton("Remove property");
+        removeBt.setEnabled(false);
+
         updDescrBt.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
 
                 model.updatePropertyDescription(tree.getSelectionPath().getLastPathComponent().toString(), description.getText().trim());
+            }
+        });
+
+        removeBt.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                model.removeProperty(tree.getSelectionPath().getLastPathComponent().toString());
+                updateTree();
+                dataPanel.nodeSelected(null);
             }
         });
 
@@ -141,6 +157,7 @@ public class PropertyTreePanel extends JPanel {
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(addClassBt);
         buttonPanel.add(updDescrBt);
+        buttonPanel.add(removeBt);
 
         return buttonPanel;
     }
@@ -211,6 +228,7 @@ public class PropertyTreePanel extends JPanel {
 
     public void setUpdateDescrBt(boolean enabled) {
         updDescrBt.setEnabled(enabled);
+        removeBt.setEnabled(enabled);
     }
 
     public PortalModel getModel() {

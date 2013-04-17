@@ -160,6 +160,17 @@ public class ContentPanel extends JPanel {
 
             validate();
             repaint();
+        }else {
+            actualNode = null;
+
+            this.removeAll();
+
+            add(createTopPanel(), BorderLayout.NORTH);
+            add(createBottomPanel(), BorderLayout.SOUTH);
+            add(createCenterPanel(), BorderLayout.CENTER);
+
+            validate();
+            repaint();
         }
     }
 

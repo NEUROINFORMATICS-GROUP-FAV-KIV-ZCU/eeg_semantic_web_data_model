@@ -74,6 +74,22 @@ public final class LiteralItem extends Item {
         parentInd.removeProperty(chainProperty, original);//remove
     }
 
+    /**
+     * Remove literal bounded to individuals property
+     */
+    public void removeValue() {
+        parentInd.removeProperty(chainProperty, original);//remove
+    }
+
+    /**
+     * Return URI of parent individual
+     * 
+     * @return parent individual URI
+     */
+    public String getParentInd() {
+        return parentInd.getURI();
+    }
+
     @Override
     public String toString() {
         return value.toString();

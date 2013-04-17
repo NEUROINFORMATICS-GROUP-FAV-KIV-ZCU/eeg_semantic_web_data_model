@@ -33,13 +33,17 @@ public class ClassTreePanel extends JPanel {
     private ClassTreePanel self;
     private JTextArea description; //Class description panel
     private JButton updDescrBt; //update description button
+    private JButton removeClassBt; //removeClass button
     private TreeClassNodeSelectionListener listener; //listener of selected node of ClassLister JTree
+    private DataPanel dataPanel; //tree data panel
+
     private static final Logger logger = Logger.getLogger(ClassTreePanel.class);
 
     public ClassTreePanel(PortalModel model, DataPanel dataPanel, MainWindow mw) throws NonExistingUriNodeException {
 
         this.model = model;
         this.mw = mw;
+        this.dataPanel = dataPanel;
         this.self = this;
 
         listener = new TreeClassNodeSelectionListener(this, model, dataPanel);
@@ -120,10 +124,25 @@ public class ClassTreePanel extends JPanel {
             }
         });
 
+        removeClassBt = new JButton("Remove class");
+        removeClassBt.setEnabled(false);
+
+        removeClassBt.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                model.removeClass(getSelectedNode());
+                removeClassBt.setEnabled(false);
+                updateTree();
+                dataPanel.nodeSelected(null);
+                setDescription("");
+            }
+        });
+
         JPanel buttonPanel = new JPanel();
         buttonPanel.setBackground(new Color(240, 240, 240));
         buttonPanel.add(addClassBt);
         buttonPanel.add(updDescrBt);
+        buttonPanel.add(removeClassBt);
 
         return buttonPanel;
     }
@@ -191,6 +210,7 @@ public class ClassTreePanel extends JPanel {
 
     public void setUpdateDescrBt(boolean enabled) {
         updDescrBt.setEnabled(enabled);
+        removeClassBt.setEnabled(enabled);
     }
 
     public PortalModel getModel() {

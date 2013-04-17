@@ -36,6 +36,7 @@ public class DataPanel extends JPanel {
     private String actualSelectedClassNode; //Actual selected class in Jtree ClassLister
     private DisjunctionCondition filterCond; //Filter condition to filter individuals
     private JButton addInstBt; //Add class instance (Individual) button
+    private JButton removeInstBt; //Remove class instance (Individual) button
     private JButton addPropBt; //Add new property (property-value) to selected individual
     private String actualSelectedIndividual; //Actual selected individual
     private static final Logger logger = Logger.getLogger(DataPanel.class);
@@ -115,15 +116,25 @@ public class DataPanel extends JPanel {
         setBorder(BorderFactory.createLineBorder(Color.GRAY));
 
         addInstBt = new JButton("Add instance");
+        removeInstBt = new JButton("Remove instance");
         addPropBt = new JButton("Add property");
 
         addInstBt.setEnabled(false);
+        removeInstBt.setEnabled(false);
         addPropBt.setEnabled(false);
+
 
         addInstBt.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
                 createNewInstance();
+            }
+        });
+
+        removeInstBt.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                removeInstance();
             }
         });
 
@@ -135,6 +146,7 @@ public class DataPanel extends JPanel {
         });
 
         bottomPanel.add(addInstBt);
+        bottomPanel.add(removeInstBt);
         bottomPanel.add(addPropBt);
 
         return bottomPanel;
@@ -179,6 +191,11 @@ public class DataPanel extends JPanel {
                 individualSelectorComboBox.addItem(item);
             }
             updateSelectedIndividual();
+        }else {
+            actualSelectedClassNode = null;
+            individualSelectorComboBox.removeAllItems();
+            updateSelectedIndividual();
+            addInstBt.setEnabled(false);
         }
     }
 
@@ -190,9 +207,13 @@ public class DataPanel extends JPanel {
         if (individualSelectorComboBox.getSelectedItem() == null) {
             actualSelectedIndividual = null;
             addPropBt.setEnabled(false);
+            addInstBt.setEnabled(false);
+            removeInstBt.setEnabled(false);
         } else {
             actualSelectedIndividual = individualSelectorComboBox.getSelectedItem().toString();
             addPropBt.setEnabled(true);
+            addInstBt.setEnabled(true);
+            removeInstBt.setEnabled(true);
         }
 
         propPanel.updateData(actualSelectedIndividual);
@@ -224,6 +245,14 @@ public class DataPanel extends JPanel {
         } catch (NonExistingUriNodeException ex) {
             logger.error("Can not find parent class.", ex);
         }
+    }
+
+    /**
+     * Remove class instance (Individual)
+     */
+    private void removeInstance() {
+        model.removeIndividual(actualSelectedIndividual);
+        nodeSelected(actualSelectedClassNode);
     }
 
     private void selectIndividual(String indUri) {
