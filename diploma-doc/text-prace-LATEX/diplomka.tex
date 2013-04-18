@@ -636,11 +636,24 @@ Každé vytvořené třídě a predikátu (property) je navíc dodávána prost�
 
 \subsection{Výhody navrženého modelu}
 
+\begin{itemize}
+\item Zápis významu objektů je přímou součásti modelu
+\item Jednoduché anotování dat bez změny struktury modelu
+\item Dynamicky rozšiřitelný model
+\item Možnost libovolných meziobjektových  vazeb
+\item Typování meziobjektových vazeb
+\end{itemize}
+
+
 \subsection{Nevýhody navrženého modelu}
 
+\begin{itemize}
+\item Datový model rozdělen do dvou částí
+\item Ztráta restriktivních omezení z původního relačního modelu
+\item Možná ztráta přehlednosti modelu neuváženým rozšiřováním
+\end{itemize}
 
-
-
+Navržený model poskytuje poměrně širokou řadu výhod, díky které je možné ukládat data způsobem bližším lidskému myšlení. Zásadní nevýhodou modelu je ztráta restriktivních omezení, neboť není možné vynutit na úrovni modelu povinné údaje jako je např. u osob výzkumníků uživatelské jméno či heslo, bez kterých nemohou provést přihlášení do systému a dále jej využívat. Souvisejícím problémem je ztráta možnosti omezení počtu vazeb mezi instancemi tříd, není tak možné například omezit vazbu M:N na 1:1. Všechny tyto záležitosti je nutné řešit v datové vrstvě aplikace pracující s modelem. V rámci tohoto hodnocení navrženého modelu se vybízí také otázka jeho výkonnosti, která bude řešena v kapitole testování.
 
 
 

@@ -41,5 +41,5 @@
 \contentsline {subsection}{\numberline {7.3.8}Uk\IeC {\'a}zka transformace}{40}
 \contentsline {subsection}{\numberline {7.3.9}V\IeC {\'y}hody navr\IeC {\v z}en\IeC {\'e}ho modelu}{41}
 \contentsline {subsection}{\numberline {7.3.10}Nev\IeC {\'y}hody navr\IeC {\v z}en\IeC {\'e}ho modelu}{41}
-\contentsline {chapter}{\numberline {8}Testov\IeC {\'a}n\IeC {\'\i } \IeC {\v r}e\IeC {\v s}en\IeC {\'\i }}{42}
-\contentsline {chapter}{\numberline {9}Z\IeC {\'a}v\IeC {\v e}r}{43}
+\contentsline {chapter}{\numberline {8}Testov\IeC {\'a}n\IeC {\'\i } \IeC {\v r}e\IeC {\v s}en\IeC {\'\i }}{43}
+\contentsline {chapter}{\numberline {9}Z\IeC {\'a}v\IeC {\v e}r}{44}
