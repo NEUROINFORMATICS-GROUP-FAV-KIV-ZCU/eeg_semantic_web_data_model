@@ -33,5 +33,8 @@
 \contentsline {section}{\numberline {7.3}S\IeC {\'e}mantick\IeC {\'a} \IeC {\v c}\IeC {\'a}st}{35}
 \contentsline {subsection}{\numberline {7.3.1}Transformace tabulek}{35}
 \contentsline {subsection}{\numberline {7.3.2}Transformace rozkladov\IeC {\'y}ch tabulek}{36}
-\contentsline {chapter}{\numberline {8}Testov\IeC {\'a}n\IeC {\'\i } \IeC {\v r}e\IeC {\v s}en\IeC {\'\i }}{37}
-\contentsline {chapter}{\numberline {9}Z\IeC {\'a}v\IeC {\v e}r}{38}
+\contentsline {subsection}{\numberline {7.3.3}Transformace atribut\IeC {\r u} tabulek}{37}
+\contentsline {subsection}{\numberline {7.3.4}Transformace datov\IeC {\'y}ch typ\IeC {\r u}}{38}
+\contentsline {subsection}{\numberline {7.3.5}Transformace z\IeC {\'a}znam\IeC {\r u} tabulek}{39}
+\contentsline {chapter}{\numberline {8}Testov\IeC {\'a}n\IeC {\'\i } \IeC {\v r}e\IeC {\v s}en\IeC {\'\i }}{40}
+\contentsline {chapter}{\numberline {9}Z\IeC {\'a}v\IeC {\v e}r}{41}

@@ -538,21 +538,66 @@ Transformované atributy (predikáty) je zapotřebí navíc svázat se třídami
 
 
 \subsection{Transformace rozkladových tabulek}
+\hspace{0.65cm}Původní datový model je z velké části tvořen tabulkami jež rozkládají násobnou vazbu M:N jiných tabulek. Tyto tabulky nebudou transformovány do podoby tříd, nýbrž se pouze využijí jejich atributy, které budou přiřazeny k jedné z provázaných tabulek resp. tříd. Sémantický web připouští přiřazení více různých hodnot objektů subjektům pro stejný predikát. Je tedy možné například instanci třídy {\it Weather} přiřadit pro predikát {\it Research\_group} více cílových skupin. Ve výsledku však bude transformován pouze jeden atribut rozkladové tabulky na predikát, jež bude reprezentovat vazbu mezi první z původních provázaných tabulek prostřednictvím konstrukce {\it rdfs:range} a druhou tabulkou prostřednictvím domény predikátu ({\it rdfs:domain}). Výraz {\it rdfs:range} přiřazený k vybranému predikátu umožňuje vyjádřit náležitost instance ke rodičovské třídě (definované hodnotou {\it rdfs:range}) pokud je tato instance objektem trojice se zmíněným predikátem. V rámci této transformace bude využito {\it rdfs:range} zároveň k vyjádření cílového objektu pro predikát, stejně jako bylo využito domény pro určení zdrojového subjektu daného predikátu. 
+Rozhodnutí která z vázaných tabulek určí predikátu hodnotu {\it rdfs:domain} či {\it rdfs:range} je odvislá od sémantického významu této vazby jež bude propojovat výsledné instance tříd a určí tak směr vazby (v případě reprezentace modelu orientovaným grafem se bude určovat směr šipky daného predikátu – viz predikát {\it Measure} na obrázku 5.1).
+
+Pro názornost tohoto postupu bude uvedena ukázka transformace původní tabulky {\it COEXPERIMENTER\_REL} nesoucí atributy {\it EXPERIMENT\_ID} a {\it PERSON\_ID}, tak jak ukazuje obrázek 7.2.
+
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.5]{rozkladovka.pdf}
+\caption{Znázornění transformace rozkladové tabulky}
+\end{center}
+\end{figure}
+
+
+Tato tabulka umožňuje zaznamenat násobnou vazbu mezi záznamy tabulek {\it EXPERIMENT} a {\it PERSON} vyjadřující účast více výzkumníků podílejících se na provádění experimentu. Výsledkem aplikace výše uvedeného postupu bude vzniklý predikát jehož doména ({\it rdfs:domain}) bude mít hodnotu {\it Experiment} (třída) a {\it rdfs:range} hodnotu {\it Researcher}. Hodnotu URI tohoto predikátu lze zvolit např. {\it experiment/coexperiment\_person}.
+
+
+\subsection{Transformace atributů tabulek}
+\hspace{0.65cm}Transformace atributů tabulek již byla popsána v předchozích odstavcích, ze kterých je zřejmý postup vzniku výsledného predikátu. K již uvedenému postupu určení domény predikátu dle tabulky původního modelu je nutné ještě uvést postup určení rozsahu ({\it rdfs:range}) cílových objektů predikátem vázaných trojic. V případě atributů rozkladových tabulek je tento cílový rozsah určen právě jedním z těchto atributů. Rozsah ({\it rdfs:range})  transformova-\\ného atributu u nerozkladové tabulky je určen doménou (ve smyslu relační databáze) tohoto atributu. Pokud je tato (relační) doména původního atributu určena cizím klíčem jiné tabulky s níž má atribut zajistit provázání, pak tato cílová tabulka (transformovaná na třídu) určuje i rozsah predikátu. V opačném případě kdy relační doména je určena pouze datovým typem omezujícím přípustné hodnoty atributu bude rozsah určen rovněž datovým typem, který ale bude definován prostřednictvím XSD datových typů. Určení toho typu je dáno tabulkou XX uvedenou v následující podkapitole.
+
+\subsection{Transformace datových typů}
+\hspace{0.65cm}Pro určení datových typů rozsahů ({\it rdfs:range}) predikátů a literálů transfor-\\movaných z hodnot atributů záznamů tabulek slouží následující tabulka 7.2. Ta popisuje transformaci datových typů relační databáze na základní datové typy sémantického webu definované XSD schématem.
+
+\vspace{0.25cm}
+
+\begin{table}[htbp!]
+
+\label{značka tabulky}
+\begin{center}
+\begin{tabular} { | >{\centering} m{3.8cm} |  > {\centering} m{3.8cm} | } 
+\hline
+{\bf Relační databáze} & {\bf Sémantický web} \tabularnewline 
+\hline
+\hline
+{\it VARCHAR2} & {\it xsd:string} \tabularnewline
+\hline
+{\it CHAR} & {\it xsd:string} \tabularnewline
+\hline
+{\it NUMBER} & {\it xsd:integer} \tabularnewline
+\hline
+{\it LONG} & {\it xsd:long} \tabularnewline
+\hline
+{\it FLOAT} & {\it xsd:float} \tabularnewline
+\hline
+{\it DATE} & {\it xsd:date} \tabularnewline
+\hline
+{\it TIMESTAMP} & {\it xsd:dateTime} \tabularnewline
+\hline
+\end{tabular}
+
+\end{center}
+\caption{Transformace datových typů relační databáze}
+\end{table}
+
+\vspace{0.25cm}
+
+Názvy datových typů relační databáze vycházejí z názvů užívaných portálovou databází Oracle.
+
+\subsection{Transformace záznamů tabulek}
 \hspace{0.65cm}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

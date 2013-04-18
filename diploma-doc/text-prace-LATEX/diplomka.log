@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  18 APR 2013 00:44
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  18 APR 2013 11:10
 entering extended mode
 **C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_m
 odel/diploma-doc/text-prace-LATEX/diplomka.tex
@@ -545,6 +545,9 @@ File: microtype.cfg 2010/01/10 v2.4 microtype main configuration file (RS)
 ))
 (C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
 del\diploma-doc\text-prace-LATEX\diplomka.aux
+
+LaTeX Warning: Label `zna\IeC {\v c}ka tabulky' multiply defined.
+
 
 LaTeX Warning: Label `zna\IeC {\v c}ka tabulky' multiply defined.
 
@@ -1223,22 +1226,83 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[36]
+[36] <rozkladovka.pdf, id=294, 845.04686pt x 446.70827pt>
+File: rozkladovka.pdf Graphic file (type pdf)
+
+<use rozkladovka.pdf>
+Package pdftex.def Info: rozkladovka.pdf used on input line 549.
+(pdftex.def)             Requested size: 422.5224pt x 223.35358pt.
+
+Overfull \hbox (32.5224pt too wide) in paragraph at lines 549--550
+ [] 
+ []
+
+
+Overfull \hbox (0.3543pt too wide) in paragraph at lines 555--556
+[]\T1/aer/m/n/12 (-10) Tato ta-bulka umoº-¬uje za-zna-me-nat ná-sob-nou vazbu m
+ezi zá-znamy ta-bu-lek
+ []
+
+
+Overfull \hbox (2.57742pt too wide) in paragraph at lines 559--560
+\T1/aer/m/n/12 (-10) roz-sah ur-£en práv¥ jed-ním z t¥chto atri-but·. Roz-sah (
+\T1/aer/m/it/12 (-10) rdfs:range\T1/aer/m/n/12 (-10) ) transformova- 
+ []
+
+
+Overfull \hbox (0.17891pt too wide) in paragraph at lines 559--560
+\T1/aer/m/n/12 (-10) da-ta-báze) to-hoto atri-butu. Po-kud je tato (re-la£ní) d
+o-ména p·-vod-ního atri-butu
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[37 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_dat
+a_model/diploma-doc/text-prace-LATEX/rozkladovka.pdf>]
+Overfull \hbox (1.92761pt too wide) in paragraph at lines 562--563
+ \T1/aer/m/n/12 (-10) Pro ur-£ení da-to-vých typ· roz-sah· (\T1/aer/m/it/12 (-1
+0) rdfs:range\T1/aer/m/n/12 (-10) ) pre-di-kát· a li-te-rál· transfor- 
+ []
+
+
+Overfull \hbox (16.7355pt too wide) in paragraph at lines 597--598
+[]\T1/aer/m/n/12 (-10) Názvy da-to-vých typ· re-la£ní da-ta-báze vy-chá-zejí z 
+ná-zv· uºí-va-ných por-tá-lo-vou
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[38]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[39]
 Kapitola 8.
-[37
+[40
 
 ]
 Kapitola 9.
-[38
+[41
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 567--570
+Underfull \hbox (badness 10000) in paragraph at lines 612--615
 
  []
 
 
 (C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
-del\diploma-doc\text-prace-LATEX\diplomka.bbl [39]
+del\diploma-doc\text-prace-LATEX\diplomka.bbl [42]
 Underfull \hbox (badness 2213) in paragraph at lines 8--10
 []\T1/aer/m/it/12 (+10) Semantic Web Tools\T1/aer/m/n/12 (+10) , http://semanti
 cweb.org/wiki/Tools, (p°í-stup
@@ -1280,7 +1344,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 58--61
 i-ver-sal Ser-ver\T1/aer/m/n/12 (+10) ,
  []
 
-[40
+[43
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 63--67
@@ -1329,14 +1393,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[41])
+[44])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[42] [43] [44]
+[45] [46] [47]
 (C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
 del\diploma-doc\text-prace-LATEX\diplomka.aux)
 
@@ -1348,11 +1412,11 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8380 strings out of 494045
- 112971 string characters out of 3145966
+ 8406 strings out of 494045
+ 113233 string characters out of 3145966
  251947 words of memory out of 3000000
- 10893 multiletter control sequences out of 15000+200000
- 84268 words of font info for 492 fonts, out of 3000000 for 9000
+ 10897 multiletter control sequences out of 15000+200000
+ 86278 words of font info for 510 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  37i,12n,43p,3348b,378s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
@@ -1362,9 +1426,9 @@ rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Prog
 ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program 
 Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on diplomka.pdf (49 pages, 455860 bytes).
+Output written on diplomka.pdf (52 pages, 498134 bytes).
 PDF statistics:
- 345 PDF objects out of 1000 (max. 8388607)
+ 369 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 159785 words of extra memory for PDF output out of 184870 (max. 10000000)
+ 159790 words of extra memory for PDF output out of 184870 (max. 10000000)
 
