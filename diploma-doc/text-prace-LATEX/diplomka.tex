@@ -45,14 +45,19 @@ V Plzni dne \today
 
 %The last part describes design and implementation of an application that uses annotations to add semantic information to transformed data.
 
+\pagenumbering{gobble} 
 \tableofcontents
+
+
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{\markboth{\textit{#1}}{}}
 \renewcommand{\sectionmark}[1]{\markright{\textit{#1}}{}}
+
 \cfoot{\thepage}
 \lhead{\leftmark}
 \rhead{\rightmark}
 \parskip 1em
+\pagenumbering{arabic} 
 \chapter{Úvod}
 \hspace{0.65cm}EEG/ERP portál je webová aplikace sloužící výzkumným pracovníkům ke shromažďování a organizaci dat získaných při neuroinformatických experimen-\\tech v EEG laboratoři. Jejím cílem je ukládání naměřených dat v kontextu prováděného experimentu, který lze popsat rozsáhlou množinou různorodých údajů. Tato aplikace již prošla mnohaletým vývojem v jehož průběhu postupně docházelo ke změnám datového modelu kvůli přibývajícím požadavkům na uchovávaná data. Relační databáze jež slouží jako persistentní úložiště tak postupně byla rozšiřována o další tabulky, jejichž počet se k datu tvorby této práce pohybuje v řádu desítek. Většina realizací požadavků na ukládání dalších dat tak přímo znamená zásah nejen do databáze portálu ale také to do datové vrstvy, která ji využívá. V současné době tak databáze obsahuje velké množství tabulek uchovávající různá data, která jsou ale ve smyslu sémantiky často příbuzná a existuje mezi nimi vazba, která je prostřednictvím relačního datového modelu velmi obtížně popsatelná. Zároveň lze očekávat, že budou přibývat požadavky na uchování dalších dat, která navíc nemusejí mít jen homogenní strukturu (ve smyslu relační databáze), ale může se jednat i o množiny sémanticky příbuzných údajů – tzv. metadata, které budou vázány pouze k některým datům. Možnost ukládání strukturně heterogenních, ale sémantický příbuzných metadat je tak dalším otevřeným problémem.
 
@@ -597,7 +602,44 @@ Tato tabulka umožňuje zaznamenat násobnou vazbu mezi záznamy tabulek {\it EX
 Názvy datových typů relační databáze vycházejí z názvů užívaných portálovou databází Oracle.
 
 \subsection{Transformace záznamů tabulek}
-\hspace{0.65cm}
+\hspace{0.65cm}Záznamy tabulek původního modelu se transformují na instance tříd ({\it rdf:type}) vzniklých z těchto tabulek. Pro každý záznam se tak vytvoří nové URI jež bude sloužit k jeho identifikaci a především jako subjekt trojic přiřazujících této instanci prostřednictvím vytvořených predikátů hodnoty objektů. Hodnoty těchto objektů závisí na hodnotě atributu původního zázna-\\mu. Bude-li původní hodnota atributu cizím klíčem jiné tabulky pak přiřazova-\\ným objektem bude instance třídy vzniklá ze záznamu určeného tímto cizím klíčem. V opačném případě bude na základě původní hodnoty atributu vytvořen nový literál nesoucí tuto hodnotu, jehož datový typ bude odpovídat transformovanému datovému typu (dle tabulky 7.2) původní domény atributu (původní datový typ atributu).
+
+\subsection{Dodání sémantiky modelu}
+\hspace{0.65cm}Nově vytvořenému modelu bude dodána sémantika prostřednictvím hierar-\\chického uspořádání všech transformací získaných tříd a predikátů ke kterým budou navíc dodány popisné informace. Hierarchického uspořádání je možné dosáhnout využitím konstrukcí {\it rdfs:subClassOf} a {\it rdfs:subPropertyOf}. Z původ-\\ního relačního modelu tvořeného množinou rovnocenných tabulek tak vzniká objektový model, který bude mít částečně stromovou strukturu. Jednoduchým způsobem je tedy dosaženo například oddělení zaznamenávaných osob jež provádějí experimenty od těch co jsou měřeným subjektem, tak jak znázorňuje obrázek 7.3.
+
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.52]{semantika.pdf}
+\caption{Znázornění dodání sémantiky modelu}
+\end{center}
+\end{figure}
+
+Ve výsledném modelu byla dále vytvořena rodičovská třída pro všechny třídy uchovávající údaje o měřících elektrodách či pro metadata popisující scénář měření. Kompletní navržená struktura tříd modelu v XML zápisu ke zobrazena v příloze XX. Význam tohoto zápisu je popsán v následující podkapitole Implementace transformace modelu.
+
+Každé vytvořené třídě a predikátu (property) je navíc dodávána prostřed-\\nictvím konstrukce {\it rdfs:comment} popisná informace (viz obrázek 7.3) umožň-\\ující uživateli získat představu o významu daných struktur modelu, které jsou jinak popsány pouze prostřednictvím URI (byť se sebelépe zvolenou hodnotou). V důsledku tak získáváme do určité míry samopopisný datový model.
+
+\subsection{Řešení rozšiřujících tabulek}
+\hspace{0.65cm}Původní relační model obsahuje několik tabulek nesoucích ve svém názvu řetězec {\it PARAM\_DEF} a {\it PARAM\_VAL} jež slouží k uložení dalších rozšiřujících hodnot tabulek ke kterým jsou vázané. Do popisované transformace nebudou tyto tabulky zahrnuty neboť by obsahem svých záznamu porušovaly návrh výsledného modelu. Funkce kterou tyto tabulky v původnímu modelu plní pouze pro vázané tabulky ale poskytuje výsledný transformovaný model všem uloženým datům, díky své koncepci. Toho je dosaženo prostřednictvím možnosti vytváření nových predikátů (property) modelu, které umožňují dodávat další nová metadata libovolným subjektů aniž by došlo k porušení původní struktury modelu. V případě požadavku vícenásobného využití nově definovaných metadat a jejich hodnot je rovněž možné rozšířit model o další třídy a její instance čímž lze dále jednoduše dynamicky datový model rozšiřovat. Názornou ukázkou ověřující toto tvrzení je testovací aplikace popisovaná v následující kapitole testování. 
+
+\subsection{Ukázka transformace}
+\hspace{0.65cm}Níže uvedený obrázek 7.4 graficky znázorňuje výsledek provedené transfor-\\mace dle popisovaných pravidel. Vzhledem k velikosti datového modelu je zde zobrazena pouze jeho část, přičemž celý model zapsaný prostřednictvím XML souboru je uložen na přiloženém CD.
+
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.52]{vysledne.pdf}
+\caption{Znázornění částí výsledného modelu}
+\end{center}
+\end{figure}
+
+
+\subsection{Výhody navrženého modelu}
+
+\subsection{Nevýhody navrženého modelu}
+
+
+
 
 
 
@@ -639,6 +681,8 @@ systému
 
 \end{description}
 
+
+\listoffigures
 
 \bibliography{diplomka}
 \bibliographystyle{plain}

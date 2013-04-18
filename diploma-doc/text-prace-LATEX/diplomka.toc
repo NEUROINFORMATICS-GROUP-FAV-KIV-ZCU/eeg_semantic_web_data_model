@@ -36,5 +36,10 @@
 \contentsline {subsection}{\numberline {7.3.3}Transformace atribut\IeC {\r u} tabulek}{37}
 \contentsline {subsection}{\numberline {7.3.4}Transformace datov\IeC {\'y}ch typ\IeC {\r u}}{38}
 \contentsline {subsection}{\numberline {7.3.5}Transformace z\IeC {\'a}znam\IeC {\r u} tabulek}{39}
-\contentsline {chapter}{\numberline {8}Testov\IeC {\'a}n\IeC {\'\i } \IeC {\v r}e\IeC {\v s}en\IeC {\'\i }}{40}
-\contentsline {chapter}{\numberline {9}Z\IeC {\'a}v\IeC {\v e}r}{41}
+\contentsline {subsection}{\numberline {7.3.6}Dod\IeC {\'a}n\IeC {\'\i } s\IeC {\'e}mantiky modelu}{39}
+\contentsline {subsection}{\numberline {7.3.7}\IeC {\v R}e\IeC {\v s}en\IeC {\'\i } roz\IeC {\v s}i\IeC {\v r}uj\IeC {\'\i }c\IeC {\'\i }ch tabulek}{40}
+\contentsline {subsection}{\numberline {7.3.8}Uk\IeC {\'a}zka transformace}{40}
+\contentsline {subsection}{\numberline {7.3.9}V\IeC {\'y}hody navr\IeC {\v z}en\IeC {\'e}ho modelu}{41}
+\contentsline {subsection}{\numberline {7.3.10}Nev\IeC {\'y}hody navr\IeC {\v z}en\IeC {\'e}ho modelu}{41}
+\contentsline {chapter}{\numberline {8}Testov\IeC {\'a}n\IeC {\'\i } \IeC {\v r}e\IeC {\v s}en\IeC {\'\i }}{42}
+\contentsline {chapter}{\numberline {9}Z\IeC {\'a}v\IeC {\v e}r}{43}
