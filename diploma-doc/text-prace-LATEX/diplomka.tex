@@ -656,8 +656,119 @@ Každé vytvořené třídě a predikátu (property) je navíc dodávána prost�
 Navržený model poskytuje poměrně širokou řadu výhod, díky které je možné ukládat data způsobem bližším lidskému myšlení. Zásadní nevýhodou modelu je ztráta restriktivních omezení, neboť není možné vynutit na úrovni modelu povinné údaje jako je např. u osob výzkumníků uživatelské jméno či heslo, bez kterých nemohou provést přihlášení do systému a dále jej využívat. Souvisejícím problémem je ztráta možnosti omezení počtu vazeb mezi instancemi tříd, není tak možné například omezit vazbu M:N na 1:1. Všechny tyto záležitosti je nutné řešit v datové vrstvě aplikace pracující s modelem. V rámci tohoto hodnocení navrženého modelu se vybízí také otázka jeho výkonnosti, která bude řešena v kapitole testování.
 
 
+\chapter{Implementace navrženého modelu}
+
+\section{Formální zápis modelu}
+\hspace{0.65cm}V předchozí kapitole byla navržena struktura nového datového modelu portálu, která je tvořena relační částí a částí sémantického webu. Aby bylo možné požadovaný model prakticky využít a otestovat, je nutné zajistit jeho konstrukci v databázovém systému. Pro účely této práce bude model vytvořen v databázových systémech Oracle a Virtuoso, které poskytují prostředky pro hybridní datové úložiště. Vzhledem k tomu, že datový model portálu je neustále modifikován z důvodu implementace nových funkcionalit je vhodné, aby bylo možné model vytvářet co nejvíce automaticky a umožnit tak co nejjednodušeji reflektovat změny původního modelu do transformovaného.
+
+Pro zápis navrženého modelu byl zvolen XML formát a z důvodu přehled-\\nosti, snadné uživatelské modifikace, jednoduchého zápisu hierarchických struktur a následného aplikačního zpracování. Pro usnadnění práce uživatele je k dispozici také XSD šablona jež usnadňuje vytváření dokumentu a jeho případnou validaci. XML dokument tedy slouží k zápisu všech modelem požadovaných struktur, čímž jsou tabulky, třídy a predikáty (property).
+
+Dokument musí začínat definicí tabulek, které jsou specifikovány svým jménem a typem dat jež budou ukládat (binární nebo textové soubory). Název tabulky je zvolen shodně s lokálním jménem URI identifikátoru třídy jejíž instance jsou reflektovány ve zmíněné tabulce prostřednictvím URI. Touto volbou názvu se později v testovací aplikaci docílí propojení tabulek s třídami. Element definující tabulku má název {\it data\_table} a jeho atributy {\it name} a {\it type} slouží ke záznamu jména tabulky typu ukládaných dat. Pro názornost je níže uvedena definice všech 4 tabulek relační části transformovaného modelu.
+
+\begin{verbatim}
+<data_table name="article" type="text"/>
+<data_table name="article_comment" type="text"/>
+<data_table name="data_file" type="binary"/>
+<data_table name="scenario" type="binary"/>
+\end{verbatim}
+
+Po definici tabulek modelu je dále nutné uvést všechny požadované třídy. Ty jsou určeny svými názvy (URI) a popiskem definujícím ontologický význam třídy (viz obrázek 7.3).
+Element definující třídu má název {\it class} a atributy {\it name} a {\it description} slouží zápisu jména třídy a jejího popisku. Pro názornost je opět níže uvedena ukázka definice tříd {\it Experiment} a {\it Article}.
+
+\begin{verbatim}
+<class name="article" description="Published article."/>    
+<class name="experiment" description="EEG/ERP experiment."/>
+\end{verbatim}
+
+Po definici všech tříd je možné zavést jejich nepovinný hierarchický systém. Ten se provádí výčtem potomků vybrané třídy a je možné jej libovolně řetězit. Klíčovým elementem označujícím rodičovskou třídu je {\it parent\_class}, jehož tag ohraničuje potomky definované elementem {\it child} s jediným parametrem name pro název třídy. Definice potomků třídy {\it Person} je uvedena níže.
+
+\begin{verbatim}
+<parent_class name="person">
+        <child name="person/researcher"/>
+        <child name="person/test_subject"/>
+</parent_class>
+\end{verbatim}
+
+Dalším částí dokumentu je definice predikátů (property). Element pro tuto definici má název {\it property} a jeho atributy {\it name}, {\it range}, {\it domain} a {\it description} postupně slouží k určení jeho jména, rozsahu ({\it rdfs:range}), domény ({\it rdfs:domain}) a sémantického popisku. Ukázka použití je uvedena níže.
+
+\begin{verbatim}
+<property 
+     name="person/researcher/given_name" 
+     range="xsd:string" 
+     domain="person/researcher" 
+     description="Given name."/>
+
+<property 
+     name="person/researcher/group_member" 
+     range="research_group" 
+     domain="person/researcher" 
+     description="Group membership."/>
+\end{verbatim}
+
+Poslední části dokumentu je definice hierarchie predikátů, jejíž praktické využití je v této práci spíše okrajové, jak je uvedeno v kapitole testování. Definice hierarchického systému je obdobná jako v případě tříd. Rodičovský predikát je uvozen elementem s názvem {\it parent\_property} s atributem {\it name} nesoucím jméno predikátu. Vnořené elementy děděných predikátu jsou opět definovány názvem {\it child} s atributem {\it name} pro jméno potomka. Ukázka zápisu dědičnosti predikátů je uvedena níže.
+
+\begin{verbatim}
+<parent_property name="article_property">
+        <child name="article/author"/>
+        <child name="article/research_group"/>
+        <child name="article/title"/>
+        <child name="article/time"/>
+        <child name="article/subscription"/>
+</parent_property>
+\end{verbatim}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Konstrukce modelu}
+\subsection{Komunikace s databází}
+\subsection{Zápis modelu}
+\subsection{Vytvoření testovacích dat}
+
+\section{Využití modelu}
+\subsection{Operace čtení}
+\subsection{Operace zápisu}
+\subsection{Operace mazání}
+
+
+
+
+
+
+
+
+
+
 
 \chapter{Testování řešení}
+\section{Funkční testování}
+\section{Výkonnostní testování}
+\subsection{Postup testování}
+\subsection{Naměřené hodnoty}
+\subsection{Diskuze výsledků}
+
 
 \chapter{Závěr}
 
@@ -703,7 +814,7 @@ systému
 
 \appendix
 \newpage
-% Konec cislovani
+
 
 \thispagestyle{plain}
 
@@ -715,6 +826,7 @@ systému
 \thispagestyle{plain}
 \section*{{\LARGE A} ERA model databáze EEG/ERP portálu}
 \hspace{0.65cm}Priloha A - ERA model portalu
-
+\section*{{\LARGE B} Uživatelský manuál testovací aplikace}
+\section*{{\LARGE C} Navržený hierarchický systém tříd modelu}
 
 \end{document}

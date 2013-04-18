@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  18 APR 2013 16:05
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  18 APR 2013 20:52
 entering extended mode
 **C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_m
 odel/diploma-doc/text-prace-LATEX/diplomka.tex
@@ -1353,21 +1353,39 @@ Kapitola 8.
 [43
 
 ]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[44]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[45]
 Kapitola 9.
-[44
+[46
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 667--670
+Kapitola 10.
+[47
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 778--781
 
  []
 
-[45]
+[48]
 (C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
 del\diploma-doc\text-prace-LATEX\diplomka.lof)
 \tf@lof=\write5
 
 (C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
-del\diploma-doc\text-prace-LATEX\diplomka.bbl [46
+del\diploma-doc\text-prace-LATEX\diplomka.bbl [49
 
 ]
 Underfull \hbox (badness 2213) in paragraph at lines 8--10
@@ -1411,7 +1429,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 58--61
 i-ver-sal Ser-ver\T1/aer/m/n/12 (+10) ,
  []
 
-[47
+[50
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 63--67
@@ -1460,14 +1478,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[48])
+[51])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[49] [50] [51]
+[52] [53] [54]
 (C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
 del\diploma-doc\text-prace-LATEX\diplomka.aux)
 
@@ -1481,7 +1499,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  8419 strings out of 494045
  113646 string characters out of 3145966
- 251947 words of memory out of 3000000
+ 250947 words of memory out of 3000000
  10905 multiletter control sequences out of 15000+200000
  86278 words of font info for 510 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
@@ -1493,9 +1511,9 @@ rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Prog
 ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program 
 Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on diplomka.pdf (56 pages, 565180 bytes).
+Output written on diplomka.pdf (59 pages, 574589 bytes).
 PDF statistics:
- 413 PDF objects out of 1000 (max. 8388607)
+ 422 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  159800 words of extra memory for PDF output out of 184870 (max. 10000000)
 
