@@ -717,47 +717,40 @@ Poslední části dokumentu je definice hierarchie predikátů, jejíž praktick
 </parent_property>
 \end{verbatim}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Všechny uváděné názvy tříd a predikátů resp. jejich rozsahů a domén jsou (a do cílového dokumentu se tak zapisují) jen lokálními částmi názvu URI, jeho prefix se zadává pouze jednou při zápisu modelu z důvodu jednoduchosti a přehlednosti.
+Výsledný dokument s navrženým modelem je spolu s XSD šablonou součástí obsahu přiloženého CD.
 
 \section{Konstrukce modelu}
-\subsection{Komunikace s databází}
-\subsection{Zápis modelu}
-\subsection{Vytvoření testovacích dat}
+\hspace{0.65cm}Pro navržený model zapsaný prostřednictvím XML dokumentu je nutné vytvořit aplikace, které jej zapíší do databáze a následně poskytnou API, které umožní s modelem pracovat. Tyto aplikace budou vyvíjeny stejně jako EEG/ERP portál v jazyce Java.
 
+\subsection{Knihovna SemWebModelDbConnector}
+\hspace{0.65cm}Pro vytvoření modelu v databázovém systému je nejprve nutné zajistit komunikaci, jež dovolí provádět potřebné operace jak s relační částí, tak i se částí sémantického webu této databáze. K tomuto účelu je navržena knihovna, zastřešující tyto operace prostřednictvím metod interface, jež umožňuje trans-\\parentně komunikovat s vybranou databází bez závislosti, zda-li se jedná o databázový systém Oracle či Virtuoso. Tato knihovna poskytuje metody pro připojení a odpojení od systému a zajišťuje aplikaci jež ji využívá přístup k vybranému modelu sémantického webu spolu s připojením k relačnímu modelu. Na obrázku 8.1 je zobrazen UML diagram této jednoduché knihovny jež je dále využita pro testovací aplikaci a nástroj pro konstrukci modelu. Veškeré implementační detaily jsou patrné z komentovaných zdrojových kódů jež jsou součástí přiloženého CD.
+
+\vspace{0.65cm}
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.46]{db-connect.jpg}
+\caption{UML diagram knihovny SemWebModelDbConnector}
+\end{center}
+\end{figure}
+
+\subsection{Vytvoření modelu}
+
+
+
+
+
+
+
+
+
+
+\subsection{Vytvoření testovacích dat}
 \section{Využití modelu}
 \subsection{Operace čtení}
 \subsection{Operace zápisu}
 \subsection{Operace mazání}
-
-
-
-
-
-
-
 
 
 
