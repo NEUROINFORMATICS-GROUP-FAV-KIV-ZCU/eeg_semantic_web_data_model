@@ -46,15 +46,16 @@
 \contentsline {section}{\numberline {8.2}Konstrukce modelu}{45}
 \contentsline {subsection}{\numberline {8.2.1}Knihovna SemWebModelDbConnector}{45}
 \contentsline {subsection}{\numberline {8.2.2}Vytvo\IeC {\v r}en\IeC {\'\i } modelu}{46}
-\contentsline {subsection}{\numberline {8.2.3}Vytvo\IeC {\v r}en\IeC {\'\i } testovac\IeC {\'\i }ch dat}{46}
-\contentsline {section}{\numberline {8.3}Vyu\IeC {\v z}it\IeC {\'\i } modelu}{46}
-\contentsline {subsection}{\numberline {8.3.1}Operace \IeC {\v c}ten\IeC {\'\i }}{46}
-\contentsline {subsection}{\numberline {8.3.2}Operace z\IeC {\'a}pisu}{46}
-\contentsline {subsection}{\numberline {8.3.3}Operace maz\IeC {\'a}n\IeC {\'\i }}{46}
-\contentsline {chapter}{\numberline {9}Testov\IeC {\'a}n\IeC {\'\i } \IeC {\v r}e\IeC {\v s}en\IeC {\'\i }}{47}
-\contentsline {section}{\numberline {9.1}Funk\IeC {\v c}n\IeC {\'\i } testov\IeC {\'a}n\IeC {\'\i }}{47}
-\contentsline {section}{\numberline {9.2}V\IeC {\'y}konnostn\IeC {\'\i } testov\IeC {\'a}n\IeC {\'\i }}{47}
-\contentsline {subsection}{\numberline {9.2.1}Postup testov\IeC {\'a}n\IeC {\'\i }}{47}
-\contentsline {subsection}{\numberline {9.2.2}Nam\IeC {\v e}\IeC {\v r}en\IeC {\'e} hodnoty}{47}
-\contentsline {subsection}{\numberline {9.2.3}Diskuze v\IeC {\'y}sledk\IeC {\r u}}{47}
-\contentsline {chapter}{\numberline {10}Z\IeC {\'a}v\IeC {\v e}r}{48}
+\contentsline {subsection}{\numberline {8.2.3}Vytvo\IeC {\v r}en\IeC {\'\i } testovac\IeC {\'\i }ch dat}{47}
+\contentsline {section}{\numberline {8.3}Vyu\IeC {\v z}it\IeC {\'\i } modelu}{48}
+\contentsline {subsection}{\numberline {8.3.1}Operace \IeC {\v c}ten\IeC {\'\i }}{49}
+\contentsline {subsection}{\numberline {8.3.2}Filtrov\IeC {\'a}n\IeC {\'\i }}{49}
+\contentsline {subsection}{\numberline {8.3.3}Operace z\IeC {\'a}pisu}{49}
+\contentsline {subsection}{\numberline {8.3.4}Operace maz\IeC {\'a}n\IeC {\'\i }}{49}
+\contentsline {chapter}{\numberline {9}Testov\IeC {\'a}n\IeC {\'\i } \IeC {\v r}e\IeC {\v s}en\IeC {\'\i }}{50}
+\contentsline {section}{\numberline {9.1}Funk\IeC {\v c}n\IeC {\'\i } testov\IeC {\'a}n\IeC {\'\i }}{50}
+\contentsline {section}{\numberline {9.2}V\IeC {\'y}konnostn\IeC {\'\i } testov\IeC {\'a}n\IeC {\'\i }}{50}
+\contentsline {subsection}{\numberline {9.2.1}Postup testov\IeC {\'a}n\IeC {\'\i }}{50}
+\contentsline {subsection}{\numberline {9.2.2}Nam\IeC {\v e}\IeC {\v r}en\IeC {\'e} hodnoty}{50}
+\contentsline {subsection}{\numberline {9.2.3}Diskuze v\IeC {\'y}sledk\IeC {\r u}}{50}
+\contentsline {chapter}{\numberline {10}Z\IeC {\'a}v\IeC {\v e}r}{51}

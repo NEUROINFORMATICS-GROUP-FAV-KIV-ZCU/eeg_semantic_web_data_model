@@ -736,19 +736,35 @@ Výsledný dokument s navrženým modelem je spolu s XSD šablonou součástí o
 \end{figure}
 
 \subsection{Vytvoření modelu}
+\hspace{0.65cm}Za účelem vytvoření cílového navrženého modelu byla implementována aplikace SemWebModelCreator. Ta zajišťuje načítání vstupního XML souboru s modelem a zpřístupňuje tato data aplikaci. Vstupní data jsou načítána ve třídě {\it DataLoader} prostřednictvím SAX parseru \cite{_16}, který na základě získaných hodnot atributů pro dané elementy vytváří datové objekty zastupující požado-\\vané tabulky, třídy a predikáty modelu. K jejich obalení slouží třídy balíku {\it cz.zcu.kiv.eeg.semweb.model.creator.data}. Na základě načtených dat provádí třída {\it ModelCreator} zápis, který sestává z vytvoření obou částí modelů. Nástroj v prvním kroku navazuje prostřednictvím knihovny SemWebModelDbConnec-\\tor spojení s databází, díky čemuž získává přístup k modelu sémantického webu. Pro zápis tříd a predikátů modelu je využito popisovaného nástroje Jena, jenž poskytuje API umožňující ontologický přístup k modelu na úrovni jazyka OWL. Dle načtených dat jsou tak postupně vytvářeny požadované třídy, kterým jsou nastaveny popisné sémantické anotace, a zároveň jsou zařazeny do hierarchického systému prostým nastavením rodičovských tříd či potomků. Predikáty modelu jsou zapisovány obdobným způsobem, přičemž navíc je každému predikátu nastaven definovaný rozsah ({\it rdfs:range}) a doména ({\it rdfs:domain}).
 
-
-
-
-
-
-
-
-
+Po dokončení zápisu modelu sémantického webu je přistoupeno k vytváření tabulek relační databáze, což je umožněno díky spojení poskytnutým knihov-\\nou SemWebModelDbConnector při jeho navazování v kroku před zápisem sémantického modelu. Vytváření tabulek je prováděno pouhým vykonáváním SQL příkazů {\it CREATE TABLE} pro všechny požadovaná tabulky lišící se pouze svým názvem a datovým typem atributu {\it DATA} (jež slouží k uchování rozsáhlých datových souborů). 
 
 \subsection{Vytvoření testovacích dat}
+\hspace{0.65cm}Aby bylo možné vytvořený model otestovat, je vhodné zajistit i generování testovacích dat. Generování těchto dat zajišťuje třída {\it SimpleDataCreator}, která vytváří pseudonáhodná data v podobě instancí modelem definovaných tříd. Každé instanci jsou navíc přiřazeny hodnoty pro všechny predikáty jež mají doménu shodnou s rodičovskou třídou zmíněné instance. Rozsah generovaných dat je možné specifikovat prostřednictvím celého čísla, které určuje počet generovaných instancí každé třídy.
+
+Pro snadné použití tohoto nástroje má aplikace implementované grafické uživatelské prostředí využitím Java knihovny Swing. Po spuštění aplikace se zobrazí okno dle obrázku 8.2, jež slouží ke specifikaci databázové připojení a nastavení parametrů modelu.
+
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.8]{Creator.jpg}
+\caption{Okno nástroje pro vytváření modelu}
+\end{center}
+\end{figure}
+
+Položka {\it ConnectionType} slouží pro výběr cílové databáze modelu (Oracle nebo Virtuoso) jejíž URI je zadáváno v poli {\it Database URI}. Položka {\it Model name} určuje název vytvářeného modelu, jehož popisný XML soubor je zadáván v poli {\it Model file}. Nezbytnou položkou pro spojení s databází jsou uživatelské jméno a heslo v položkách {\it Username} a {\it Password}. Pole {\it Namespace} slouží pro definici URI prefixu všech vytvářených entit modelu, neboť XML soubor popisující model obsahuje pouze lokální části hodnot URI identifikátorů. Poslední pole {\it Table prefix} určuje prefix názvu všech vytvářených tabulek, čímž je později možné v rámci celé relační databáze jednoduše identifikovat tabulky tohoto modelu. 
+Zaškrtávací políčko {\it Create simple data} slouží k rozhodnutí, zda generovat testovací data, jejichž velikost určuje položka {\it Simple data size}. Poslední nastavitelná položka je políčko {\it Remove model}, jehož zaškrtnutím bude specifikovaný model smazán namísto jeho vytvoření.
+Jednoduchý uživatelský manuál pro použití tohoto nástroje je součásti přílohy XX. Veškeré implementační detaily tohoto nástroje jsou zřejmé z komentovaných zdrojových kódů.
+
+
 \section{Využití modelu}
+\hspace{0.65cm}
+
+
+
 \subsection{Operace čtení}
+\subsection{Filtrování}
 \subsection{Operace zápisu}
 \subsection{Operace mazání}
 
