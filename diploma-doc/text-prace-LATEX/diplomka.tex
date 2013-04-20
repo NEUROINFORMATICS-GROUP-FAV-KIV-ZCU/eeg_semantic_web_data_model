@@ -755,13 +755,13 @@ Pro snadné použití tohoto nástroje má aplikace implementované grafické u�
 
 Položka {\it ConnectionType} slouží pro výběr cílové databáze modelu (Oracle nebo Virtuoso) jejíž URI je zadáváno v poli {\it Database URI}. Položka {\it Model name} určuje název vytvářeného modelu, jehož popisný XML soubor je zadáván v poli {\it Model file}. Nezbytnou položkou pro spojení s databází jsou uživatelské jméno a heslo v položkách {\it Username} a {\it Password}. Pole {\it Namespace} slouží pro definici URI prefixu všech vytvářených entit modelu, neboť XML soubor popisující model obsahuje pouze lokální části hodnot URI identifikátorů. Poslední pole {\it Table prefix} určuje prefix názvu všech vytvářených tabulek, čímž je později možné v rámci celé relační databáze jednoduše identifikovat tabulky tohoto modelu. 
 Zaškrtávací políčko {\it Create simple data} slouží k rozhodnutí, zda generovat testovací data, jejichž velikost určuje položka {\it Simple data size}. Poslední nastavitelná položka je políčko {\it Remove model}, jehož zaškrtnutím bude specifikovaný model smazán namísto jeho vytvoření.
-Jednoduchý uživatelský manuál pro použití tohoto nástroje je součásti přílohy XX. Veškeré implementační detaily tohoto nástroje jsou zřejmé z komentovaných zdrojových kódů.
+Jednoduchý uživatelský manuál pro použití tohoto nástroje je součásti přílohy XX. Veškeré implementační detaily tohoto nástroje jsou zřejmé z komentova-\\ných zdrojových kódů.
 
 
 \section{Využití modelu}
 \hspace{0.65cm}V rámci zápisu navrženého modelu do hybridní databáze bylo využito API frameworku Jena, který umožňuje jednoduchou práci s konstrukcemi sémantického webu na úrovni jazyka OWL. Pro další praktické využití vznik-\\lého modelu portálu je ovšem toto API příliš jednoduché, neboť neposkytuje metody pro zpracování komplexnějších operací. Z tohoto důvody vznikl požadavek na vytvoření knihovny, která by sloužila jako nadstavba tohoto frameworku a poskytovala API umožňující snáze provádět typické operace datové vrstvy EEG/ERP portálu. 
 
-Implementovaná knihovna SemWebModelApi jež byla vytvořena v rámci této práce poskytuje k cílovému modelu API podobným způsobem jako Jena a umožňuje jednoduchou práci s těmito daty, což je demonstrováno testovací aplikací popsanou v následující kapitole. Operace nad modelem dostupné prostřednictvím API navržené knihovny budou kategoricky rozdělené a popsané v následujících odstavcích.
+Implementovaná knihovna SemWebModelApi jež byla vytvořena v rámci této práce poskytuje k cílovému modelu API podobným způsobem jako Jena a umožňuje jednoduchou práci s těmito daty, což je demonstrováno testovací aplikací popsanou v následující kapitole. Operace nad modelem dostupné prostřednictvím API navržené knihovny budou kategoricky rozdělené a popsa-\\né v následujících odstavcích.
 
 
 
