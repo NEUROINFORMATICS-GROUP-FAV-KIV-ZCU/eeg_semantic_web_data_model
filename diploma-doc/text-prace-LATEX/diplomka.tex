@@ -766,14 +766,65 @@ Implementovaná knihovna SemWebModelApi jež byla vytvořena v rámci této prá
 
 
 \subsection{Operace čtení}
+\hspace{0.65cm}Knihovna SemWebModelApi poskytuje přístup k datovému modelu prost-\\řednictvím metod třídy {\it PortalModel}. Operace čtení realizované implemento-\\vanými metodami umožňují práci se třídami, jejich instancemi a s predikáty. Pro získání tříd modelu slouží metody {\it listParentClasses} a {\it listSubClasses}, které umožňují získat URI identifikátory jednotlivých tříd a vytvořit na jejich základě hierarchický strom. Ten může později sloužit jako vstupní bod modelu, který bude poskytovat základní navigaci pro přístup k dalším objektům, kterými jsou především instance tříd, dle konvencí Jeny označované jako „{\it Individual}“. Pro přístup k těmto instancím slouží především metoda {\it listClassInstances}, která vrací potomky třídy předané prostřednictvím jejího URI. Tato metoda vrací list instancí třídy {\it Item}, sloužící jako obalující prvek objektů modelu. Tato abstraktní třída má dva potomky {\it LiteralItem} obalující literály modelu a {\it UriItem}, jež umožňuje nést instanci třídy, případě predikát. Každá instance třídy {\it UriItem} nese URI obalovaného objektu a umožňuje svými metodami získávat další prvky vázané na tento objekt. To je klíčová vlastnost knihovny, která umožňuje s  modelem pracovat v souladu s principy sémantického webu, neboť je možné pro vybranou instanci třídy získat její predikáty vázané objekty, které jsou opět předávané jako instance třídy {\it UriItem} (pokud není cílovým objektem literál). V důsledku je tak možné prostřednictvím jediného subjektu procházet postupně model a získávat požadované informace včetně koncových cílových literálů. Ty jsou reprezento-\\vány instancemi třídy {\it LiteralItem}, která nese datový typ a příslušnou hodnotu tohoto literálu.
+
+Třída {\it UriItem} disponuje metodami umožňujícími získání seznamu prediká-\\tů vázaných k instanci třídy, díky čemuž je možné pro každý objekt získat informace o jeho dostupných vlastnostech a pouze vybranou vlastnost dále zkoumat bez načítání nepotřebných dat což je možné díky nesené vazbě na model v každé instanci {\it UriItem}. Tento způsob umožňuje získávání vybraných informací o dané instanci třídy. Získání těchto instancí pro vybranou třídu je, jak již bylo zmíněno, možné voláním metody {\it listClassInstances} třídy {\it PortalModel}. Aby nebylo nutné při hledání konkrétní instance provádět prů-\\chod celým listem, je možné nastavit prostřednictvím parametru metody filtr, který bude provádět restrikci položek navráceného listu. 
+
 \subsection{Filtrování}
+\hspace{0.65cm}Pro nastavení výběru navracených instancí třídy slouží systém podmínek definující vlastnosti požadovaných objektů. Každý vytvářený filtr je tvořen množinou podmínek v logickém součtu, přičemž každá tato podmínka je tvořena další množinou podmínek v logickém součinu. Ve výsledků je tak možné nastavit libovolnou kombinaci nutných a postačující podmínek filtrová-\\ní. Tato navržená koncepce je patrná z UML diagramu tříd filtrování na obrázku 8.3.
+
+Z tohoto obrázku je patrné, že díky rodičovské třídě {\it Condition} všech ostatních tříd je možné vytvářet i poměrně složitý systém podmínek, neboť každá podmínka může být tvořena množinou (listem) podmínek v logickém součtu či součinu. Výsledná koncová podmínka může být 4 typů, které jsou určená následujícími třídami.
+
+\begin{itemize}
+\item {\it \bf HasPropertyCondition} - umožňuje nastavit URI predikátu, na který musí mít dotazovaný 
+subjekt vázaný objekt (jakýkoliv), např. podmínka že dotazovaná osoba musí mít nastavenou hodnotu emailové adresy, přičemž tato hodnota může být libovolná
+
+\item {\it \bf HasPropertyLikeCondition} - umožňuje nastavit textový řetězec, který musí být obsažen v URI predikátu svazující tento subjekt s jiným objektem, např. podmínka pro řetězec „name“, že dotazovaná osoba musí mít nastavenou hodnotu nějakého jména, lhostejno zda {\it givenname} či {\it surname}
+\item {\it \bf PropertyValEqCondition} - umožňuje nastavit textový řetězec, jehož hodnoty musí nabývat objekt vázaný nastaveným URI predikátu, např. podmínka pro osobu, jejíž příjmení musí nabývat hodnoty {\it Novák}
+\item {\it \bf PropertyValLikeCondition} - umožňuje nastavit textový řetězec, jehož hodnota musí být obsažena v textové reprezentaci objektu vázaného nastaveným URI predikátu. např. podmínka pro osobu, jejíž přímení musí obsahovat řetězec {\it Novák}, odpovídající objektům příjmení {\it Novák} i {\it Nováková}
+\end{itemize}
+
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.5]{filter.jpg}
+\caption{UML diagram tříd filtrování}
+\end{center}
+\end{figure}
+
+
 \subsection{Operace zápisu}
+\hspace{0.65cm}Zápis nových, resp. aktualizace stávajících dat modelu je možné realizovat opět prostřednictvím metod třídy {\it PortalModel}. Touto cestou je lze vytvářet nové třídy (samostatně či jako potomky stávajících tříd), jejich instance a predikáty (opět s možností hierarchického uspořádání). Aktualizace stávajících hodnot objektů predikátem vázaných ke instancím tříd resp. přidávání nových hodnot je možné realizovat přímo prostřednictvím metod třídy {\it UriItem}, která danou instanci třídy nese. Obdobně lze aktualizovat metodou {\it updateValue} hodnoty existujících literálů ve třídě {\it LiteralItem},  které jsou vytvářeny jako nové hodnoty pro dané vlastnosti (predikáty) instancím tříd prostřednictvím metody {\it addPropertyValue} třídy {\it UriItem}.
+
+
 \subsection{Operace mazání}
+\hspace{0.65cm}Požadavky na mazáni dat modelu lze opět realizovat prostřednictvím metod třídy {\it PortalModel}, jež umožňují odstranění stávajících tříd, jejích instancí a predikátů. Odstraněním stávajícího predikátu dojde ke odstranění všech trojic modelu jež jej obsahují. V důsledku tak všechny instance třídy jež měly nějaký objekt vázaný tímto predikátem o tento údaj přijdou. Odstranění koncových objektů vázaných existujícím predikátem ke instanci třídy je možné realizovat metodou {\it removeValue} třídy {\it LiteralItem} (jedná-li se o literál) nebo přímým odstraněním instance třídy metodou {\it removeIndividual} třídy {\it PortalModel} (jedná-li se o instanci třídy). V tomto případě nedojde k odstraně-\\ní definovaného predikátu z modelu. Poslední mazatelným prvkem modelu jsou třídy, jejichž odstranění zajišťuje metoda {\it removeClasss} třídy {\it PortalModel}. Jejím voláním nad stávající třídou dojde ke odstranění této třídy včetně všech jejích instancí potažmo i trojic vázaných na tyto instance. V důsledku tak odstraněním třídy dojde ke odstranění všech vazeb mezi instancemi nedotčených tříd na mazané instance tříd, neboť jejich odstraněním pozbývají tyto vazby smyslu.
+
+Všechny výše popsané operace jsou patrné z UML diagramu tříd na obrázku 8.4. Detailnější představu o podporovaných operací potažmo imple-\\mentovaných metodách je možné získat z Javadoc dokumentace obsahující podrobný popis všech metod, jejichž názvy jsou významové.
+
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.37]{api.jpg}
+\caption{UML diagram tříd veřejného API knihovny SemWebModelApi}
+\end{center}
+\end{figure}
+
+
+\subsection{Přístup k relačním datům}
+\hspace{0.65cm}Pro sjednocený přístup k datům relační části modelu je využito shody názvů (bez definovaného prefixu) relačních tabulek s lokální částí názvu URI příslušných tříd modelu. Název navržené tabulky modelu bez prefixu {\it EEG} má hodnotu {\it DATA\_FILE} stejně jako lokální název třídy {\it data\_file} (nerozlišujeme-li velikost písmen) bez namespace prefixu, čímž je vytvořena pomyslná vazba mezi záznamy tabulky a instancemi třídy {\it data\_file}. Metodami {\it hasIndividual-\\Table} a {\it hasIndividualFile} třídy {\it PortalModel} je pak při dodržení zmíněných konvencí možné zjistit, zda k instancím určité třídy existuje relační tabulka resp. soubory vázáné na konkrétní instance. Tyto soubory je pak možné nahrávat a aktualizovat voláním metod {\it uploadIndividualDataFile} a {\it update-\\IndividualDataFile} třídy {\it PortalModel}. Názorná ukázka tohoto přístupu je realizována testovací aplikací popsanou v následující kapitole.
 
 
 
 
-\chapter{Testování řešení}
+
+
+
+
+
+
+
+\chapter{Testování}
 \section{Funkční testování}
 \section{Výkonnostní testování}
 \subsection{Postup testování}
