@@ -20,13 +20,23 @@ public final class LiteralItem extends Item {
     private Individual parentInd; //property chained individual
     private PortalModel model; //semWeb model
 
-    public LiteralItem(Literal orginalLiteral, OntProperty chainedProperty, Individual parentIndividual, PortalModel model) throws ParseException {
-        setValue(DataConverter.convertObject(orginalLiteral));
+    /**
+     * Create new literal item
+     *
+     * @param origLit Jena existing literal
+     * @param chainProp chaining subject property for this literal
+     * @param parInd Parent individual chained by property to this literal
+     * @param m PortalModel instance
+     * 
+     * @throws ParseException
+     */
+    public LiteralItem(Literal origLit, OntProperty chainProp, Individual parInd, PortalModel m) throws ParseException {
+        setValue(DataConverter.convertObject(origLit));
 
-        this.model = model;
-        this.chainProperty = chainedProperty;
-        this.original = orginalLiteral;
-        this.parentInd = parentIndividual;
+        this.model = m;
+        this.chainProperty = chainProp;
+        this.original = origLit;
+        this.parentInd = parInd;
     }
 
     /**

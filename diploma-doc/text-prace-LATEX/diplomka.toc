@@ -55,8 +55,9 @@
 \contentsline {subsection}{\numberline {8.3.5}P\IeC {\v r}\IeC {\'\i }stup k rela\IeC {\v c}n\IeC {\'\i }m dat\IeC {\r u}m}{52}
 \contentsline {chapter}{\numberline {9}Testov\IeC {\'a}n\IeC {\'\i }}{54}
 \contentsline {section}{\numberline {9.1}Funk\IeC {\v c}n\IeC {\'\i } testov\IeC {\'a}n\IeC {\'\i }}{54}
-\contentsline {section}{\numberline {9.2}V\IeC {\'y}konnostn\IeC {\'\i } testov\IeC {\'a}n\IeC {\'\i }}{54}
-\contentsline {subsection}{\numberline {9.2.1}Postup testov\IeC {\'a}n\IeC {\'\i }}{54}
-\contentsline {subsection}{\numberline {9.2.2}Nam\IeC {\v e}\IeC {\v r}en\IeC {\'e} hodnoty}{54}
-\contentsline {subsection}{\numberline {9.2.3}Diskuze v\IeC {\'y}sledk\IeC {\r u}}{54}
-\contentsline {chapter}{\numberline {10}Z\IeC {\'a}v\IeC {\v e}r}{55}
+\contentsline {subsection}{\numberline {9.1.1}Manu\IeC {\'a}ln\IeC {\'\i } testov\IeC {\'a}n\IeC {\'\i } aplikace}{57}
+\contentsline {section}{\numberline {9.2}V\IeC {\'y}konnostn\IeC {\'\i } testov\IeC {\'a}n\IeC {\'\i }}{59}
+\contentsline {subsection}{\numberline {9.2.1}Postup testov\IeC {\'a}n\IeC {\'\i }}{59}
+\contentsline {subsection}{\numberline {9.2.2}Nam\IeC {\v e}\IeC {\v r}en\IeC {\'e} hodnoty}{59}
+\contentsline {subsection}{\numberline {9.2.3}Diskuze v\IeC {\'y}sledk\IeC {\r u}}{59}
+\contentsline {chapter}{\numberline {10}Z\IeC {\'a}v\IeC {\v e}r}{60}

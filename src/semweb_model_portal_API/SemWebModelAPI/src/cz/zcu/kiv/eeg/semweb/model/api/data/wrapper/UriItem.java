@@ -111,17 +111,17 @@ public class UriItem extends Item {
     /**
      * Update value of specified property
      *
-     * @param propertyUri Property uri
-     * @param recentValue oldValue
-     * @param newValue new Value
+     * @param propUri Property uri
+     * @param recVal oldValue
+     * @param newVal new Value
      */
-    public void updatePropertyValue(String propertyUri, String recentValue, String newValue) {
+    public void updatePropertyValue(String propUri, String recVal, String newVal) {
 
         Resource subject = model.getOntModel().getResource(uri);
 
-        Property predicate = model.getOntModel().getProperty(propertyUri);
-        Resource oldObject = model.getOntModel().getResource(recentValue);
-        Resource newObject = model.getOntModel().getResource(newValue);
+        Property predicate = model.getOntModel().getProperty(propUri);
+        Resource oldObject = model.getOntModel().getResource(recVal);
+        Resource newObject = model.getOntModel().getResource(newVal);
 
         if (predicate == null || oldObject == null || newObject == null) {
             return;

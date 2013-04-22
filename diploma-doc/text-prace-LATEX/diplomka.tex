@@ -815,17 +815,89 @@ Všechny výše popsané operace jsou patrné z UML diagramu tříd na obrázku 
 \hspace{0.65cm}Pro sjednocený přístup k datům relační části modelu je využito shody názvů (bez definovaného prefixu) relačních tabulek s lokální částí názvu URI příslušných tříd modelu. Název navržené tabulky modelu bez prefixu {\it EEG} má hodnotu {\it DATA\_FILE} stejně jako lokální název třídy {\it data\_file} (nerozlišujeme-li velikost písmen) bez namespace prefixu, čímž je vytvořena pomyslná vazba mezi záznamy tabulky a instancemi třídy {\it data\_file}. Metodami {\it hasIndividual-\\Table} a {\it hasIndividualFile} třídy {\it PortalModel} je pak při dodržení zmíněných konvencí možné zjistit, zda k instancím určité třídy existuje relační tabulka resp. soubory vázáné na konkrétní instance. Tyto soubory je pak možné nahrávat a aktualizovat voláním metod {\it uploadIndividualDataFile} a {\it update-\\IndividualDataFile} třídy {\it PortalModel}. Názorná ukázka tohoto přístupu je realizována testovací aplikací popsanou v následující kapitole.
 
 
-
-
-
-
-
-
-
-
-
 \chapter{Testování}
+\hspace{0.65cm}Testování navrženého transformovaného datového modelu a knihovny SemWebModelApi poskytující API pro operace modelu bude provedeno po stránce funkční i výkonnostní. Touto cestou by měla být ověřena použitelnost navrženého modelu jako alternativní náhrady současného datového modelu EEG/ERP portálu.
+
 \section{Funkční testování}
+\hspace{0.65cm}Pro účely funkčního testování byla vytvořena aplikace s grafickým uživa-\\telským rozhraním, která slouží ke vizualizaci datového modelu k němuž přistupuje metodami knihovny SemWebModelApi. Tato testovací aplikace umožňuje zobrazení a procházení objektů datového modelu a zároveň dovoluje uživateli provádět nad modelem všechny operace popsané v kapitole 8.3 poměrně jednoduchým způsobem. 
+
+
+Testovací aplikace je implementována s využitím Java knihovny Swing, jež zajišťuje vytvoření celého grafického rozhraní. Po jejím spuštění se zobrazí obdobné okno jako v případě aplikace pro tvorbu modelu, jež slouží k zadání údajů pro spojení s databází. Aplikace nabízí na výběr připojení k databázi Oracle nebo Virtuoso, k čemuž je nutné vyplnit URI cestu k databázi, název (sémantického) modelu a uživatelské jméno a heslo pro přihlášení. Dalšími nutnými údaji jsou jmenný prostor modelu ({\it namespace}) a tabulkový prefix. Pro všechny zmíněné údaje je nutné zadat stejné hodnoty jako v případě aplikace pro tvorbu modelu (je-li požadavkem připojení k tomuto modelu). Poslední volitelnou položkou je {\it Reasoner type}, která slouží ke volbě použitého reasoneru. Aplikace nabízí tzv. mělký ({\it Shallow}) a hluboký ({\it Deep}) reasoner, jež se liší hloubkou procházení modelu při jednotlivých dotazech, což se logicky odráží na rychlosti testovací aplikace.
+
+Po úspěšném navázání spojení s databází je zobrazeno okno testovací aplikace dle obrázku 9.1.
+
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.60]{mainFrame.jpg}
+\caption{Hlavní okno testovací aplikace}
+\end{center}
+\end{figure}
+
+
+Hlavní menu aplikace poskytuje možnost exportování načteného modelu do souboru. Tuto funkcionalitu poskytuje framework Jena, který zajišťuje zápis ontologického modelu ve syntaxi RDF/XML. Levý panel aplikace je zobrazuje hierarchický strom tříd modelu. Jeho vizualizaci zajišťuje kompo-\\nenta {\it JTree} pro tvorbu stromů, jejíž první úroveň listů tvoří URI všech tříd bez definovaných rodičů získaný metodou {\it listParentClasses} třídy {\it PortalModel} knihovny SemWebModelApi. Pro každou tuto třídu jsou postupně získaní její potomci, kteří jsou následně ve stromu hierarchicky zobrazeni. Výběrem konkrétního listu jež reprezentuje danou třídu je díky registrovanému poslu-\\chači stromu zobrazen ve spodním panelu editovatelný popis této třídy (viz atribut {\it description} elementů tříd XML souboru modelu). Prostřednictvím tlačítek spodních tlačítek levého panelu je možné vybranou třídu stromu odstranit, což je realizováno voláním dříve popisované metody {\it removeClasss} třídy {\it PortalModel}. Přidání nové třídy je možné provést v příslušném dialogu otevíraném stiskem tlačítka {\it Add class}. Tomuto dialogu je předáno URI aktuál-\\ně vybrané třídy stromu, čímž je možné nově vytvářenou třídu nastavit jako potomka vybrané třídy.
+
+Pravá část hlavního panelu aplikace ve své horní části obsahuje komponen-\\tu umožňující listování a výběr instancí třídy jež je aktuálně vybraná ve stromu tříd v levém panelu okna programu. Nad tímto listem instancí je možné nastavit filtr tlačítkem {\it Set filter}, které otevírá dialog obsahující list podmínek v součinovém tvaru. Podmínky je možné přidávat, odstraňovat či editovat stávající podmínky. Přidáním nové nebo editací stávající podmínky se zobrazí dialog s listem podmínek v součtovém tvaru. Nad tímto listem je možné provádět stejné operace jako v případě podmínek v součinovém tvaru. Editací či přidáním podmínky listu podmínek v součtovém tvaru se zobrazí dialog, který slouží pro nastavení koncové podmínky. Na výběr jsou dispozici 4 druhy podmínek, tak jak je popsáno v kapitole 8.3.2.
+
+
+Výběrem instance třídy z listovací komponenty horního pravého panelu testovací aplikace se v prostředním panelu zobrazí list všech URI predikátů a objektů svázaných s touto instancí. V případě že objekt je literálem, je zobrazena jeho textová reprezentace v editovatelném textovém poli jež umožňuje hodnoty aktualizovat či odstraňovat. Je-li objektem instance jiné třídy, pak je zobrazena komponenta umožňující výběr z instancí této třídy, kde vybranou položkou je ta, která je objektem. Tlačítkem {\it Go} nacházejícím se za touto komponentou je možné přejít ke vybrané instanci, jejíž predikáty s objekty se zobrazí namísto těch stávající instance.
+
+V případě že vybraná třída má v relační části datového modelu odpovídají-\\cí tabulku, pak je v listu predikátů a objektů vybrané instance zobrazeno na konci tlačítko, umožňující nahrání, aktualizaci či stažení příslušného souboru k této instanci. 
+Instance tříd je možné stejně jako třídy přidávat a odstraňovat využitím příslušných tlačítek ve spodní části pravého panelu okna aplikace.
+
+
+Pro přiřazení nových vlastností instanci třídy prostřednictvím predikátů a hodnot jimi vázaných objektů slouží tlačítko {\it Add property}, které otevírá nové dialogové okno dle obrázku 9.2.
+
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.65]{propertyFrame.jpg}
+\caption{Okno pro nastavení predikátu modelu testovací aplikace}
+\end{center}
+\end{figure}
+
+Toto okno obsahuje v levé části strom predikátů, jejichž doménou je rodičovská třída aktuálně vybrané instance v hlavním okně. S predikáty lze provádět obdobné operace jako se třídami v hlavním okně. Výběrem predikátu ve stromu dojde v pravém panelu okna ke zobrazení komponenty sloužící ke nastavení objektu jež bude vybraným predikátem svázán ke instanci vybrané v hlavním okně aplikace. V případě že rozsahem ({\it rdfs:range}) vybraného predikátu je třída modelu, pak komponenta v pravém panelu okna umožňuje výběr z instancí této třídy. V opačném případě kdy rozsahem predikátu je primitivní datový typ (řetězec, číslo...), zobrazuje pravý panel komponentu umožňující zadat textovou podobu hodnoty, jež ponese nově vzniklý literál vytvořený jako objekt vázaný vybraným predikátem ke vybrané instanci třídy. 
+
+Tento mechanismus přidávání predikátů umožňuje vytvořit objekt a novým predikátem jej přiřadit k libovolné instanci třídy, čímž je možné této instanci jednoduše dodat požadovanou informaci, což v původním relačním modelu portálu realizovaly tabulky obsahující ve svém názvu řetězce {\it PARAM\_DEF} a {\it PARAM\_VAL}.
+
+\subsection{Manuální testování aplikace}
+\hspace{0.65cm}Vzhledem k tomu že výše popsaná testovací aplikace zpřístupňuje navržený model k čemuž využívá API vytvořené knihovny, je nutné ověřit správnost všech operací manuálním provedením níže popsaného testovací scénáře. Tento scénář stručně popisuje seznam úkonů, které je nutné provést prostřednictvím grafického rozhraní testovací aplikace a následně ověřit správnost výsledku provedené operace oproti popsanému API knihovny SemWebModelApi.
+
+\begin{itemize}
+\item Vytvoření nové třídy bez rodičovské třídy
+\item Vytvoření nové třídy jako potomka existující třídy
+\item Vytvoření nové třídy se sémantickým popiskem 
+\item Změna sémantického popisku stávající třídy
+\item Odstranění stávající třídy
+\vspace{0.45cm}
+\item Vytvoření nové instance třídy
+\item Odstranění instance existující třídy
+\vspace{0.45cm}
+\item Vytvoření filtru s podmínkou Has property
+\item Vytvoření filtru s podmínkou Has property like
+\item Vytvoření filtru s podmínkou Has property value
+\item Vytvoření filtru s podmínkou Has property value like
+\item Vytvoření filtru s více než dvěmi podmínkami v součinovém tvaru
+\item Vytvoření filtru s více než třemi podmínkami ve součtovém tvaru
+\vspace{0.45cm}
+\item Vytvoření filtru se dvěmi podmínkami v součinovém tvaru, kde každá podmínka je tvořena dvěmi podmínkami v součtovém tvaru
+\vspace{0.45cm}
+\item Aktualizace hodnoty literálu vázaného predikátem na instanci třídy
+\item Odstranění literálu vázaného predikátem na instanci třídy
+\item Aktualizace hodnoty instance vázané predikátem na instanci jiné třídy
+\vspace{0.45cm}
+\item Vytvoření nového predikátu s rozsahem datové třídy
+\item Vytvoření nového predikátu s rozsahem základního datového typu
+\item Odstranění existujícího predikátu
+\item Vytvoření nového predikátu se sémantickým popiskem
+\item Změna sémantického popisku stávajícího literálu
+\item Přidání nového objektu literálu vázaného predikátem k instanci třídy
+\item Přidání vazby stávajícím predikátem mezi dvěma instancemi odlišných tříd
+\end{itemize}
+
+
+
+
 \section{Výkonnostní testování}
 \subsection{Postup testování}
 \subsection{Naměřené hodnoty}
