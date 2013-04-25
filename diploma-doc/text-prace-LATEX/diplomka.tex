@@ -9,6 +9,7 @@
 \usepackage{pdfpages}
 \usepackage[all]{xy}
 \usepackage{array}
+\usepackage{rotating}
 \usepackage[czech]{babel}
 \usepackage[activate={true,nocompatibility,all}, stretch=10, shrink=10, step=1, auto=true, draft=false]{microtype}
 %\usepackage[total={17cm,28cm}, top=3cm, left=2cm, includefoot]{geometry}
@@ -960,14 +961,77 @@ Měření nad danou množinou dat bude provedeno nad sémantickým modelem pro o
 
 Pro testování nad databázovým systémem Virtuoso je využita lokální instalace Virtuoso Open-Source Edition 2012-08-02 na testovacím počítači. Pro testování nad databázovým systémem Oracle je využit vzdálený školní server Katedry informatiky a výpočetní techniky, na kterém běží současná testovací databáze portálu Oracle 11g.
 
-
-
-
-
-
-
-
 \subsection{Naměřené hodnoty}
+
+
+{\bf Databázový systém Virtuoso}
+
+
+
+
+\begin{table}[htbp!]
+%\begin{sidewaystable}
+\begin{center}
+
+\begin{tabular} { | >{\centering} m{1.15cm} |  > {\centering} m{0.95cm} | > {\centering} m{0.85cm} | > {\centering} m{0.75cm} | > {\centering} m{0.95cm} | > {\centering} m{0.85cm} | > {\centering} m{0.75cm} | > {\centering} m{0.95cm} | > {\centering} m{0.85cm} | > {\centering} m{0.75cm} |} 
+
+\hline
+\multicolumn{10}{|c|}{\bf Doba trvání operací [ms]}\tabularnewline
+\hline
+{} & \multicolumn{3}{c|}{data velikost \bf C} & \multicolumn{3}{c|}{data velikost \bf B} & \multicolumn{3}{c|}{data velikost \bf A} \tabularnewline
+\hline
+{} & {\scriptsize \bf Shallow} & {\scriptsize \bf Deep} & {\scriptsize \bf RDB} &{\scriptsize \bf Shallow} & {\scriptsize \bf Deep} & {\scriptsize \bf RDB} & {\scriptsize \bf Shallow} & {\scriptsize \bf Deep} & {\scriptsize \bf RDB}  \tabularnewline
+\hline
+\hline
+{\bf R1} & {\scriptsize 846} & {\scriptsize 3 100} & {\scriptsize 8} & {\scriptsize 1 516} & {\scriptsize 3 900} & {\scriptsize 10} & {\scriptsize 2 385} & {\scriptsize 4 810} & {\scriptsize 9}  \tabularnewline
+\hline
+{\bf R2} & {\scriptsize 1 281} & {\scriptsize 5 037} & {\scriptsize 16} & {\scriptsize 3 044} & {\scriptsize 6 709} & {\scriptsize 14} & {\scriptsize 5 284} & {\scriptsize 8 466} & {\scriptsize 15}  \tabularnewline
+\hline
+{\bf R3} & {\scriptsize 1 891} & {\scriptsize 4 543} & {\scriptsize 8} & {\scriptsize 2 842} & {\scriptsize 6 684} & {\scriptsize 9} & {\scriptsize 4 158} & {\scriptsize 8 980} & {\scriptsize 12}  \tabularnewline
+\hline
+\hline
+
+
+
+{\bf U1} & {\scriptsize 718} & {\scriptsize 16 560} & {\scriptsize 8} & {\scriptsize 1 574} & {\scriptsize 17 328} & {\scriptsize 13} & {\scriptsize 2458} & {\scriptsize 19156} & {\scriptsize 16}  \tabularnewline
+\hline
+{\bf U2} & {\scriptsize 1 553} & {\scriptsize 26 720} & {\scriptsize 8} & {\scriptsize 2 122} & {\scriptsize 29 506} & {\scriptsize 11} & {\scriptsize 5 073} & {\scriptsize 41 384} & {\scriptsize 17}  \tabularnewline
+\hline
+{\bf U3} & {\scriptsize 1 522} & {\scriptsize 35 756} & {\scriptsize 16} & {\scriptsize 2 843} & {\scriptsize 36 860} & {\scriptsize 16} & {\scriptsize 4 477} & {\scriptsize 45 142} & {\scriptsize 18}  \tabularnewline
+\hline
+\hline
+
+
+
+{\bf C1} & {\scriptsize 693} & {\scriptsize 7 549} & {\scriptsize 9} & {\scriptsize 934} & {\scriptsize 7 899} & {\scriptsize 13} & {\scriptsize 1 795} & {\scriptsize 8 198} & {\scriptsize 11}  \tabularnewline
+\hline
+{\bf C2} & {\scriptsize 2 304} & {\scriptsize 24 185} & {\scriptsize 27} & {\scriptsize 2 097} & {\scriptsize 24 538} & {\scriptsize 29} & {\scriptsize 4 085} & {\scriptsize 26 974} & {\scriptsize 41}  \tabularnewline
+\hline
+{\bf C3} & {\scriptsize 620} & {\scriptsize 11 592} & {\scriptsize 11} & {\scriptsize 1 030} & {\scriptsize 12 646} & {\scriptsize 10} & {\scriptsize 2 600} & {\scriptsize 13 447} & {\scriptsize 21}  \tabularnewline
+\hline
+\hline
+
+{\bf D1} & {\scriptsize 2 820} & {\scriptsize 37 312} & {\scriptsize 9} & {\scriptsize 2 917} & {\scriptsize 37 738} & {\scriptsize 15} & {\scriptsize 4 590} & {\scriptsize 38 236} & {\scriptsize 13}  \tabularnewline
+\hline
+{\bf D2} & {\scriptsize 2 688} & {\scriptsize 48 400} & {\scriptsize 8} & {\scriptsize 4 953} & {\scriptsize 48464} & {\scriptsize 6} & {\scriptsize 7 289} & {\scriptsize 54 062} & {\scriptsize 7}  \tabularnewline
+\hline
+{\bf D3} & {\scriptsize 625} & {\scriptsize 16 197} & {\scriptsize 6} & {\scriptsize 1 102} & {\scriptsize 17 950} & {\scriptsize 5} & {\scriptsize 2 563} & {\scriptsize 18 174} & {\scriptsize 6}  \tabularnewline
+\hline
+
+\end{tabular}
+
+\end{center}
+\caption{Naměřené doby trvání operací pro virtuoso}
+\end{table}
+%\end{sidewaystable}
+
+
+%\begin{sidewaystable}
+%\end{sidewaystable}
+
+
+
+
 \subsection{Diskuze výsledků}
 
 

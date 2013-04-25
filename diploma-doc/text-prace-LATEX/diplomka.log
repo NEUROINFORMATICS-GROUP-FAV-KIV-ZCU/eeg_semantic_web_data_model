@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  25 APR 2013 20:56
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  25 APR 2013 22:32
 entering extended mode
 **C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_m
 odel/diploma-doc/text-prace-LATEX/diplomka.tex
@@ -507,6 +507,14 @@ Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 \extratabsurround=\skip55
 \backup@length=\skip56
 )
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\rotating\rotating.sty"
+Package: rotating 2009/03/28 v2.16a rotated objects in LaTeX
+\c@r@tfl@t=\count103
+\rotFPtop=\skip57
+\rotFPbot=\skip58
+\rot@float@box=\box32
+\rot@mess@toks=\toks26
+)
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\babel.sty"
 Package: babel 2008/07/08 v3.8m The Babel package
 
@@ -521,20 +529,20 @@ Language: czech 2008/07/06 v3.1a Czech support from the babel system
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\babel.def"
 File: babel.def 2008/07/08 v3.8m Babel common definitions
-\babel@savecnt=\count103
+\babel@savecnt=\count104
 \U@D=\dimen143
 )
 Package babel Info: Making " an active character on input line 172.
-\cs@wordlen=\count104
+\cs@wordlen=\count105
 Package babel Info: Making - an active character on input line 226.
 ))
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\microtype\microtype.sty"
 Package: microtype 2010/01/10 v2.4 Micro-typography with pdfTeX (RS)
-\MT@toks=\toks26
-\MT@count=\count105
+\MT@toks=\toks27
+\MT@count=\count106
 LaTeX Info: Redefining \lsstyle on input line 1597.
 LaTeX Info: Redefining \lslig on input line 1597.
-\MT@outer@space=\skip57
+\MT@outer@space=\skip59
 LaTeX Info: Redefining \textls on input line 1605.
 \MT@outer@kern=\dimen144
 LaTeX Info: Redefining \textmicrotypecontext on input line 2156.
@@ -552,41 +560,41 @@ LaTeX Warning: Label `zna\IeC {\v c}ka tabulky' multiply defined.
 LaTeX Warning: Label `zna\IeC {\v c}ka tabulky' multiply defined.
 
 )
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count106
+\scratchcounter=\count107
 \scratchdimen=\dimen145
-\scratchbox=\box32
-\nofMPsegments=\count107
-\nofMParguments=\count108
-\everyMPshowfont=\toks27
-\MPscratchCnt=\count109
+\scratchbox=\box33
+\nofMPsegments=\count108
+\nofMParguments=\count109
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count110
 \MPscratchDim=\dimen146
-\MPnumerator=\count110
-\makeMPintoPDFobject=\count111
-\everyMPtoPDFconversion=\toks28
+\MPnumerator=\count111
+\makeMPintoPDFobject=\count112
+\everyMPtoPDFconversion=\toks29
 )
-\AtBeginShipoutBox=\box33
+\AtBeginShipoutBox=\box34
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 25.
+(Font)              <12> on input line 26.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 25.
+(Font)              <8> on input line 26.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 25.
-Package xypdf Info: Line width: 0.39998pt on input line 25.
-LaTeX Info: Redefining \microtypecontext on input line 25.
+(Font)              <6> on input line 26.
+Package xypdf Info: Line width: 0.39998pt on input line 26.
+LaTeX Info: Redefining \microtypecontext on input line 26.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `all'.
@@ -600,38 +608,38 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-cmr.cfg 2009/11/09 v2.0 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Font Info:    Calculating math sizes for size <16> on input line 32.
+LaTeX Font Info:    Calculating math sizes for size <16> on input line 33.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 32.
+(Font)              size <17.28> substituted on input line 33.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <16> not available
-(Font)              size <17.28> substituted on input line 32.
+(Font)              size <17.28> substituted on input line 33.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 32.
+(Font)              size <17.28> substituted on input line 33.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <16> on input line 32.
+(Font)              <16> on input line 33.
 
 Package microtype Warning: I cannot find a protrusion list for font
 (microtype)                `OMX/cmex/m/n/16'. Switching off
-(microtype)                protrusion for this font on input line 32.
+(microtype)                protrusion for this font on input line 33.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <11.19995> on input line 32.
+(Font)              <11.19995> on input line 33.
 
 Package microtype Warning: I cannot find a protrusion list for font
 (microtype)                `OMX/cmex/m/n/11.19995'. Switching off
-(microtype)                protrusion for this font on input line 32.
+(microtype)                protrusion for this font on input line 33.
 
 
 Package microtype Warning: I cannot find a protrusion list for font
 (microtype)                `OMX/cmex/m/n/8'. Switching off
-(microtype)                protrusion for this font on input line 32.
+(microtype)                protrusion for this font on input line 33.
 
 [1
 
@@ -673,19 +681,19 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [4]
 Kapitola 1.
 
-Overfull \hbox (1.80011pt too wide) in paragraph at lines 62--63
+Overfull \hbox (1.80011pt too wide) in paragraph at lines 63--64
 \T1/aer/m/n/12 (-10) shro-maº-¤o-vání a or-ga-ni-zaci dat zís-ka-ných p°i neu-r
 o-in-for-ma-tic-kých experimen- 
  []
 
 
-Overfull \hbox (0.89073pt too wide) in paragraph at lines 62--63
+Overfull \hbox (0.89073pt too wide) in paragraph at lines 63--64
 \T1/aer/m/n/12 (-10) údaj·. Tato apli-kace jiº pro-²la mno-ha-le-tým vý-vo-jem 
 v je-hoº pr·-b¥hu po-stupn¥
  []
 
 
-Overfull \hbox (1.34898pt too wide) in paragraph at lines 64--66
+Overfull \hbox (1.34898pt too wide) in paragraph at lines 65--67
 \T1/aer/m/n/12 (-10) vy-u-ºity pro-st°edky tzv. sé-man-tic-kého webu, který po-
 sky-tuje mnoº-ství standar- 
  []
@@ -695,39 +703,39 @@ sky-tuje mnoº-ství standar-
 ]
 Kapitola 2.
 
-Overfull \hbox (2.61516pt too wide) in paragraph at lines 69--73
+Overfull \hbox (2.61516pt too wide) in paragraph at lines 70--74
 \T1/aer/m/n/12 (-10) pro-st°ed-nic-tvím URI iden-ti-fi-ká-toru (za p°ed-po-klad
 u, ºe jej známe). K usnadn¥- 
  []
 
 
-Overfull \hbox (0.17389pt too wide) in paragraph at lines 69--73
+Overfull \hbox (0.17389pt too wide) in paragraph at lines 70--74
 \T1/aer/m/n/12 (-10) [[]]. Hlav-ním cí-lem je tedy vý-voj stan-dard· a tech-no-
 lo-gií, které by umoº-¬o-valy
  []
 
-LaTeX Font Info:    Try loading font information for OMS+aer on input line 76.
+LaTeX Font Info:    Try loading font information for OMS+aer on input line 77.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ae\omsaer.fd"
 File: omsaer.fd 1999/12/27
 )
 LaTeX Font Info:    Font shape `OMS/aer/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 76.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 77.
  [2
 
 ]
-Overfull \hbox (1.25516pt too wide) in paragraph at lines 88--89
+Overfull \hbox (1.25516pt too wide) in paragraph at lines 89--90
 \T1/aer/m/n/12 (-10) sé-man-tic-kého webu zpra-co-vá-vají pouze ty in-for-mace,
  které jsou do-stupné
  []
 
 
-Overfull \hbox (2.10213pt too wide) in paragraph at lines 92--93
+Overfull \hbox (2.10213pt too wide) in paragraph at lines 93--94
 \T1/aer/m/n/12 (-10) data sé-man-tic-kého webu vy-hledá in-for-mace, p°i-£emº j
 e kla-den po-ºa-da-vek
  []
 
 
-Overfull \hbox (0.27156pt too wide) in paragraph at lines 92--93
+Overfull \hbox (0.27156pt too wide) in paragraph at lines 93--94
 \T1/aer/m/n/12 (-10) ností rov-n¥º za d·-v¥-ry-hodný a tím za-jis-tit pl-n¥ní p
 o-ºa-davk· na vý-sle-dek. 
  []
@@ -739,13 +747,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [3]
-Overfull \hbox (1.0741pt too wide) in paragraph at lines 102--104
+Overfull \hbox (1.0741pt too wide) in paragraph at lines 103--105
 \T1/aer/m/n/12 (-10) vou sa-dou. Dru-hou vrstvu ar-chi-tek-tury, jeº je pa-trná
  z ob-rázku 2.1, reprezentu- 
  []
 
 
-Overfull \hbox (3.94244pt too wide) in paragraph at lines 102--104
+Overfull \hbox (3.94244pt too wide) in paragraph at lines 103--105
 \T1/aer/m/n/12 (-10) vrst-vou, která je jako v²echny p°ed-chozí zmí-n¥né kon-so
 r-ciem W3C standardizo- 
  []
@@ -753,10 +761,10 @@ r-ciem W3C standardizo-
 <architektura.pdf, id=35, 597.50786pt x 363.24509pt>
 File: architektura.pdf Graphic file (type pdf)
  <use architektura.pdf>
-Package pdftex.def Info: architektura.pdf used on input line 107.
+Package pdftex.def Info: architektura.pdf used on input line 108.
 (pdftex.def)             Requested size: 370.45103pt x 225.20961pt.
 
-Overfull \hbox (4.32631pt too wide) in paragraph at lines 116--117
+Overfull \hbox (4.32631pt too wide) in paragraph at lines 117--118
 \T1/aer/m/it/12 (-10) <pri-jmeni>Novák</prijmeni>\T1/aer/m/n/12 (-10) , kde ele
 -mentu \T1/aer/m/it/12 (-10) No-vák \T1/aer/m/n/12 (-10) je do-dána meta in-for
 -mace,
@@ -769,13 +777,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [4]
-Overfull \hbox (1.15553pt too wide) in paragraph at lines 120--124
+Overfull \hbox (1.15553pt too wide) in paragraph at lines 121--125
 \T1/aer/m/n/12 (-10) za-zna-me-nat n¥-ja-kou jeho vlast-nost. Tato vlast-nost s
 e po-pi-suje pro-st°ed-nic-tvím
  []
 
 
-Overfull \hbox (1.63736pt too wide) in paragraph at lines 120--124
+Overfull \hbox (1.63736pt too wide) in paragraph at lines 121--125
 \T1/aer/m/n/12 (-10) pre-di-kátu, který vede ve sm¥ru od sub-jektu ke ob-jektu,
  p°i-°a-zuje tedy sub-jektu
  []
@@ -791,16 +799,16 @@ _model/diploma-doc/text-prace-LATEX/architektura.pdf>]
 <trojice.pdf, id=59, 375.804pt x 48.18pt>
 File: trojice.pdf Graphic file (type pdf)
  <use trojice.pdf>
-Package pdftex.def Info: trojice.pdf used on input line 127.
+Package pdftex.def Info: trojice.pdf used on input line 128.
 (pdftex.def)             Requested size: 338.22047pt x 43.36157pt.
 
 <miniStrom.pdf, id=60, 241.84842pt x 153.64488pt>
 File: miniStrom.pdf Graphic file (type pdf)
  <use miniStrom.pdf>
-Package pdftex.def Info: miniStrom.pdf used on input line 136.
+Package pdftex.def Info: miniStrom.pdf used on input line 137.
 (pdftex.def)             Requested size: 217.66156pt x 138.2791pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 142--148
+Underfull \hbox (badness 10000) in paragraph at lines 143--149
 
  []
 
@@ -820,31 +828,31 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [7 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data
 _model/diploma-doc/text-prace-LATEX/miniStrom.pdf>]
-LaTeX Font Info:    Try loading font information for T1+aett on input line 160.
+LaTeX Font Info:    Try loading font information for T1+aett on input line 161.
 
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ae\t1aett.fd"
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 )
-Overfull \hbox (0.86343pt too wide) in paragraph at lines 168--168
+Overfull \hbox (0.86343pt too wide) in paragraph at lines 169--169
 []\T1/aett/m/n/12 (-10) <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-sy
 ntax-ns#"[] 
  []
 
 
-Overfull \hbox (1.42555pt too wide) in paragraph at lines 170--171
+Overfull \hbox (1.42555pt too wide) in paragraph at lines 171--172
 \T1/aer/m/n/12 (-10) vy-já-d-°it zá-kladní vztahy ná-le-ºi-tosti prvk· do ka-te
 -go-rie pro-st°ed-nic-tvím kontej- 
  []
 
 
-Overfull \hbox (2.24718pt too wide) in paragraph at lines 173--175
+Overfull \hbox (2.24718pt too wide) in paragraph at lines 174--176
 \T1/aer/m/n/12 (-10) schéma roz-²i-°uje ja-zyk RDF o moº-nosti vy-já-d-°ení vla
 st-ností ob-jekt·, konstruk- 
  []
 
 
-Overfull \hbox (2.63988pt too wide) in paragraph at lines 173--175
+Overfull \hbox (2.63988pt too wide) in paragraph at lines 174--176
 \T1/aer/m/n/12 (-10) ce t°íd ob-jekt· a po-pis je-jich hi-e-rar-chie [[]]. Pro-
 st°edky ja-zyka RDFS umoº-¬ují
  []
@@ -856,13 +864,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [8]
-Overfull \hbox (12.93198pt too wide) in paragraph at lines 186--187
+Overfull \hbox (12.93198pt too wide) in paragraph at lines 187--188
 []\T1/aer/bx/n/12 (-10) rdf:Property \T1/aer/m/n/12 (-10) p°ed-sta-vuje ro-di-£
 ov-skou t°ídu v²ech de-fi-no-va-ných vlast-ností
  []
 
 
-Overfull \hbox (10.2544pt too wide) in paragraph at lines 202--203
+Overfull \hbox (10.2544pt too wide) in paragraph at lines 203--204
 []\T1/aer/bx/n/12 (-10) rdf:type \T1/aer/m/n/12 (-10) slouºí k de-fi-no-vání, º
 e zdroj (sub-jekt) je in-stancí t°ídy de-fi-no-vané
  []
@@ -874,7 +882,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [9]
-Overfull \hbox (2.85376pt too wide) in paragraph at lines 206--207
+Overfull \hbox (2.85376pt too wide) in paragraph at lines 207--208
 []\T1/aer/bx/n/12 (-10) rdfs:comment \T1/aer/m/n/12 (-10) do-vo-luje p°i-dat zd
 roji po-pi-sek, který usnad-¬uje lid-skému
  []
@@ -882,22 +890,22 @@ roji po-pi-sek, který usnad-¬uje lid-skému
 <rdfs.pdf, id=105, 241.84842pt x 153.64488pt>
 File: rdfs.pdf Graphic file (type pdf)
  <use rdfs.pdf>
-Package pdftex.def Info: rdfs.pdf used on input line 214.
+Package pdftex.def Info: rdfs.pdf used on input line 215.
 (pdftex.def)             Requested size: 338.58546pt x 215.10135pt.
 
-Overfull \hbox (1.62143pt too wide) in paragraph at lines 220--222
+Overfull \hbox (1.62143pt too wide) in paragraph at lines 221--223
 \T1/aer/m/n/12 (-10) se ozna-£ují jako on-to-lo-gie. On-to-lo-gie ov²em není po
 uze abs-trakt-ním zna-lost-ním
  []
 
 
-Overfull \hbox (1.0235pt too wide) in paragraph at lines 220--222
+Overfull \hbox (1.0235pt too wide) in paragraph at lines 221--223
 \T1/aer/m/n/12 (-10) mo-de-lem, ale slouºí i jako pro-st°e-dek k zís-kání in-te
 -ro-pe-ra-bi-lity, tedy schop-nosti
  []
 
 
-Overfull \hbox (0.79036pt too wide) in paragraph at lines 220--222
+Overfull \hbox (0.79036pt too wide) in paragraph at lines 221--223
 \T1/aer/m/n/12 (-10) zna-mená de-fi-no-vání kon-cept· na dané úrovni abs-trakce
 , jeº od-po-vídá poºadav- 
  []
@@ -917,7 +925,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [11]
-Overfull \hbox (2.2131pt too wide) in paragraph at lines 251--252
+Overfull \hbox (2.2131pt too wide) in paragraph at lines 252--253
 []\T1/aer/bx/n/12 (-10) OWL Lite \T1/aer/m/n/12 (-10) Umoº-¬uje de-fi-no-vat hi
 -e-rar-chický sys-tém t°íd s jed-no-du-chými
  []
@@ -929,7 +937,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [12]
-Overfull \hbox (2.83038pt too wide) in paragraph at lines 253--254
+Overfull \hbox (2.83038pt too wide) in paragraph at lines 254--255
 []\T1/aer/bx/n/12 (-10) OWL-Full \T1/aer/m/n/12 (-10) Je va-ri-an-tou, která po
 -sky-tuje ma-xi-mální moº-nou ex-pre-si-vitu,
  []
@@ -941,7 +949,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [13]
-Overfull \hbox (4.21043pt too wide) in paragraph at lines 277--278
+Overfull \hbox (4.21043pt too wide) in paragraph at lines 278--279
 []\T1/aer/m/n/12 (-10) SPARQL pod-po-ruje 4 druhy do-taz·, které se vzá-jemn¥ l
 i²í v typu vrá-ce-ného
  []
@@ -962,19 +970,19 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [15]
 Kapitola 3.
 
-Overfull \hbox (2.28726pt too wide) in paragraph at lines 293--294
+Overfull \hbox (2.28726pt too wide) in paragraph at lines 294--295
 []\T1/aer/bx/n/12 (-10) Ukládání, ak-tu-a-li-zace a sta-ho-vání na-m¥-°e-ných d
 at ex-pe-ri-ment·
  []
 
 
-Overfull \hbox (6.73813pt too wide) in paragraph at lines 295--296
+Overfull \hbox (6.73813pt too wide) in paragraph at lines 296--297
 []\T1/aer/bx/n/12 (-10) Registrace no-vých uºi-va-tel·, sdru-ºo-vání do sku-pin
  v£etn¥ ur-£ení
  []
 
 
-Overfull \hbox (7.96794pt too wide) in paragraph at lines 296--297
+Overfull \hbox (7.96794pt too wide) in paragraph at lines 297--298
 []\T1/aer/bx/n/12 (-10) Sdílení dat a me-ta-dat ex-pe-ri-ment· mezi vý-zkum-ným
 i sku-pi-nami 
  []
@@ -982,10 +990,10 @@ i sku-pi-nami
 <mvc.pdf, id=146, 507.496pt x 303.534pt>
 File: mvc.pdf Graphic file (type pdf)
  <use mvc.pdf>
-Package pdftex.def Info: mvc.pdf used on input line 309.
+Package pdftex.def Info: mvc.pdf used on input line 310.
 (pdftex.def)             Requested size: 304.49994pt x 182.1218pt.
 
-Overfull \hbox (2.56726pt too wide) in paragraph at lines 315--316
+Overfull \hbox (2.56726pt too wide) in paragraph at lines 316--317
 \T1/aer/m/n/12 (-10) Twit-ter a Lin-ke-dIn. Spring So-cial také slouºí ke in-te
 -graci moº-nosti p°i-hla-²o-vání
  []
@@ -1012,7 +1020,7 @@ Kapitola 4.
 <relace.pdf, id=200, 513.92pt x 385.44pt>
 File: relace.pdf Graphic file (type pdf)
  <use relace.pdf>
-Package pdftex.def Info: relace.pdf used on input line 334.
+Package pdftex.def Info: relace.pdf used on input line 335.
 (pdftex.def)             Requested size: 359.74153pt x 269.80615pt.
  [19
 
@@ -1032,7 +1040,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [21]
-Overfull \hbox (1.77489pt too wide) in paragraph at lines 359--360
+Overfull \hbox (1.77489pt too wide) in paragraph at lines 360--361
 \T1/aer/m/n/12 (-10) (vlast-níka ex-pe-ri-mentu). Z hle-diska da-to-vého mo-del
 u není mezi t¥-mito oso-bami
  []
@@ -1044,13 +1052,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [22]
-Overfull \hbox (1.51193pt too wide) in paragraph at lines 361--362
+Overfull \hbox (1.51193pt too wide) in paragraph at lines 362--363
 []\T1/aer/m/n/12 (-10) Obdobná si-tu-ace na-stává v p°í-pad¥ ta-bulky \T1/aer/m
 /it/12 (-10) RE-SEARCH_-GROUP\T1/aer/m/n/12 (-10) , slou-ºící
  []
 
 
-Overfull \hbox (0.43047pt too wide) in paragraph at lines 361--362
+Overfull \hbox (0.43047pt too wide) in paragraph at lines 362--363
 \T1/aer/m/n/12 (-10) ka-te-go-ri-zaci hod-not spe-ci-fic-kých me-ta-dat ex-pe-r
 i-ment· ke vy-bra-ným sku-pi-nám.
  []
@@ -1071,7 +1079,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [24]
 Kapitola 5.
 
-Overfull \hbox (3.12611pt too wide) in paragraph at lines 376--377
+Overfull \hbox (3.12611pt too wide) in paragraph at lines 377--378
 []\T1/aer/m/n/12 (-10) Podstatný roz-díl mezi da-to-vým mo-de-lem sé-man-tic-ké
 ho webu oproti mo-delu
  []
@@ -1079,7 +1087,7 @@ ho webu oproti mo-delu
 [25
 
 ]
-Overfull \hbox (1.60764pt too wide) in paragraph at lines 382--383
+Overfull \hbox (1.60764pt too wide) in paragraph at lines 383--384
 \T1/aer/m/n/12 (-10) ob-rázku 5.1. T°ída (\T1/aer/m/it/12 (-10) rdfs:Class\T1/a
 er/m/n/12 (-10) ) \T1/aer/m/it/12 (-10) Per-son \T1/aer/m/n/12 (-10) jeº de-fi-
 nuje dv¥ vlast-nosti (\T1/aer/m/it/12 (-10) rdf:Property\T1/aer/m/n/12 (-10) )
@@ -1088,7 +1096,7 @@ nuje dv¥ vlast-nosti (\T1/aer/m/it/12 (-10) rdf:Property\T1/aer/m/n/12 (-10) )
 <miniportal.pdf, id=239, 241.84842pt x 153.64488pt>
 File: miniportal.pdf Graphic file (type pdf)
  <use miniportal.pdf>
-Package pdftex.def Info: miniportal.pdf used on input line 386.
+Package pdftex.def Info: miniportal.pdf used on input line 387.
 (pdftex.def)             Requested size: 386.958pt x 245.83214pt.
 
 
@@ -1098,18 +1106,18 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [26]
-Overfull \hbox (3.61238pt too wide) in paragraph at lines 396--397
+Overfull \hbox (3.61238pt too wide) in paragraph at lines 397--398
  \T1/aer/m/n/12 (-10) Pro jed-no-du-ché po-rov-nání da-to-vého mo-delu sé-man-t
 ic-kého webu a re-la£-ního
  []
 
 
-Overfull \hbox (3.75711pt too wide) in paragraph at lines 404--405
+Overfull \hbox (3.75711pt too wide) in paragraph at lines 405--406
  \T1/aer/bx/n/12 (-10) sé-man-tic-kého 
  []
 
 
-Overfull \hbox (6.10484pt too wide) in paragraph at lines 402--425
+Overfull \hbox (6.10484pt too wide) in paragraph at lines 403--426
 [][] 
  []
 
@@ -1130,13 +1138,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [28]
 Kapitola 6.
 
-Overfull \hbox (0.60568pt too wide) in paragraph at lines 439--440
+Overfull \hbox (0.60568pt too wide) in paragraph at lines 440--441
  \T1/aer/m/n/12 (-10) Vir-tu-oso je hyb-ridní da-ta-bá-zový ser-ver umoº-¬u-jíc
 í práci nad více da-to-vými
  []
 
 
-Overfull \hbox (2.11708pt too wide) in paragraph at lines 441--442
+Overfull \hbox (2.11708pt too wide) in paragraph at lines 442--443
 \T1/aer/m/n/12 (-10) kom-plexní ad-mi-nis-traci a také je moºné jeho pro-st°ed-
 nic-tvím za-dá-vat li-bo-volné
  []
@@ -1144,7 +1152,7 @@ nic-tvím za-dá-vat li-bo-volné
 [29
 
 ]
-Overfull \hbox (1.27493pt too wide) in paragraph at lines 445--447
+Overfull \hbox (1.27493pt too wide) in paragraph at lines 446--448
 \T1/aer/m/n/12 (-10) práci. Stan-dardní in-sta-lace Oracle 11g re-le-ase 2 (sou
 -£asná da-ta-báze EEG/ERP
  []
@@ -1156,7 +1164,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [30]
-Overfull \hbox (2.8221pt too wide) in paragraph at lines 462--464
+Overfull \hbox (2.8221pt too wide) in paragraph at lines 463--465
 \T1/aer/m/n/12 (-10) Jena API pro Java apli-kace. Da-ta-bá-zový sys-tém pod-po-
 ruje od-vo-zo-vací pra-vi-dla
  []
@@ -1179,7 +1187,7 @@ Kapitola 7.
 [33
 
 ]
-Overfull \hbox (1.12535pt too wide) in paragraph at lines 498--499
+Overfull \hbox (1.12535pt too wide) in paragraph at lines 499--500
 \T1/aer/m/n/12 (-10) webu, jeº bude slou-ºit k ucho-vání me-ta-dat. Ve vý-sledk
 u tak zmí-n¥ná identifika- 
  []
@@ -1187,10 +1195,10 @@ u tak zmí-n¥ná identifika-
 <eraNovej.pdf, id=273, 845.04686pt x 446.70827pt>
 File: eraNovej.pdf Graphic file (type pdf)
  <use eraNovej.pdf>
-Package pdftex.def Info: eraNovej.pdf used on input line 502.
+Package pdftex.def Info: eraNovej.pdf used on input line 503.
 (pdftex.def)             Requested size: 295.77083pt x 156.35023pt.
 
-Overfull \hbox (4.60664pt too wide) in paragraph at lines 508--509
+Overfull \hbox (4.60664pt too wide) in paragraph at lines 509--510
 \T1/aer/m/n/12 (-10) p·-vod-ního re-la£-ního mo-delu, z je-hoº ta-bu-lek ne-sou
 -cích zmí-n¥né da-tové sou-bory
  []
@@ -1203,13 +1211,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [34 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_dat
 a_model/diploma-doc/text-prace-LATEX/eraNovej.pdf>]
-Overfull \hbox (2.11404pt too wide) in paragraph at lines 512--514
+Overfull \hbox (2.11404pt too wide) in paragraph at lines 513--515
 \T1/aer/m/n/12 (-10) po-t°eba na-de-fi-no-vat obecná pra-vi-dla a po-stup, kter
 ý by umoº-¬o-val transforma- 
  []
 
 
-Overfull \hbox (0.13225pt too wide) in paragraph at lines 516--517
+Overfull \hbox (0.13225pt too wide) in paragraph at lines 517--518
 \T1/aer/m/n/12 (-10) ného prin-cipu jako v p°í-pad¥ ob-jek-tov¥ re-la£-ního ma-
 po-vání ná-stroje Hi-ber-nate
  []
@@ -1231,27 +1239,27 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 File: rozkladovka.pdf Graphic file (type pdf)
 
 <use rozkladovka.pdf>
-Package pdftex.def Info: rozkladovka.pdf used on input line 554.
+Package pdftex.def Info: rozkladovka.pdf used on input line 555.
 (pdftex.def)             Requested size: 422.5224pt x 223.35358pt.
 
-Overfull \hbox (32.5224pt too wide) in paragraph at lines 554--555
+Overfull \hbox (32.5224pt too wide) in paragraph at lines 555--556
  [] 
  []
 
 
-Overfull \hbox (0.3543pt too wide) in paragraph at lines 560--561
+Overfull \hbox (0.3543pt too wide) in paragraph at lines 561--562
 []\T1/aer/m/n/12 (-10) Tato ta-bulka umoº-¬uje za-zna-me-nat ná-sob-nou vazbu m
 ezi zá-znamy ta-bu-lek
  []
 
 
-Overfull \hbox (2.57742pt too wide) in paragraph at lines 564--565
+Overfull \hbox (2.57742pt too wide) in paragraph at lines 565--566
 \T1/aer/m/n/12 (-10) roz-sah ur-£en práv¥ jed-ním z t¥chto atri-but·. Roz-sah (
 \T1/aer/m/it/12 (-10) rdfs:range\T1/aer/m/n/12 (-10) ) transformova- 
  []
 
 
-Overfull \hbox (0.17891pt too wide) in paragraph at lines 564--565
+Overfull \hbox (0.17891pt too wide) in paragraph at lines 565--566
 \T1/aer/m/n/12 (-10) da-ta-báze) to-hoto atri-butu. Po-kud je tato (re-la£ní) d
 o-ména p·-vod-ního atri-butu
  []
@@ -1264,19 +1272,19 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [37 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_dat
 a_model/diploma-doc/text-prace-LATEX/rozkladovka.pdf>]
-Overfull \hbox (1.92761pt too wide) in paragraph at lines 567--568
+Overfull \hbox (1.92761pt too wide) in paragraph at lines 568--569
  \T1/aer/m/n/12 (-10) Pro ur-£ení da-to-vých typ· roz-sah· (\T1/aer/m/it/12 (-1
 0) rdfs:range\T1/aer/m/n/12 (-10) ) pre-di-kát· a li-te-rál· transfor- 
  []
 
 
-Overfull \hbox (16.7355pt too wide) in paragraph at lines 602--603
+Overfull \hbox (16.7355pt too wide) in paragraph at lines 603--604
 []\T1/aer/m/n/12 (-10) Názvy da-to-vých typ· re-la£ní da-ta-báze vy-chá-zejí z 
 ná-zv· uºí-va-ných por-tá-lo-vou
  []
 
 
-Overfull \hbox (1.161pt too wide) in paragraph at lines 605--606
+Overfull \hbox (1.161pt too wide) in paragraph at lines 606--607
 \T1/aer/m/n/12 (-10) mu. Bude-li p·-vodní hod-nota atri-butu ci-zím klí-£em jin
 é ta-bulky pak p°i°azova- 
  []
@@ -1288,13 +1296,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [38]
-Overfull \hbox (0.87415pt too wide) in paragraph at lines 608--609
+Overfull \hbox (0.87415pt too wide) in paragraph at lines 609--610
  \T1/aer/m/n/12 (-10) Nov¥ vy-tvo-°e-nému mo-delu bude do-dána sé-man-tika pro-
 st°ed-nic-tvím hierar- 
  []
 
 
-Overfull \hbox (0.54929pt too wide) in paragraph at lines 608--609
+Overfull \hbox (0.54929pt too wide) in paragraph at lines 609--610
 \T1/aer/m/n/12 (-10) do-sáh-nout vy-u-ºi-tím kon-strukcí \T1/aer/m/it/12 (-10) 
 rdfs:subClassOf \T1/aer/m/n/12 (-10) a \T1/aer/m/it/12 (-10) rdfs:subPropertyOf
 \T1/aer/m/n/12 (-10) . Z p·vod- 
@@ -1303,10 +1311,10 @@ rdfs:subClassOf \T1/aer/m/n/12 (-10) a \T1/aer/m/it/12 (-10) rdfs:subPropertyOf
 <semantika.pdf, id=319, 753.99802pt x 287.37282pt>
 File: semantika.pdf Graphic file (type pdf)
  <use semantika.pdf>
-Package pdftex.def Info: semantika.pdf used on input line 613.
+Package pdftex.def Info: semantika.pdf used on input line 614.
 (pdftex.def)             Requested size: 392.08122pt x 149.43471pt.
 
-Overfull \hbox (2.08122pt too wide) in paragraph at lines 613--614
+Overfull \hbox (2.08122pt too wide) in paragraph at lines 614--615
  [] 
  []
 
@@ -1321,10 +1329,10 @@ a_model/diploma-doc/text-prace-LATEX/semantika.pdf>]
 <vysledne.pdf, id=331, 753.99802pt x 287.37282pt>
 File: vysledne.pdf Graphic file (type pdf)
  <use vysledne.pdf>
-Package pdftex.def Info: vysledne.pdf used on input line 631.
+Package pdftex.def Info: vysledne.pdf used on input line 632.
 (pdftex.def)             Requested size: 392.08122pt x 149.43471pt.
 
-Overfull \hbox (2.08122pt too wide) in paragraph at lines 631--632
+Overfull \hbox (2.08122pt too wide) in paragraph at lines 632--633
  [] 
  []
 
@@ -1370,10 +1378,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [45] <db-connect.jpg, id=372, 834.86906pt x 398.99063pt>
 File: db-connect.jpg Graphic file (type jpg)
  <use db-connect.jpg>
-Package pdftex.def Info: db-connect.jpg used on input line 733.
+Package pdftex.def Info: db-connect.jpg used on input line 734.
 (pdftex.def)             Requested size: 384.04443pt x 183.53792pt.
 
-Overfull \hbox (2.07556pt too wide) in paragraph at lines 739--740
+Overfull \hbox (2.07556pt too wide) in paragraph at lines 740--741
 \T1/aer/m/n/12 (-10) apli-kace SemWeb-Mo-del-Cre-a-tor. Ta za-ji²-´uje na-£í-tá
 ní vstup-ního XML sou-boru
  []
@@ -1389,10 +1397,10 @@ a_model/diploma-doc/text-prace-LATEX/db-connect.jpg>]
 <Creator.jpg, id=376, 233.37187pt x 346.29375pt>
 File: Creator.jpg Graphic file (type jpg)
  <use Creator.jpg>
-Package pdftex.def Info: Creator.jpg used on input line 751.
+Package pdftex.def Info: Creator.jpg used on input line 752.
 (pdftex.def)             Requested size: 186.69774pt x 277.03537pt.
 
-Overfull \hbox (2.60464pt too wide) in paragraph at lines 756--759
+Overfull \hbox (2.60464pt too wide) in paragraph at lines 757--760
 \T1/aer/m/it/12 (-10) name \T1/aer/m/n/12 (-10) ur-£uje ná-zev vy-tvá-°e-ného m
 o-delu, je-hoº po-pisný XML sou-bor je za-dá-ván
  []
@@ -1412,7 +1420,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [48 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_dat
 a_model/diploma-doc/text-prace-LATEX/Creator.jpg>]
-Overfull \hbox (0.64731pt too wide) in paragraph at lines 771--772
+Overfull \hbox (0.64731pt too wide) in paragraph at lines 772--773
 []\T1/aer/m/n/12 (-10) T°ída \T1/aer/m/it/12 (-10) UriI-tem \T1/aer/m/n/12 (-10
 ) dis-po-nuje me-to-dami umoº-¬u-jí-cími zís-kání se-znamu prediká- 
  []
@@ -1424,7 +1432,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [49]
-Overfull \hbox (4.68648pt too wide) in paragraph at lines 784--785
+Overfull \hbox (4.68648pt too wide) in paragraph at lines 785--786
 []\T1/aer/bx/n/12 (-10) PropertyValLikeCondition \T1/aer/m/n/12 (-10) - umoº-¬u
 je na-sta-vit tex-tový °e-t¥-zec, je-hoº
  []
@@ -1438,10 +1446,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [50] <filter.jpg, id=390, 755.07094pt x 730.98094pt>
 File: filter.jpg Graphic file (type jpg)
  <use filter.jpg>
-Package pdftex.def Info: filter.jpg used on input line 790.
+Package pdftex.def Info: filter.jpg used on input line 791.
 (pdftex.def)             Requested size: 377.53455pt x 365.48958pt.
 
-Overfull \hbox (1.53339pt too wide) in paragraph at lines 797--798
+Overfull \hbox (1.53339pt too wide) in paragraph at lines 798--799
 \T1/aer/m/n/12 (-10) pre-di-káty (op¥t s moº-ností hi-e-rar-chic-kého uspo-°á-d
 ání). Ak-tu-a-li-zace stá-va-jí-cích
  []
@@ -1454,7 +1462,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [51 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_dat
 a_model/diploma-doc/text-prace-LATEX/filter.jpg>]
-Overfull \hbox (0.91772pt too wide) in paragraph at lines 801--802
+Overfull \hbox (0.91772pt too wide) in paragraph at lines 802--803
 \T1/aer/m/n/12 (-10) jsou t°ídy, je-jichº od-stra-n¥ní za-ji²-´uje me-toda \T1/
 aer/m/it/12 (-10) re-mo-veC-lasss \T1/aer/m/n/12 (-10) t°ídy \T1/aer/m/it/12 (-
 10) Por-tal-Mo-del\T1/aer/m/n/12 (-10) .
@@ -1463,10 +1471,10 @@ aer/m/it/12 (-10) re-mo-veC-lasss \T1/aer/m/n/12 (-10) t°ídy \T1/aer/m/it/12 (-
 <api.jpg, id=394, 1055.44313pt x 760.34062pt>
 File: api.jpg Graphic file (type jpg)
  <use api.jpg>
-Package pdftex.def Info: api.jpg used on input line 808.
+Package pdftex.def Info: api.jpg used on input line 809.
 (pdftex.def)             Requested size: 390.50784pt x 281.32162pt.
 
-Overfull \hbox (0.50784pt too wide) in paragraph at lines 808--809
+Overfull \hbox (0.50784pt too wide) in paragraph at lines 809--810
  [] 
  []
 
@@ -1489,7 +1497,7 @@ Kapitola 9.
 <mainFrame.jpg, id=401, 646.66594pt x 364.36125pt>
 File: mainFrame.jpg Graphic file (type jpg)
  <use mainFrame.jpg>
-Package pdftex.def Info: mainFrame.jpg used on input line 832.
+Package pdftex.def Info: mainFrame.jpg used on input line 833.
 (pdftex.def)             Requested size: 388.00255pt x 218.61842pt.
  [54
 
@@ -1505,10 +1513,10 @@ a_model/diploma-doc/text-prace-LATEX/mainFrame.jpg>]
 <propertyFrame.jpg, id=409, 535.2497pt x 272.51813pt>
 File: propertyFrame.jpg Graphic file (type jpg)
  <use propertyFrame.jpg>
-Package pdftex.def Info: propertyFrame.jpg used on input line 854.
+Package pdftex.def Info: propertyFrame.jpg used on input line 855.
 (pdftex.def)             Requested size: 347.90817pt x 177.13467pt.
 
-Overfull \hbox (2.29343pt too wide) in paragraph at lines 861--862
+Overfull \hbox (2.29343pt too wide) in paragraph at lines 862--863
 []\T1/aer/m/n/12 (-10) Tento me-cha-nis-mus p°i-dá-vání pre-di-kát· umoº-¬uje v
 y-tvo-°it ob-jekt a no-vým
  []
@@ -1520,7 +1528,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [56]
-Overfull \hbox (0.67564pt too wide) in paragraph at lines 864--865
+Overfull \hbox (0.67564pt too wide) in paragraph at lines 865--866
  \T1/aer/m/n/12 (-10) Vzhle-dem k tomu ºe vý²e po-psaná tes-to-vací apli-kace z
 p°í-stup-¬uje na-vr-ºený
  []
@@ -1547,7 +1555,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [59]
-Overfull \hbox (0.61932pt too wide) in paragraph at lines 934--935
+Overfull \hbox (0.61932pt too wide) in paragraph at lines 935--936
 []\T1/aer/bx/n/12 (-10) R2 - Zís-kání ex-pe-ri-ment· uºi-va-tele : \T1/aer/m/n/
 12 (-10) na-le-zení ex-pe-ri-ment· uºi-va-tele
  []
@@ -1559,9 +1567,24 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [60]
-Overfull \hbox (0.47299pt too wide) in paragraph at lines 955--957
+Overfull \hbox (0.47299pt too wide) in paragraph at lines 956--958
 \T1/aer/m/n/12 (-10) kaº-dou mno-ºinu tes-to-va-cích dat dané ve-li-kosti bude 
 spu²-t¥na sek-vence testova- 
+ []
+
+
+Overfull \hbox (5.41512pt too wide) in paragraph at lines 983--983
+ []|\T1/aer/bx/n/8 (-10) Shallow| 
+ []
+
+
+Overfull \hbox (5.41512pt too wide) in paragraph at lines 983--983
+ []|\T1/aer/bx/n/8 (-10) Shallow| 
+ []
+
+
+Overfull \hbox (5.41512pt too wide) in paragraph at lines 983--983
+ []|\T1/aer/bx/n/8 (-10) Shallow| 
  []
 
 
@@ -1582,7 +1605,7 @@ Kapitola 10.
 [63
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 979--982
+Underfull \hbox (badness 10000) in paragraph at lines 1043--1046
 
  []
 
@@ -1711,23 +1734,25 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8477 strings out of 494045
- 114356 string characters out of 3145966
- 251947 words of memory out of 3000000
- 10929 multiletter control sequences out of 15000+200000
- 88769 words of font info for 534 fonts, out of 3000000 for 9000
+ 8596 strings out of 494045
+ 115797 string characters out of 3145966
+ 266091 words of memory out of 3000000
+ 10994 multiletter control sequences out of 15000+200000
+ 96341 words of font info for 566 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  37i,12n,43p,3348b,378s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C
-:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/P
-rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Prog
-ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Progra
-m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program 
-Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on diplomka.pdf (77 pages, 1782477 bytes).
+<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:
+/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/P
+rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Prog
+ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program
+ Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Fil
+es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files
+ (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (
+x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on diplomka.pdf (77 pages, 1803951 bytes).
 PDF statistics:
- 486 PDF objects out of 1000 (max. 8388607)
+ 494 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 159830 words of extra memory for PDF output out of 184870 (max. 10000000)
+ 178262 words of extra memory for PDF output out of 184870 (max. 10000000)
 
