@@ -336,7 +336,7 @@ Jedna tabulka slouží zpravidla k uchování údajů o jednom druhu objektů \c
 \end{center}
 \end{figure}
 
-domény dané emailové adresy). V případě že tabulka neobsahuje žádný atribut, který by potřebnou jedinečnost záznamů zajišťoval, je nutné jej přidat. To je realizováno např. atributem ID, obsahujícím číslo z číselníku, jehož hodnota je inkrementována po každém přidání dalšího záznamu do tabulky {\it Person}. Tento identifikátor položky sice jednoznačně určuje daný záznam v tabulce, nikoliv už však v rámci celé databáze (pokud uvažujeme více tabulek) či vně databáze. V jedné databázi je tedy možné mít například tabulky {\it Person} a {\it Experiment}, jejichž primárními klíči bude atribut s názvem ID typu celého čísla. V takovém případě je pak i možné aby obě tabulky obsahovaly 2 různé záznamy jež budou jednoznačně identifikovatelné stejnou číselnou hodnotou (ale v kontextu dané tabulky). Z toho důvodu je pro jednoznačnou identifikaci záznamu nutné znát jak hodnotu příslušného atributu obalující relace, tak i její název. 
+domény dané emailové adresy). V případě že tabulka neobsahuje žádný atribut, který by potřebnou jedinečnost záznamů zajišťoval, je nutné jej přidat. To je realizováno např. atributem ID, obsahujícím číslo z číselníku, jehož hodnota je inkrementována po každém přidání dalšího záznamu do tabulky {\it Person}. Tento identifikátor položky sice jednoznačně určuje daný záznam v tabulce, nikoliv už však v rámci celé databáze (pokud uvažujeme více tabulek) či vně databáze. V jedné databázi je tedy možné mít například tabulky {\it Person} a {\it Experiment}, jejichž primárními klíči bude atribut s názvem ID typu celého čísla. V takovém případě je pak i možné aby obě tabulky obsahovaly 2 různé záznamy jež budou jednoznačně identifikovatelné stejnou číselnou hodnotou (ale v kontextu dané tabulky). Z toho důvodu je pro jednoznačnou identifikaci záznamu nutné znát jak hodnotu příslušného atribu-\\tu obalující relace, tak i její název. 
 
 
 \section{Limity relační databáze}
@@ -653,7 +653,7 @@ Každé vytvořené třídě a predikátu (property) je navíc dodávána prost�
 \item Možná ztráta přehlednosti modelu neuváženým rozšiřováním
 \end{itemize}
 
-Navržený model poskytuje poměrně širokou řadu výhod, díky které je možné ukládat data způsobem bližším lidskému myšlení. Zásadní nevýhodou modelu je ztráta restriktivních omezení, neboť není možné vynutit na úrovni modelu povinné údaje jako je např. u osob výzkumníků uživatelské jméno či heslo, bez kterých nemohou provést přihlášení do systému a dále jej využívat. Souvisejícím problémem je ztráta možnosti omezení počtu vazeb mezi instancemi tříd, není tak možné například omezit vazbu M:N na 1:1. Všechny tyto záležitosti je nutné řešit v datové vrstvě aplikace pracující s modelem. V rámci tohoto hodnocení navrženého modelu se vybízí také otázka jeho výkonnosti, která bude řešena v kapitole testování.
+Navržený model poskytuje poměrně širokou řadu výhod, díky které je možné ukládat data způsobem bližším lidskému myšlení. Zásadní nevýhodou modelu je ztráta restriktivních omezení, neboť není možné vynutit na úrovni modelu povinné údaje jako je např. u osob výzkumníků uživatelské jméno či heslo, bez kterých nemohou provést přihlášení do systému a dále jej využívat. Souvisejícím problémem je ztráta možnosti omezení počtu vazeb mezi instancemi tříd, není tak možné například omezit vazbu M:N na 1:1. Všechny tyto záležitosti je nutné řešit v datové vrstvě aplikace jež s modelem pracuje. V rámci tohoto hodnocení navrženého modelu se vybízí také otázka jeho výkonnosti, která bude řešena v kapitole testování.
 
 
 \chapter{Implementace navrženého modelu}
@@ -754,7 +754,7 @@ Pro snadné použití tohoto nástroje má aplikace implementované grafické u�
 \end{figure}
 
 Položka {\it ConnectionType} slouží pro výběr cílové databáze modelu (Oracle nebo Virtuoso) jejíž URI je zadáváno v poli {\it Database URI}. Položka {\it Model name} určuje název vytvářeného modelu, jehož popisný XML soubor je zadáván v poli {\it Model file}. Nezbytnou položkou pro spojení s databází jsou uživatelské jméno a heslo v položkách {\it Username} a {\it Password}. Pole {\it Namespace} slouží pro definici URI prefixu všech vytvářených entit modelu, neboť XML soubor popisující model obsahuje pouze lokální části hodnot URI identifikátorů. Poslední pole {\it Table prefix} určuje prefix názvu všech vytvářených tabulek, čímž je později možné v rámci celé relační databáze jednoduše identifikovat tabulky tohoto modelu. 
-Zaškrtávací políčko {\it Create simple data} slouží k rozhodnutí, zda generovat testovací data, jejichž velikost určuje položka {\it Simple data size}. Poslední nastavitelná položka je políčko {\it Remove model}, jehož zaškrtnutím bude specifikovaný model smazán namísto jeho vytvoření.
+Zaškrtávací políčko {\it Create simple data} slouží ke rozhodnutí, zda generovat testovací data, jejichž velikost určuje položka {\it Simple data size}. Poslední nastavitelná položka je políčko {\it Remove model}, jehož zaškrtnutím bude specifikovaný model smazán namísto jeho vytvoření.
 Jednoduchý uživatelský manuál pro použití tohoto nástroje je součásti přílohy XX. Veškeré implementační detaily tohoto nástroje jsou zřejmé z komentova-\\ných zdrojových kódů.
 
 
@@ -819,7 +819,7 @@ Všechny výše popsané operace jsou patrné z UML diagramu tříd na obrázku 
 \hspace{0.65cm}Testování navrženého transformovaného datového modelu a knihovny SemWebModelApi poskytující API pro operace modelu bude provedeno po stránce funkční i výkonnostní. Touto cestou by měla být ověřena použitelnost navrženého modelu jako alternativní náhrady současného datového modelu EEG/ERP portálu.
 
 \section{Funkční testování}
-\hspace{0.65cm}Pro účely funkčního testování byla vytvořena aplikace s grafickým uživa-\\telským rozhraním, která slouží ke vizualizaci datového modelu k němuž přistupuje metodami knihovny SemWebModelApi. Tato testovací aplikace umožňuje zobrazení a procházení objektů datového modelu a zároveň dovoluje uživateli provádět nad modelem všechny operace popsané v kapitole 8.3 poměrně jednoduchým způsobem. 
+\hspace{0.65cm}Pro účely funkčního testování byla vytvořena aplikace s grafickým uživa-\\telským rozhraním, která slouží ke vizualizaci datového modelu k němuž přistupuje metodami knihovny SemWebModelApi. Tato testovací aplikace umožňuje zobrazení a procházení objektů datového modelu a zároveň dovoluje uživateli provádět nad modelem všechny operace popsané v kapitole 8.3 poměrně jednoduchým způsobem. Cílem této aplikace ovšem není vytvoření uživatelsky přívětivého nástroje pro práci s modelem, ale pouze zjištění komfortnějšího způsobu testování modelu spolu s API vytvořené knihovny jež jsou výstupem této práce.
 
 
 Testovací aplikace je implementována s využitím Java knihovny Swing, jež zajišťuje vytvoření celého grafického rozhraní. Po jejím spuštění se zobrazí obdobné okno jako v případě aplikace pro tvorbu modelu, jež slouží k zadání údajů pro spojení s databází. Aplikace nabízí na výběr připojení k databázi Oracle nebo Virtuoso, k čemuž je nutné vyplnit URI cestu k databázi, název (sémantického) modelu a uživatelské jméno a heslo pro přihlášení. Dalšími nutnými údaji jsou jmenný prostor modelu ({\it namespace}) a tabulkový prefix. Pro všechny zmíněné údaje je nutné zadat stejné hodnoty jako v případě aplikace pro tvorbu modelu (je-li požadavkem připojení k tomuto modelu). Poslední volitelnou položkou je {\it Reasoner type}, která slouží ke volbě použitého reasoneru. Aplikace nabízí tzv. mělký ({\it Shallow}) a hluboký ({\it Deep}) reasoner, jež se liší hloubkou procházení modelu při jednotlivých dotazech, což se logicky odráží na rychlosti testovací aplikace.
@@ -899,7 +899,74 @@ Tento mechanismus přidávání predikátů umožňuje vytvořit objekt a novým
 Všechny kroky popsaného scénáře byly úspěšně provedeny, čímž byla ověřena správná funkčnost testovací aplikace.
 
 \section{Výkonnostní testování}
+\hspace{0.65cm}Aby bylo možné posoudit použitelnost navrženého modelu i z výkonnostní-\\ho hlediska, budou provedeny výkonnostní testy modelu naplněného testovací-\\mi daty. Testování bude prováděno nad oběma databázovými systémy, čímž bude možné posoudit jejich vhodnost pro uchování dat navrženého modelu. Datový model bude postupně třikrát naplněn testovacími daty lišícími se svým objemem, čímž bude možné ověřit rychlost operací nad modelem v závislosti na jeho rozsahu. Testovací scénář bude pokrývat operace pro čtení, vytváření, aktualizaci a mazání dat jež budou reprezentovány typickými požadavky současné verze EEG/ERP portálu na relační databázi. Každý požadavek bude implementován jak do podoby dotazu sémantického webu tak i do varianty SQL dotazu nad relační databází. V důsledku tak bude možné získat přibližné porovnání rychlosti vykonávání typických portálových požadavků nad původním a nově navrženým datovým modelem.
+
+\subsection{Testovací data}
+\hspace{0.65cm}Testovací data budou mít podobu pseudonáhodných hodnot, kterými budou v případě relační databáze zaplněny jednotlivé tabulky, v případě databáze sémantického modelu se bude jednat o instance definovaných tříd a literály vázané prostřednictvím predikátů na tyto instance. Objem dat obou variant modelu bude pro účely vzájemného porovnávání naměřených hodnot volen stejného rozsahu ve smyslu sémantiky. Tím je myšlen stav, kdy relační model bude obsahovat stejný počet experimentů, osob, scénářů, rezervací a dalších údajů jako sémantický datový model. Pro lepší představu tak bude uveden počet trojic sémantického modelu a k němu příslušný přibližný počet záznamů většiny tabulek relačního modelu. Například 100 záznamů/tabulka představuje 100 různých experimentů prováděných 100 různými osobami a pod. Testovací data budou zvolena v následujících třech variantách lišících se svým objemem.
+
+
+\begin{itemize}
+\item {\bf Velikost A:} 60 000 trojic - 320 záznamu/tabulka
+\item {\bf Velikost B:} 30 000 trojic - 160 záznamu/tabulka 
+\item {\bf Velikost C:} 10 000 trojic - 54 záznamu/tabulka
+\end{itemize}
+
+\subsection{Testovací operace}
+\hspace{0.65cm}Testovací operace jsou rozdělené do čtyř kategorií:
+
+\begin{itemize}
+\item operace vytváření {\bf C} 
+\item operace čtení {\bf R} 
+\item operace aktualizace {\bf U} 
+\item operace mazání {\bf D} 
+\end{itemize}
+
+Následující seznam obsahuje popis jednotlivých operací, jejichž implemen-\\tace v podobě SQL dotazů resp. volání metod knihovny SemWebModelApi je patrná ze zdrojových kódů testovacích tříd.
+
+\begin{itemize}
+\item {\bf C1 - Vytvoření nové osoby:} vytvoření nové osoby, které bude nastaveno uživatelské jméno, příjmení, datum narození, vzdělání a skupinové členství 
+\item {\bf C2 - Vytvoření nového experimentu:} přidání nového experimentu osobě a nastavení  parametrů experimentu
+\item {\bf C3 - Přidání člena výzkumné skupině:} nového skupinového členství vybrané osobě
+
+\vspace{0.65cm}
+
+\item {\bf R1 - Přihlášení uživatele:} nalezení hesla osoby dle zadaného uživatel-\\ského jména
+\item {\bf R2 - Získání experimentů uživatele :} nalezení experimentů uživatele dle uživatelského jména a získání jeho parametrů - teplota měření, čas počátku měření a příjmení testované osoby
+\item {\bf R3 - Získání skupiny uživatele dle rezervace :} nalezení osoby jež vytvořila rezervaci a určení jména skupiny jejíž je členem
+
+\vspace{0.65cm}
+
+\item {\bf U1 - Aktualizace emailu osoby:} aktualizace položky email u osoby nalezené dle uživatelského jména
+\item {\bf U2 - Aktualizace teploty měření experimentu:} nalezení experime-\\ntu uživatele a aktualizace položky teplota měření tohoto experimentu
+\item {\bf U3 - Aktualizace počasí měření experimentu:} vytvoření nového počasí a jeho nastavení položce počasí (změna původní hodnoty) experi-\\mentu osoby
+
+\vspace{0.65cm}
+
+\item {\bf D1 - Smazání osoby:} vybrané osoby včetně všech jejích parametrů
+\item {\bf D2 - Smazání experimentů osoby:} odstranění všech experimentů vybrané osoby
+\item {\bf D3 - Smazaní emailu osoby :} odstranění položky email u vybrané osoby
+
+
+
+\end{itemize}
+
+
 \subsection{Postup testování}
+\hspace{0.65cm}Měření bude provedeno pro databázové systémy Virtuoso a Oracle. Pro každou množinu testovacích dat dané velikosti bude spuštěna sekvence testova-\\cích operací, kdy každá elementární operace bude provedena sekvenčně deset-\\krát po sobě a bude změřen celkový čas, který tato opakovaná operace trvala. Tato hodnota bude zaznamenána do tabulky. Například čas uvedený u položky C1 znamená dobu trvání potřebnou ke vytvoření 10 nových osob.
+Měření nad danou množinou dat bude provedeno nad sémantickým modelem pro oba typy reasonerů – mělký ({\it Shallow}), hluboký ({\it Deep}) a nad relačním modelem.
+
+\subsection{Testovací prostředí}
+\hspace{0.65cm}Testování bude provedeno na počítači s procesorem Intel Core I3 M380 (4 jádra, 2,53 GHz), operační pamětí 8 GB a operačním systémem Widows 7 Professional 64-bit.
+
+Pro testování nad databázovým systémem Virtuoso je využita lokální instalace Virtuoso Open-Source Edition 2012-08-02 na testovacím počítači. Pro testování nad databázovým systémem Oracle je využit vzdálený školní server Katedry informatiky a výpočetní techniky, na kterém běží současná testovací databáze portálu Oracle 11g.
+
+
+
+
+
+
+
+
 \subsection{Naměřené hodnoty}
 \subsection{Diskuze výsledků}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  23 APR 2013 01:40
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  25 APR 2013 20:56
 entering extended mode
 **C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_m
 odel/diploma-doc/text-prace-LATEX/diplomka.tex
@@ -654,7 +654,14 @@ Package microtype Warning: I cannot find a protrusion list for font
 
 [2
 
-])
+]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[3])
 \tf@toc=\write4
 
 
@@ -663,7 +670,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[3]
+[4]
 Kapitola 1.
 
 Overfull \hbox (1.80011pt too wide) in paragraph at lines 62--63
@@ -743,7 +750,7 @@ Overfull \hbox (3.94244pt too wide) in paragraph at lines 102--104
 r-ciem W3C standardizo- 
  []
 
-<architektura.pdf, id=32, 597.50786pt x 363.24509pt>
+<architektura.pdf, id=35, 597.50786pt x 363.24509pt>
 File: architektura.pdf Graphic file (type pdf)
  <use architektura.pdf>
 Package pdftex.def Info: architektura.pdf used on input line 107.
@@ -781,13 +788,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [5 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data
 _model/diploma-doc/text-prace-LATEX/architektura.pdf>]
-<trojice.pdf, id=56, 375.804pt x 48.18pt>
+<trojice.pdf, id=59, 375.804pt x 48.18pt>
 File: trojice.pdf Graphic file (type pdf)
  <use trojice.pdf>
 Package pdftex.def Info: trojice.pdf used on input line 127.
 (pdftex.def)             Requested size: 338.22047pt x 43.36157pt.
 
-<miniStrom.pdf, id=57, 241.84842pt x 153.64488pt>
+<miniStrom.pdf, id=60, 241.84842pt x 153.64488pt>
 File: miniStrom.pdf Graphic file (type pdf)
  <use miniStrom.pdf>
 Package pdftex.def Info: miniStrom.pdf used on input line 136.
@@ -872,7 +879,7 @@ Overfull \hbox (2.85376pt too wide) in paragraph at lines 206--207
 roji po-pi-sek, který usnad-¬uje lid-skému
  []
 
-<rdfs.pdf, id=102, 241.84842pt x 153.64488pt>
+<rdfs.pdf, id=105, 241.84842pt x 153.64488pt>
 File: rdfs.pdf Graphic file (type pdf)
  <use rdfs.pdf>
 Package pdftex.def Info: rdfs.pdf used on input line 214.
@@ -972,7 +979,7 @@ Overfull \hbox (7.96794pt too wide) in paragraph at lines 296--297
 i sku-pi-nami 
  []
 
-<mvc.pdf, id=143, 507.496pt x 303.534pt>
+<mvc.pdf, id=146, 507.496pt x 303.534pt>
 File: mvc.pdf Graphic file (type pdf)
  <use mvc.pdf>
 Package pdftex.def Info: mvc.pdf used on input line 309.
@@ -1002,18 +1009,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [18]
 Kapitola 4.
-<relace.pdf, id=197, 513.92pt x 385.44pt>
+<relace.pdf, id=200, 513.92pt x 385.44pt>
 File: relace.pdf Graphic file (type pdf)
  <use relace.pdf>
 Package pdftex.def Info: relace.pdf used on input line 334.
 (pdftex.def)             Requested size: 359.74153pt x 269.80615pt.
-
-Overfull \hbox (5.94092pt too wide) in paragraph at lines 339--340
-\T1/aer/m/n/12 (-10) jed-no-zna£-nou iden-ti-fi-kaci zá-znamu nutné znát jak ho
-d-notu p°í-slu²-ného atri-butu
- []
-
-[19
+ [19
 
 ]
 
@@ -1084,7 +1085,7 @@ er/m/n/12 (-10) ) \T1/aer/m/it/12 (-10) Per-son \T1/aer/m/n/12 (-10) jeº de-fi-
 nuje dv¥ vlast-nosti (\T1/aer/m/it/12 (-10) rdf:Property\T1/aer/m/n/12 (-10) )
  []
 
-<miniportal.pdf, id=235, 241.84842pt x 153.64488pt>
+<miniportal.pdf, id=239, 241.84842pt x 153.64488pt>
 File: miniportal.pdf Graphic file (type pdf)
  <use miniportal.pdf>
 Package pdftex.def Info: miniportal.pdf used on input line 386.
@@ -1183,7 +1184,7 @@ Overfull \hbox (1.12535pt too wide) in paragraph at lines 498--499
 u tak zmí-n¥ná identifika- 
  []
 
-<eraNovej.pdf, id=270, 845.04686pt x 446.70827pt>
+<eraNovej.pdf, id=273, 845.04686pt x 446.70827pt>
 File: eraNovej.pdf Graphic file (type pdf)
  <use eraNovej.pdf>
 Package pdftex.def Info: eraNovej.pdf used on input line 502.
@@ -1226,7 +1227,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[36] <rozkladovka.pdf, id=294, 845.04686pt x 446.70827pt>
+[36] <rozkladovka.pdf, id=297, 845.04686pt x 446.70827pt>
 File: rozkladovka.pdf Graphic file (type pdf)
 
 <use rozkladovka.pdf>
@@ -1299,7 +1300,7 @@ rdfs:subClassOf \T1/aer/m/n/12 (-10) a \T1/aer/m/it/12 (-10) rdfs:subPropertyOf
 \T1/aer/m/n/12 (-10) . Z p·vod- 
  []
 
-<semantika.pdf, id=316, 753.99802pt x 287.37282pt>
+<semantika.pdf, id=319, 753.99802pt x 287.37282pt>
 File: semantika.pdf Graphic file (type pdf)
  <use semantika.pdf>
 Package pdftex.def Info: semantika.pdf used on input line 613.
@@ -1317,7 +1318,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [39 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_dat
 a_model/diploma-doc/text-prace-LATEX/semantika.pdf>]
-<vysledne.pdf, id=328, 753.99802pt x 287.37282pt>
+<vysledne.pdf, id=331, 753.99802pt x 287.37282pt>
 File: vysledne.pdf Graphic file (type pdf)
  <use vysledne.pdf>
 Package pdftex.def Info: vysledne.pdf used on input line 631.
@@ -1366,7 +1367,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[45] <db-connect.jpg, id=369, 834.86906pt x 398.99063pt>
+[45] <db-connect.jpg, id=372, 834.86906pt x 398.99063pt>
 File: db-connect.jpg Graphic file (type jpg)
  <use db-connect.jpg>
 Package pdftex.def Info: db-connect.jpg used on input line 733.
@@ -1385,7 +1386,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [46 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_dat
 a_model/diploma-doc/text-prace-LATEX/db-connect.jpg>]
-<Creator.jpg, id=373, 233.37187pt x 346.29375pt>
+<Creator.jpg, id=376, 233.37187pt x 346.29375pt>
 File: Creator.jpg Graphic file (type jpg)
  <use Creator.jpg>
 Package pdftex.def Info: Creator.jpg used on input line 751.
@@ -1434,7 +1435,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[50] <filter.jpg, id=387, 755.07094pt x 730.98094pt>
+[50] <filter.jpg, id=390, 755.07094pt x 730.98094pt>
 File: filter.jpg Graphic file (type jpg)
  <use filter.jpg>
 Package pdftex.def Info: filter.jpg used on input line 790.
@@ -1459,7 +1460,7 @@ aer/m/it/12 (-10) re-mo-veC-lasss \T1/aer/m/n/12 (-10) t°ídy \T1/aer/m/it/12 (-
 10) Por-tal-Mo-del\T1/aer/m/n/12 (-10) .
  []
 
-<api.jpg, id=391, 1055.44313pt x 760.34062pt>
+<api.jpg, id=394, 1055.44313pt x 760.34062pt>
 File: api.jpg Graphic file (type jpg)
  <use api.jpg>
 Package pdftex.def Info: api.jpg used on input line 808.
@@ -1485,7 +1486,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [53 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_dat
 a_model/diploma-doc/text-prace-LATEX/api.jpg>]
 Kapitola 9.
-<mainFrame.jpg, id=398, 646.66594pt x 364.36125pt>
+<mainFrame.jpg, id=401, 646.66594pt x 364.36125pt>
 File: mainFrame.jpg Graphic file (type jpg)
  <use mainFrame.jpg>
 Package pdftex.def Info: mainFrame.jpg used on input line 832.
@@ -1501,11 +1502,16 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [55 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_dat
 a_model/diploma-doc/text-prace-LATEX/mainFrame.jpg>]
-<propertyFrame.jpg, id=405, 535.2497pt x 272.51813pt>
+<propertyFrame.jpg, id=409, 535.2497pt x 272.51813pt>
 File: propertyFrame.jpg Graphic file (type jpg)
  <use propertyFrame.jpg>
 Package pdftex.def Info: propertyFrame.jpg used on input line 854.
 (pdftex.def)             Requested size: 347.90817pt x 177.13467pt.
+
+Overfull \hbox (2.29343pt too wide) in paragraph at lines 861--862
+[]\T1/aer/m/n/12 (-10) Tento me-cha-nis-mus p°i-dá-vání pre-di-kát· umoº-¬uje v
+y-tvo-°it ob-jekt a no-vým
+ []
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1513,14 +1519,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[56 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_dat
-a_model/diploma-doc/text-prace-LATEX/propertyFrame.jpg>]
-Overfull \hbox (2.29343pt too wide) in paragraph at lines 861--862
-[]\T1/aer/m/n/12 (-10) Tento me-cha-nis-mus p°i-dá-vání pre-di-kát· umoº-¬uje v
-y-tvo-°it ob-jekt a no-vým
- []
-
-
+[56]
 Overfull \hbox (0.67564pt too wide) in paragraph at lines 864--865
  \T1/aer/m/n/12 (-10) Vzhle-dem k tomu ºe vý²e po-psaná tes-to-vací apli-kace z
 p°í-stup-¬uje na-vr-ºený
@@ -1532,7 +1531,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[57]
+[57 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_dat
+a_model/diploma-doc/text-prace-LATEX/propertyFrame.jpg>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1547,17 +1547,48 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [59]
+Overfull \hbox (0.61932pt too wide) in paragraph at lines 934--935
+[]\T1/aer/bx/n/12 (-10) R2 - Zís-kání ex-pe-ri-ment· uºi-va-tele : \T1/aer/m/n/
+12 (-10) na-le-zení ex-pe-ri-ment· uºi-va-tele
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[60]
+Overfull \hbox (0.47299pt too wide) in paragraph at lines 955--957
+\T1/aer/m/n/12 (-10) kaº-dou mno-ºinu tes-to-va-cích dat dané ve-li-kosti bude 
+spu²-t¥na sek-vence testova- 
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[61]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[62]
 Kapitola 10.
-[60
+[63
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 912--915
+Underfull \hbox (badness 10000) in paragraph at lines 979--982
 
  []
 
-[61]
+[64]
 (C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
-del\diploma-doc\text-prace-LATEX\diplomka.lof [62
+del\diploma-doc\text-prace-LATEX\diplomka.lof [65
 
 ])
 \tf@lof=\write5
@@ -1570,7 +1601,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[63]
+[66]
 Underfull \hbox (badness 2213) in paragraph at lines 8--10
 []\T1/aer/m/it/12 (+10) Semantic Web Tools\T1/aer/m/n/12 (+10) , http://semanti
 cweb.org/wiki/Tools, (p°í-stup
@@ -1612,7 +1643,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 58--61
 i-ver-sal Ser-ver\T1/aer/m/n/12 (+10) ,
  []
 
-[64
+[67
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 63--67
@@ -1661,14 +1692,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[65])
+[68])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[66] [67] [68]
+[69] [70] [71]
 (C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
 del\diploma-doc\text-prace-LATEX\diplomka.aux)
 
@@ -1680,11 +1711,11 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8456 strings out of 494045
- 114173 string characters out of 3145966
+ 8477 strings out of 494045
+ 114356 string characters out of 3145966
  251947 words of memory out of 3000000
  10929 multiletter control sequences out of 15000+200000
- 86948 words of font info for 516 fonts, out of 3000000 for 9000
+ 88769 words of font info for 534 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  37i,12n,43p,3348b,378s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
@@ -1694,9 +1725,9 @@ rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Prog
 ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program 
 Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on diplomka.pdf (73 pages, 1773021 bytes).
+Output written on diplomka.pdf (77 pages, 1782477 bytes).
 PDF statistics:
- 474 PDF objects out of 1000 (max. 8388607)
+ 486 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  159830 words of extra memory for PDF output out of 184870 (max. 10000000)
 
