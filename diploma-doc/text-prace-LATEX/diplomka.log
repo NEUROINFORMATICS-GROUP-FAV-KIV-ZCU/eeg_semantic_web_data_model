@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  25 APR 2013 22:32
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  26 APR 2013 01:20
 entering extended mode
 **C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_m
 odel/diploma-doc/text-prace-LATEX/diplomka.tex
@@ -1573,45 +1573,149 @@ spu²-t¥na sek-vence testova-
  []
 
 
-Overfull \hbox (5.41512pt too wide) in paragraph at lines 983--983
- []|\T1/aer/bx/n/8 (-10) Shallow| 
- []
-
-
-Overfull \hbox (5.41512pt too wide) in paragraph at lines 983--983
- []|\T1/aer/bx/n/8 (-10) Shallow| 
- []
-
-
-Overfull \hbox (5.41512pt too wide) in paragraph at lines 983--983
- []|\T1/aer/bx/n/8 (-10) Shallow| 
- []
-
-
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
 [61]
+Overfull \hbox (9.7628pt too wide) in paragraph at lines 970--971
+[]\T1/aer/bx/n/12 (-10) Deep \T1/aer/m/n/12 (-10) Doba tr-vání ope-race nad na-
+vr-ºe-ným mo-de-lem p°i po-u-ºití hlu-bo-kého
+ []
+
+
+Overfull \hbox (5.41512pt too wide) in paragraph at lines 991--991
+ []|\T1/aer/bx/n/8 (-10) Shallow| 
+ []
+
+
+Overfull \hbox (5.41512pt too wide) in paragraph at lines 991--991
+ []|\T1/aer/bx/n/8 (-10) Shallow| 
+ []
+
+
+Overfull \hbox (5.41512pt too wide) in paragraph at lines 991--991
+ []|\T1/aer/bx/n/8 (-10) Shallow| 
+ []
+
+
+Overfull \hbox (3.7558pt too wide) in paragraph at lines 1040--1041
+\T1/aer/m/n/12 (-10) nad na-vr-ºe-ným mo-de-lem pro daná tes-to-vací data p°i p
+o-u-ºití m¥l-kého re-a-so-neru. 
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[62]
+[62] <virtuosoShallow.jpg, id=434, 779.16093pt x 482.55281pt>
+File: virtuosoShallow.jpg Graphic file (type jpg)
+
+<use virtuosoShallow.jpg>
+Package pdftex.def Info: virtuosoShallow.jpg used on input line 1049.
+(pdftex.def)             Requested size: 350.61917pt x 217.14674pt.
+
+<virtuosoDeep.jpg, id=435, 779.16093pt x 482.55281pt>
+File: virtuosoDeep.jpg Graphic file (type jpg)
+ <use virtuosoDeep.jpg>
+Package pdftex.def Info: virtuosoDeep.jpg used on input line 1057.
+(pdftex.def)             Requested size: 350.61917pt x 217.14674pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[63 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_dat
+a_model/diploma-doc/text-prace-LATEX/virtuosoShallow.jpg> <C:/Users/Fildas/Docu
+ments/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_model/diploma-doc/text-
+prace-LATEX/virtuosoDeep.jpg>]
+Overfull \hbox (3.70802pt too wide) in paragraph at lines 1079--1079
+ []|\T1/aer/bx/n/8 (-10) Shallow| 
+ []
+
+
+Overfull \hbox (3.05602pt too wide) in paragraph at lines 1079--1079
+ []|\T1/aer/bx/n/8 (-10) RDB| 
+ []
+
+
+Overfull \hbox (5.41512pt too wide) in paragraph at lines 1079--1079
+ []|\T1/aer/bx/n/8 (-10) Shallow| 
+ []
+
+
+Overfull \hbox (3.05602pt too wide) in paragraph at lines 1079--1079
+ []|\T1/aer/bx/n/8 (-10) RDB| 
+ []
+
+
+Overfull \hbox (4.27676pt too wide) in paragraph at lines 1079--1079
+ []|\T1/aer/bx/n/8 (-10) Shallow| 
+ []
+
+
+Overfull \hbox (3.05602pt too wide) in paragraph at lines 1079--1080
+ []|\T1/aer/bx/n/8 (-10) RDB| 
+ []
+
+
+Overfull \hbox (3.7558pt too wide) in paragraph at lines 1124--1125
+\T1/aer/m/n/12 (-10) nad na-vr-ºe-ným mo-de-lem pro daná tes-to-vací data p°i p
+o-u-ºití m¥l-kého re-a-so-neru. 
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[64] <oracleShallow.jpg, id=442, 779.16093pt x 482.55281pt>
+File: oracleShallow.jpg Graphic file (type jpg)
+
+<use oracleShallow.jpg>
+Package pdftex.def Info: oracleShallow.jpg used on input line 1133.
+(pdftex.def)             Requested size: 350.61917pt x 217.14674pt.
+ <oracleDeep.jpg, id=443, 779.16093pt x 482.55281pt>
+File: oracleDeep.jpg Graphic file (type jpg)
+
+<use oracleDeep.jpg>
+Package pdftex.def Info: oracleDeep.jpg used on input line 1141.
+(pdftex.def)             Requested size: 350.61917pt x 217.14674pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[65 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_dat
+a_model/diploma-doc/text-prace-LATEX/oracleShallow.jpg> <C:/Users/Fildas/Docume
+nts/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_model/diploma-doc/text-pr
+ace-LATEX/oracleDeep.jpg>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[66]
 Kapitola 10.
-[63
+[67
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1043--1046
+Underfull \hbox (badness 10000) in paragraph at lines 1158--1161
 
  []
 
-[64]
+[68]
 (C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
-del\diploma-doc\text-prace-LATEX\diplomka.lof [65
+del\diploma-doc\text-prace-LATEX\diplomka.lof [69
 
 ])
 \tf@lof=\write5
@@ -1624,7 +1728,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[66]
+[70]
 Underfull \hbox (badness 2213) in paragraph at lines 8--10
 []\T1/aer/m/it/12 (+10) Semantic Web Tools\T1/aer/m/n/12 (+10) , http://semanti
 cweb.org/wiki/Tools, (p°í-stup
@@ -1666,7 +1770,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 58--61
 i-ver-sal Ser-ver\T1/aer/m/n/12 (+10) ,
  []
 
-[67
+[71
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 63--67
@@ -1715,14 +1819,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[68])
+[72])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[69] [70] [71]
+[73] [74] [75]
 (C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
 del\diploma-doc\text-prace-LATEX\diplomka.aux)
 
@@ -1734,11 +1838,11 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8596 strings out of 494045
- 115797 string characters out of 3145966
- 266091 words of memory out of 3000000
- 10994 multiletter control sequences out of 15000+200000
- 96341 words of font info for 566 fonts, out of 3000000 for 9000
+ 8623 strings out of 494045
+ 116249 string characters out of 3145966
+ 264091 words of memory out of 3000000
+ 11010 multiletter control sequences out of 15000+200000
+ 96863 words of font info for 572 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  37i,12n,43p,3348b,378s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
@@ -1750,9 +1854,9 @@ ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program
 es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files
  (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (
 x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on diplomka.pdf (77 pages, 1803951 bytes).
+Output written on diplomka.pdf (81 pages, 2131633 bytes).
 PDF statistics:
- 494 PDF objects out of 1000 (max. 8388607)
+ 511 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 178262 words of extra memory for PDF output out of 184870 (max. 10000000)
+ 178282 words of extra memory for PDF output out of 184870 (max. 10000000)
 

@@ -963,6 +963,14 @@ Pro testování nad databázovým systémem Virtuoso je využita lokální insta
 
 \subsection{Naměřené hodnoty}
 
+Význam záhlaví jednotlivých sloupců tabulek 9.1 a 9.2 je následující:
+
+\begin{itemize}
+\item {\bf Shallow} Doba trvání operace nad navrženým modelem při použití mělkého reasoneru
+\item {\bf Deep} Doba trvání operace nad navrženým modelem při použití hlubokého reasoneru
+\item {\bf RDB} Doba trvání operace nad původním relačním modelem
+\end{itemize}
+
 
 {\bf Databázový systém Virtuoso}
 
@@ -981,6 +989,16 @@ Pro testování nad databázovým systémem Virtuoso je využita lokální insta
 {} & \multicolumn{3}{c|}{data velikost \bf C} & \multicolumn{3}{c|}{data velikost \bf B} & \multicolumn{3}{c|}{data velikost \bf A} \tabularnewline
 \hline
 {} & {\scriptsize \bf Shallow} & {\scriptsize \bf Deep} & {\scriptsize \bf RDB} &{\scriptsize \bf Shallow} & {\scriptsize \bf Deep} & {\scriptsize \bf RDB} & {\scriptsize \bf Shallow} & {\scriptsize \bf Deep} & {\scriptsize \bf RDB}  \tabularnewline
+\hline
+\hline
+
+{\bf C1} & {\scriptsize 693} & {\scriptsize 7 549} & {\scriptsize 9} & {\scriptsize 934} & {\scriptsize 7 899} & {\scriptsize 13} & {\scriptsize 1 795} & {\scriptsize 8 198} & {\scriptsize 11}  \tabularnewline
+\hline
+{\bf C2} & {\scriptsize 2 304} & {\scriptsize 24 185} & {\scriptsize 27} & {\scriptsize 2 897} & {\scriptsize 24 538} & {\scriptsize 29} & {\scriptsize 4 085} & {\scriptsize 26 974} & {\scriptsize 41}  \tabularnewline
+\hline
+{\bf C3} & {\scriptsize 620} & {\scriptsize 11 592} & {\scriptsize 11} & {\scriptsize 1 030} & {\scriptsize 12 646} & {\scriptsize 10} & {\scriptsize 2 600} & {\scriptsize 13 447} & {\scriptsize 21}  \tabularnewline
+
+
 \hline
 \hline
 {\bf R1} & {\scriptsize 846} & {\scriptsize 3 100} & {\scriptsize 8} & {\scriptsize 1 516} & {\scriptsize 3 900} & {\scriptsize 10} & {\scriptsize 2 385} & {\scriptsize 4 810} & {\scriptsize 9}  \tabularnewline
@@ -1003,13 +1021,7 @@ Pro testování nad databázovým systémem Virtuoso je využita lokální insta
 
 
 
-{\bf C1} & {\scriptsize 693} & {\scriptsize 7 549} & {\scriptsize 9} & {\scriptsize 934} & {\scriptsize 7 899} & {\scriptsize 13} & {\scriptsize 1 795} & {\scriptsize 8 198} & {\scriptsize 11}  \tabularnewline
-\hline
-{\bf C2} & {\scriptsize 2 304} & {\scriptsize 24 185} & {\scriptsize 27} & {\scriptsize 2 097} & {\scriptsize 24 538} & {\scriptsize 29} & {\scriptsize 4 085} & {\scriptsize 26 974} & {\scriptsize 41}  \tabularnewline
-\hline
-{\bf C3} & {\scriptsize 620} & {\scriptsize 11 592} & {\scriptsize 11} & {\scriptsize 1 030} & {\scriptsize 12 646} & {\scriptsize 10} & {\scriptsize 2 600} & {\scriptsize 13 447} & {\scriptsize 21}  \tabularnewline
-\hline
-\hline
+
 
 {\bf D1} & {\scriptsize 2 820} & {\scriptsize 37 312} & {\scriptsize 9} & {\scriptsize 2 917} & {\scriptsize 37 738} & {\scriptsize 15} & {\scriptsize 4 590} & {\scriptsize 38 236} & {\scriptsize 13}  \tabularnewline
 \hline
@@ -1021,14 +1033,117 @@ Pro testování nad databázovým systémem Virtuoso je využita lokální insta
 \end{tabular}
 
 \end{center}
-\caption{Naměřené doby trvání operací pro virtuoso}
+\caption{Naměřené doby trvání operací pro Virtuoso}
 \end{table}
 %\end{sidewaystable}
 
+Graf na obrázku 9.3 zobrazuje závislost doby trvání jednotlivých operací nad navrženým modelem pro daná testovací data při použití mělkého reasoneru. 
 
+Graf na obrázku 9.4 zobrazuje závislost doby trvání jednotlivých operací nad navrženým modelem pro daná testovací data při použití hlubokého reasoneru.
+
+\newpage
+
+
+\begin{figure}[htb!]
+\begin{center}
+\includegraphics[scale=0.45]{virtuosoShallow.jpg}
+\caption{Závilost doby trvání operací na velikosti testovacích dat pro mělký reasoner nad databází Virtuoso}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[htb!]
+\begin{center}
+\includegraphics[scale=0.45]{virtuosoDeep.jpg}
+\caption{Závilost doby trvání operací na velikosti testovacích dat pro hluboký reasoner nad databází Virtuoso}
+\end{center}
+\end{figure}
+
+\newpage
+
+
+{\bf Databázový systém Oracle}
+
+
+\begin{table}[htbp!]
 %\begin{sidewaystable}
+\begin{center}
+
+\begin{tabular} { | >{\centering} m{0.7cm} |  > {\centering} m{1.01cm} | > {\centering} m{1.25cm} | > {\centering} m{0.65cm} | > {\centering} m{0.95cm} | > {\centering} m{1.25cm} | > {\centering} m{0.65cm} | > {\centering} m{0.99cm} | > {\centering} m{1.25cm} | > {\centering} m{0.65cm} |} 
+
+\hline
+\multicolumn{10}{|c|}{\bf Doba trvání operací [ms]}\tabularnewline
+\hline
+{} & \multicolumn{3}{c|}{data velikost \bf C} & \multicolumn{3}{c|}{data velikost \bf B} & \multicolumn{3}{c|}{data velikost \bf A} \tabularnewline
+\hline
+{} & {\scriptsize \bf Shallow} & {\scriptsize \bf Deep} & {\scriptsize \bf RDB} &{\scriptsize \bf Shallow} & {\scriptsize \bf Deep} & {\scriptsize \bf RDB} & {\scriptsize \bf Shallow} & {\scriptsize \bf Deep} & {\scriptsize \bf RDB}  \tabularnewline
+\hline
+\hline
+{\bf R1} & {\scriptsize 14 981} & {\scriptsize 94 164} & {\scriptsize 145} & {\scriptsize 47 480} & {\scriptsize 116 530} & {\scriptsize 130} & {\scriptsize 64 650} & {\scriptsize 139 273} & {\scriptsize 129}  \tabularnewline
+\hline
+{\bf R2} & {\scriptsize 30 649} & {\scriptsize 638 583} & {\scriptsize 177} & {\scriptsize 90 589} & {\scriptsize 648 194} & {\scriptsize 175} & {\scriptsize 130 991} & {\scriptsize 671 522} & {\scriptsize 181}  \tabularnewline
+\hline
+{\bf R3} & {\scriptsize 24 345} & {\scriptsize 32 804} & {\scriptsize 109} & {\scriptsize 76 412} & {\scriptsize 76 860} & {\scriptsize 121} & {\scriptsize 129 702} & {\scriptsize 136 253} & {\scriptsize 117}  \tabularnewline
+\hline
+\hline
+
+
+
+{\bf U1} & {\scriptsize 14 805} & {\scriptsize 331 582} & {\scriptsize 109} & {\scriptsize 37 309} & {\scriptsize 354 809} & {\scriptsize 117} & {\scriptsize 63 727} & {\scriptsize 443 643} & {\scriptsize 109}  \tabularnewline
+\hline
+{\bf U2} & {\scriptsize 21 645} & {\scriptsize 571 614} & {\scriptsize 130} & {\scriptsize 73 350} & {\scriptsize 645 015} & {\scriptsize 124} & {\scriptsize 193 903} & {\scriptsize 695 671} & {\scriptsize 124}  \tabularnewline
+\hline
+{\bf U3} & {\scriptsize 31 294} & {\scriptsize 654 871} & {\scriptsize 242} & {\scriptsize 80 500} & {\scriptsize 745 326} & {\scriptsize 234} & {\scriptsize 134 305} & {\scriptsize 792 425} & {\scriptsize 225}  \tabularnewline
+\hline
+\hline
+
+
+
+{\bf C1} & {\scriptsize 19 963} & {\scriptsize 97 377} & {\scriptsize 112} & {\scriptsize 38 187} & {\scriptsize 100 027} & {\scriptsize 99} & {\scriptsize 157 325} & {\scriptsize 114 963} & {\scriptsize 96}  \tabularnewline
+\hline
+{\bf C2} & {\scriptsize 43 137} & {\scriptsize 507 675} & {\scriptsize 330} & {\scriptsize 65 284} & {\scriptsize 523 237} & {\scriptsize 343} & {\scriptsize 906 74} & {\scriptsize 537 560} & {\scriptsize 314}  \tabularnewline
+\hline
+{\bf C3} & {\scriptsize 15 520} & {\scriptsize 262 620} & {\scriptsize 116} & {\scriptsize 41 400} & {\scriptsize 302 746} & {\scriptsize 125} & {\scriptsize 66 029} & {\scriptsize 309 472} & {\scriptsize 108}  \tabularnewline
+\hline
+\hline
+
+{\bf D1} & {\scriptsize 44 174} & {\scriptsize 857 961} & {\scriptsize 113} & {\scriptsize 60 040} & {\scriptsize 972 379} & {\scriptsize 127} & {\scriptsize 85 639} & {\scriptsize 1 024 754} & {\scriptsize 108}  \tabularnewline
+\hline
+{\bf D2} & {\scriptsize 52 071} & {\scriptsize 1 230 946} & {\scriptsize 126} & {\scriptsize 96 824} & {\scriptsize 1 253 632} & {\scriptsize 123} & {\scriptsize 164 563} & {\scriptsize 1 445 638} & {\scriptsize 121}  \tabularnewline
+\hline
+{\bf D3} & {\scriptsize 14 148} & {\scriptsize 337 068} & {\scriptsize 110} & {\scriptsize 36 348} & {\scriptsize 374 125} & {\scriptsize 116} & {\scriptsize 62 920} & {\scriptsize 394 482} & {\scriptsize 110}  \tabularnewline
+\hline
+
+\end{tabular}
+
+\end{center}
+\caption{Naměřené doby trvání operací pro Oracle}
+\end{table}
 %\end{sidewaystable}
 
+Graf na obrázku 9.5 zobrazuje závislost doby trvání jednotlivých operací nad navrženým modelem pro daná testovací data při použití mělkého reasoneru. 
+
+Graf na obrázku 9.6 zobrazuje závislost doby trvání jednotlivých operací nad navrženým modelem pro daná testovací data při použití hlubokého reasoneru.
+
+\newpage
+
+
+\begin{figure}[htb!]
+\begin{center}
+\includegraphics[scale=0.45]{oracleShallow.jpg}
+\caption{Závilost doby trvání operací na velikosti testovacích dat pro mělký reasoner nad databází Oracle}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[htb!]
+\begin{center}
+\includegraphics[scale=0.45]{oracleDeep.jpg}
+\caption{Závilost doby trvání operací na velikosti testovacích dat pro hluboký reasoner nad databází Oracle}
+\end{center}
+\end{figure}
+
+\newpage
 
 
 
