@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  26 APR 2013 01:20
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  28 APR 2013 15:18
 entering extended mode
 **C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_m
 odel/diploma-doc/text-prace-LATEX/diplomka.tex
@@ -1698,6 +1698,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 a_model/diploma-doc/text-prace-LATEX/oracleShallow.jpg> <C:/Users/Fildas/Docume
 nts/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_model/diploma-doc/text-pr
 ace-LATEX/oracleDeep.jpg>]
+Overfull \hbox (1.85542pt too wide) in paragraph at lines 1165--1166
+[]\T1/aer/m/n/12 (-10) P°i po-u-ºití m¥l-kého re-a-so-neru na-r·stá doba po-t°e
+bná ke zpra-co-vání ope-rací
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1705,17 +1710,24 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [66]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[67]
 Kapitola 10.
-[67
+[68
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1158--1161
+Underfull \hbox (badness 10000) in paragraph at lines 1176--1179
 
  []
 
-[68]
+[69]
 (C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
-del\diploma-doc\text-prace-LATEX\diplomka.lof [69
+del\diploma-doc\text-prace-LATEX\diplomka.lof [70
 
 ])
 \tf@lof=\write5
@@ -1728,7 +1740,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[70]
+[71]
 Underfull \hbox (badness 2213) in paragraph at lines 8--10
 []\T1/aer/m/it/12 (+10) Semantic Web Tools\T1/aer/m/n/12 (+10) , http://semanti
 cweb.org/wiki/Tools, (p°í-stup
@@ -1770,7 +1782,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 58--61
 i-ver-sal Ser-ver\T1/aer/m/n/12 (+10) ,
  []
 
-[71
+[72
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 63--67
@@ -1819,14 +1831,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[72])
+[73])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[73] [74] [75]
+[74] [75] [76]
 (C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
 del\diploma-doc\text-prace-LATEX\diplomka.aux)
 
@@ -1854,9 +1866,9 @@ ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program
 es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files
  (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (
 x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on diplomka.pdf (81 pages, 2131633 bytes).
+Output written on diplomka.pdf (82 pages, 2135728 bytes).
 PDF statistics:
- 511 PDF objects out of 1000 (max. 8388607)
+ 514 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  178282 words of extra memory for PDF output out of 184870 (max. 10000000)
 

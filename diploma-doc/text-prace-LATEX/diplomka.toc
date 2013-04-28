@@ -63,4 +63,4 @@
 \contentsline {subsection}{\numberline {9.2.4}Testovac\IeC {\'\i } prost\IeC {\v r}ed\IeC {\'\i }}{61}
 \contentsline {subsection}{\numberline {9.2.5}Nam\IeC {\v e}\IeC {\v r}en\IeC {\'e} hodnoty}{62}
 \contentsline {subsection}{\numberline {9.2.6}Diskuze v\IeC {\'y}sledk\IeC {\r u}}{66}
-\contentsline {chapter}{\numberline {10}Z\IeC {\'a}v\IeC {\v e}r}{67}
+\contentsline {chapter}{\numberline {10}Z\IeC {\'a}v\IeC {\v e}r}{68}

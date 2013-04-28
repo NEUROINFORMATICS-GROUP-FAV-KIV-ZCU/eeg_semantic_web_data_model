@@ -1148,6 +1148,24 @@ Graf na obrázku 9.6 zobrazuje závislost doby trvání jednotlivých operací n
 
 
 \subsection{Diskuze výsledků}
+\hspace{0.65cm}Z tabulek naměřených hodnot časů trvání jednotlivých operací resp. dle grafů zobrazující závislosti těchto časů na velikosti datového modelu lze vyvodit následující závěry:
+
+\begin{itemize}
+\item Doba trvání operací nad relačním modelem je značně kratší než pro případ datového modelu sémantického webu
+\item Rychlost operací při použití mělkého reasoneru je silně závislá na velikosti datového modelu
+\item Velikost datového modelu má poměrně malý vliv na rychlost operací při použití hlubokého reasoneru
+\item Mělký reasoner je značně rychlejší oproti hlubokému reasoneru
+\end{itemize}
+
+
+Srovnáním dob trvání operací nad relačním a sémantickým modelem je patrné že relační model poskytuje o několik řádů rychlejší zpracování jak v případě databázového systému Virtuoso tak i Oracle. Pohledem na doby trvání operací nad relačním modelem v závislosti na jeho velikosti lze usoudit, že vliv velikosti modelu (při zvoleném řádu rozsahu) je natolik malý, že překračuje možnost přesného měření dle zvoleného způsobu. V důsledku jsou tak hodnoty časů operací pro relační model v tabulkách 9.1 a 9.2 spíše orientační a slouží především pro porovnání řádů časů mezi modely. Z dalšího porovnání hodnot tabulek 9.1 a 9.2 je patrné že zpracování operací systémem Virtuoso je řádově rychlejší než pro Oracle. To je způsobeno zejména skutečností, že testovaný systém Oracle byl umístěn na vzdáleném školním serveru, čímž byla doba zpracování navýšena o síťovou komunikaci a navíc mohl být systém podstoupen dalšímu zatížení stran jiných aplikací např. testovací verze portálu.
+
+Vliv použitého reasoneru je dle naměřených hodnot patrný už na testova-\\cích datech nejmenšího objemu. Dalším poznatkem je skutečnost, že s růstem objemu dat se při použití hlubokého reasoneru prodlužuje doba zpracování operací jen minimálně. Ve výsledku se ovšem dobra zpracování jedné operace při použití hlubokého reasoneru pohybuje v rozmezí hodnot 0,3 – 5,4 sekundy pro systém Virtuoso a 3,2 -144,5 sekundy pro systém Oracle, což tento reasoner činní prakticky nepoužitelným. 
+
+Při použití mělkého reasoneru narůstá doba potřebná ke zpracování operací úměrně s velikostí modelu a nejvyšší naměřené hodnoty časů jedné operace pro data velikosti A činí v průměru 0,7 sekundy pro systém Virtuoso a 19,3 sekundy Oracle. Mělký reasoner se tak při použití nad systémem Virtuoso jeví jako nejslibnější řešení přístupu k sémantickému modelu dat, nicméně praktické využití tohoto sémantického modelu pro aplikaci EEG/ERP portálu je z důvodu výkonnostní stránky poměrně diskutabilní. 
+
+
+
 
 
 \chapter{Závěr}
