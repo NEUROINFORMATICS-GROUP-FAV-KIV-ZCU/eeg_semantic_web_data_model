@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  28 APR 2013 15:18
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  28 APR 2013 18:50
 entering extended mode
 **C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_m
 odel/diploma-doc/text-prace-LATEX/diplomka.tex
@@ -1718,10 +1718,16 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [67]
 Kapitola 10.
+
+Overfull \hbox (1.67444pt too wide) in paragraph at lines 1169--1170
+\T1/aer/m/n/12 (-10) ana-lýzy byl na-vr-ºen nový da-tový mo-del por-tálu, který
+ vy-u-ºívá re-la£ní da-ta-bázi
+ []
+
 [68
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1176--1179
+Underfull \hbox (badness 10000) in paragraph at lines 1186--1189
 
  []
 
@@ -1866,7 +1872,7 @@ ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program
 es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files
  (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (
 x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on diplomka.pdf (82 pages, 2135728 bytes).
+Output written on diplomka.pdf (82 pages, 2138655 bytes).
 PDF statistics:
  514 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

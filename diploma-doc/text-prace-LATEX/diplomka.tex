@@ -1165,10 +1165,20 @@ Vliv použitého reasoneru je dle naměřených hodnot patrný už na testova-\\
 Při použití mělkého reasoneru narůstá doba potřebná ke zpracování operací úměrně s velikostí modelu a nejvyšší naměřené hodnoty časů jedné operace pro data velikosti A činí v průměru 0,7 sekundy pro systém Virtuoso a 19,3 sekundy Oracle. Mělký reasoner se tak při použití nad systémem Virtuoso jeví jako nejslibnější řešení přístupu k sémantickému modelu dat, nicméně praktické využití tohoto sémantického modelu pro aplikaci EEG/ERP portálu je z důvodu výkonnostní stránky poměrně diskutabilní. 
 
 
-
-
-
 \chapter{Závěr}
+\hspace{0.65cm}Cílem této práce bylo navržení nového datového modelu EEG/ERP portálů s využitím technologií sémantického webu. V průběhu práce byla provedena analýza současného datového modelu portálu, jejímž cílem bylo nalezení aktuálních nedostatků a problémů modelu. Popisované technologie a nástroje sémantického webu umožnily provést analýzu obecného datového modelu založeného na této technologii díky čemuž bylo následně realizováno porovnání obecného relačního modelu se sémantickým. Na základě provedené analýzy byl navržen nový datový model portálu, který využívá relační databázi k uchování objemnějších datových celků a zbylá data ukládá v objektové podobě v jazyce RDFS do nerelační databáze. Tato práce popisuje postup celé transformace původního modelu portálu (včetně dodání nové sémantiky) na úrovni obecných pravidel, která jsou doprovázena praktickými ukázkami realizace včetně koncové podoby výsledného modelu.
+
+Pro usnadnění realizace transformace datového modelu byla vytvořena aplikace, která na základě popisu modelu prostřednictvím XML souboru umožňuje zapsat navržený datový model do databázových systémů Virtuoso a Oracle, kde mohou být dále prakticky využívány. 
+V rámci práce byla dále vytvořena knihovna poskytující API, jež umožňuje jednoduchou cestou provádět nad sémantickým modelem operace běžně požadované aplikační vrstvou portálu.
+
+
+Za účelem ověření nových možností a popisovaných výhod navrženého modelu byla dále vytvořena testovací aplikace, která prostřednictvím jednodu-\\chého grafického rozhraní demonstruje možnosti uchování dodané sémantiky dat v modelu a také jednoduchost jeho dalšího dynamického rozšiřování.
+
+Poslední část práce se zabývá výkonnostním testováním navrženého mode-\\lu, což je realizováno porovnáváním časů potřebných k vykonávání typických portálových operací nad datovým modelem. Ze získaných naměřených hodnot je patrná největší nevýhoda navrženého modelu což je značná výkonnostní ztráta oproti původnímu modelu. Pro praktické využití a tudíž i získání všech popisovaných výhod navrhovaného modelu portálu je tedy nutné zajistit dostatečný výkon pro databázový systém a také zvážit výkonnostní požadavky na cílovou aplikace EEG/ERP portálu.
+
+
+
+
 
 
 \newpage
@@ -1224,7 +1234,8 @@ systému
 \thispagestyle{plain}
 \section*{{\LARGE A} ERA model databáze EEG/ERP portálu}
 \hspace{0.65cm}Priloha A - ERA model portalu
-\section*{{\LARGE B} Uživatelský manuál testovací aplikace}
-\section*{{\LARGE C} Navržený hierarchický systém tříd modelu}
 
+\section*{{\LARGE B} Navržený hierarchický systém tříd modelu}
+\section*{{\LARGE C} Uživatelský manuál aplikace pro tvorbu \\modelu}
+\section*{{\LARGE D} Uživatelský manuál testovací aplikace}
 \end{document}
