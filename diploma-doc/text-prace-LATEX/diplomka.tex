@@ -1190,7 +1190,6 @@ Poslední část práce se zabývá výkonnostním testováním navrženého mod
 \noindent
 \begin{description}
 \item[API] Application Programming Interface, rozhraní pro programování aplikací
-\item[AWT] Abstract Window Toolkit, knihovna Javy pro tvorbu grafického uživa-\\telského rozhraní
 \item[EEG] Electroencephalography, metoda vyšetření elektrické aktivity centrál-\\ního nervového
 systému
 \item[ERP] Event Related Potential, vyšetření reakcí mozku na vnější podněty
@@ -1201,16 +1200,9 @@ systému
 \item[W3C] World Wide Web Consortium, organizace vyvíjející webové standardy
 \item[XML] Extensible Markup Language, značkovací jazyk vyvinutý W3C
 \item[XSD] XML Schema Definition, XML schéma popisující strukturu XML doku-\\mentu
-
-\item[URI]
-\item[Graf]
-\item[Orientovaný graf]
-\item[XSLT]
-\item[MVC]
-\item[JSP]
-\item[API]
-
-
+\item[XSLT] Extensible Stylesheet Language Transformations, transformace sloužící ke převodu XML dat
+\item[MVC] Model-View-Controller, návrhový vzor, architektura aplikace
+\item[JSP] JavaServer Pages, technologie pro tvorbu dynamický webových stránek
 \end{description}
 
 
@@ -1232,10 +1224,306 @@ systému
 
 \newpage
 \thispagestyle{plain}
-\section*{{\LARGE A} ERA model databáze EEG/ERP portálu}
-\hspace{0.65cm}Priloha A - ERA model portalu
+\section*{{\LARGE A} Uživatelský manuál aplikace pro tvorbu \\modelu}
+\hspace{0.65cm}Spuštění aplikace pro vytvoření modelu se provádí spuštěním dávkového souboru {\it runCreator.bat} (v prostředí Windows). Po jejím naběhnutí se zobrazí okno dle obrázku A.1. Význam jednotlivých vstupních položek jež jsou označe-\\né červenými čísly je následující:
 
-\section*{{\LARGE B} Navržený hierarchický systém tříd modelu}
-\section*{{\LARGE C} Uživatelský manuál aplikace pro tvorbu \\modelu}
-\section*{{\LARGE D} Uživatelský manuál testovací aplikace}
+\begin{figure}[htb!]
+\begin{center}
+\includegraphics[scale=0.8]{manualCreator.jpg}
+\caption{Okno nástroje pro vytváření modelu}
+\end{center}
+\end{figure}
+
+
+\begin{description}
+\item[1] Výběr cílového databázového sytému pro zapisovaný model- Oracle nebo 
+Virtuoso
+\item[2] URI cesta ke zvolené databázi ve tvaru: {\it jdbc:<databáze>://<server>:<port>}
+\item[3] Název vytvářeného sémantického modelu
+\item[4] Cesta ke XML souboru s popisem modelu
+\item[5] Uživatelské jméno pro přístup k databázi
+\item[6] Uživatelské heslo pro přístup k databázi
+\item[7] Jmenný prostor objektů vytvářeného modelu – tento prefix bude použit pro každý objekt popsaný ve vstupním XML souboru
+\item[8] Prefix všech tabulek vytvářeného modelu – slouží ke přiřazení tabulek relační databáze ke sémantickému modelu
+\item[9] Vytvoření testovacích, která budou zapsána do vytvářeného modelu
+\item[10] Velikost testovacích dat – počet vytvářených instancí pro každou třídu
+\item[11] Odstranění existujícího modelu – namísto vytvoření nového modelu dojde ke ostranění existujícího, je zadat cestu ke vstupnímu XML souboru, aby bylo možné odstranit i všechny relační tabulky přidružené k datovému modelu
+\end{description}
+
+\thispagestyle{plain}
+
+Stisknutím tlačítka {\it Create} dojde k zahájení vytváření modelu a jehož průběhu informuje nové okno zobrazující aktuální stav zápisu. V případě jakékoliv chyby při zápisu modelu jsou veškerá chybová hlášení zapisována do logovacího souboru v adresáři {\it ModelCreator}.
+
+
+\newpage
+\thispagestyle{plain}
+\section*{{\LARGE B} Uživatelský manuál testovací aplikace}
+\hspace{0.65cm}Testovací aplikace umožňuje vizualizaci datového modelu a provádění jeho úprav prostřednictvím grafického uživatelského rozhraní. Aplikace se spouští dávkovým souborem {\it runVisualizer.bat} (v prostředí Windows). Po spuštění aplikace je zobrazeno okno dle obrázku A.2, které slouží ke zadání dat pro připojení k modelu. Význam jednotlivých vstupních položek jež jsou označené červenými čísly je následující:
+
+
+\begin{figure}[htb!]
+\begin{center}
+\includegraphics[scale=0.8]{manualTestConnect.jpg}
+\caption{Okno připojení testovací aplikace}
+\end{center}
+\end{figure}
+
+\begin{description}
+\item[1] Výběr cílového databázového sytému pro zapisovaný model- Oracle nebo Virtuoso
+\item[2] Výběr použitého reasoneru pro vizualizaci modelu – mělký ({\it Shallow})/hluboký ({\it Deep})
+\item[3] URI cesta ke zvolené databázi ve tvaru: {\it jdbc:<databáze>://<server>:<port>}
+\item[4] Název vytvářeného sémantického modelu
+\item[5] Uživatelské jméno pro přístup k databázi
+\item[6] Uživatelské heslo pro přístup k databázi
+\item[7] Jmenný prostor objektů modelu – tento prefix bude předdefinován všem nově vytvářeným objektům prostřednictvím testovací aplikace 
+\item[8] Prefix všech tabulek vytvářeného modelu – slouží ke přiřazení tabulek relační databáze ke sémantickému modelu
+\end{description}
+
+
+Po úspěšném připojení testovací aplikace ke zadanému modelu se zobrazí okno dle obrázku A.3. V případě chyby jakékoliv chyby při načítání modelu je zapsána detailní informace o této chybě do logovacího souboru v adresáři {\it ModelVisualizer}. 
+
+\begin{figure}[htb!]
+\begin{center}
+\includegraphics[scale=0.57]{manualTestMain.jpg}
+\caption{Hlavní okno testovací aplikace}
+\end{center}
+\end{figure}
+
+
+Hlavní okno testovací aplikace slouží ke zobrazení tříd modelu a jejích instancí, které je možné dále prohlížet či modifikovat. Hlavní menu aplikace (1) umožňuje prostřednictvím položky {\it Export model} uložit datový model ve RDF/XML formátu do souboru. Levý panel aplikace (2) zobrazuje hierarchic-\\ký systém tříd modelu, kde je možné provádět jejich výběr dle URI identifiká-\\torů tříd. Výběrem třídy dojde k zobrazení jejího sémantického popisku ve spodním panelu (3), který umožňuje tento popis editovat a tlačítkem {\it Set description} (5) uložit. Třídy modelu je možné odstraňovat tlačítkem {\it Remove class} (6) čímž dojde i k odstranění všech instancí této třídy. Zároveň je možné vytvářet nové třídy tlačítkem {\it Add class} (7), kdy dojde ke zobrazení dialogu, který slouží ke definici URI identifikátoru třídu, sémantického popisku a nastavení rodičovské třídy. Tato rodičovská třída je určena vybranou položkou v panelu tříd (2) a při vytváření třídy je možné zaškrtávacím políčkem určit zda nová třída bude potomkem této třídy či nikoliv. Výběrem třídy v panelu (2) dojde ke aktualizaci seznamu instancí tříd (7), přičemž první položka tohoto seznamu je zobrazena v hlavním pravém panelu aplikace. Z tohoto seznamu (7) je možné provést výběr požadované instance třídy dle jejího URI a či dále nastavit restriktivní výběr pro list těchto tříd nastavením filtru tlačítkem {\it Set filter} (9). Nastavení filtru se provádí v okně dle obrázku A.4, které umožňuje nastavení filtrovacích podmínek.
+
+
+\begin{figure}[htb!]
+\begin{center}
+\includegraphics[scale=0.8]{manualTestFilterA.jpg}
+\caption{Hlavní okno nastavení filtrovacích podmínek}
+\end{center}
+\end{figure}
+
+
+Toto okno umožňuje přidávání nových (3), odstraňování (2) či aktualizaci stávajících (1) podmínek, které jsou vyhodnocovány jako logický součet výsledků dílčích podmínek, jež jsou nastaveny v okně dle obrázku A.5. 
+
+\begin{figure}[htb!]
+\begin{center}
+\includegraphics[scale=0.8]{manualTestFilterB.jpg}
+\caption{Okno nastavení součinových podmínek}
+\end{center}
+\end{figure}
+
+Toto okno umožňuje nastavení dílčích podmínek jako logický součin další množiny podmínek. Tyto součinové podmínky je možné opět přidávat (8), odstraňovat (7) či aktualizovat (6). Všechny dílčí součtové či součinové podmínky je možné hromadně uložit tlačítkem {\it Close} (5), (10) nebo je hromadně odstranit tlačítkem {\it Remove all} (4), (9). 
+Koncové podmínky jež tvoří množinu součinových podmínek je možné nastavovat v okně dle obrázku A.6.
+
+
+
+\begin{figure}[htb!]
+\begin{center}
+\includegraphics[scale=0.8]{manualTestFilterC.jpg}
+\caption{Okno nastavení koncových podmínek filtru}
+\end{center}
+\end{figure}
+
+\thispagestyle{plain}
+
+Toto okno umožňuje výběr (11) ze čtyř druhů podmínek popsaných v kapitole 8.3.2, kde jméno URI identifikátoru predikátu je zadáváno do horního textového pole (12) a hodnota cílového objektu vázaného predikátem je zadávána do spodního pole (13) (v případě, že ji daný typ podmínky vyžaduje).
+Po uzavření okna pro nastavení filtru je možné provést aktualizace seznamu instancí tříd dle nastaveného filtru tlačítkem {\it Update} (8) dle obrázku A.3.
+
+Hlavní pravý panel aplikace zobrazuje pro vybranou instanci třídy seznam predikátů a k nim vázaných objektů. V případě, že cílový objekt je primitivní-\\ho datového typu, je zobrazeno textové pole (10) s jeho textovou reprezentací, které umožňuje také aktualizaci hodnoty pouhou změnou obsahu tohoto pole a stiskem klávesy Enter. V případě potřeby úplného odstranění této hodnoty je možné textové pole vymazat a opět stisknutím klávesy Enter bude cílový objekt včetně svazujícího literálu odstraněn. V případě kdy predikátem vázaný objekt je instancí jiné třídy, je zobrazena položka výběr instance cílové třídy (11), kde je předvybrána aktuálně nastavená instance. Stiskem tlačítka {\it Go} (12) je možné tuto instanci zobrazit a dále s ní pracovat.
+
+
+Při najetí myší na jméno predikátu je nad ním zobrazen jeho sémantický popisek. V případě, že třída aktuálně prohlížené instance je vázána na relační tabulku je jejím instancím v hlavním panelu zobrazeno tlačítko (12) pro nahrání datového souboru, které je po jeho úspěšném nahrání nahrazeno tlačítkem pro stažení a aktualizaci tohoto souboru. Instance tříd je možné odstraňovat tlačítkem {\it Remove instance} (16), vytvářet nové tlačítkem {\it Add instance} (14) či přidávat nové predikáty stávajícím instancím tlačítkem {\it Add property} (16), což je realizováno prostřednictvím nového okna tak, jak je znázorněno dle obrázku A.7.
+
+\begin{figure}[htb!]
+\begin{center}
+\includegraphics[scale=0.72]{manualTestProperty.jpg}
+\caption{Okno nastavení predikátů}
+\end{center}
+\end{figure}
+
+
+\thispagestyle{plain}
+
+Toto okno slouží ke spravování predikátů určených doménou třídy instance vybrané v hlavním okně aplikace. Levý panel okna (1) umožňuje vybrat existující predikát, kterému lze ve spodním panelu (2) upravit sémantický popisek a aktualizovat jej tlačítkem {\it Set description} (4). Dále je možné prostřed-\\nictvím tlačítka {\it Remove property} (5) odstranit stávající predikát, či vytvořit nový tlačítkem {\it Add propery} (3), což je realizováno novým oknem dle obrázku A.8.
+
+
+\begin{figure}[htb!]
+\begin{center}
+\includegraphics[scale=0.72]{manualTestAddProperty.jpg}
+\caption{Okno vytvoření nového predikátů}
+\end{center}
+\end{figure}
+
+
+První pole (1) tohoto okna slouží ke nastavení URI nového predikátu, dále lze nastavit jeho rozsah (2), kterým může být primitivní datový typ či jiná třída. Položka {\it Description} (3) umožňuje nastavení sémantického popisku přidávaného predikátu. Jeho přidáním tlačítkem {\it Add} (4) dojde k aktualizaci dostupných predikátů v předchozím okně (viz obrázek A.7). Výběrem prediká-\\tu v tomto okně dojde v pravém panelu okna k zobrazení textového pole (6) pro zadání hodnoty nové objektu pro vybraný literál (je li rozsah literálu primitivní datový typ) nebo se zobrazí položka pro výběr instance třídy (je li rozsah literálu nastaven na jinou třídu). Přidání nového objektu vázaného na vybraný literál instanci se proveden stiskem tlačítka {\it Add}(7), čímž je následně aktualizována vybraná instance v hlavním okně.
+
+\thispagestyle{plain}
+
+
+\newpage
+\thispagestyle{plain}
+\section*{{\LARGE C} Navržený hierarchický systém tříd modelu}
+\begin{verbatim}
+
+<model>
+
+<!-- DATA -->
+
+<data_table name="article" type="text"/>
+<data_table name="article_comment" type="text"/>
+<data_table name="data_file" type="binary"/>
+<data_table name="scenario" type="binary"/>
+
+<!-- METADATA -->
+
+<class name="article" 
+    description="Text arcicle published by person."/>
+<class name="article_comment" 
+    description="Comment of article published by person."/>
+<class name="reservation" 
+    description="EEG research laboratory room reservation."/>
+
+<class name="person" 
+    description="Human being."/>
+<class name="person/researcher" 
+    description="Human being making EEG/ERP experiments."/>
+<class name="person/test_subject" 
+    description="Human beeing that is subject of EEG/ERP 
+    experiments."/>
+
+<class name="education_level" 
+    description="Education level of human beeing."/>
+<class name="research_group" 
+    description="Union of human beings that makes EEG/ERP 
+    experiments"/>
+<class name="history" 
+    description="EEG/ERP experiment download history."/>
+<class name="experiment" 
+    description="EEG/ERP experiment."/>
+<class name="software" 
+    description="Software used for EEG/ERP experiments."/>
+<class name="hardware" 
+    description="Hardware used for EEG/ERP experiments."/>
+<class name="subject_group" 
+    description="Union of human beeings that are EEG/ERP 
+    experiments subjects."/>
+\end{verbatim}
+
+\thispagestyle{plain}
+
+\begin{verbatim}
+<class name="project_type" 
+    description="Experiment project type."/>
+<class name="artefact_removing_method" 
+    description="Removing method of artifact."/>
+<class name="weather" 
+    description="Experiment weather condition."/>
+<class name="disease" 
+    description="Experiment test subject disease condition."/>
+<class name="artefact" 
+    description="Experiment artefact"/>
+<class name="pharmaceutical" 
+    description="Experiment pharmaceutical condition."/>
+<class name="digitization" 
+    description="Experiment digitization."/>
+<class name="analysis" 
+    description="Experiment analysis."/>
+<class name="data_file" 
+    description="Experiment EEG/ERP measuration data file."/>
+<class name="scenario" 
+    description="Experiment scenarion description."/>
+
+<class name="electrode_configuration" 
+    description="Configuration of measuring electrodes."/>
+<class name="electrode_system"
+     description="System of experiment electrodes."/>
+<class name="electrode_location" 
+    description="Location of experiment electrodes."/>
+<class name="electrode_type" 
+    description="Type of experiment used electrodes."/>
+<class name="electrode_fix" 
+    description="Fixing of electrodes."/>
+
+<class name="stimulus" 
+    description="Experiment stimulus."/>
+<class name="stimulus_type" 
+    description="Experiment stimulus type."/>
+<class name="scenario_stimulus" 
+    description="Stimulus of scenario."/>
+
+<class name="group" 
+    description="Union of human beings."/>
+<class name="experiment_metadata" 
+    description="Basic exeperiment metadata."/>
+<class name="electrode" 
+    description="Experiment electrode device."/>
+<class name="scenario_metadata" 
+    description="Experiment scenario."/>
+\end{verbatim}
+
+\thispagestyle{plain}
+
+\begin{verbatim}
+<!-- Class hierarchy -->
+
+    <parent_class name="person">
+        <child name="person/researcher"/>
+        <child name="person/test_subject"/>
+        <child name="education_level"/>
+    </parent_class>
+
+    <parent_class name="group">
+        <child name="research_group"/>
+        <child name="subject_group"/>
+    </parent_class>
+
+    <parent_class name="experiment_metadata">
+        <child name="software"/>
+        <child name="hardware"/>
+        <child name="project_type"/>
+        <child name="weather"/>
+        <child name="disease"/>
+        <child name="pharmaceutical"/>
+        <child name="data_file"/>
+        <child name="experiment"/>
+    </parent_class>
+
+    <parent_class name="electrode">
+        <child name="electrode_configuration"/>
+        <child name="electrode_system"/>
+        <child name="electrode_location"/>
+        <child name="electrode_type"/>
+        <child name="electrode_fix"/>
+    </parent_class>
+
+    <parent_class name="scenario_metadata">
+        <child name="stimulus"/>
+        <child name="stimulus_type"/>
+        <child name="scenario_stimulus"/>
+        <child name="scenario"/>
+    </parent_class>
+
+    <parent_class name="article">
+        <child name="article_comment"/>
+    </parent_class>
+
+\end{verbatim}
+
+\thispagestyle{plain}
+
+
+
+\newpage
+\thispagestyle{plain}
+\section*{{\LARGE D} ERA model databáze EEG/ERP portálu}
+\hspace{0.65cm}ERA modelu EEG/ERP portálu \cite{_31} viz následující list
+\newpage
+
+\begin{figure}[htb!]
+\begin{center}
+\includegraphics[scale=0.1, angle=90]{EraFull.jpg}
+\caption{Hlavní okno nastavení filtrovacích podmínek}
+\end{center}
+\end{figure}
+
+\thispagestyle{plain}
+
 \end{document}

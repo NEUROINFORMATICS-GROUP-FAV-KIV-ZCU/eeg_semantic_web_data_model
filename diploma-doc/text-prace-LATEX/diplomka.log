@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  28 APR 2013 18:50
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  29 APR 2013 00:39
 entering extended mode
 **C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_m
 odel/diploma-doc/text-prace-LATEX/diplomka.tex
@@ -1731,6 +1731,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 1186--1189
 
  []
 
+
+Overfull \hbox (3.80846pt too wide) in paragraph at lines 1203--1204
+[]\T1/aer/m/n/12 (-10) Extensible Sty-le-sheet Lan-gu-age Trans-for-mati-ons, t
+rans-for-mace slou-ºící
+ []
+
 [69]
 (C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
 del\diploma-doc\text-prace-LATEX\diplomka.lof [70
@@ -1777,56 +1783,56 @@ ze na Webu\T1/aer/m/n/12 (+10) ,
  []
 
 
-Overfull \hbox (5.77644pt too wide) in paragraph at lines 52--56
+Overfull \hbox (5.77644pt too wide) in paragraph at lines 58--62
 \T1/aer/m/n/12 (-10) Masarykova uni-ver-zita, 2004. http://www.ics.muni.cz/zpra
 vodaj/articles/ 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 58--61
-[]\T1/aer/m/n/12 (+10) Openlink Soft-ware.  \T1/aer/m/it/12 (+10) Vir-tu-oso Un
-i-ver-sal Ser-ver\T1/aer/m/n/12 (+10) ,
  []
 
 [72
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 63--67
+Underfull \hbox (badness 10000) in paragraph at lines 64--67
+[]\T1/aer/m/n/12 (+10) Openlink Soft-ware.  \T1/aer/m/it/12 (+10) Vir-tu-oso Un
+i-ver-sal Ser-ver\T1/aer/m/n/12 (+10) ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--73
 []\T1/aer/m/n/12 (+10) Oracle.  \T1/aer/m/it/12 (+10) Oracle Da-ta-base Se-man-
 tic Tech-no-lo-gies Tu-to-rial\T1/aer/m/n/12 (+10) ,
  []
 
 
-Overfull \hbox (88.32375pt too wide) in paragraph at lines 63--67
+Overfull \hbox (88.32375pt too wide) in paragraph at lines 69--73
 \T1/aer/m/n/12 (-10) http://download.oracle.com/otndocs/tech/semantic_-web/pdf/
 oradb_-semtech_-tu-to-rial.pdf,
  []
 
 
-Underfull \hbox (badness 1062) in paragraph at lines 69--72
+Underfull \hbox (badness 1062) in paragraph at lines 75--78
 []\T1/aer/m/n/12 (+10) Oracle.  \T1/aer/m/it/12 (+10) Oracle Spa-tial\T1/aer/m/
 n/12 (+10) , http://www.orafaq.com/wiki/Spatial_-FAQ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--112
+Underfull \hbox (badness 10000) in paragraph at lines 113--118
 \T1/aer/m/n/12 (+10) Vysoká ²kola eko-no-mická v Praze, 2009.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--118
+Underfull \hbox (badness 10000) in paragraph at lines 120--124
 []\T1/aer/m/n/12 (+10) Vitvar To-má².  \T1/aer/m/it/12 (+10) Sé-man-tický web\T
 1/aer/m/n/12 (+10) .  ƒVUT, Praha, 2011,
  []
 
 
-Overfull \hbox (210.52306pt too wide) in paragraph at lines 114--118
+Overfull \hbox (210.52306pt too wide) in paragraph at lines 120--124
 \T1/aer/m/n/12 (-10) http://www.cvut.cz/pracoviste/odbor-rozvoje/stranky/habili
 tace-a-inaugurace/habilitacni-prednasky/lecture.pdf. 
  []
 
 
-Underfull \hbox (badness 7925) in paragraph at lines 126--129
+Underfull \hbox (badness 7925) in paragraph at lines 132--135
 \T1/aer/m/n/12 (+10) http://www.w3.org/TR/2004/REC-rdf-concepts-20040210/, (p°í
 -stup
  []
@@ -1844,7 +1850,126 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[74] [75] [76]
+[74] [75] <manualCreator.jpg, id=479, 233.37187pt x 346.29375pt>
+File: manualCreator.jpg Graphic file (type jpg)
+
+<use manualCreator.jpg>
+Package pdftex.def Info: manualCreator.jpg used on input line 1232.
+(pdftex.def)             Requested size: 186.69774pt x 277.03537pt.
+
+Overfull \hbox (8.77771pt too wide) in paragraph at lines 1241--1242
+[]\T1/aer/m/n/12 (-10) URI cesta ke zvo-lené da-ta-bázi ve tvaru: \T1/aer/m/it/
+12 (-10) jdbc:<databáze>://<server>:<port> 
+ []
+
+[76 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_dat
+a_model/diploma-doc/text-prace-LATEX/manualCreator.jpg>] [77]
+<manualTestConnect.jpg, id=486, 248.42813pt x 263.48438pt>
+File: manualTestConnect.jpg Graphic file (type jpg)
+
+<use manualTestConnect.jpg>
+Package pdftex.def Info: manualTestConnect.jpg used on input line 1266.
+(pdftex.def)             Requested size: 198.74277pt x 210.78777pt.
+
+Overfull \hbox (8.94626pt too wide) in paragraph at lines 1273--1274
+[]\T1/aer/m/n/12 (-10) Výb¥r po-u-ºi-tého re-a-so-neru pro vi-zu-a-li-zaci mo-d
+elu  m¥lký (\T1/aer/m/it/12 (-10) Shallow\T1/aer/m/n/12 (-10) )/hluboký
+ []
+
+
+Overfull \hbox (8.77771pt too wide) in paragraph at lines 1274--1275
+[]\T1/aer/m/n/12 (-10) URI cesta ke zvo-lené da-ta-bázi ve tvaru: \T1/aer/m/it/
+12 (-10) jdbc:<databáze>://<server>:<port> 
+ []
+
+[78 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_dat
+a_model/diploma-doc/text-prace-LATEX/manualTestConnect.jpg>]
+<manualTestMain.jpg, id=490, 685.05937pt x 402.75468pt>
+File: manualTestMain.jpg Graphic file (type jpg)
+
+<use manualTestMain.jpg>
+Package pdftex.def Info: manualTestMain.jpg used on input line 1287.
+(pdftex.def)             Requested size: 390.4879pt x 229.57254pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[79 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_dat
+a_model/diploma-doc/text-prace-LATEX/manualTestMain.jpg>]
+<manualTestFilterA.jpg, id=495, 323.70938pt x 127.97812pt>
+File: manualTestFilterA.jpg Graphic file (type jpg)
+
+<use manualTestFilterA.jpg>
+Package pdftex.def Info: manualTestFilterA.jpg used on input line 1298.
+(pdftex.def)             Requested size: 258.96785pt x 102.38261pt.
+
+<manualTestFilterB.jpg, id=496, 323.70938pt x 127.97812pt>
+File: manualTestFilterB.jpg Graphic file (type jpg)
+
+<use manualTestFilterB.jpg>
+Package pdftex.def Info: manualTestFilterB.jpg used on input line 1308.
+(pdftex.def)             Requested size: 258.96785pt x 102.38261pt.
+
+Overfull \hbox (5.84816pt too wide) in paragraph at lines 1313--1315
+\T1/aer/m/n/12 (-10) pod-mínky je moºné hro-madn¥ ulo-ºit tla-£ít-kem \T1/aer/m
+/it/12 (-10) Close \T1/aer/m/n/12 (-10) (5), (10) nebo je hro-madn¥
+ []
+
+<manualTestFilterC.jpg, id=497, 323.70938pt x 143.03438pt>
+File: manualTestFilterC.jpg Graphic file (type jpg)
+
+<use manualTestFilterC.jpg>
+Package pdftex.def Info: manualTestFilterC.jpg used on input line 1320.
+(pdftex.def)             Requested size: 258.96785pt x 114.42764pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[80 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_dat
+a_model/diploma-doc/text-prace-LATEX/manualTestFilterA.jpg> <C:/Users/Fildas/Do
+cuments/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_model/diploma-doc/tex
+t-prace-LATEX/manualTestFilterB.jpg>]
+<manualTestProperty.jpg, id=501, 526.21594pt x 314.67563pt>
+File: manualTestProperty.jpg Graphic file (type jpg)
+
+<use manualTestProperty.jpg>
+Package pdftex.def Info: manualTestProperty.jpg used on input line 1337.
+(pdftex.def)             Requested size: 378.87518pt x 226.56627pt.
+ [81 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_da
+ta_model/diploma-doc/text-prace-LATEX/manualTestFilterC.jpg>]
+Overfull \hbox (3.51888pt too wide) in paragraph at lines 1345--1346
+\T1/aer/m/n/12 (-10) po-pi-sek a ak-tu-a-li-zo-vat jej tla-£ít-kem \T1/aer/m/it
+/12 (-10) Set de-scrip-tion \T1/aer/m/n/12 (-10) (4). Dále je moºné prost°ed- 
+ []
+
+<manualTestAddProperty.jpg, id=505, 323.70938pt x 135.50626pt>
+File: manualTestAddProperty.jpg Graphic file (type jpg)
+
+<use manualTestAddProperty.jpg>
+Package pdftex.def Info: manualTestAddProperty.jpg used on input line 1350.
+(pdftex.def)             Requested size: 233.07057pt x 97.5644pt.
+ [82 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_da
+ta_model/diploma-doc/text-prace-LATEX/manualTestProperty.jpg> <C:/Users/Fildas/
+Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_model/diploma-doc/t
+ext-prace-LATEX/manualTestAddProperty.jpg>]
+[83] [84] [85] [86] [87] [88]
+<EraFull.jpg, id=528, 7091.49374pt x 3239.35219pt>
+File: EraFull.jpg Graphic file (type jpg)
+ <use EraFull.jpg>
+Package pdftex.def Info: EraFull.jpg used on input line 1522.
+(pdftex.def)             Requested size: 709.19093pt x 323.9542pt.
+
+
+LaTeX Warning: Float too large for page by 157.0188pt on input line 1525.
+
+[89 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_dat
+a_model/diploma-doc/text-prace-LATEX/EraFull.jpg>]
 (C:\Users\Fildas\Documents\FAV\FAV-patak\diplomka\repo\eeg_semantic_web_data_mo
 del\diploma-doc\text-prace-LATEX\diplomka.aux)
 
@@ -1856,10 +1981,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8623 strings out of 494045
- 116249 string characters out of 3145966
- 264091 words of memory out of 3000000
- 11010 multiletter control sequences out of 15000+200000
+ 8669 strings out of 494045
+ 117310 string characters out of 3145966
+ 264096 words of memory out of 3000000
+ 11047 multiletter control sequences out of 15000+200000
  96863 words of font info for 572 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  37i,12n,43p,3348b,378s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1872,9 +1997,9 @@ ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program
 es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files
  (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (
 x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on diplomka.pdf (82 pages, 2138655 bytes).
+Output written on diplomka.pdf (95 pages, 7186950 bytes).
 PDF statistics:
- 514 PDF objects out of 1000 (max. 8388607)
+ 564 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 178282 words of extra memory for PDF output out of 184870 (max. 10000000)
+ 178327 words of extra memory for PDF output out of 184870 (max. 10000000)
 
