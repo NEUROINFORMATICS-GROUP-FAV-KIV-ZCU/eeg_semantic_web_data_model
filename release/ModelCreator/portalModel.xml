@@ -8,6 +8,7 @@
 <data_table name="article_comment" type="text"/>
 <data_table name="data_file" type="binary"/>
 <data_table name="scenario" type="binary"/>
+<data_table name="test" type="binary"/>
 
 <!-- METADATA -->
 
@@ -38,6 +39,8 @@
     <class name="analysis" description="Experiment analysis."/>
     <class name="data_file" description="Experiment EEG/ERP measuration data file."/>
     <class name="scenario" description="Experiment scenarion description."/>
+
+    <class name="test" description="Just for test."/>
 
     <class name="electrode_configuration" description="Configuration of measuring electrodes."/>
     <class name="electrode_system" description="System of experiment electrodes."/>
@@ -101,6 +104,7 @@
 
 <!-- Class hierarchy -->
 
+    <property name="test/author" range="person/researcher" domain="test" description="Author of article."/>
 
     <property name="article/author" range="person/researcher" domain="article" description="Author of article."/>
     <property name="article/research_group" range="research_group" domain="article" description="Group of article."/>
@@ -169,7 +173,7 @@
     <property name="history/scenario" range="scenario" domain="history" description="Target scenario."/>
     <property name="history/person" range="person/researcher" domain="history" description="Owner person."/>
     <property name="history/date_of_download" range="xsd:dateTime" domain="history" description="Date of download."/>
-    <property name="history/data_file" range="date_file" domain="history" description="Target data file."/>
+    <property name="history/data_file" range="data_file" domain="history" description="Target data file."/>
 
     <property name="experiment/scenario" range="scenario" domain="experiment" description="Experiment scenario."/>
     <property name="experiment/start_time" range="xsd:dateTime" domain="experiment" description="Measuration start time."/>

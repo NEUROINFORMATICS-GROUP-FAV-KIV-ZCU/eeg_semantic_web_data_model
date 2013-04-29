@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  29 APR 2013 20:55
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  29 APR 2013 22:38
 entering extended mode
 **C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_m
 odel/diploma-doc/text-prace-LATEX/diplomka.tex
@@ -764,12 +764,6 @@ File: architektura.pdf Graphic file (type pdf)
 Package pdftex.def Info: architektura.pdf used on input line 108.
 (pdftex.def)             Requested size: 370.45103pt x 225.20961pt.
 
-Overfull \hbox (4.32631pt too wide) in paragraph at lines 117--118
-\T1/aer/m/it/12 (-10) <pri-jmeni>Novák</prijmeni>\T1/aer/m/n/12 (-10) , kde ele
--mentu \T1/aer/m/it/12 (-10) No-vák \T1/aer/m/n/12 (-10) je do-dána meta in-for
--mace,
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -864,17 +858,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [8]
-Overfull \hbox (12.93198pt too wide) in paragraph at lines 187--188
-[]\T1/aer/bx/n/12 (-10) rdf:Property \T1/aer/m/n/12 (-10) p°ed-sta-vuje ro-di-£
-ov-skou t°ídu v²ech de-fi-no-va-ných vlast-ností
- []
-
-
-Overfull \hbox (10.2544pt too wide) in paragraph at lines 203--204
-[]\T1/aer/bx/n/12 (-10) rdf:type \T1/aer/m/n/12 (-10) slouºí k de-fi-no-vání, º
-e zdroj (sub-jekt) je in-stancí t°ídy de-fi-no-vané
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -976,15 +959,9 @@ at ex-pe-ri-ment·
  []
 
 
-Overfull \hbox (6.73813pt too wide) in paragraph at lines 296--297
-[]\T1/aer/bx/n/12 (-10) Registrace no-vých uºi-va-tel·, sdru-ºo-vání do sku-pin
- v£etn¥ ur-£ení
- []
-
-
-Overfull \hbox (7.96794pt too wide) in paragraph at lines 297--298
-[]\T1/aer/bx/n/12 (-10) Sdílení dat a me-ta-dat ex-pe-ri-ment· mezi vý-zkum-ným
-i sku-pi-nami 
+Overfull \hbox (1.63795pt too wide) in paragraph at lines 296--297
+[]\T1/aer/bx/n/12 (-10) Registrace no-vých uºi-va-tel·, je-jich sdru-ºo-vání do
+ sku-pin v£etn¥
  []
 
 <mvc.pdf, id=146, 507.496pt x 303.534pt>
@@ -1197,11 +1174,6 @@ File: eraNovej.pdf Graphic file (type pdf)
  <use eraNovej.pdf>
 Package pdftex.def Info: eraNovej.pdf used on input line 503.
 (pdftex.def)             Requested size: 295.77083pt x 156.35023pt.
-
-Overfull \hbox (4.60664pt too wide) in paragraph at lines 509--510
-\T1/aer/m/n/12 (-10) p·-vod-ního re-la£-ního mo-delu, z je-hoº ta-bu-lek ne-sou
--cích zmí-n¥né da-tové sou-bory
- []
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1925,7 +1897,7 @@ ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program
 es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files
  (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (
 x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on diplomka.pdf (93 pages, 7184880 bytes).
+Output written on diplomka.pdf (93 pages, 7185128 bytes).
 PDF statistics:
  558 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -122,7 +122,7 @@ public class SimpleDataCreator {
         researcherTriples.add(new Triple("person/researcher/instance" + number, "person/researcher/authentication", "authent" + number));
         researcherTriples.add(new Triple("person/researcher/instance" + number, "person/researcher/facebook_id", "145" + number));
         researcherTriples.add(new Triple("person/researcher/instance" + number, "person/researcher/article_group_subscription", "research_group/instance" + number));
-        researcherTriples.add(new Triple("person/researcher/instance" + number, "person/researcher/group_member", "research_group/instance" + number * 2));
+        researcherTriples.add(new Triple("person/researcher/instance" + number, "person/researcher/group_member", "research_group/instance" + number));
         researcherTriples.add(new Triple("person/researcher/instance" + number, "person/researcher/group_member_admin", "research_group/instance" + number * 3));
         researcherTriples.add(new Triple("person/researcher/instance" + number, "person/researcher/group_member_experimenter", "research_group/instance" + number * 4));
         researcherTriples.add(new Triple("person/researcher/instance" + number, "person/researcher/group_member_reader", "research_group/instance" + number * 5));
