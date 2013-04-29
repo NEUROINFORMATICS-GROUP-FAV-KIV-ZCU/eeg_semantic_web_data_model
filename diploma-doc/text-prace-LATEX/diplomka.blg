@@ -1,6 +1,10 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: diplomka.aux
 The style file: plain.bst
 Database file #1: diplomka.bib
+Too many commas in name 1 of "John Hebeler, Matthew Fisher, Ryan Blace, Adrew Perez-Lopez" for entry _34
+while executing---line 1049 of file plain.bst
 Warning--to sort, need author, organization, or key in _23
 Warning--to sort, need author, organization, or key in _28
-(There were 2 warnings)
+Too many commas in name 1 of "John Hebeler, Matthew Fisher, Ryan Blace, Adrew Perez-Lopez" for entry _34
+while executing---line 1090 of file plain.bst
+(There were 2 error messages)

@@ -5,13 +5,17 @@
   \\http://jena.apache.org, (přístup 15.4.2013).
 
 \bibitem{_23}
-{\em Semantic Web Tools}, http://semanticweb.org/wiki/Tools, (přístup
-  19.2.2013).
+{\em Semantic Web Tools}, http://semanticweb.org/, (přístup 19.2.2013).
+
+\bibitem{_35}
+James~Hendler Dean~Allenmang.
+\newblock {\em Semantic Web for the Working Ontologist}.
+\newblock Morgan Kaufmann, Burlington, 2007. \\ISBN 978-0-12-373556-0.
 
 \bibitem{_22}
 Gilfillan Ian.
 \newblock {\em Introduction to Relational Databases},
-  http://www.databasejournal.com/sqletc/article.php/1469521/Introduction-to-Relational-Databases.htm,
+  \\http://www.databasejournal.com/sqletc/article.php/1469521/\\Introduction-to-Relational-Databases.htm,
   (přístup 16.2.2013).
 
 \bibitem{_19}
@@ -46,7 +50,18 @@ JBoss Community.
 \bibitem{_20}
 Kosek Jiří.
 \newblock {\em Jak pracují databáze na Webu},
-  http://www.kosek.cz/clanky/iweb/12.html, (přístup 15.2.2013).
+  \\http://www.kosek.cz/clanky/iweb/12.html, (přístup 15.2.2013).
+
+\bibitem{_34}
+Ryan Blace Adrew Perez-Lopez John~Hebeler, Matthew~Fisher.
+\newblock {\em Semantic Web Programing}.
+\newblock Wiley, Indianopolis, 2009. \\ISBN 978-0-470-41801-7.
+
+\bibitem{_11}
+Marek Obitko.
+\newblock {\em Modularization of Ontologies}, 2007.
+  \\http://www.obitko.com/tutorials/ontologies-semantic-web/\\modularization-of-ontologies.html,
+  (přístup 10.2.2013).
 
 \bibitem{_31}
 Strbačka Martin.
@@ -62,13 +77,13 @@ Pitner~Tomáš Matulík~Petr.
 
 \bibitem{_24}
 Openlink Software.
-\newblock {\em Virtuoso Universal Server}, http://virtuoso.openlinksw.com/,
+\newblock {\em Virtuoso Universal Server}, \\http://virtuoso.openlinksw.com/,
   (přístup 19.2.2013).
 
 \bibitem{_26}
 Oracle.
 \newblock {\em Oracle Database Semantic Technologies Tutorial},
-  http://download.oracle.com/otndocs/tech/semantic\_web/pdf/oradb\_semtech\_tutorial.pdf,
+  \\http://download.oracle.com/otndocs/tech/semantic\_web/pdf/\\oradb\_semtech\_tutorial.pdf,
   (přístup 19.2.2013).
 
 \bibitem{_25}
@@ -103,24 +118,28 @@ Svátek Vojtěch.
   \\http://nb.vse.cz/~svatek/rzzw/SPARQL%20-%20teorie.pdf, (přístup
   11.2.2013).
 
-\bibitem{_10}
-Zanlostní technologie.
-\newblock {\em Univerzita Hradec Králové}, 2006.
-  \\http://lide.uhk.cz/fim/ucitel/fshusam2/lekarnicky/zt1/zt1\_kap02.html,
-  (přístup 9.2.2013).
-
 \bibitem{_3}
 Štencek Jiří.
 \newblock {\em Užití sémantických technologií ve značkovacích
   jazycích}.
 \newblock \\Vysoká škola ekonomická v Praze, 2009.
-  http://vse.stencek.com/semanticky-web/, (přístup 4.2.2013).
+  \\http://vse.stencek.com/semanticky-web/, (přístup 4.2.2013).
+
+\bibitem{_32}
+Jamie~Taylor Toby~Segaran, Colin~Evans.
+\newblock {\em Programing the Semantic Web}.
+\newblock O’Reilly Media, Sebastopol, 2009. \\ISBN 978-0-596-15381-6.
 
 \bibitem{_2}
 Vitvar Tomáš.
 \newblock {\em Sémantický web}.
 \newblock ČVUT, Praha, 2011,
-  http://www.cvut.cz/pracoviste/odbor-rozvoje/stranky/habilitace-a-inaugurace/habilitacni-prednasky/lecture.pdf.
+  \\http://www.cvut.cz/pracoviste/odbor-rozvoje/stranky/\\habilitace-a-inaugurace/habilitacni-prednasky/lecture.pdf.
+
+\bibitem{_33}
+Matthew~Moran Vipul~Kashyap, Christoph~Bussler.
+\newblock {\em The Semantic Web - Semantics for Data and Services on the Web}.
+\newblock Springer, Berlin, 2008. \\ISBN 978-3-540-76451-9.
 
 \bibitem{_18}
 Homola Vladimír.
@@ -133,10 +152,10 @@ W3C.
 \newblock {\em RDFConcepts and Abstract Syntax}, 2004.\\
   http://www.w3.org/TR/2004/REC-rdf-concepts-20040210/, (přístup 7.2.2013).
 
-\bibitem{_11}
+\bibitem{_10}
 W3C.
 \newblock {\em OWL Web Ontology Language Overview}, 2004.
-  \\http://www.w3.org/TR/owl-features/, (přístup 10.2.2013).
+  \\http://www.w3.org/TR/owl-features/, (přístup 9.2.2013).
 
 \bibitem{_5}
 W3C.

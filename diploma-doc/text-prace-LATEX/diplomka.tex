@@ -118,7 +118,7 @@ Další podkapitoly se budou zabývat podrobněji jednotlivý zmíněnými techn
 
 
 \section{RDF}
-\hspace{0.65cm}Technologický základ sémantického webu tvoří jazyk RDF (Resource Description Framework), jež slouží jako obecný rámec pro popis, výměnu a opětovné použití metadat \cite{_3}. Tento rámec poskytuje jednoduchý model sloužící pro popis zdrojů jež je nezávislý na jeho konkrétní implementaci \cite{_4}. Samotné informace o objektu jsou realizovány prostřednictvím tvrzení, jež se označují jako trojice (anglicky triple). Každou trojici tvoří spolu subjekt, predikát a objekt. Subjekt je libovolný objekt identifikovatelný prostřednictvím URI, který se snažíme prostřednictvím trojice popisovat, zaznamenat nějakou jeho vlastnost. Tato vlastnost se popisuje prostřednictvím predikátu, který vede ve směru od subjektu ke objektu, přiřazuje tedy subjektu nějaký objekt prostřednictvím této vlastnosti. Cílový objekt pak představuje hodnotu, které předchozí objekt nabývá pro daný predikát. 
+\hspace{0.65cm}Technologický základ sémantického webu tvoří jazyk RDF (Resource Description Framework), jež slouží jako obecný rámec pro popis, výměnu a opětovné použití metadat \cite{_33}. Tento rámec poskytuje jednoduchý model sloužící pro popis zdrojů jež je nezávislý na jeho konkrétní implementaci \cite{_4}. Samotné informace o objektu jsou realizovány prostřednictvím tvrzení, jež se označují jako trojice (anglicky triple). Každou trojici tvoří spolu subjekt, predikát a objekt. Subjekt je libovolný objekt identifikovatelný prostřednictvím URI, který se snažíme prostřednictvím trojice popisovat, zaznamenat nějakou jeho vlastnost. Tato vlastnost se popisuje prostřednictvím predikátu, který vede ve směru od subjektu ke objektu, přiřazuje tedy subjektu nějaký objekt prostřednictvím této vlastnosti. Cílový objekt pak představuje hodnotu, které předchozí objekt nabývá pro daný predikát. 
 Tento princip je možné znázornit na jednoduchém tvrzení, zapsaném větou „Martin staví dům.“ Subjektem trojice potom bude Martin, predikátem staví a objektem dům, tak jak je znázorněno na obrázku 2.2. 
 \\
 \vspace{0.1cm}
@@ -142,7 +142,7 @@ Dle definovaného standardu \cite{_5} je možné, aby objektem byl jiný subjekt
 
 Z hlediska implementace mohou být uzly orientovaného grafu datového modelu tvořeny URI identifikátorem, anonymním listem nebo literálem \cite{_6}. URI identifikátor obsahuje pouze adresu zdroje v textové podobě ve znakové sadě Unicode a zastupuje tak konkrétní jedinečný objekt. Anonymní list (anglicky blank node) je prvek nahrazující URI identifikátor při absenci unikátní adresy zdroje. Tato entita přestavuje zdroj, který je sice v rámci grafu popisován prostřednictvím trojic, ale není potřeba (často z hlediska významu), aby byl dostupný i vně grafu. S URI má společné to, že musí nést adresu zdroje (její syntaxe není implicitně definována), ale liší se skutečností, že tato adresa musí být unikátní pouze v rámci obalujícího modelu, nikoliv vně grafu. Může tak nastat situace, že dva odlišné modely budou obsahovat (ze syntaktického hlediska) dva stejné anonymní uzly, což v případě URI možné není (při respektování specifikace). Tento list tak může představovat anonymní objekt sloužící ke vytvoření vazby mezi jinými objekty, které jsou z hlediska sémantiky významné \cite{_5}. Jako příklad je možno uvést následující tvrzení. „Martinův přítel zná předpověď počasí. Počasí bude deštivé.” Zjednodušeným převodem předchozích vět na trojice v podobě subjekt – predikát – objekt získáme: {\it Martin – má – přítel}, {\it přítel – zná – počasí},  {\it počasí – bude – deštivé.} 
 Subjekt resp. objekt přítel zde může být reprezentován anonymním listem, v případě že jedinou signifikantní informací (z vnějšího pohledu na datový model) je Martinova získaná znalost počasí, nikoliv už jeho přítel, jež mu ji zprostředkoval. 
-Poslední možnou reprezentací entity trojice je literál, jež nese Unicode textový řetězec, který slouží pro zápis koncové informace (užitečné pro lidského čtenáře). Literál může také navíc obsahovat položku, pro označení jazyka, ve kterém je textová informace zapsána \cite{_6}. 
+Poslední možnou reprezentací entity trojice je literál, jež nese Unicode textový řetězec, který slouží pro zápis koncové informace (užitečné pro lidského čtenáře). Literál může také navíc obsahovat položku, pro označení jazyka, ve kterém je textová informace zapsána \cite{_34}. 
 \\
 \\
 Pro komponenty každé trojice grafu platí následující pravidla \cite{_6}.
@@ -225,7 +225,7 @@ Ontologie lze z hlediska vývoje rozčlenit do tří kategorií:
 
 \item \textbf{Terminologické (lexikální)} Slouží především ke zachycení taxonomie definovaných pojmů a popisu jejich vzájemných vztahů. Jejich realizace se často podobá slovníkům synonym.
 \item \textbf{Informační} Zastávají roli služby stojící nad databází, která zajišťuje vyšší míru abstraktnosti při databázovém dotazování.
-\item \textbf{Znalostní} Dovolují reprezentaci znalostí především v oblasti umělé inteligence, kde jsou chápány jako logické teorie, jejichž elementární prvky se definují prostřednictvím formálního jazyka. Využívají se zej-\\ména ve znalostně orientovaných systémech \cite{_10}.
+\item \textbf{Znalostní} Dovolují reprezentaci znalostí především v oblasti umělé inteligence, kde jsou chápány jako logické teorie, jejichž elementární prvky se definují prostřednictvím formálního jazyka. Využívají se zej-\\ména ve znalostně orientovaných systémech \cite{_9}.
 
 \end{itemize}
 
@@ -243,7 +243,7 @@ Pro realizaci popsaných ontologií je zapotřebí jazyka, který by dovoloval f
 
 
 \section{OWL}
-\hspace{0.65cm}OWL (Web Ontology Language) je jazyk sémantického webu navržený pro získávání a zpracování informací prostřednictvím strojů (aplikací), namísto současného stavu, kdy jsou informace určeny pouze pro lidské uživatele. Tento jazyk využívá technologií XML, RDF a RDFS jakožto primárních prostředků pro tvorbu ontologických slovníků se základní sémantikou, kterou sám dále rozšiřuje o možnosti vyjádření složitějších výrazů a jejich vzájemných vztahů \cite{_11}. Mezi tato rozšíření patří například kardinalita, univerzální a existenční kvantifikace, matematické charakteristiky vlastností jako např. tranzitivnost, disjunktnost či inverze a anonymní třídy (sloužící  často k jednorázovému využití) \cite{_12}.
+\hspace{0.65cm}OWL (Web Ontology Language) je jazyk sémantického webu navržený pro získávání a zpracování informací prostřednictvím strojů (aplikací), namísto současného stavu, kdy jsou informace určeny pouze pro lidské uživatele. Tento jazyk využívá technologií XML, RDF a RDFS jakožto primárních prostředků pro tvorbu ontologických slovníků se základní sémantikou, kterou sám dále rozšiřuje o možnosti vyjádření složitějších výrazů a jejich vzájemných vztahů \cite{_35}. Mezi tato rozšíření patří například kardinalita, univerzální a existenční kvantifikace, matematické charakteristiky vlastností jako např. tranzitivnost, disjunktnost či inverze a anonymní třídy (sloužící  často k jednorázovému využití) \cite{_12}.
 Vzhledem k tomu, že OWL nabízí poměrně pokročilou úroveň expresivity jazyka, je nutné brát v potaz výpočetní složitost algoritmů odvozo-\\vacích a usuzovacích nástrojů pracujících s vytvořenou ontologií. Z tohoto důvodu jsou specifikovány 3 varianty jazyka OWL, které se vzájemně liší mírou expresivity \cite{_2}.
 
 
@@ -280,9 +280,9 @@ SPARQL podporuje 4 druhy dotazů, které se vzájemně liší v typu vráceného
 \begin {itemize}
 
 \item \textbf{SELECT} Tento typ dotazu nejvíce odpovídá běžnému SQL dotazování, neboť zadaným proměnným nastaví příslušné hodnoty a ty pak vrací v podobě tabulky \cite{_14}.
-\item \textbf{ASK} Dotaz typu ASK vrací pouze TRUE/FALSE odpověď a slouží ke otestování, zda zadaný grafový vzorec má pro daný graf řešení. ASK tak slouží ke testování vytvořených logických hypotéz, ale neumožňuje už vrácení konkrétních řešení \cite{_13}.
+\item \textbf{ASK} Dotaz typu ASK vrací pouze TRUE/FALSE odpověď a slouží ke otestování, zda zadaný grafový vzorec má pro daný graf řešení. ASK tak slouží ke testování vytvořených logických hypotéz, ale neumožňuje už vrácení konkrétních řešení \cite{_32}.
 \item \textbf{DESCRIBE} Dotazy typu DESCRIBE navrací podgraf dotazovaného grafu, který obsahuje všechny dostupné informace o zdroji, jež vyhověl zadanému grafovému vzoru \cite{_13}. Při vyhodnocování dotazů dochází ke porovnávání zdrojů získaných ze vstupního grafového vzoru se zdroji celého grafu. Pro nalezené odpovídající zdroje jsou pak získány všechny vázané relevantní informace, ze kterých je ve výsledku složen navracený graf \cite{_14}.
-\item \textbf{CONSTRUCT} Tento speciální druh dotazu navrací jako výsledek nový RDF graf dle definované grafové šablony. Výsledný RDF graf je konstruován podle částečných řešení dotazovací sekvence, jež vyplňují proměnné ze zadané grafové šablony na základě které jsou tvořené výsledné trojice pro cílový navracený graf \cite{_13}. Tato dotazovací operace se do jisté míry podobá XSLT transformaci XML dokumentu.
+\item \textbf{CONSTRUCT} Tento speciální druh dotazu navrací jako výsledek nový RDF graf dle definované grafové šablony. Výsledný RDF graf je konstruován podle částečných řešení dotazovací sekvence, jež vyplňují proměnné ze zadané grafové šablony na základě které jsou tvořené výsledné trojice pro cílový navracený graf \cite{_32}. Tato dotazovací operace se do jisté míry podobá XSLT transformaci XML dokumentu.
 
 \end {itemize}
 
@@ -1206,8 +1206,6 @@ systému
 \end{description}
 
 
-\listoffigures
-
 \bibliography{diplomka}
 \bibliographystyle{plain}
 
@@ -1514,7 +1512,7 @@ První pole (1) tohoto okna slouží ke nastavení URI nového predikátu, dále
 \newpage
 \thispagestyle{plain}
 \section*{{\LARGE D} ERA model databáze EEG/ERP portálu}
-\hspace{0.65cm}ERA modelu EEG/ERP portálu \cite{_31} viz následující list
+\hspace{0.65cm}ERA model EEG/ERP portálu \cite{_31} viz následující list
 \newpage
 
 \begin{figure}[htb!]
