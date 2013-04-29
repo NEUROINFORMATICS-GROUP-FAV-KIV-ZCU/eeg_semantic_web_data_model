@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  29 APR 2013 22:38
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  30 APR 2013 00:00
 entering extended mode
 **C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_m
 odel/diploma-doc/text-prace-LATEX/diplomka.tex
@@ -1551,12 +1551,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [61]
-Overfull \hbox (9.7628pt too wide) in paragraph at lines 970--971
-[]\T1/aer/bx/n/12 (-10) Deep \T1/aer/m/n/12 (-10) Doba tr-vání ope-race nad na-
-vr-ºe-ným mo-de-lem p°i po-u-ºití hlu-bo-kého
- []
-
-
 Overfull \hbox (5.41512pt too wide) in paragraph at lines 991--991
  []|\T1/aer/bx/n/8 (-10) Shallow| 
  []
@@ -1569,12 +1563,6 @@ Overfull \hbox (5.41512pt too wide) in paragraph at lines 991--991
 
 Overfull \hbox (5.41512pt too wide) in paragraph at lines 991--991
  []|\T1/aer/bx/n/8 (-10) Shallow| 
- []
-
-
-Overfull \hbox (3.7558pt too wide) in paragraph at lines 1040--1041
-\T1/aer/m/n/12 (-10) nad na-vr-ºe-ným mo-de-lem pro daná tes-to-vací data p°i p
-o-u-ºití m¥l-kého re-a-so-neru. 
  []
 
 
@@ -1633,12 +1621,6 @@ Overfull \hbox (4.27676pt too wide) in paragraph at lines 1079--1079
 
 Overfull \hbox (3.05602pt too wide) in paragraph at lines 1079--1080
  []|\T1/aer/bx/n/8 (-10) RDB| 
- []
-
-
-Overfull \hbox (3.7558pt too wide) in paragraph at lines 1124--1125
-\T1/aer/m/n/12 (-10) nad na-vr-ºe-ným mo-de-lem pro daná tes-to-vací data p°i p
-o-u-ºití m¥l-kého re-a-so-neru. 
  []
 
 
@@ -1707,6 +1689,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 1186--1189
 Overfull \hbox (3.80846pt too wide) in paragraph at lines 1203--1204
 []\T1/aer/m/n/12 (-10) Extensible Sty-le-sheet Lan-gu-age Trans-for-mati-ons, t
 rans-for-mace slou-ºící
+ []
+
+
+Overfull \hbox (3.27473pt too wide) in paragraph at lines 1205--1206
+[]\T1/aer/m/n/12 (-10) JavaServer Pages, tech-no-lo-gie pro tvorbu dy-na-mic-ký
+ch webo-vých strá-nek 
  []
 
 
@@ -1790,16 +1778,9 @@ File: manualTestMain.jpg Graphic file (type jpg)
 <use manualTestMain.jpg>
 Package pdftex.def Info: manualTestMain.jpg used on input line 1285.
 (pdftex.def)             Requested size: 390.4879pt x 229.57254pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[77 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_dat
-a_model/diploma-doc/text-prace-LATEX/manualTestMain.jpg>]
-<manualTestFilterA.jpg, id=488, 323.70938pt x 127.97812pt>
+ [77 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_da
+ta_model/diploma-doc/text-prace-LATEX/manualTestMain.jpg>] <manualTestFilterA.j
+pg, id=488, 323.70938pt x 127.97812pt>
 File: manualTestFilterA.jpg Graphic file (type jpg)
 
 <use manualTestFilterA.jpg>
@@ -1824,17 +1805,10 @@ File: manualTestFilterC.jpg Graphic file (type jpg)
 <use manualTestFilterC.jpg>
 Package pdftex.def Info: manualTestFilterC.jpg used on input line 1318.
 (pdftex.def)             Requested size: 258.96785pt x 114.42764pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[78 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_dat
-a_model/diploma-doc/text-prace-LATEX/manualTestFilterA.jpg> <C:/Users/Fildas/Do
-cuments/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_model/diploma-doc/tex
-t-prace-LATEX/manualTestFilterB.jpg>]
+ [78 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_da
+ta_model/diploma-doc/text-prace-LATEX/manualTestFilterA.jpg> <C:/Users/Fildas/D
+ocuments/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_model/diploma-doc/te
+xt-prace-LATEX/manualTestFilterB.jpg>]
 <manualTestProperty.jpg, id=494, 526.21594pt x 314.67563pt>
 File: manualTestProperty.jpg Graphic file (type jpg)
 
@@ -1897,7 +1871,7 @@ ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program
 es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files
  (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (
 x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on diplomka.pdf (93 pages, 7185128 bytes).
+Output written on diplomka.pdf (93 pages, 7184936 bytes).
 PDF statistics:
  558 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

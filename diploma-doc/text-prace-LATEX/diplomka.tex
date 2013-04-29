@@ -927,7 +927,7 @@ Následující seznam obsahuje popis jednotlivých operací, jejichž implemen-\
 \begin{itemize}
 \item {\bf C1 - Vytvoření nové osoby:} vytvoření nové osoby, které bude nastaveno uživatelské jméno, příjmení, datum narození, vzdělání a skupinové členství 
 \item {\bf C2 - Vytvoření nového experimentu:} přidání nového experimentu osobě a nastavení  parametrů experimentu
-\item {\bf C3 - Přidání člena výzkumné skupině:} nového skupinového členství vybrané osobě
+\item {\bf C3 - Přidání člena výzkumné skupině:} vytvoření nového skupino-\\vého členství vybrané osobě
 
 \vspace{0.65cm}
 
@@ -943,7 +943,7 @@ Následující seznam obsahuje popis jednotlivých operací, jejichž implemen-\
 
 \vspace{0.65cm}
 
-\item {\bf D1 - Smazání osoby:} vybrané osoby včetně všech jejích parametrů
+\item {\bf D1 - Smazání osoby:} odstranění vybrané osoby včetně všech jejích parametrů
 \item {\bf D2 - Smazání experimentů osoby:} odstranění všech experimentů vybrané osoby
 \item {\bf D3 - Smazaní emailu osoby :} odstranění položky email u vybrané osoby
 
@@ -967,7 +967,7 @@ Význam záhlaví jednotlivých sloupců tabulek 9.1 a 9.2 je následující:
 
 \begin{itemize}
 \item {\bf Shallow} Doba trvání operace nad navrženým modelem při použití mělkého reasoneru
-\item {\bf Deep} Doba trvání operace nad navrženým modelem při použití hlubokého reasoneru
+\item {\bf Deep} Doba trvání operace nad navrženým modelem při použití hlubo-\\kého reasoneru
 \item {\bf RDB} Doba trvání operace nad původním relačním modelem
 \end{itemize}
 
@@ -1011,7 +1011,7 @@ Význam záhlaví jednotlivých sloupců tabulek 9.1 a 9.2 je následující:
 
 
 
-{\bf U1} & {\scriptsize 718} & {\scriptsize 16 560} & {\scriptsize 8} & {\scriptsize 1 574} & {\scriptsize 17 328} & {\scriptsize 13} & {\scriptsize 2458} & {\scriptsize 19156} & {\scriptsize 16}  \tabularnewline
+{\bf U1} & {\scriptsize 718} & {\scriptsize 16 560} & {\scriptsize 8} & {\scriptsize 1 574} & {\scriptsize 17 328} & {\scriptsize 13} & {\scriptsize 2458} & {\scriptsize 19 156} & {\scriptsize 16}  \tabularnewline
 \hline
 {\bf U2} & {\scriptsize 1 553} & {\scriptsize 26 720} & {\scriptsize 8} & {\scriptsize 2 122} & {\scriptsize 29 506} & {\scriptsize 11} & {\scriptsize 5 073} & {\scriptsize 41 384} & {\scriptsize 17}  \tabularnewline
 \hline
@@ -1025,7 +1025,7 @@ Význam záhlaví jednotlivých sloupců tabulek 9.1 a 9.2 je následující:
 
 {\bf D1} & {\scriptsize 2 820} & {\scriptsize 37 312} & {\scriptsize 9} & {\scriptsize 2 917} & {\scriptsize 37 738} & {\scriptsize 15} & {\scriptsize 4 590} & {\scriptsize 38 236} & {\scriptsize 13}  \tabularnewline
 \hline
-{\bf D2} & {\scriptsize 2 688} & {\scriptsize 48 400} & {\scriptsize 8} & {\scriptsize 4 953} & {\scriptsize 48464} & {\scriptsize 6} & {\scriptsize 7 289} & {\scriptsize 54 062} & {\scriptsize 7}  \tabularnewline
+{\bf D2} & {\scriptsize 2 688} & {\scriptsize 48 400} & {\scriptsize 8} & {\scriptsize 4 953} & {\scriptsize 48 464} & {\scriptsize 6} & {\scriptsize 7 289} & {\scriptsize 54 062} & {\scriptsize 7}  \tabularnewline
 \hline
 {\bf D3} & {\scriptsize 625} & {\scriptsize 16 197} & {\scriptsize 6} & {\scriptsize 1 102} & {\scriptsize 17 950} & {\scriptsize 5} & {\scriptsize 2 563} & {\scriptsize 18 174} & {\scriptsize 6}  \tabularnewline
 \hline
@@ -1037,9 +1037,9 @@ Význam záhlaví jednotlivých sloupců tabulek 9.1 a 9.2 je následující:
 \end{table}
 %\end{sidewaystable}
 
-Graf na obrázku 9.3 zobrazuje závislost doby trvání jednotlivých operací nad navrženým modelem pro daná testovací data při použití mělkého reasoneru. 
+Graf na obrázku 9.3 zobrazuje doby trvání jednotlivých operací nad navrženým modelem pro daná testovací data při použití mělkého reasoneru. 
 
-Graf na obrázku 9.4 zobrazuje závislost doby trvání jednotlivých operací nad navrženým modelem pro daná testovací data při použití hlubokého reasoneru.
+Graf na obrázku 9.4 zobrazuje doby trvání jednotlivých operací nad navrženým modelem pro daná testovací data při použití hlubokého reasoneru.
 
 \newpage
 
@@ -1047,7 +1047,7 @@ Graf na obrázku 9.4 zobrazuje závislost doby trvání jednotlivých operací n
 \begin{figure}[htb!]
 \begin{center}
 \includegraphics[scale=0.45]{virtuosoShallow.jpg}
-\caption{Závilost doby trvání operací na velikosti testovacích dat pro mělký reasoner nad databází Virtuoso}
+\caption{Doby trvání operací v závislosti na velikosti testovacích dat pro mělký reasoner nad databází Virtuoso}
 \end{center}
 \end{figure}
 
@@ -1055,7 +1055,7 @@ Graf na obrázku 9.4 zobrazuje závislost doby trvání jednotlivých operací n
 \begin{figure}[htb!]
 \begin{center}
 \includegraphics[scale=0.45]{virtuosoDeep.jpg}
-\caption{Závilost doby trvání operací na velikosti testovacích dat pro hluboký reasoner nad databází Virtuoso}
+\caption{Doby trvání operací v závislosti na velikosti testovacích dat pro hluboký reasoner nad databází Virtuoso}
 \end{center}
 \end{figure}
 
@@ -1121,9 +1121,9 @@ Graf na obrázku 9.4 zobrazuje závislost doby trvání jednotlivých operací n
 \end{table}
 %\end{sidewaystable}
 
-Graf na obrázku 9.5 zobrazuje závislost doby trvání jednotlivých operací nad navrženým modelem pro daná testovací data při použití mělkého reasoneru. 
+Graf na obrázku 9.5 zobrazuje doby trvání jednotlivých operací nad navrženým modelem pro daná testovací data při použití mělkého reasoneru. 
 
-Graf na obrázku 9.6 zobrazuje závislost doby trvání jednotlivých operací nad navrženým modelem pro daná testovací data při použití hlubokého reasoneru.
+Graf na obrázku 9.6 zobrazuje doby trvání jednotlivých operací nad navrženým modelem pro daná testovací data při použití hlubokého reasoneru.
 
 \newpage
 
@@ -1131,7 +1131,7 @@ Graf na obrázku 9.6 zobrazuje závislost doby trvání jednotlivých operací n
 \begin{figure}[htb!]
 \begin{center}
 \includegraphics[scale=0.45]{oracleShallow.jpg}
-\caption{Závilost doby trvání operací na velikosti testovacích dat pro mělký reasoner nad databází Oracle}
+\caption{Doby trvání operací v závislosti na velikosti testovacích dat pro mělký reasoner nad databází Oracle}
 \end{center}
 \end{figure}
 
@@ -1139,7 +1139,7 @@ Graf na obrázku 9.6 zobrazuje závislost doby trvání jednotlivých operací n
 \begin{figure}[htb!]
 \begin{center}
 \includegraphics[scale=0.45]{oracleDeep.jpg}
-\caption{Závilost doby trvání operací na velikosti testovacích dat pro hluboký reasoner nad databází Oracle}
+\caption{Doby trvání operací v závislosti na velikosti testovacích dat pro hluboký reasoner nad databází Oracle}
 \end{center}
 \end{figure}
 
@@ -1160,7 +1160,7 @@ Graf na obrázku 9.6 zobrazuje závislost doby trvání jednotlivých operací n
 
 Srovnáním dob trvání operací nad relačním a sémantickým modelem je patrné že relační model poskytuje o několik řádů rychlejší zpracování jak v případě databázového systému Virtuoso tak i Oracle. Pohledem na doby trvání operací nad relačním modelem v závislosti na jeho velikosti lze usoudit, že vliv velikosti modelu (při zvoleném řádu rozsahu) je natolik malý, že překračuje možnost přesného měření dle zvoleného způsobu. V důsledku jsou tak hodnoty časů operací pro relační model v tabulkách 9.1 a 9.2 spíše orientační a slouží především pro porovnání řádů časů mezi modely. Z dalšího porovnání hodnot tabulek 9.1 a 9.2 je patrné že zpracování operací systémem Virtuoso je řádově rychlejší než pro Oracle. To je způsobeno zejména skutečností, že testovaný systém Oracle byl umístěn na vzdáleném školním serveru, čímž byla doba zpracování navýšena o síťovou komunikaci a navíc mohl být systém podstoupen dalšímu zatížení stran jiných aplikací např. testovací verze portálu.
 
-Vliv použitého reasoneru je dle naměřených hodnot patrný už na testova-\\cích datech nejmenšího objemu. Dalším poznatkem je skutečnost, že s růstem objemu dat se při použití hlubokého reasoneru prodlužuje doba zpracování operací jen minimálně. Ve výsledku se ovšem dobra zpracování jedné operace při použití hlubokého reasoneru pohybuje v rozmezí hodnot 0,3 – 5,4 sekundy pro systém Virtuoso a 3,2 -144,5 sekundy pro systém Oracle, což tento reasoner činní prakticky nepoužitelným. 
+Vliv použitého reasoneru je dle naměřených hodnot patrný už na testova-\\cích datech nejmenšího objemu. Dalším poznatkem je skutečnost, že s růstem objemu dat se při použití hlubokého reasoneru prodlužuje doba zpracování operací jen minimálně. Ve výsledku se ovšem doba zpracování jedné operace při použití hlubokého reasoneru pohybuje v rozmezí hodnot 0,3 – 5,4 sekundy pro systém Virtuoso a 3,2 -144,5 sekundy pro systém Oracle, což tento reasoner činní prakticky nepoužitelným. 
 
 Při použití mělkého reasoneru narůstá doba potřebná ke zpracování operací úměrně s velikostí modelu a nejvyšší naměřené hodnoty časů jedné operace pro data velikosti A činí v průměru 0,7 sekundy pro systém Virtuoso a 19,3 sekundy Oracle. Mělký reasoner se tak při použití nad systémem Virtuoso jeví jako nejslibnější řešení přístupu k sémantickému modelu dat, nicméně praktické využití tohoto sémantického modelu pro aplikaci EEG/ERP portálu je z důvodu výkonnostní stránky poměrně diskutabilní. 
 
@@ -1174,7 +1174,7 @@ V rámci práce byla dále vytvořena knihovna poskytující API, jež umožňuj
 
 Za účelem ověření nových možností a popisovaných výhod navrženého modelu byla dále vytvořena testovací aplikace, která prostřednictvím jednodu-\\chého grafického rozhraní demonstruje možnosti uchování dodané sémantiky dat v modelu a také jednoduchost jeho dalšího dynamického rozšiřování.
 
-Poslední část práce se zabývá výkonnostním testováním navrženého mode-\\lu, což je realizováno porovnáváním časů potřebných k vykonávání typických portálových operací nad datovým modelem. Ze získaných naměřených hodnot je patrná největší nevýhoda navrženého modelu což je značná výkonnostní ztráta oproti původnímu modelu. Pro praktické využití a tudíž i získání všech popisovaných výhod navrhovaného modelu portálu je tedy nutné zajistit dostatečný výkon pro databázový systém a také zvážit výkonnostní požadavky na cílovou aplikace EEG/ERP portálu.
+Poslední část práce se zabývá výkonnostním testováním navrženého mode-\\lu, což je realizováno porovnáváním časů potřebných k vykonávání typických portálových operací nad datovým modelem. Ze získaných naměřených hodnot je patrná největší nevýhoda navrženého modelu což je značná výkonnostní ztráta oproti původnímu modelu. Pro praktické využití a tudíž i získání všech popisovaných výhod navrhovaného modelu portálu je tedy nutné zajistit dostatečný výkon pro databázový systém a také zvážit výkonnostní požadavky na cílovou aplikaci EEG/ERP portálu.
 
 
 
@@ -1202,7 +1202,7 @@ systému
 \item[XSD] XML Schema Definition, XML schéma popisující strukturu XML doku-\\mentu
 \item[XSLT] Extensible Stylesheet Language Transformations, transformace sloužící ke převodu XML dat
 \item[MVC] Model-View-Controller, návrhový vzor, architektura aplikace
-\item[JSP] JavaServer Pages, technologie pro tvorbu dynamický webových stránek
+\item[JSP] JavaServer Pages, technologie pro tvorbu dynamických webových stránek
 \end{description}
 
 
@@ -1234,7 +1234,7 @@ systému
 
 
 \begin{description}
-\item[1] Výběr cílového databázového sytému pro zapisovaný model- Oracle nebo 
+\item[1] Výběr cílového databázového sytému pro zapisovaný model - Oracle nebo 
 Virtuoso
 \item[2] URI cesta ke zvolené databázi ve tvaru: {\it jdbc:<databáze>://<server>:<port>}
 \item[3] Název vytvářeného sémantického modelu
@@ -1243,14 +1243,14 @@ Virtuoso
 \item[6] Uživatelské heslo pro přístup k databázi
 \item[7] Jmenný prostor objektů vytvářeného modelu – tento prefix bude použit pro každý objekt popsaný ve vstupním XML souboru
 \item[8] Prefix všech tabulek vytvářeného modelu – slouží ke přiřazení tabulek relační databáze ke sémantickému modelu
-\item[9] Vytvoření testovacích, která budou zapsána do vytvářeného modelu
+\item[9] Vytvoření testovacích dat, která budou zapsána do vytvářeného modelu
 \item[10] Velikost testovacích dat – počet vytvářených instancí pro každou třídu
-\item[11] Odstranění existujícího modelu – namísto vytvoření nového modelu dojde ke ostranění existujícího, je zadat cestu ke vstupnímu XML souboru, aby bylo možné odstranit i všechny relační tabulky přidružené k datovému modelu
+\item[11] Odstranění existujícího modelu – namísto vytvoření nového modelu dojde ke odstranění existujícího, je nutné zadat cestu ke vstupnímu XML souboru, aby bylo možné odstranit i všechny relační tabulky přidružené k datovému modelu
 \end{description}
 
 \thispagestyle{plain}
 
-Stisknutím tlačítka {\it Create} dojde k zahájení vytváření modelu a jehož průběhu informuje nové okno zobrazující aktuální stav zápisu. V případě jakékoliv chyby při zápisu modelu jsou veškerá chybová hlášení zapisována do logovacího souboru v adresáři {\it ModelCreator}.
+Stisknutím tlačítka {\it Create} dojde k zahájení vytváření modelu o jehož průběhu informuje nové okno zobrazující aktuální stav zápisu. V případě jakékoliv chyby při zápisu modelu jsou veškerá chybová hlášení zapisována do logovacího souboru v adresáři {\it ModelCreator}.
 
 
 \newpage
@@ -1278,7 +1278,7 @@ Stisknutím tlačítka {\it Create} dojde k zahájení vytváření modelu a jeh
 \end{description}
 
 
-Po úspěšném připojení testovací aplikace ke zadanému modelu se zobrazí okno dle obrázku A.3. V případě chyby jakékoliv chyby při načítání modelu je zapsána detailní informace o této chybě do logovacího souboru v adresáři {\it ModelVisualizer}. 
+Po úspěšném připojení testovací aplikace ke zadanému modelu se zobrazí okno dle obrázku A.3. V případě jakékoliv chyby při načítání modelu je zapsána detailní informace o této chybě do logovacího souboru v adresáři {\it ModelVisualizer}. 
 
 \begin{figure}[htb!]
 \begin{center}
@@ -1287,8 +1287,8 @@ Po úspěšném připojení testovací aplikace ke zadanému modelu se zobrazí 
 \end{center}
 \end{figure}
 
-
-Hlavní okno testovací aplikace slouží ke zobrazení tříd modelu a jejích instancí, které je možné dále prohlížet či modifikovat. Hlavní menu aplikace (1) umožňuje prostřednictvím položky {\it Export model} uložit datový model ve RDF/XML formátu do souboru. Levý panel aplikace (2) zobrazuje hierarchic-\\ký systém tříd modelu, kde je možné provádět jejich výběr dle URI identifiká-\\torů tříd. Výběrem třídy dojde k zobrazení jejího sémantického popisku ve spodním panelu (3), který umožňuje tento popis editovat a tlačítkem {\it Set description} (5) uložit. Třídy modelu je možné odstraňovat tlačítkem {\it Remove class} (6) čímž dojde i k odstranění všech instancí této třídy. Zároveň je možné vytvářet nové třídy tlačítkem {\it Add class} (7), kdy dojde ke zobrazení dialogu, který slouží ke definici URI identifikátoru třídu, sémantického popisku a nastavení rodičovské třídy. Tato rodičovská třída je určena vybranou položkou v panelu tříd (2) a při vytváření třídy je možné zaškrtávacím políčkem určit zda nová třída bude potomkem této třídy či nikoliv. Výběrem třídy v panelu (2) dojde ke aktualizaci seznamu instancí tříd (7), přičemž první položka tohoto seznamu je zobrazena v hlavním pravém panelu aplikace. Z tohoto seznamu (7) je možné provést výběr požadované instance třídy dle jejího URI a či dále nastavit restriktivní výběr pro list těchto tříd nastavením filtru tlačítkem {\it Set filter} (9). Nastavení filtru se provádí v okně dle obrázku A.4, které umožňuje nastavení filtrovacích podmínek.
+\thispagestyle{plain}
+Hlavní okno testovací aplikace slouží ke zobrazení tříd modelu a jejích instancí, které je možné dále prohlížet či modifikovat. Hlavní menu aplikace (1) umožňuje prostřednictvím položky {\it Export model} uložit datový model ve RDF/XML formátu do souboru. Levý panel aplikace (2) zobrazuje hierarchic-\\ký systém tříd modelu, kde je možné provádět jejich výběr dle URI identifiká-\\torů tříd. Výběrem třídy dojde k zobrazení jejího sémantického popisku ve spodním panelu (3), který umožňuje tento popis editovat a tlačítkem {\it Set description} (5) uložit. Třídy modelu je možné odstraňovat tlačítkem {\it Remove class} (6) čímž dojde i k odstranění všech instancí této třídy. Zároveň je možné vytvářet nové třídy tlačítkem {\it Add class} (7), kdy dojde ke zobrazení dialogu, který slouží ke definici URI identifikátoru třídu, sémantického popisku a nastavení rodičovské třídy. Tato rodičovská třída je určena vybranou položkou v panelu tříd (2) a při vytváření třídy je možné zaškrtávacím políčkem určit zda nová třída bude potomkem této třídy či nikoliv. Výběrem třídy v panelu (2) dojde ke aktualizaci seznamu instancí tříd (7), přičemž první položka tohoto seznamu je zobrazena v hlavním pravém panelu aplikace. Z tohoto seznamu (7) je možné provést výběr požadované instance třídy dle jejího URI či dále nastavit restriktivní výběr pro list těchto tříd nastavením filtru tlačítkem {\it Set filter} (9). Nastavení filtru se provádí v okně dle obrázku A.4, které umožňuje nastavení filtrovacích podmínek.
 
 
 \begin{figure}[htb!]
@@ -1297,7 +1297,7 @@ Hlavní okno testovací aplikace slouží ke zobrazení tříd modelu a jejích 
 \caption{Hlavní okno nastavení filtrovacích podmínek}
 \end{center}
 \end{figure}
-
+\thispagestyle{plain}
 
 Toto okno umožňuje přidávání nových (3), odstraňování (2) či aktualizaci stávajících (1) podmínek, které jsou vyhodnocovány jako logický součet výsledků dílčích podmínek, jež jsou nastaveny v okně dle obrázku A.5. 
 
@@ -1325,7 +1325,7 @@ Koncové podmínky jež tvoří množinu součinových podmínek je možné nast
 Toto okno umožňuje výběr (11) ze čtyř druhů podmínek popsaných v kapitole 8.3.2, kde jméno URI identifikátoru predikátu je zadáváno do horního textového pole (12) a hodnota cílového objektu vázaného predikátem je zadávána do spodního pole (13) (v případě, že ji daný typ podmínky vyžaduje).
 Po uzavření okna pro nastavení filtru je možné provést aktualizace seznamu instancí tříd dle nastaveného filtru tlačítkem {\it Update} (8) dle obrázku A.3.
 
-Hlavní pravý panel aplikace zobrazuje pro vybranou instanci třídy seznam predikátů a k nim vázaných objektů. V případě, že cílový objekt je primitivní-\\ho datového typu, je zobrazeno textové pole (10) s jeho textovou reprezentací, které umožňuje také aktualizaci hodnoty pouhou změnou obsahu tohoto pole a stiskem klávesy Enter. V případě potřeby úplného odstranění této hodnoty je možné textové pole vymazat a opět stisknutím klávesy Enter bude cílový objekt včetně svazujícího literálu odstraněn. V případě kdy predikátem vázaný objekt je instancí jiné třídy, je zobrazena položka výběr instance cílové třídy (11), kde je předvybrána aktuálně nastavená instance. Stiskem tlačítka {\it Go} (12) je možné tuto instanci zobrazit a dále s ní pracovat.
+Hlavní pravý panel aplikace zobrazuje pro vybranou instanci třídy seznam predikátů a k nim vázaných objektů. V případě, že cílový objekt je primitivní-\\ho datového typu, je zobrazeno textové pole (10) s jeho textovou reprezentací, které umožňuje také aktualizaci hodnoty pouhou změnou obsahu tohoto pole a stiskem klávesy Enter. V případě potřeby úplného odstranění této hodnoty je možné textové pole vymazat a opět stisknutím klávesy Enter bude cílový objekt včetně svazujícího literálu odstraněn. V případě kdy predikátem vázaný objekt je instancí jiné třídy, je zobrazena položka pro výběr instance cílové třídy (11), kde je předvybrána aktuálně nastavená instance. Stiskem tlačítka {\it Go} (12) je možné tuto instanci zobrazit a dále s ní pracovat.
 
 
 Při najetí myší na jméno predikátu je nad ním zobrazen jeho sémantický popisek. V případě, že třída aktuálně prohlížené instance je vázána na relační tabulku je jejím instancím v hlavním panelu zobrazeno tlačítko (12) pro nahrání datového souboru, které je po jeho úspěšném nahrání nahrazeno tlačítkem pro stažení a aktualizaci tohoto souboru. Instance tříd je možné odstraňovat tlačítkem {\it Remove instance} (16), vytvářet nové tlačítkem {\it Add instance} (14) či přidávat nové predikáty stávajícím instancím tlačítkem {\it Add property} (16), což je realizováno prostřednictvím nového okna tak, jak je znázorněno dle obrázku A.7.
