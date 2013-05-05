@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  30 APR 2013 00:43
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  5 MAY 2013 23:17
 entering extended mode
 **C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_m
 odel/diploma-doc/text-prace-LATEX/diplomka.tex
@@ -969,6 +969,12 @@ Overfull \hbox (1.63795pt too wide) in paragraph at lines 299--300
  sku-pin v£etn¥
  []
 
+
+Overfull \hbox (0.15022pt too wide) in paragraph at lines 301--302
+[]\T1/aer/bx/n/12 (-10) Publika£ní a dis-kuzní pro-st°edky pro uºi-va-tele v po
+-dob¥ £lánk·
+ []
+
 <mvc.pdf, id=146, 507.496pt x 303.534pt>
 File: mvc.pdf Graphic file (type pdf)
  <use mvc.pdf>
@@ -1860,11 +1866,11 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8670 strings out of 494045
- 117080 string characters out of 3145966
+ 8663 strings out of 494045
+ 117019 string characters out of 3145966
  264116 words of memory out of 3000000
  11051 multiletter control sequences out of 15000+200000
- 96863 words of font info for 572 fonts, out of 3000000 for 9000
+ 96256 words of font info for 566 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  37i,12n,43p,3348b,378s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
@@ -1876,7 +1882,7 @@ ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program
 es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files
  (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (
 x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on diplomka.pdf (93 pages, 7185690 bytes).
+Output written on diplomka.pdf (93 pages, 7185697 bytes).
 PDF statistics:
  558 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
