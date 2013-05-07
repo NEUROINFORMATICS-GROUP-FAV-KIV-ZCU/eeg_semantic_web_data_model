@@ -1165,11 +1165,11 @@ Vliv použitého reasoneru je dle naměřených hodnot patrný už na testova-\\
 
 Při použití mělkého reasoneru narůstá doba potřebná ke zpracování operací úměrně s velikostí modelu a nejvyšší naměřené hodnoty časů jedné operace pro data velikosti A činí v průměru 0,7 sekundy pro systém Virtuoso a 19,3 sekundy pro Oracle. Mělký reasoner se tak při použití nad systémem Virtuoso jeví jako nejslibnější řešení přístupu k sémantickému modelu dat. 
 
-Vyhledem k tomu, že rychlost operací nad sémantickým modelem dat je i~při použití mělkého reasoneru přibližně 100 krát nižší než v případě relačního modelu, je nutné zvážit reálné využití navrženého modelu. Po konzultaci s~výzkumnou skupinou se dospělo k závěru, že zamýšlené nasazení modelu je možné, avšak je podmíněno zajištěním výkonnějšího hardwaru pro databázový systém. V případě velkého nárůstů množství uchovávaných dat je později také nutné zřídit další navýšení hardwarových prostředků, což by mělo zajistit udržení dostatečného výkonu díky přibližně lineární závislosti trvání operací na velikosti datového modelu (při použití mělkého reasoneru).
+Vzhledem k tomu, že rychlost operací nad sémantickým modelem dat je i~při použití mělkého reasoneru přibližně 100 krát nižší než v případě relačního modelu, je nutné zvážit reálné využití navrženého modelu. Po konzultaci s~výzkumnou skupinou se dospělo k závěru, že zamýšlené nasazení modelu je možné, avšak je podmíněno zajištěním výkonnějšího hardwaru pro databázový systém. V případě velkého nárůstů množství uchovávaných dat je později také nutné zřídit další navýšení hardwarových prostředků, což by mělo zajistit udržení dostatečného výkonu díky přibližně lineární závislosti trvání operací na velikosti datového modelu (při použití mělkého reasoneru).
 
 
 \chapter{Závěr}
-\hspace{0.65cm}Cílem této práce bylo navržení nového datového modelu EEG/ERP portálů s využitím technologií sémantického webu. V průběhu práce byla provedena analýza současného datového modelu portálu, jejímž cílem bylo nalezení aktuálních nedostatků a problémů modelu. Popisované technologie a nástroje sémantického webu umožnily provést analýzu obecného datového modelu založeného na této technologii díky čemuž bylo následně realizováno porovnání obecného relačního modelu se sémantickým. Na základě provedené analýzy byl navržen nový datový model portálu, který využívá relační databázi k uchování objemnějších datových celků a zbylá data ukládá v objektové podobě v jazyce RDFS do nerelační databáze. Tato práce popisuje postup celé transformace původního modelu portálu (včetně dodání nové sémantiky) na úrovni obecných pravidel, která jsou doprovázena praktickými ukázkami realizace včetně koncové podoby výsledného modelu.
+\hspace{0.65cm}Cílem této práce bylo navržení nového datového modelu EEG/ERP portálů s využitím technologií sémantického webu. V průběhu práce byla provedena analýza současného datového modelu portálu, jejímž cílem bylo nalezení aktuálních nedostatků a problémů modelu. Popisované technologie a nástroje sémantického webu umožnily provést analýzu obecného datového modelu založeného na této technologi,i díky čemuž bylo následně realizováno porovnání obecného relačního modelu se sémantickým. Na základě provedené analýzy byl navržen nový datový model portálu, který využívá relační databázi k uchování objemnějších datových celků a zbylá data ukládá v objektové podobě v jazyce RDFS do nerelační databáze. Tato práce popisuje postup celé transformace původního modelu portálu (včetně dodání nové sémantiky) na úrovni obecných pravidel, která jsou doprovázena praktickými ukázkami realizace včetně koncové podoby výsledného modelu.
 
 Pro usnadnění realizace transformace datového modelu byla vytvořena aplikace, která na základě popisu modelu prostřednictvím XML souboru umožňuje zapsat navržený datový model do databázových systémů Virtuoso a Oracle, kde mohou být dále prakticky využívány. 
 V rámci práce byla dále vytvořena knihovna poskytující API, jež umožňuje jednoduchou cestou provádět nad sémantickým modelem operace běžně požadované aplikační vrstvou portálu.
@@ -1177,7 +1177,7 @@ V rámci práce byla dále vytvořena knihovna poskytující API, jež umožňuj
 
 Za účelem ověření nových možností a popisovaných výhod navrženého modelu byla dále vytvořena testovací aplikace, která prostřednictvím jednodu-\\chého grafického rozhraní demonstruje možnosti uchování dodané sémantiky dat v modelu a také jednoduchost jeho dalšího dynamického rozšiřování.
 
-Poslední část práce se zabývá výkonnostním testováním navrženého mode-\\lu, což je realizováno porovnáváním časů potřebných k vykonávání typických portálových operací nad datovým modelem. Ze získaných naměřených hodnot je patrná největší nevýhoda navrženého modelu což je značná výkonnostní ztráta oproti původnímu modelu. Pro praktické využití a tudíž i získání všech popisovaných výhod navrhovaného modelu portálu je tedy nutné zajistit dostatečný výkon pro databázový systém a také zvážit výkonnostní požadavky na cílovou aplikaci EEG/ERP portálu.
+Poslední část práce se zabývá výkonnostním testováním navrženého mode-\\lu, což je realizováno porovnáváním časů potřebných k vykonávání typických portálových operací nad datovým modelem. Ze získaných naměřených hodnot je patrná největší nevýhoda navrženého modelu, a to značná výkonnostní ztráta oproti původnímu modelu. Pro praktické využití a tudíž i získání všech popisovaných výhod navrhovaného modelu portálu je tedy nutné zajistit dostatečný výkon pro databázový systém a také zvážit výkonnostní požadavky na cílovou aplikaci EEG/ERP portálu.
 
 
 
@@ -1203,7 +1203,7 @@ systému
 \item[W3C] World Wide Web Consortium, organizace vyvíjející webové standardy
 \item[XML] Extensible Markup Language, značkovací jazyk vyvinutý W3C
 \item[XSD] XML Schema Definition, XML schéma popisující strukturu XML doku-\\mentu
-\item[XSLT] Extensible Stylesheet Language Transformations, transformace sloužící ke převodu XML dat
+\item[XSLT] Extensible Stylesheet Language Transformations, transformace sloužící k~převodu XML dat
 \item[MVC] Model-View-Controller, návrhový vzor, architektura aplikace
 \item[JSP] JavaServer Pages, technologie pro tvorbu dynamických webových stránek
 \end{description}
@@ -1226,7 +1226,7 @@ systému
 \newpage
 \thispagestyle{plain}
 \section*{{\LARGE A} Uživatelský manuál aplikace pro tvorbu \\modelu}
-\hspace{0.65cm}Spuštění aplikace pro vytvoření modelu se provádí spuštěním dávkového souboru {\it runCreator.bat} (v prostředí Windows). Po jejím naběhnutí se zobrazí okno dle obrázku A.1. Význam jednotlivých vstupních položek jež jsou označe-\\né červenými čísly je následující:
+\hspace{0.65cm}Spuštění aplikace pro vytvoření modelu se provádí spuštěním dávkového souboru {\it runCreator.bat} (v prostředí Windows). Po jejím naběhnutí se zobrazí okno dle obrázku A.1. Význam jednotlivých vstupních položek jež, jsou označené červenými čísly je následující:
 
 \begin{figure}[htb!]
 \begin{center}
@@ -1245,21 +1245,21 @@ Virtuoso
 \item[5] Uživatelské jméno pro přístup k databázi
 \item[6] Uživatelské heslo pro přístup k databázi
 \item[7] Jmenný prostor objektů vytvářeného modelu – tento prefix bude použit pro každý objekt popsaný ve vstupním XML souboru
-\item[8] Prefix všech tabulek vytvářeného modelu – slouží ke přiřazení tabulek relační databáze ke sémantickému modelu
+\item[8] Prefix všech tabulek vytvářeného modelu – slouží k přiřazení tabulek relační databáze k sémantickému modelu
 \item[9] Vytvoření testovacích dat, která budou zapsána do vytvářeného modelu
 \item[10] Velikost testovacích dat – počet vytvářených instancí pro každou třídu
-\item[11] Odstranění existujícího modelu – namísto vytvoření nového modelu dojde ke odstranění existujícího, je nutné zadat cestu ke vstupnímu XML souboru, aby bylo možné odstranit i všechny relační tabulky přidružené k datovému modelu
+\item[11] Odstranění existujícího modelu – namísto vytvoření nového modelu dojde k odstranění existujícího, je nutné zadat cestu ke vstupnímu XML souboru, aby bylo možné odstranit i všechny relační tabulky přidružené k datovému modelu
 \end{description}
 
 \thispagestyle{plain}
 
-Stisknutím tlačítka {\it Create} dojde k zahájení vytváření modelu o jehož průběhu informuje nové okno zobrazující aktuální stav zápisu. V případě jakékoliv chyby při zápisu modelu jsou veškerá chybová hlášení zapisována do logovacího souboru v adresáři {\it ModelCreator}.
+Stisknutím tlačítka {\it Create} dojde k zahájení vytváření modelu, o jehož průběhu informuje nové okno zobrazující aktuální stav zápisu. V případě jakékoliv chyby při zápisu modelu jsou veškerá chybová hlášení zapisována do logovacího souboru v adresáři {\it ModelCreator}.
 
 
 \newpage
 \thispagestyle{plain}
 \section*{{\LARGE B} Uživatelský manuál testovací aplikace}
-\hspace{0.65cm}Testovací aplikace umožňuje vizualizaci datového modelu a provádění jeho úprav prostřednictvím grafického uživatelského rozhraní. Aplikace se spouští dávkovým souborem {\it runVisualizer.bat} (v prostředí Windows). Po spuštění aplikace je zobrazeno okno dle obrázku A.2, které slouží ke zadání dat pro připojení k modelu. Význam jednotlivých vstupních položek jež jsou označené červenými čísly je následující:
+\hspace{0.65cm}Testovací aplikace umožňuje vizualizaci datového modelu a provádění jeho úprav prostřednictvím grafického uživatelského rozhraní. Aplikace se spouští dávkovým souborem {\it runVisualizer.bat} (v prostředí Windows). Po spuštění aplikace je zobrazeno okno dle obrázku A.2, které slouží k zadání dat pro připojení k modelu. Význam jednotlivých vstupních položek, jež jsou označené červenými čísly je následující:
 
 
 \begin{figure}[htb!]
@@ -1277,11 +1277,11 @@ Stisknutím tlačítka {\it Create} dojde k zahájení vytváření modelu o jeh
 \item[5] Uživatelské jméno pro přístup k databázi
 \item[6] Uživatelské heslo pro přístup k databázi
 \item[7] Jmenný prostor objektů modelu – tento prefix bude předdefinován všem nově vytvářeným objektům prostřednictvím testovací aplikace 
-\item[8] Prefix všech tabulek vytvářeného modelu – slouží ke přiřazení tabulek relační databáze ke sémantickému modelu
+\item[8] Prefix všech tabulek vytvářeného modelu – slouží k přiřazení tabulek relační databáze k sémantickému modelu
 \end{description}
 
 
-Po úspěšném připojení testovací aplikace ke zadanému modelu se zobrazí okno dle obrázku A.3. V případě jakékoliv chyby při načítání modelu je zapsána detailní informace o této chybě do logovacího souboru v adresáři {\it ModelVisualizer}. 
+Po úspěšném připojení testovací aplikace k zadanému modelu se zobrazí okno dle obrázku A.3. V případě jakékoliv chyby při načítání modelu je zapsána detailní informace o této chybě do logovacího souboru v adresáři {\it ModelVisualizer}. 
 
 \begin{figure}[htb!]
 \begin{center}
@@ -1291,7 +1291,7 @@ Po úspěšném připojení testovací aplikace ke zadanému modelu se zobrazí 
 \end{figure}
 
 \thispagestyle{plain}
-Hlavní okno testovací aplikace slouží ke zobrazení tříd modelu a jejích instancí, které je možné dále prohlížet či modifikovat. Hlavní menu aplikace (1) umožňuje prostřednictvím položky {\it Export model} uložit datový model ve RDF/XML formátu do souboru. Levý panel aplikace (2) zobrazuje hierarchic-\\ký systém tříd modelu, kde je možné provádět jejich výběr dle URI identifiká-\\torů tříd. Výběrem třídy dojde k zobrazení jejího sémantického popisku ve spodním panelu (3), který umožňuje tento popis editovat a tlačítkem {\it Set description} (5) uložit. Třídy modelu je možné odstraňovat tlačítkem {\it Remove class} (6) čímž dojde i k odstranění všech instancí této třídy. Zároveň je možné vytvářet nové třídy tlačítkem {\it Add class} (7), kdy dojde ke zobrazení dialogu, který slouží ke definici URI identifikátoru třídu, sémantického popisku a nastavení rodičovské třídy. Tato rodičovská třída je určena vybranou položkou v panelu tříd (2) a při vytváření třídy je možné zaškrtávacím políčkem určit zda nová třída bude potomkem této třídy či nikoliv. Výběrem třídy v panelu (2) dojde ke aktualizaci seznamu instancí tříd (7), přičemž první položka tohoto seznamu je zobrazena v hlavním pravém panelu aplikace. Z tohoto seznamu (7) je možné provést výběr požadované instance třídy dle jejího URI či dále nastavit restriktivní výběr pro list těchto tříd nastavením filtru tlačítkem {\it Set filter} (9). Nastavení filtru se provádí v okně dle obrázku A.4, které umožňuje nastavení filtrovacích podmínek.
+Hlavní okno testovací aplikace slouží k zobrazení tříd modelu a jejich instancí, které je možné dále prohlížet či modifikovat. Hlavní menu aplikace (1) umožňuje prostřednictvím položky {\it Export model} uložit datový model ve RDF/XML formátu do souboru. Levý panel aplikace (2) zobrazuje hierarchic-\\ký systém tříd modelu, kde je možné provádět jejich výběr dle URI identifiká-\\torů tříd. Výběrem třídy dojde k zobrazení jejího sémantického popisku ve spodním panelu (3), který umožňuje tento popis editovat a tlačítkem {\it Set description} (5) uložit. Třídy modelu je možné odstraňovat tlačítkem {\it Remove class} (6), čímž dojde i k odstranění všech instancí této třídy. Zároveň je možné vytvářet nové třídy tlačítkem {\it Add class} (7), kdy dojde k zobrazení dialogu, který slouží k definici URI identifikátoru třídy, sémantického popisku a~nastavení rodičovské třídy. Tato rodičovská třída je určena vybranou polož-\\kou v panelu tříd (2) a při vytváření třídy je možné zaškrtávacím políčkem určit, zda nová třída bude potomkem této třídy či nikoliv. Výběrem třídy v panelu (2) dojde k aktualizaci seznamu instancí tříd (7), přičemž první položka tohoto seznamu je zobrazena v hlavním pravém panelu aplikace. Z~tohoto seznamu (7) je možné provést výběr požadované instance třídy dle jejího URI či dále nastavit restriktivní výběr pro list těchto tříd nastavením filtru tlačítkem {\it Set filter} (9). Nastavení filtru se provádí v okně dle obrázku A.4, které umožňuje nastavení filtrovacích podmínek.
 
 
 \begin{figure}[htb!]
@@ -1312,7 +1312,7 @@ Toto okno umožňuje přidávání nových (3), odstraňování (2) či aktualiz
 \end{figure}
 
 Toto okno umožňuje nastavení dílčích podmínek jako logický součin další množiny podmínek. Tyto součinové podmínky je možné opět přidávat (8), odstraňovat (7) či aktualizovat (6). Všechny dílčí součtové či součinové podmínky je možné hromadně uložit tlačítkem {\it Close} (5), (10) nebo je hromadně odstranit tlačítkem {\it Remove all} (4), (9). 
-Koncové podmínky jež tvoří množinu součinových podmínek je možné nastavovat v okně dle obrázku A.6.
+Koncové podmínky, jež tvoří množinu součinových podmínek, je možné nastavovat v okně dle obrázku A.6.
 
 
 
@@ -1328,10 +1328,10 @@ Koncové podmínky jež tvoří množinu součinových podmínek je možné nast
 Toto okno umožňuje výběr (11) ze čtyř druhů podmínek popsaných v kapitole 8.3.2, kde jméno URI identifikátoru predikátu je zadáváno do horního textového pole (12) a hodnota cílového objektu vázaného predikátem je zadávána do spodního pole (13) (v případě, že ji daný typ podmínky vyžaduje).
 Po uzavření okna pro nastavení filtru je možné provést aktualizace seznamu instancí tříd dle nastaveného filtru tlačítkem {\it Update} (8) dle obrázku A.3.
 
-Hlavní pravý panel aplikace zobrazuje pro vybranou instanci třídy seznam predikátů a k nim vázaných objektů. V případě, že cílový objekt je primitivní-\\ho datového typu, je zobrazeno textové pole (10) s jeho textovou reprezentací, které umožňuje také aktualizaci hodnoty pouhou změnou obsahu tohoto pole a stiskem klávesy Enter. V případě potřeby úplného odstranění této hodnoty je možné textové pole vymazat a opět stisknutím klávesy Enter bude cílový objekt včetně svazujícího literálu odstraněn. V případě kdy predikátem vázaný objekt je instancí jiné třídy, je zobrazena položka pro výběr instance cílové třídy (11), kde je předvybrána aktuálně nastavená instance. Stiskem tlačítka {\it Go} (12) je možné tuto instanci zobrazit a dále s ní pracovat.
+Hlavní pravý panel aplikace zobrazuje pro vybranou instanci třídy seznam predikátů a k nim vázaných objektů. V případě, že cílový objekt je primitivní-\\ho datového typu, je zobrazeno textové pole (10) s jeho textovou reprezentací, které umožňuje také aktualizaci hodnoty pouhou změnou obsahu tohoto pole a stiskem klávesy Enter. V případě potřeby úplného odstranění této hodnoty je možné textové pole vymazat a cílový objekt včetně svazujícího literálu bude opět stisknutím klávesy Enter odstraněn. V případě kdy, predikátem vázaný objekt je instancí jiné třídy, je zobrazena položka pro výběr instance cílové třídy (11), kde je předvybrána aktuálně nastavená instance. Stiskem tlačítka {\it Go} (12) je možné tuto instanci zobrazit a dále s ní pracovat.
 
 
-Při najetí myší na jméno predikátu je nad ním zobrazen jeho sémantický popisek. V případě, že třída aktuálně prohlížené instance je vázána na relační tabulku je jejím instancím v hlavním panelu zobrazeno tlačítko (12) pro nahrání datového souboru, které je po jeho úspěšném nahrání nahrazeno tlačítkem pro stažení a aktualizaci tohoto souboru. Instance tříd je možné odstraňovat tlačítkem {\it Remove instance} (16), vytvářet nové tlačítkem {\it Add instance} (14) či přidávat nové predikáty stávajícím instancím tlačítkem {\it Add property} (16), což je realizováno prostřednictvím nového okna tak, jak je znázorněno dle obrázku A.7.
+Umístěním kurzoru na jméno predikátu je nad ním zobrazen jeho séman-\\tický popisek. V případě, že třída aktuálně prohlížené instance je vázána na relační tabulku, je jejím instancím v hlavním panelu zobrazeno tlačítko (12) pro nahrání datového souboru, které je po jeho úspěšném nahrání nahrazeno tlačítkem pro stažení a aktualizaci tohoto souboru. Instance tříd je možné odstraňovat tlačítkem {\it Remove instance} (16), vytvářet nové tlačítkem {\it Add instance} (14) či přidávat nové predikáty stávajícím instancím tlačítkem {\it Add property} (16), což je realizováno prostřednictvím nového okna tak, jak je znázorněno dle obrázku A.7.
 
 \begin{figure}[htb!]
 \begin{center}
@@ -1343,18 +1343,18 @@ Při najetí myší na jméno predikátu je nad ním zobrazen jeho sémantický 
 
 \thispagestyle{plain}
 
-Toto okno slouží ke spravování predikátů určených doménou třídy instance vybrané v hlavním okně aplikace. Levý panel okna (1) umožňuje vybrat existující predikát, kterému lze ve spodním panelu (2) upravit sémantický popisek a aktualizovat jej tlačítkem {\it Set description} (4). Dále je možné prostřed-\\nictvím tlačítka {\it Remove property} (5) odstranit stávající predikát, či vytvořit nový tlačítkem {\it Add propery} (3), což je realizováno novým oknem dle obrázku A.8.
+Toto okno slouží ke spravování predikátů určených doménou třídy instance vybrané v hlavním okně aplikace. Levý panel okna (1) umožňuje vybrat existující predikát, kterému lze ve spodním panelu (2) upravit sémantický popisek a aktualizovat jej tlačítkem {\it Set description} (4). Dále je možné prostřed-\\nictvím tlačítka {\it Remove property} (5) odstranit stávající predikát či vytvořit nový tlačítkem {\it Add propery} (3), což je realizováno novým oknem dle obrázku A.8.
 
 
 \begin{figure}[htb!]
 \begin{center}
 \includegraphics[scale=0.72]{manualTestAddProperty.jpg}
-\caption{Okno vytvoření nového predikátů}
+\caption{Okno vytvoření nového predikátu}
 \end{center}
 \end{figure}
 
 
-První pole (1) tohoto okna slouží ke nastavení URI nového predikátu, dále lze nastavit jeho rozsah (2), kterým může být primitivní datový typ či jiná třída. Položka {\it Description} (3) umožňuje nastavení sémantického popisku přidávaného predikátu. Jeho přidáním tlačítkem {\it Add} (4) dojde k aktualizaci dostupných predikátů v předchozím okně (viz obrázek A.7). Výběrem prediká-\\tu v tomto okně dojde v pravém panelu okna k zobrazení textového pole (6) pro zadání hodnoty nové objektu pro vybraný literál (je-li rozsah literálu primitivní datový typ) nebo se zobrazí položka pro výběr instance třídy (je-li rozsah literálu nastaven na jinou třídu). Přidání nového objektu vázaného na vybraný literál instanci se proveden stiskem tlačítka {\it Add}(7), čímž je následně aktualizována vybraná instance v hlavním okně.
+První pole (1) tohoto okna slouží ke nastavení URI nového predikátu. Dále lze nastavit jeho rozsah (2), kterým může být primitivní datový typ či jiná třída. Položka {\it Description} (3) umožňuje nastavení sémantického popisku přidávaného predikátu. Jeho přidáním tlačítkem {\it Add} (4) dojde k aktualizaci dostupných predikátů v předchozím okně (viz obrázek A.7). Výběrem prediká-\\tu v tomto okně dojde v pravém panelu okna k zobrazení textového pole (6) pro zadání hodnoty nové objektu pro vybraný literál (je-li rozsah literálu primitivní datový typ) nebo se zobrazí položka pro výběr instance třídy (je-li rozsah literálu nastaven na jinou třídu). Přidání nového objektu vázaného na vybraný literál instance se provede stiskem tlačítka {\it Add}(7), čímž je následně aktualizována vybraná instance v hlavním okně.
 
 \thispagestyle{plain}
 
