@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  7 MAY 2013 08:49
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  8 MAY 2013 16:23
 entering extended mode
 **C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_m
 odel/diploma-doc/text-prace-LATEX/diplomka.tex
@@ -979,12 +979,6 @@ Overfull \hbox (1.24411pt too wide) in paragraph at lines 325--326
  []
 
 
-Overfull \hbox (2.63483pt too wide) in paragraph at lines 325--326
-\T1/aer/m/n/12 (-10) cha-rak-te-ri-zo-váno na-p°í-klad tep-lo-tou, po-u-ºi-tým 
-hard-warem a soft-warem. Nedíl- 
- []
-
-
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
@@ -1055,12 +1049,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [24]
 Kapitola 5.
-
-Overfull \hbox (3.12611pt too wide) in paragraph at lines 378--379
-[]\T1/aer/m/n/12 (-10) Podstatný roz-díl mezi da-to-vým mo-de-lem sé-man-tic-ké
-ho webu oproti mo-delu
- []
-
 [25
 
 ] <miniportal.pdf, id=239, 241.84842pt x 153.64488pt>
@@ -1299,9 +1287,9 @@ a_model/diploma-doc/text-prace-LATEX/semantika.pdf>]
 File: vysledne.pdf Graphic file (type pdf)
  <use vysledne.pdf>
 Package pdftex.def Info: vysledne.pdf used on input line 633.
-(pdftex.def)             Requested size: 392.08122pt x 149.43471pt.
+(pdftex.def)             Requested size: 399.61703pt x 152.30685pt.
 
-Overfull \hbox (2.08122pt too wide) in paragraph at lines 633--634
+Overfull \hbox (9.61703pt too wide) in paragraph at lines 633--634
  [] 
  []
 
@@ -1404,6 +1392,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 Overfull \hbox (4.68648pt too wide) in paragraph at lines 786--787
 []\T1/aer/bx/n/12 (-10) PropertyValLikeCondition \T1/aer/m/n/12 (-10) - umoº-¬u
 je na-sta-vit tex-tový °e-t¥-zec, je-hoº
+ []
+
+
+Overfull \hbox (0.29814pt too wide) in paragraph at lines 786--787
+\T1/aer/m/n/12 (-10) na-sta-ve-ným URI pre-di-kátu; na-p°í-klad pod-mínka pro o
+sobu, je-jíº p°í-mení
  []
 
 
@@ -1795,22 +1789,17 @@ File: manualTestFilterB.jpg Graphic file (type jpg)
 <use manualTestFilterB.jpg>
 Package pdftex.def Info: manualTestFilterB.jpg used on input line 1309.
 (pdftex.def)             Requested size: 258.96785pt x 102.38261pt.
-
-Overfull \hbox (5.84816pt too wide) in paragraph at lines 1314--1316
-\T1/aer/m/n/12 (-10) pod-mínky je moºné hro-madn¥ ulo-ºit tla-£ít-kem \T1/aer/m
-/it/12 (-10) Close \T1/aer/m/n/12 (-10) (5), (10) nebo je hro-madn¥
- []
-
-<manualTestFilterC.jpg, id=490, 323.70938pt x 143.03438pt>
+ [78 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_da
+ta_model/diploma-doc/text-prace-LATEX/manualTestFilterA.jpg> <C:/Users/Fildas/D
+ocuments/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_model/diploma-doc/te
+xt-prace-LATEX/manualTestFilterB.jpg>]
+<manualTestFilterC.jpg, id=493, 323.70938pt x 143.03438pt>
 File: manualTestFilterC.jpg Graphic file (type jpg)
 
 <use manualTestFilterC.jpg>
 Package pdftex.def Info: manualTestFilterC.jpg used on input line 1321.
 (pdftex.def)             Requested size: 258.96785pt x 114.42764pt.
- [78 <C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_da
-ta_model/diploma-doc/text-prace-LATEX/manualTestFilterA.jpg> <C:/Users/Fildas/D
-ocuments/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_model/diploma-doc/te
-xt-prace-LATEX/manualTestFilterB.jpg>]
+
 <manualTestProperty.jpg, id=494, 526.21594pt x 314.67563pt>
 File: manualTestProperty.jpg Graphic file (type jpg)
 
@@ -1858,10 +1847,10 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  8635 strings out of 494045
- 116770 string characters out of 3145966
+ 116775 string characters out of 3145966
  264116 words of memory out of 3000000
  11051 multiletter control sequences out of 15000+200000
- 93891 words of font info for 542 fonts, out of 3000000 for 9000
+ 93828 words of font info for 542 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  37i,12n,43p,3348b,378s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
@@ -1873,7 +1862,7 @@ ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program
 es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files
  (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (
 x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on diplomka.pdf (93 pages, 7186691 bytes).
+Output written on diplomka.pdf (93 pages, 7186733 bytes).
 PDF statistics:
  558 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -14,7 +14,7 @@
    id="svg4166"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="rdfs.svg">
+   sodipodi:docname="miniportal.svg">
   <defs
      id="defs3">
     <marker
@@ -70,14 +70,14 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.6970563"
-     inkscape:cx="209.64896"
-     inkscape:cy="54.412753"
+     inkscape:zoom="2.4"
+     inkscape:cx="185.14366"
+     inkscape:cy="63.461431"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1366"
-     inkscape:window-height="706"
+     inkscape:window-width="1920"
+     inkscape:window-height="1018"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -91,7 +91,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -99,16 +99,6 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <path
-       style="fill:none;stroke:#000000;stroke-width:0.99999994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 410.19884,160.3888 74.1113,0"
-       id="path3852"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.99999994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 440.66856,110.06601 -7.36282,4.4145 3.97502,-4.12798 z"
-       id="path3854-0"
-       inkscape:connector-curvature="0" />
     <flowRoot
        transform="matrix(0.90694726,0,0,1.0177488,-68.02961,7.4949667)"
        xml:space="preserve"
@@ -121,13 +111,6 @@
            x="41.25"
            y="-82.5" /></flowRegion><flowPara
          id="flowPara4077" /></flowRoot>    <path
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 425.97308,78.245907 -4.44615,3.06034 2.40038,-2.86171 z"
-       id="path3854-3-3"
-       inkscape:connector-curvature="0"
-       inkscape:transform-center-x="13.75"
-       inkscape:transform-center-y="-10.833333" />
-    <path
        sodipodi:type="arc"
        style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4.29198837px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        id="path2986-8-5-4-4"
@@ -242,8 +225,8 @@
        x="134.27538"
        xml:space="preserve">Person:Surname</text>
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.64488188999999996;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;marker-end:url(#Arrow1Lend)"
-       d="M 126.19037,66.01248 176.7767,40.489129"
+       style="fill:none;stroke:#000000;stroke-width:0.6448819;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow1Lend)"
+       d="m 126.19037,66.012479 55.3157,-26.405964"
        id="path4920"
        inkscape:connector-curvature="0" />
     <path
