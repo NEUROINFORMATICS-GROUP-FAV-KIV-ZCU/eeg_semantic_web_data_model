@@ -169,7 +169,7 @@
     <property name="history/scenario" range="scenario" domain="history" description="Target scenario."/>
     <property name="history/person" range="person/researcher" domain="history" description="Owner person."/>
     <property name="history/date_of_download" range="xsd:dateTime" domain="history" description="Date of download."/>
-    <property name="history/data_file" range="date_file" domain="history" description="Target data file."/>
+    <property name="history/data_file" range="data_file" domain="history" description="Target data file."/>
 
     <property name="experiment/scenario" range="scenario" domain="experiment" description="Experiment scenario."/>
     <property name="experiment/start_time" range="xsd:dateTime" domain="experiment" description="Measuration start time."/>

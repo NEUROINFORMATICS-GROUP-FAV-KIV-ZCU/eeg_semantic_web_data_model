@@ -74,7 +74,7 @@ public class ModelCreator {
             this.prefixURI = prefixURI;
             this.tablePrefix = tablePrefix;
 
-            jenaModel = ModelFactory.createOntologyModel();
+            jenaModel = ModelFactory.createOntologyModel(OntModelSpec.RDFS_MEM);
 
             createClasses(classes);
             createProperties(properties);

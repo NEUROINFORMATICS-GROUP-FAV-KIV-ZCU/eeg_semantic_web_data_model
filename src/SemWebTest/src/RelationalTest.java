@@ -6,121 +6,119 @@ import java.sql.Statement;
 import java.util.Date;
 
 /**
+ * Relational Test
  *
  * @author Filip Markvart filip.marq (at) seznam.cz
  */
 public class RelationalTest {
 
     private static final String tablePrefix = "A";
-     
 
-
-    public static void main (String [] args) {
+    public static void main(String[] args) {
 
         DbConnector dbc = null;
 
         try {
 
-        //dbc = new VirtuosoDbConnector("model_semweb_a", "jdbc:virtuoso://localhost:1111", "dba", "dba");
-        dbc = new OracleDbConnector("model_test_x", "jdbc:oracle:thin:@students.kiv.zcu.cz:1521:EEGERP", "EEGTEST", "JPERGLER");
+            //dbc = new VirtuosoDbConnector("model_semweb_a", "jdbc:virtuoso://localhost:1111", "dba", "dba");
+            dbc = new OracleDbConnector("model_test_x", "jdbc:oracle:thin:@students.kiv.zcu.cz:1521:EEGERP", "EEGTEST", "JPERGLER");
 
-        dbc.connect();
-        Statement st = dbc.getRelationConn();
+            dbc.connect();
+            Statement st = dbc.getRelationConn();
 
-        int cycles = 10;
+            int cycles = 10;
 
-        int r1 = 0;
-        int r2 = 0;
-        int r3 = 0;
+            int r1 = 0;
+            int r2 = 0;
+            int r3 = 0;
 
-        int u1 = 0;
-        int u2 = 0;
-        int u3 = 0;
+            int u1 = 0;
+            int u2 = 0;
+            int u3 = 0;
 
-        int c1 = 0;
-        int c2 = 0;
-        int c3 = 0;
+            int c1 = 0;
+            int c2 = 0;
+            int c3 = 0;
 
-        int d1 = 0;
-        int d2 = 0;
-        int d3 = 0;
+            int d1 = 0;
+            int d2 = 0;
+            int d3 = 0;
 
-        for (int i = 0; i < cycles; i++) {
-            r1 += readLoginUser(st, "username" + i);
-        }
+            for (int i = 0; i < cycles; i++) {
+                r1 += readLoginUser(st, "username" + i);
+            }
 
-        for (int i = 0; i < cycles; i++) {
-            r2 += readUserExperiment(st, "username" + i);
-        }
+            for (int i = 0; i < cycles; i++) {
+                r2 += readUserExperiment(st, "username" + i);
+            }
 
-        for (int i = 0; i < cycles; i++) {
-            r3 += readUserExperiment(st, "username" + i);
-        }
+            for (int i = 0; i < cycles; i++) {
+                r3 += readUserExperiment(st, "username" + i);
+            }
 
-        System.out.println("R1: " + r1 + " R2: " + r2 + " R3: " + r3);
+            System.out.println("R1: " + r1 + " R2: " + r2 + " R3: " + r3);
 
-        // -----------------------------------------------------
+            // -----------------------------------------------------
 
-        for (int i = 0; i < cycles; i++) {
-            u1 += updateUserEmail(st, "username" + i, "e" + i);
-        }
+            for (int i = 0; i < cycles; i++) {
+                u1 += updateUserEmail(st, "username" + i, "e" + i);
+            }
 
-        for (int i = 0; i < cycles; i++) {
-            u2 += updateUserExperimentTemperature(st, "username" + i);
-        }
+            for (int i = 0; i < cycles; i++) {
+                u2 += updateUserExperimentTemperature(st, "username" + i);
+            }
 
-        for (int i = 0; i < cycles; i++) {
-            u3 += updateUserExperimentWeather(st, "username" + i, "wt" + i, "wd" + i, i);
-        }
+            for (int i = 0; i < cycles; i++) {
+                u3 += updateUserExperimentWeather(st, "username" + i, "wt" + i, "wd" + i, i);
+            }
 
-        // -----------------------------------------------------
+            // -----------------------------------------------------
 
-        for (int i = 0; i < cycles; i++) {
-            c1 += createPerson(st, i);
-        }
+            for (int i = 0; i < cycles; i++) {
+                c1 += createPerson(st, i);
+            }
 
-        for (int i = 0; i < cycles; i++) {
-            c2 += createExperiment(st, "username" + i, i);
-        }
+            for (int i = 0; i < cycles; i++) {
+                c2 += createExperiment(st, "username" + i, i);
+            }
 
-        for (int i = 0; i < cycles; i++) {
-            c3 += createGroupMember(st, "username" + i);
-        }
+            for (int i = 0; i < cycles; i++) {
+                c3 += createGroupMember(st, "username" + i);
+            }
 
-        // -----------------------------------------------------
+            // -----------------------------------------------------
 
-        for (int i = 0; i < cycles; i++) {
-            d1 += removePerson(st, "username" + i);
-        }
+            for (int i = 0; i < cycles; i++) {
+                d1 += removePerson(st, "username" + i);
+            }
 
-        for (int i = 0; i < cycles; i++) {
-            d2 += removePersonsExperiments(st, "username" + i);
-        }
+            for (int i = 0; i < cycles; i++) {
+                d2 += removePersonsExperiments(st, "username" + i);
+            }
 
-        for (int i = 0; i < cycles; i++) {
-            d3 += removePersonsEmail(st, "username" + i);
-        }
+            for (int i = 0; i < cycles; i++) {
+                d3 += removePersonsEmail(st, "username" + i);
+            }
 
-        System.out.println("Read: ------------");
-        System.out.println("R1: " + r1 + " R2: " + r2 + " R3: " + r3);
+            System.out.println("Read: ------------");
+            System.out.println("R1: " + r1 + " R2: " + r2 + " R3: " + r3);
 
-        System.out.println("Update: ------------");
-        System.out.println("U1: " + u1 + " U2: " + u2 + " U3: " + u3);
+            System.out.println("Update: ------------");
+            System.out.println("U1: " + u1 + " U2: " + u2 + " U3: " + u3);
 
-        System.out.println("Create: ------------");
-        System.out.println("C1: " + c1 + " C2: " + c2 + " C3: " + c3);
+            System.out.println("Create: ------------");
+            System.out.println("C1: " + c1 + " C2: " + c2 + " C3: " + c3);
 
-        System.out.println("Delete: ------------");
-        System.out.println("D1: " + d1 + " D2: " + d2 + " D3: " + d3);
+            System.out.println("Delete: ------------");
+            System.out.println("D1: " + d1 + " D2: " + d2 + " D3: " + d3);
 
 
         } catch (Exception ex) {
             ex.printStackTrace();
-        }finally {
+        } finally {
             dbc.disconnect();
         }
     }
-
 
     /**
      * Return time[ms] to get persons password by its username
@@ -135,7 +133,7 @@ public class RelationalTest {
 
         String query = "SELECT PASSWORD_ FROM " + tablePrefix + "PERSON WHERE USERNAME='" + username + "'";
         ResultSet rs = st.executeQuery(query);
-  
+
         rs.next();
         String pwd = rs.getString("PASSWORD_");
 
@@ -385,9 +383,4 @@ public class RelationalTest {
 
         return endTime - startTime;
     }
-
-
-
-
-
 }

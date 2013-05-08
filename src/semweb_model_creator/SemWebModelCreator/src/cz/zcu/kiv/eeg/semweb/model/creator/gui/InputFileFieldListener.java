@@ -32,7 +32,7 @@ public class InputFileFieldListener implements MouseListener {
 
             @Override
             public boolean accept(File f) {
-                if (f.getName().toLowerCase().endsWith("xml")) {
+                if (f.getName().toLowerCase().endsWith("xml") || f.isDirectory()) {
                     return true;
                 } else {
                     return false;
