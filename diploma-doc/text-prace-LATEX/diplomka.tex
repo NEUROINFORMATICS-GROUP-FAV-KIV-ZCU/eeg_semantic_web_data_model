@@ -1169,7 +1169,7 @@ Vzhledem k tomu, že rychlost operací nad sémantickým modelem dat je i~při p
 
 
 \chapter{Závěr}
-\hspace{0.65cm}Cílem této práce bylo navržení nového datového modelu EEG/ERP portálů s využitím technologií sémantického webu. V průběhu práce byla provedena analýza současného datového modelu portálu, jejímž cílem bylo nalezení aktuálních nedostatků a problémů modelu. Popisované technologie a nástroje sémantického webu umožnily provést analýzu obecného datového modelu založeného na této technologi,i díky čemuž bylo následně realizováno porovnání obecného relačního modelu se sémantickým. Na základě provedené analýzy byl navržen nový datový model portálu, který využívá relační databázi k uchování objemnějších datových celků a zbylá data ukládá v objektové podobě v jazyce RDFS do nerelační databáze. Tato práce popisuje postup celé transformace původního modelu portálu (včetně dodání nové sémantiky) na úrovni obecných pravidel, která jsou doprovázena praktickými ukázkami realizace včetně koncové podoby výsledného modelu.
+\hspace{0.65cm}Cílem této práce bylo navržení nového datového modelu EEG/ERP portálů s využitím technologií sémantického webu. V průběhu práce byla provedena analýza současného datového modelu portálu, jejímž cílem bylo nalezení aktuálních nedostatků a problémů modelu. Popisované technologie a nástroje sémantického webu umožnily provést analýzu obecného datového modelu založeného na této technologii, díky čemuž bylo následně realizováno porovnání obecného relačního modelu se sémantickým. Na základě provedené analýzy byl navržen nový datový model portálu, který využívá relační databázi k uchování objemnějších datových celků a zbylá data ukládá v objektové podobě v jazyce RDFS do nerelační databáze. Tato práce popisuje postup celé transformace původního modelu portálu (včetně dodání nové sémantiky) na úrovni obecných pravidel, která jsou doprovázena praktickými ukázkami realizace včetně koncové podoby výsledného modelu.
 
 Pro usnadnění realizace transformace datového modelu byla vytvořena aplikace, která na základě popisu modelu prostřednictvím XML souboru umožňuje zapsat navržený datový model do databázových systémů Virtuoso a Oracle, kde mohou být dále prakticky využívány. 
 V rámci práce byla dále vytvořena knihovna poskytující API, jež umožňuje jednoduchou cestou provádět nad sémantickým modelem operace běžně požadované aplikační vrstvou portálu.
@@ -1343,7 +1343,7 @@ Umístěním kurzoru na jméno predikátu je nad ním zobrazen jeho séman-\\tic
 
 \thispagestyle{plain}
 
-Toto okno slouží ke spravování predikátů určených doménou třídy instance vybrané v hlavním okně aplikace. Levý panel okna (1) umožňuje vybrat existující predikát, kterému lze ve spodním panelu (2) upravit sémantický popisek a aktualizovat jej tlačítkem {\it Set description} (4). Dále je možné prostřed-\\nictvím tlačítka {\it Remove property} (5) odstranit stávající predikát či vytvořit nový tlačítkem {\it Add propery} (3), což je realizováno novým oknem dle obrázku A.8.
+Toto okno slouží ke spravování predikátů určených doménou třídy instance vybrané v hlavním okně aplikace. Levý panel okna (1) umožňuje vybrat existující predikát, kterému lze ve spodním panelu (2) upravit sémantický popisek a aktualizovat jej tlačítkem {\it Set description} (4). Dále je možné prostřed-\\nictvím tlačítka {\it Remove property} (5) odstranit stávající predikát či vytvořit nový tlačítkem {\it Add property} (3), což je realizováno novým oknem dle obrázku A.8.
 
 
 \begin{figure}[htb!]
@@ -1354,7 +1354,7 @@ Toto okno slouží ke spravování predikátů určených doménou třídy insta
 \end{figure}
 
 
-První pole (1) tohoto okna slouží ke nastavení URI nového predikátu. Dále lze nastavit jeho rozsah (2), kterým může být primitivní datový typ či jiná třída. Položka {\it Description} (3) umožňuje nastavení sémantického popisku přidávaného predikátu. Jeho přidáním tlačítkem {\it Add} (4) dojde k aktualizaci dostupných predikátů v předchozím okně (viz obrázek A.7). Výběrem prediká-\\tu v tomto okně dojde v pravém panelu okna k zobrazení textového pole (6) pro zadání hodnoty nové objektu pro vybraný literál (je-li rozsah literálu primitivní datový typ) nebo se zobrazí položka pro výběr instance třídy (je-li rozsah literálu nastaven na jinou třídu). Přidání nového objektu vázaného na vybraný literál instance se provede stiskem tlačítka {\it Add}(7), čímž je následně aktualizována vybraná instance v hlavním okně.
+První pole (1) tohoto okna slouží ke nastavení URI nového predikátu. Dále lze nastavit jeho rozsah (2), kterým může být primitivní datový typ či jiná třída. Položka {\it Description} (3) umožňuje nastavení sémantického popisku přidávaného predikátu. Jeho přidáním tlačítkem {\it Add} (4) dojde k aktualizaci dostupných predikátů v předchozím okně (viz obrázek A.7). Výběrem prediká-\\tu v tomto okně dojde v pravém panelu okna k zobrazení textového pole (6) pro zadání hodnoty nové objektu pro vybraný literál (je-li rozsah literálu primitivní datový typ) nebo se zobrazí položka pro výběr instance třídy (je-li rozsah literálu nastaven na jinou třídu). Přidání nového objektu vázaného na vybraný literál instance se provede stiskem tlačítka {\it Add} (7), čímž je následně aktualizována vybraná instance v hlavním okně.
 
 \thispagestyle{plain}
 
