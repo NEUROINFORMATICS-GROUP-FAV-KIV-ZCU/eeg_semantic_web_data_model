@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  8 MAY 2013 16:23
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.24)  8 MAY 2013 22:18
 entering extended mode
 **C:/Users/Fildas/Documents/FAV/FAV-patak/diplomka/repo/eeg_semantic_web_data_m
 odel/diploma-doc/text-prace-LATEX/diplomka.tex
@@ -714,9 +714,9 @@ u, ºe jej známe). K usnadn¥-
  []
 
 
-Overfull \hbox (2.5613pt too wide) in paragraph at lines 73--77
+Overfull \hbox (4.47672pt too wide) in paragraph at lines 73--77
 \T1/aer/m/n/12 (-10) pre-zen-to-val v roce 2001 za-kla-da-tel kon-sor-cia W3C T
-im Berners-Lee, je umoº-nit
+im Berners-Lee, je umoº-nit,
  []
 
 LaTeX Font Info:    Try loading font information for OMS+aer on input line 80.
@@ -1032,6 +1032,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 Overfull \hbox (1.51193pt too wide) in paragraph at lines 363--364
 []\T1/aer/m/n/12 (-10) Obdobná si-tu-ace na-stává v p°í-pad¥ ta-bulky \T1/aer/m
 /it/12 (-10) RE-SEARCH_-GROUP\T1/aer/m/n/12 (-10) , slou-ºící
+ []
+
+
+Overfull \hbox (1.89659pt too wide) in paragraph at lines 363--364
+\T1/aer/m/n/12 (-10) n¥-které pa-ra-me-try m¥-°ení do sku-pin, na-p°í-klad ta-b
+ulky \T1/aer/m/it/12 (-10) PHAR-MA-CEU-TI-CAL
  []
 
 
@@ -1360,6 +1366,12 @@ Package pdftex.def Info: Creator.jpg used on input line 753.
 Overfull \hbox (2.60464pt too wide) in paragraph at lines 758--761
 \T1/aer/m/it/12 (-10) name \T1/aer/m/n/12 (-10) ur-£uje ná-zev vy-tvá-°e-ného m
 o-delu, je-hoº po-pisný XML sou-bor je za-dá-ván
+ []
+
+
+Overfull \hbox (5.03377pt too wide) in paragraph at lines 758--761
+\T1/aer/m/n/12 (-10) im-ple-men-ta£ní de-taily to-hoto ná-stroje jsou z°ejmé z 
+ko-men-to-va-ných zdro-jo-vých
  []
 
 
@@ -1846,11 +1858,11 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8635 strings out of 494045
- 116775 string characters out of 3145966
+ 8642 strings out of 494045
+ 116831 string characters out of 3145966
  264116 words of memory out of 3000000
  11051 multiletter control sequences out of 15000+200000
- 93828 words of font info for 542 fonts, out of 3000000 for 9000
+ 94498 words of font info for 548 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  37i,12n,43p,3348b,378s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
@@ -1862,7 +1874,7 @@ ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program
 es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files
  (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (
 x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on diplomka.pdf (93 pages, 7186733 bytes).
+Output written on diplomka.pdf (93 pages, 7186741 bytes).
 PDF statistics:
  558 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
